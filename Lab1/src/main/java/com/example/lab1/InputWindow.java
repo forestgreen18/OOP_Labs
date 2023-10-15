@@ -38,6 +38,7 @@ public class InputWindow extends Application {
         cancelButton.setOnAction(e -> {
             System.out.println("Cancel button clicked");
             // Add your cancel logic here
+            callback.accept("");
         });
 
         HBox buttonBox = new HBox(10, submitButton, cancelButton);
