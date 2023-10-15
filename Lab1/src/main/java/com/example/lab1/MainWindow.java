@@ -42,13 +42,35 @@ public class MainWindow extends Application {
         inputWindowButton.setOnAction(e -> {
             // Create a new InputWindow and open it
             InputWindow inputWindow = new InputWindow(input -> {
-                System.out.println("Received input: " + input);
+                System.out.println("Received input from input window: " + input);
                 // Add your logic here to handle the input
                 label.setText("Received input: " + input);
             });
             Stage stage = new Stage();
             try {
                 inputWindow.start(stage);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        scrollbarWindowButton.setOnAction(e -> {
+            // Create a new ScrollbarWindow and open it
+            ScrollbarWindow scrollbarWindow = new ScrollbarWindow(
+                    value -> {
+                        // Add your logic here to handle the value
+                        System.out.println("Received value: " + value);
+                        label.setText("Received input: " + value);
+                    },
+                    () -> {
+                        // Add your logic here to clear the input
+                        System.out.println("Cancel button clicked");
+                        label.setText("Received input: ");
+                    }
+            );
+            Stage stage = new Stage();
+            try {
+                scrollbarWindow.start(stage);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

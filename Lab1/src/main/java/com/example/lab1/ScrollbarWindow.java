@@ -10,8 +10,18 @@ import javafx.scene.control.ScrollBar;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.function.Consumer;
+
 public class ScrollbarWindow extends Application {
 
+
+    private final Consumer<Double> submitCallback;
+    private final Runnable cancelCallback;
+
+    public ScrollbarWindow(Consumer<Double> submitCallback, Runnable cancelCallback) {
+        this.submitCallback = submitCallback;
+        this.cancelCallback = cancelCallback;
+    }
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Scrollbar Window");
@@ -31,6 +41,7 @@ public class ScrollbarWindow extends Application {
             System.out.println("Submit button clicked");
             // Add your submit logic here
             label.setText("Scrollbar Value: " + getFormattedScrollbarValue(scrollbar));
+            submitCallback.accept(getFormattedScrollbarValue(scrollbar));
         });
 
         Button cancelButton = new Button("Cancel");
@@ -38,6 +49,7 @@ public class ScrollbarWindow extends Application {
             System.out.println("Cancel button clicked");
             // Add your cancel logic here
             label.setText("");
+            cancelCallback.run();
         });
 
         VBox vbox = new VBox(10, scrollbar, submitButton, cancelButton, label);
@@ -51,11 +63,9 @@ public class ScrollbarWindow extends Application {
     }
 
 
-    private String getFormattedScrollbarValue(ScrollBar scrollbar) {
-        return String.format("%.2f", scrollbar.getValue());
-    }
-
-    public static void main(String[] args) {
-        launch(args);
+    private double getFormattedScrollbarValue(ScrollBar scrollbar) {
+        double value = scrollbar.getValue();
+        double roundedValue = Math.round(value * 100.0) / 100.0;
+        return roundedValue;
     }
 }
