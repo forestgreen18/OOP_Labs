@@ -23,6 +23,7 @@ public class MainWindow extends Application {
 
         // Create menus
         Menu worksMenu = new Menu("Works");
+        worksMenu.getStyleClass().add("menu");
 
         // Create MenuItems
         MenuItem newItem = new MenuItem("Work #1");
@@ -30,6 +31,7 @@ public class MainWindow extends Application {
 
         // Add menu items to the Works menu
         worksMenu.getItems().addAll(newItem, openItem);
+
 
         // Add menus to the menu bar
         menuBar.getMenus().addAll(worksMenu);
@@ -43,6 +45,7 @@ public class MainWindow extends Application {
         borderPane.setCenter(label);
 
         Scene scene = new Scene(borderPane, 400, 300);
+        scene.getStylesheets().add(getClass().getResource("/com/example/lab1/mainWindow.css").toExternalForm());
         primaryStage.setScene(scene);
 
         primaryStage.show();
