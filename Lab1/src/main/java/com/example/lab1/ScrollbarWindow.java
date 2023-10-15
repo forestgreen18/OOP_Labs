@@ -17,6 +17,7 @@ public class ScrollbarWindow extends Application {
 
     private final Consumer<Double> submitCallback;
     private final Runnable cancelCallback;
+    private final String labelText = "Scrollbar Value: ";
 
     public ScrollbarWindow(Consumer<Double> submitCallback, Runnable cancelCallback) {
         this.submitCallback = submitCallback;
@@ -34,14 +35,14 @@ public class ScrollbarWindow extends Application {
 
         // Add a listener to the scrollbar's value property
         scrollbar.valueProperty().addListener((observable, oldValue, newValue) -> {
-            label.setText("Scrollbar Value: " + getFormattedScrollbarValue(scrollbar));
+            label.setText(labelText + getFormattedScrollbarValue(scrollbar));
         });
 
 
         submitButton.setOnAction(e -> {
             System.out.println("Submit button clicked");
             // Add your submit logic here
-            label.setText("Scrollbar Value: " + getFormattedScrollbarValue(scrollbar));
+            label.setText(labelText + getFormattedScrollbarValue(scrollbar));
             submitCallback.accept(getFormattedScrollbarValue(scrollbar));
         });
 

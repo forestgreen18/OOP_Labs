@@ -11,6 +11,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class MainWindow extends Application {
+    private final String labelText = "Received value: ";
 
     @Override
     public void start(Stage primaryStage) {
@@ -44,13 +45,13 @@ public class MainWindow extends Application {
             InputWindow inputWindow = new InputWindow(
                     value -> {
                         // Add your logic here to handle the value
-                        System.out.println("Received value from input window: " + value);
+                        System.out.println(labelText + " from input window: " + value);
                         label.setText("Received input: " + value);
                     },
                     () -> {
                         // Add your logic here to clear the input
                         System.out.println("Cancel button clicked");
-                        label.setText("Received input: ");
+                        label.setText(labelText);
                     }
             );
             Stage stage = new Stage();
@@ -69,13 +70,13 @@ public class MainWindow extends Application {
             ScrollbarWindow scrollbarWindow = new ScrollbarWindow(
                     value -> {
                         // Add your logic here to handle the value
-                        System.out.println("Received value from scrollbar window: " + value);
+                        System.out.println(labelText + " from scrollbar window: " + value);
                         label.setText("Received input: " + value);
                     },
                     () -> {
                         // Add your logic here to clear the input
                         System.out.println("Cancel button clicked");
-                        label.setText("Received input: ");
+                        label.setText(labelText);
                     }
             );
             Stage stage = new Stage();
