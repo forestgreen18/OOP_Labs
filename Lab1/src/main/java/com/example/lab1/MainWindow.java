@@ -36,16 +36,23 @@ public class MainWindow extends Application {
         // Add menus to the menu bar
         menuBar.getMenus().addAll(worksMenu);
 
-        Label label = new Label("Welcome to My JavaFX Project!");
+        Label label = new Label("Received input: ");
         label.setAlignment(Pos.CENTER);
 
         inputWindowButton.setOnAction(e -> {
-            // Create a new InputWindow and open it
-            InputWindow inputWindow = new InputWindow(input -> {
-                System.out.println("Received input from input window: " + input);
-                // Add your logic here to handle the input
-                label.setText("Received input: " + input);
-            });
+            // Create a new ScrollbarWindow and open it
+            InputWindow inputWindow = new InputWindow(
+                    value -> {
+                        // Add your logic here to handle the value
+                        System.out.println("Received value from input window: " + value);
+                        label.setText("Received input: " + value);
+                    },
+                    () -> {
+                        // Add your logic here to clear the input
+                        System.out.println("Cancel button clicked");
+                        label.setText("Received input: ");
+                    }
+            );
             Stage stage = new Stage();
             try {
                 inputWindow.start(stage);
@@ -54,12 +61,15 @@ public class MainWindow extends Application {
             }
         });
 
+
+
+
         scrollbarWindowButton.setOnAction(e -> {
             // Create a new ScrollbarWindow and open it
             ScrollbarWindow scrollbarWindow = new ScrollbarWindow(
                     value -> {
                         // Add your logic here to handle the value
-                        System.out.println("Received value: " + value);
+                        System.out.println("Received value from scrollbar window: " + value);
                         label.setText("Received input: " + value);
                     },
                     () -> {

@@ -22,6 +22,7 @@ public class ScrollbarWindow extends Application {
         this.submitCallback = submitCallback;
         this.cancelCallback = cancelCallback;
     }
+
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Scrollbar Window");
