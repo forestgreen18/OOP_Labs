@@ -70,4 +70,5 @@ public class ScrollbarWindow extends Application {
         double roundedValue = Math.round(value * 100.0) / 100.0;
         return roundedValue;
     }
+
 }

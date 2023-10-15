@@ -14,6 +14,7 @@ import java.net.URL;
 
 public class MainWindow extends Application {
     private final String labelText = "Received value: ";
+    private boolean isWindowOpen = false;
 
     @Override
     public void start(Stage primaryStage) {
@@ -43,48 +44,46 @@ public class MainWindow extends Application {
         label.setAlignment(Pos.CENTER);
 
         inputWindowButton.setOnAction(e -> {
-            // Create a new ScrollbarWindow and open it
-            InputWindow inputWindow = new InputWindow(
-                    value -> {
-                        // Add your logic here to handle the value
-                        System.out.println(labelText + " from input window: " + value);
-                        label.setText("Received input: " + value);
-                    },
-                    () -> {
-                        // Add your logic here to clear the input
-                        System.out.println("Cancel button clicked");
-                        label.setText(labelText);
-                    }
-            );
-            Stage stage = new Stage();
-            try {
-                inputWindow.start(stage);
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            if (!isWindowOpen) {
+                // Create a new InputWindow and open it
+                InputWindow inputWindow = new InputWindow(
+                        value -> {
+                            // Add your logic here to handle the value
+                            System.out.println(labelText + " from input window: " + value);
+                            label.setText("Received input: " + value);
+                        },
+                        () -> {
+                            // Add your logic here to clear the input
+                            System.out.println("Cancel button clicked");
+                            label.setText(labelText);
+                            isWindowOpen = false;
+                        }
+                );
+                startNewWindow(inputWindow);
             }
         });
 
+
         scrollbarWindowButton.setOnAction(e -> {
-            // Create a new ScrollbarWindow and open it
-            ScrollbarWindow scrollbarWindow = new ScrollbarWindow(
-                    value -> {
-                        // Add your logic here to handle the value
-                        System.out.println(labelText + " from scrollbar window: " + value);
-                        label.setText("Received input: " + value);
-                    },
-                    () -> {
-                        // Add your logic here to clear the input
-                        System.out.println("Cancel button clicked");
-                        label.setText(labelText);
-                    }
-            );
-            Stage stage = new Stage();
-            try {
-                scrollbarWindow.start(stage);
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            if (!isWindowOpen) {
+                // Create a new ScrollbarWindow and open it
+                ScrollbarWindow scrollbarWindow = new ScrollbarWindow(
+                        value -> {
+                            // Add your logic here to handle the value
+                            System.out.println(labelText + " from scrollbar window: " + value);
+                            label.setText("Received input: " + value);
+                        },
+                        () -> {
+                            // Add your logic here to clear the input
+                            System.out.println("Cancel button clicked");
+                            label.setText(labelText);
+                            isWindowOpen = false;
+                        }
+                );
+                startNewWindow(scrollbarWindow);
             }
         });
+
 
 
         BorderPane borderPane = new BorderPane();
@@ -106,4 +105,22 @@ public class MainWindow extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+
+    private void startNewWindow(Application window) {
+        Stage stage = new Stage();
+        stage.setOnHidden(event -> {
+            System.out.println("Window closed");
+            isWindowOpen = false;
+        });
+        try {
+            window.start(stage);
+            isWindowOpen = true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+
 }
