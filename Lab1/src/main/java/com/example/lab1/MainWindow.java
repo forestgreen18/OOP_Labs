@@ -27,19 +27,7 @@ public class MainWindow extends Application {
         MenuItem inputWindowButton = new MenuItem("Work #1");
         MenuItem scrollbarWindowButton = new MenuItem("Work #2");
 
-    inputWindowButton.setOnAction(e -> {
-        // Create a new InputWindow and open it
-        InputWindow inputWindow = new InputWindow(input -> {
-            System.out.println("Received input: " + input);
-            // Add your logic here to handle the input
-        });
-        Stage stage = new Stage();
-        try {
-            inputWindow.start(stage);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    });
+
 
         // Add menu items to the Works menu
         worksMenu.getItems().addAll(inputWindowButton, scrollbarWindowButton);
@@ -50,6 +38,21 @@ public class MainWindow extends Application {
 
         Label label = new Label("Welcome to My JavaFX Project!");
         label.setAlignment(Pos.CENTER);
+
+        inputWindowButton.setOnAction(e -> {
+            // Create a new InputWindow and open it
+            InputWindow inputWindow = new InputWindow(input -> {
+                System.out.println("Received input: " + input);
+                // Add your logic here to handle the input
+                label.setText("Received input: " + input);
+            });
+            Stage stage = new Stage();
+            try {
+                inputWindow.start(stage);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
 
 
         BorderPane borderPane = new BorderPane();
