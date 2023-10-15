@@ -24,11 +24,22 @@ public class MainWindow extends Application {
         worksMenu.getStyleClass().add("menu");
 
         // Create MenuItems
-        MenuItem newItem = new MenuItem("Work #1");
-        MenuItem openItem = new MenuItem("Work #2");
+        MenuItem inputWindowButton = new MenuItem("Work #1");
+        MenuItem scrollbarWindowButton = new MenuItem("Work #2");
+
+    inputWindowButton.setOnAction(e -> {
+        // Create a new InputWindow and open it
+        InputWindow inputWindow = new InputWindow();
+        Stage stage = new Stage();
+        try {
+            inputWindow.start(stage);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    });
 
         // Add menu items to the Works menu
-        worksMenu.getItems().addAll(newItem, openItem);
+        worksMenu.getItems().addAll(inputWindowButton, scrollbarWindowButton);
 
 
         // Add menus to the menu bar
