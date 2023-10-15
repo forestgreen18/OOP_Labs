@@ -10,6 +10,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.net.URL;
+
 public class MainWindow extends Application {
     private final String labelText = "Received value: ";
 
@@ -37,7 +39,7 @@ public class MainWindow extends Application {
         // Add menus to the menu bar
         menuBar.getMenus().addAll(worksMenu);
 
-        Label label = new Label("Received input: ");
+        Label label = new Label(labelText);
         label.setAlignment(Pos.CENTER);
 
         inputWindowButton.setOnAction(e -> {
@@ -61,9 +63,6 @@ public class MainWindow extends Application {
                 ex.printStackTrace();
             }
         });
-
-
-
 
         scrollbarWindowButton.setOnAction(e -> {
             // Create a new ScrollbarWindow and open it
@@ -93,9 +92,13 @@ public class MainWindow extends Application {
         borderPane.setCenter(label);
 
         Scene scene = new Scene(borderPane, 400, 300);
-        scene.getStylesheets().add(getClass().getResource("/com/example/lab1/mainWindow.css").toExternalForm());
+        URL cssUrl = getClass().getResource("/com/example/lab1/mainWindow.css");
+        if (cssUrl != null) {
+            scene.getStylesheets().add(cssUrl.toExternalForm());
+        } else {
+            System.out.println("Resource not found: /com/example/lab1/mainWindow.css");
+        }
         primaryStage.setScene(scene);
-
         primaryStage.show();
     }
 
