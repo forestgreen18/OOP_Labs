@@ -10,7 +10,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.function.Consumer;
+
 public class InputWindow extends Application {
+
+    private final Consumer<String> callback;
+
+    public InputWindow(Consumer<String> callback) {
+        this.callback = callback;
+    }
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -20,8 +29,9 @@ public class InputWindow extends Application {
 
         Button submitButton = new Button("Submit");
         submitButton.setOnAction(e -> {
-            System.out.println("Submit button clicked");
             // Add your submit logic here
+            System.out.println("Submit button clicked");
+            callback.accept(textField.getText());
         });
 
         Button cancelButton = new Button("Cancel");
@@ -44,6 +54,9 @@ public class InputWindow extends Application {
         primaryStage.setScene(scene);
 
         primaryStage.show();
+
+
+
     }
 
     public static void main(String[] args) {

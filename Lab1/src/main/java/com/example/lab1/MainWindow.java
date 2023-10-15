@@ -29,7 +29,10 @@ public class MainWindow extends Application {
 
     inputWindowButton.setOnAction(e -> {
         // Create a new InputWindow and open it
-        InputWindow inputWindow = new InputWindow();
+        InputWindow inputWindow = new InputWindow(input -> {
+            System.out.println("Received input: " + input);
+            // Add your logic here to handle the input
+        });
         Stage stage = new Stage();
         try {
             inputWindow.start(stage);
