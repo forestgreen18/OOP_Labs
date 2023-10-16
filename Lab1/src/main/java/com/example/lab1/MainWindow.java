@@ -48,7 +48,6 @@ public class MainWindow extends Application {
         label.setAlignment(Pos.CENTER);
 
         inputWindowButton.setOnAction(e -> {
-            if (!isWindowOpen) {
                 // Create a new InputWindow and open it
 
                 InputWindow inputWindow = new InputWindow(
@@ -66,12 +65,10 @@ public class MainWindow extends Application {
                 );
 
                 startNewWindow(inputWindow);
-            }
         });
 
 
         scrollbarWindowButton.setOnAction(e -> {
-            if (!isWindowOpen) {
                 // Create a new ScrollbarWindow and open it
                 ScrollbarWindow scrollbarWindow = new ScrollbarWindow(
                         value -> {
@@ -87,7 +84,6 @@ public class MainWindow extends Application {
                         }
                 );
                 startNewWindow(scrollbarWindow);
-            }
         });
 
 
