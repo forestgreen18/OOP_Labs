@@ -33,6 +33,7 @@ public class MainWindow extends Application {
         MenuItem inputWindowButton = new MenuItem("Work #1");
         MenuItem scrollbarWindowButton = new MenuItem("Work #2");
 
+        System.out.println(System.getProperty("javafx.runtime.version"));
 
 
         // Add menu items to the Works menu
