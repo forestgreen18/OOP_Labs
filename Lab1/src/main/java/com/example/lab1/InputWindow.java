@@ -14,11 +14,15 @@ import java.util.function.Consumer;
 
 public class InputWindow extends Application {
 
-    private final Consumer<String> callback;
+    private final Consumer<String> submitCallback;
+    private final Runnable cancelCallback;
 
-    public InputWindow(Consumer<String> callback) {
-        this.callback = callback;
+    public InputWindow(Consumer<String> submitCallback, Runnable cancelCallback) {
+        this.submitCallback = submitCallback;
+        this.cancelCallback = cancelCallback;
     }
+
+
 
 
     @Override
@@ -31,14 +35,14 @@ public class InputWindow extends Application {
         submitButton.setOnAction(e -> {
             // Add your submit logic here
             System.out.println("Submit button clicked");
-            callback.accept(textField.getText());
+            submitCallback.accept(textField.getText());
         });
 
         Button cancelButton = new Button("Cancel");
         cancelButton.setOnAction(e -> {
             System.out.println("Cancel button clicked");
             // Add your cancel logic here
-            callback.accept("");
+            cancelCallback.run();
         });
 
         HBox buttonBox = new HBox(10, submitButton, cancelButton);
@@ -63,4 +67,6 @@ public class InputWindow extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }
