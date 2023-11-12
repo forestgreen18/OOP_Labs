@@ -1,5 +1,7 @@
 package edu.labs.lab2.shape_editor.shapes;
 
+import javafx.scene.canvas.GraphicsContext;
+
 public abstract class Shape {
 
     private double startX;
@@ -8,7 +10,7 @@ public abstract class Shape {
     private double endY;
 
     // Constructor
-    public Shape(String color, double startX, double startY, double endX, double endY) {
+    public Shape( double startX, double startY, double endX, double endY) {
         this.startX = startX;
         this.startY = startY;
         this.endX = endX;
@@ -47,4 +49,6 @@ public abstract class Shape {
     public void setEndY(double y) {
         this.endY = y;
     }
+
+    public abstract void draw(GraphicsContext gc);
 }
