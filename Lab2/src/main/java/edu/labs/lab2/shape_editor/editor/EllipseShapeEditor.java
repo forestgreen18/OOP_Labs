@@ -1,6 +1,7 @@
 package edu.labs.lab2.shape_editor.editor;
 
 import edu.labs.lab2.shape_editor.ShapeObjectsEditor;
+import edu.labs.lab2.shape_editor.shapes.EllipseShape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -22,9 +23,6 @@ public class EllipseShapeEditor extends ShapeEditor {
         double y = event.getY();
         switch (event.getEventType().getName()) {
             case "MOUSE_PRESSED":
-                System.out.println("The mouse is pressed");
-                System.out.println("startX: " + x);
-                System.out.println("startY: " + y);
                 shapeObjectsEditor.setDrawing(true);
                 shapeObjectsEditor.setStartX(x);
                 shapeObjectsEditor.setStartY(y);
@@ -32,17 +30,29 @@ public class EllipseShapeEditor extends ShapeEditor {
                 shapeObjectsEditor.setEndY(y);
                 break;
             case "MOUSE_DRAGGED":
-                System.out.println("The mouse is pressed");
-                System.out.println("endX: " + x);
-                System.out.println("endY: " + y);
                 shapeObjectsEditor.setEndX(x);
                 shapeObjectsEditor.setEndY(y);
+                if (shapeObjectsEditor.isDrawing()) {
+                    gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight()); // Clear the canvas
+                    drawSolidShape(shapeObjectsEditor.getStartX(), shapeObjectsEditor.getStartY(), x, y); // Draw the shape
+                }
                 break;
             case "MOUSE_RELEASED":
                 shapeObjectsEditor.setDrawing(false);
-                // saveShape(); // You said not to implement this method
+                saveShape();
                 break;
         }
+    }
+
+    @Override
+    public void saveShape() {
+        double startX = shapeObjectsEditor.getStartX();
+        double startY = shapeObjectsEditor.getStartY();
+        double endX = shapeObjectsEditor.getEndX();
+        double endY = shapeObjectsEditor.getEndY();
+
+        EllipseShape ellipse = new EllipseShape(startX, startY, endX, endY, gc);
+        shapeObjectsEditor.addShape(ellipse);
     }
 
     @Override
