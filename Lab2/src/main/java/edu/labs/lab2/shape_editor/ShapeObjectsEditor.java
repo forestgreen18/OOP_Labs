@@ -8,6 +8,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ShapeObjectsEditor extends Application {
     Shape[] shapes = new Shape[108];
@@ -19,6 +20,11 @@ public class ShapeObjectsEditor extends Application {
     private double endX;
     private double endY;
     private GraphicsContext gc;
+
+
+    public ShapeObjectsEditor(GraphicsContext gc) {
+        this.gc = gc;
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -78,17 +84,29 @@ public class ShapeObjectsEditor extends Application {
     public void addShape(Shape shape) {
         if (shapeCount < shapes.length) {
             shapes[shapeCount] = shape;
+            System.out.println(Arrays.toString(shapes));
             shapeCount++;
+            redrawShapes();
         }
     }
 
     public void redrawShapes() {
-        for (Shape shape : shapes) {
-            if (shape != null) {
-                shape.draw(gc);
+        if (gc != null) {
+            // Clear the canvas
+            gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
+
+            // Redraw all shapes
+            for (Shape shape : shapes) {
+                if (shape != null) {
+                    System.out.println("gc is here === " + gc);
+                    shape.draw(gc);
+                }
             }
+        } else {
+            System.out.println("gc is null. The start() method might not have been called yet.");
         }
     }
+
 
     public boolean isDrawing() {
         return isDrawing;

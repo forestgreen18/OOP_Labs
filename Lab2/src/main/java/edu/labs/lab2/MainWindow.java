@@ -25,7 +25,7 @@ public class MainWindow extends Application {
         Canvas canvas = new Canvas(400, 200);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        ShapeObjectsEditor shapeObjectsEditor = new ShapeObjectsEditor();
+        ShapeObjectsEditor shapeObjectsEditor = new ShapeObjectsEditor(gc);
         ShapeEditor shapeEditor = new EllipseShapeEditor(shapeObjectsEditor, gc);
 
         // Attach a mouse event handler to the canvas
