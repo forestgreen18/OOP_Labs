@@ -1,10 +1,7 @@
 package edu.labs.lab2;
 
 import edu.labs.lab2.shape_editor.ShapeObjectsEditor;
-import edu.labs.lab2.shape_editor.editor.EllipseShapeEditor;
-import edu.labs.lab2.shape_editor.editor.LineShapeEditor;
-import edu.labs.lab2.shape_editor.editor.RectangleShapeEditor;
-import edu.labs.lab2.shape_editor.editor.ShapeEditor;
+import edu.labs.lab2.shape_editor.editor.*;
 import edu.labs.lab2.shape_editor.shapes.EllipseShape;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -89,6 +86,12 @@ public class MainWindow extends Application {
             setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
         });
 
+        pointShapeItem.setOnAction(e -> {
+            shapeEditor[0] = new PointShapeEditor(shapeObjectsEditor, gc);
+            pointShapeItem.setText("Точка ✔");
+            System.out.println("Point called");
+            setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
+        });
 
 
 
