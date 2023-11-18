@@ -2,9 +2,11 @@ package edu.labs.lab2;
 
 import edu.labs.lab2.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab2.shape_editor.editor.EllipseShapeEditor;
+import edu.labs.lab2.shape_editor.editor.RectangleShapeEditor;
 import edu.labs.lab2.shape_editor.editor.ShapeEditor;
 import edu.labs.lab2.shape_editor.shapes.EllipseShape;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -15,6 +17,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainWindow extends Application {
 
@@ -58,17 +63,22 @@ public class MainWindow extends Application {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         ShapeObjectsEditor shapeObjectsEditor = new ShapeObjectsEditor(gc);
-
-
+        List<EventHandler<MouseEvent>> handlers = new ArrayList<>();
 
         final ShapeEditor[] shapeEditor = new ShapeEditor[1];
 
         ellipseShapeItem.setOnAction(e -> {
             shapeEditor[0] = new EllipseShapeEditor(shapeObjectsEditor, gc);
             ellipseShapeItem.setText("Еліпс ✔");
+            System.out.println("Ellipse called");
+            setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
+        });
 
-            System.out.println("Ellipse menu item clicked");
-            setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas);
+        rectangleShapeItem.setOnAction(e -> {
+            shapeEditor[0] = new RectangleShapeEditor(shapeObjectsEditor, gc);
+            rectangleShapeItem.setText("Прямокутник ✔");
+            System.out.println("Rect called");
+            setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
         });
 
 
@@ -85,14 +95,27 @@ public class MainWindow extends Application {
         launch(args);
     }
 
-    public void setupShapeEditor(ShapeEditor[] shapeEditor, ShapeObjectsEditor shapeObjectsEditor, Canvas canvas) {
+
+
+    public void setupShapeEditor(ShapeEditor[] shapeEditor, ShapeObjectsEditor shapeObjectsEditor, Canvas canvas, List<EventHandler<MouseEvent>> handlers) {
+        // If there's an old shape editor, remove its event handler
+        if (!handlers.isEmpty()) {
+            for (EventHandler<MouseEvent> handler : handlers) {
+                canvas.removeEventHandler(MouseEvent.ANY, handler);
+            }
+            handlers.clear();
+        }
+
+        // If there's a new shape editor, set it and add its event handler
         if (shapeEditor[0] != null) {
             shapeObjectsEditor.setCurrentShapeEditor(shapeEditor[0]);
-
-            // Attach a mouse event handler to the canvas
-            canvas.addEventHandler(MouseEvent.ANY, shapeEditor[0]::processMouseEvent);
+            EventHandler<MouseEvent> newHandler = shapeEditor[0]::processMouseEvent;
+            canvas.addEventHandler(MouseEvent.ANY, newHandler);
+            handlers.add(newHandler);
         }
     }
+
+
 
 
 }
