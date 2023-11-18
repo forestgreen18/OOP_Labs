@@ -35,6 +35,40 @@ public class ShapeObjectsEditor extends Application {
         launch();
     }
 
+    public void addShape(Shape shape) {
+        if (shapeCount < shapes.length) {
+            shapes[shapeCount] = shape;
+            System.out.println(Arrays.toString(shapes));
+            shapeCount++;
+            redrawShapes();
+        }
+    }
+
+    public void redrawShapes() {
+        if (gc != null) {
+            // Clear the canvas
+            gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
+
+            // Redraw all shapes
+            for (Shape shape : shapes) {
+                if (shape != null) {
+                    shape.draw(gc);
+                }
+            }
+
+            // Draw the new shape if isDrawing is true
+            if (isDrawing) {
+                currentShapeEditor.drawSolidShape(startX, startY, endX, endY);
+            }
+        } else {
+            System.out.println("gc is null. The start() method might not have been called yet.");
+        }
+    }
+
+
+    public boolean isDrawing() {
+        return isDrawing;
+    }
 
     public void setDrawing(boolean drawing) {
         this.isDrawing = drawing;
@@ -82,42 +116,4 @@ public class ShapeObjectsEditor extends Application {
         this.currentShapeEditor = currentShapeEditor;
     }
 
-
-
-
-    public void addShape(Shape shape) {
-        if (shapeCount < shapes.length) {
-            shapes[shapeCount] = shape;
-            System.out.println(Arrays.toString(shapes));
-            shapeCount++;
-            redrawShapes();
-        }
-    }
-
-    public void redrawShapes() {
-        if (gc != null) {
-            // Clear the canvas
-            gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
-
-            // Redraw all shapes
-            for (Shape shape : shapes) {
-                if (shape != null) {
-                    shape.draw(gc);
-                }
-            }
-
-            // Draw the new shape if isDrawing is true
-            if (isDrawing) {
-                currentShapeEditor.drawSolidShape(startX, startY, endX, endY);
-            }
-        } else {
-            System.out.println("gc is null. The start() method might not have been called yet.");
-        }
-    }
-
-
-
-    public boolean isDrawing() {
-        return isDrawing;
-    }
 }
