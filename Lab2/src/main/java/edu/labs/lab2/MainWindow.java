@@ -67,31 +67,43 @@ public class MainWindow extends Application {
 
         ellipseShapeItem.setOnAction(e -> {
             shapeEditor[0] = new EllipseShapeEditor(shapeObjectsEditor, gc);
-            ellipseShapeItem.setText("Еліпс ✔");
-            System.out.println("Ellipse called");
             setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
         });
 
         rectangleShapeItem.setOnAction(e -> {
             shapeEditor[0] = new RectangleShapeEditor(shapeObjectsEditor, gc);
-            rectangleShapeItem.setText("Прямокутник ✔");
-            System.out.println("Rect called");
             setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
         });
 
         lineShapeItem.setOnAction(e -> {
             shapeEditor[0] = new LineShapeEditor(shapeObjectsEditor, gc);
-            lineShapeItem.setText("Лінія ✔");
-            System.out.println("Line called");
             setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
         });
 
         pointShapeItem.setOnAction(e -> {
             shapeEditor[0] = new PointShapeEditor(shapeObjectsEditor, gc);
-            pointShapeItem.setText("Точка ✔");
-            System.out.println("Point called");
             setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
         });
+
+        shapesMenu.setOnShowing(e -> {
+            // Reset all menu items to their default state
+            ellipseShapeItem.setText("Еліпс");
+            rectangleShapeItem.setText("Прямокутник");
+            lineShapeItem.setText("Лінія");
+            pointShapeItem.setText("Точка");
+            // Add the tick to the currently selected shape
+            if (shapeEditor[0] instanceof EllipseShapeEditor) {
+                ellipseShapeItem.setText("Еліпс ✔");
+            } else if (shapeEditor[0] instanceof RectangleShapeEditor) {
+                rectangleShapeItem.setText("Прямокутник ✔");
+            } else if (shapeEditor[0] instanceof LineShapeEditor) {
+                lineShapeItem.setText("Лінія ✔");
+            }
+            else if (shapeEditor[0] instanceof PointShapeEditor) {
+                pointShapeItem.setText("Точка ✔");
+            }
+        });
+
 
 
 
