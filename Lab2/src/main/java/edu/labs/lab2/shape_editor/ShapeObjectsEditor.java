@@ -1,17 +1,17 @@
 package edu.labs.lab2.shape_editor;
 
+import edu.labs.lab2.shape_editor.editor.ShapeEditor;
 import edu.labs.lab2.shape_editor.shapes.Shape;
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.Arrays;
 
 public class ShapeObjectsEditor extends Application {
-    Shape[] shapes = new Shape[108];
+    private Shape[] shapes = new Shape[108];
+    private ShapeEditor currentShapeEditor;
     private int shapeCount = 0;
 
     private boolean isDrawing;
@@ -28,13 +28,7 @@ public class ShapeObjectsEditor extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Canvas canvas = new Canvas(400, 200);
-        gc = canvas.getGraphicsContext2D();
 
-        StackPane root = new StackPane();
-        root.getChildren().add(canvas);
-        stage.setScene(new Scene(root, 400, 200));
-        stage.show();
     }
 
     public static void main(String[] args) {
@@ -80,6 +74,16 @@ public class ShapeObjectsEditor extends Application {
         this.endY = endY;
     }
 
+    public ShapeEditor getCurrentShapeEditor() {
+        return currentShapeEditor;
+    }
+
+    public void setCurrentShapeEditor(ShapeEditor currentShapeEditor) {
+        this.currentShapeEditor = currentShapeEditor;
+    }
+
+
+
 
     public void addShape(Shape shape) {
         if (shapeCount < shapes.length) {
@@ -98,14 +102,19 @@ public class ShapeObjectsEditor extends Application {
             // Redraw all shapes
             for (Shape shape : shapes) {
                 if (shape != null) {
-                    System.out.println("gc is here === " + gc);
                     shape.draw(gc);
                 }
+            }
+
+            // Draw the new shape if isDrawing is true
+            if (isDrawing) {
+                currentShapeEditor.drawSolidShape(startX, startY, endX, endY);
             }
         } else {
             System.out.println("gc is null. The start() method might not have been called yet.");
         }
     }
+
 
 
     public boolean isDrawing() {

@@ -32,10 +32,7 @@ public class EllipseShapeEditor extends ShapeEditor {
             case "MOUSE_DRAGGED":
                 shapeObjectsEditor.setEndX(x);
                 shapeObjectsEditor.setEndY(y);
-                if (shapeObjectsEditor.isDrawing()) {
-                    gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight()); // Clear the canvas
-                    drawSolidShape(shapeObjectsEditor.getStartX(), shapeObjectsEditor.getStartY(), x, y); // Draw the shape
-                }
+                shapeObjectsEditor.redrawShapes();
                 break;
             case "MOUSE_RELEASED":
                 shapeObjectsEditor.setDrawing(false);
