@@ -54,15 +54,15 @@ public class EllipseShapeEditor extends ShapeEditor {
 
     @Override
     public void drawSolidShape(double startX, double startY, double endX, double endY) {
-        double left = Math.min(startX, endX);
-        double top = Math.min(startY, endY);
+        double centerX = (startX + endX) / 2;
+        double centerY = (startY + endY) / 2;
         double width = Math.abs(startX - endX);
         double height = Math.abs(startY - endY);
 
         gc.setFill(Color.TRANSPARENT);
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(1);
-        gc.strokeOval(left, top, width, height);
-        gc.fillOval(left, top, width, height);
+        gc.strokeOval(centerX - width / 2, centerY - height / 2, width, height);
+        gc.fillOval(centerX - width / 2, centerY - height / 2, width, height);
     }
 }
