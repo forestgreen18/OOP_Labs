@@ -2,6 +2,7 @@ package edu.labs.lab2;
 
 import edu.labs.lab2.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab2.shape_editor.editor.EllipseShapeEditor;
+import edu.labs.lab2.shape_editor.editor.LineShapeEditor;
 import edu.labs.lab2.shape_editor.editor.RectangleShapeEditor;
 import edu.labs.lab2.shape_editor.editor.ShapeEditor;
 import edu.labs.lab2.shape_editor.shapes.EllipseShape;
@@ -78,6 +79,13 @@ public class MainWindow extends Application {
             shapeEditor[0] = new RectangleShapeEditor(shapeObjectsEditor, gc);
             rectangleShapeItem.setText("Прямокутник ✔");
             System.out.println("Rect called");
+            setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
+        });
+
+        lineShapeItem.setOnAction(e -> {
+            shapeEditor[0] = new LineShapeEditor(shapeObjectsEditor, gc);
+            lineShapeItem.setText("Лінія ✔");
+            System.out.println("Line called");
             setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
         });
 
