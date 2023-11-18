@@ -20,7 +20,39 @@ public class MainWindow extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("JavaFX Shape Editor Test");
+        primaryStage.setTitle("Lab #2");
+
+        // Create MenuBar
+        MenuBar menuBar = new MenuBar();
+
+        // Create menus
+        Menu fileMenu = new Menu("Файл");
+        Menu shapesMenu = new Menu("Об'єкти");
+        Menu helpMenu = new Menu("Довідка");
+
+        // Create MenuItems
+        MenuItem newItem = new MenuItem("Створити новий файл");
+        MenuItem openFileItem = new MenuItem("Відкрити файл");
+        MenuItem exitItem = new MenuItem("Вихід");
+
+        // MenuTimes for shapes
+
+        MenuItem ellipseShapeItem = new MenuItem("Еліпс");
+        MenuItem rectangleShapeItem = new MenuItem("Прямокутник");
+        MenuItem pointShapeItem = new MenuItem("Точка");
+        MenuItem lineShapeItem = new MenuItem("Лінія");
+
+
+        // Add menuItems to the Menus
+        fileMenu.getItems().addAll(newItem, openFileItem, exitItem);
+
+        // Add menuItems to the shapesMenu
+        shapesMenu.getItems().addAll(ellipseShapeItem, rectangleShapeItem, pointShapeItem, lineShapeItem);
+
+        // Add Menus to the MenuBar
+        menuBar.getMenus().addAll(fileMenu, shapesMenu, helpMenu);
+        VBox vBox = new VBox(menuBar);
+
 
         Canvas canvas = new Canvas(400, 200);
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -34,7 +66,7 @@ public class MainWindow extends Application {
         canvas.addEventHandler(MouseEvent.ANY, shapeEditor::processMouseEvent);
 
         StackPane root = new StackPane();
-        root.getChildren().add(canvas);
+        root.getChildren().addAll(vBox, canvas);
         primaryStage.setScene(new Scene(root, 400, 200));
         primaryStage.show();
     }
