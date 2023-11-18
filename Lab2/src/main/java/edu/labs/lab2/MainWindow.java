@@ -54,16 +54,26 @@ public class MainWindow extends Application {
         VBox vBox = new VBox(menuBar);
 
 
+
         Canvas canvas = new Canvas(400, 200);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         ShapeObjectsEditor shapeObjectsEditor = new ShapeObjectsEditor(gc);
 
-        ShapeEditor shapeEditor = new EllipseShapeEditor(shapeObjectsEditor, gc);
-        shapeObjectsEditor.setCurrentShapeEditor(shapeEditor);
 
-        // Attach a mouse event handler to the canvas
-        canvas.addEventHandler(MouseEvent.ANY, shapeEditor::processMouseEvent);
+
+        final ShapeEditor[] shapeEditor = new ShapeEditor[1];
+
+        ellipseShapeItem.setOnAction(e -> {
+            shapeEditor[0] = new EllipseShapeEditor(shapeObjectsEditor, gc);
+
+            System.out.println("Ellipse menu item clicked");
+            setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas);
+        });
+
+
+
+
 
         StackPane root = new StackPane();
         root.getChildren().addAll(vBox, canvas);
@@ -74,4 +84,15 @@ public class MainWindow extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    public void setupShapeEditor(ShapeEditor[] shapeEditor, ShapeObjectsEditor shapeObjectsEditor, Canvas canvas) {
+        if (shapeEditor[0] != null) {
+            shapeObjectsEditor.setCurrentShapeEditor(shapeEditor[0]);
+
+            // Attach a mouse event handler to the canvas
+            canvas.addEventHandler(MouseEvent.ANY, shapeEditor[0]::processMouseEvent);
+        }
+    }
+
+
 }
