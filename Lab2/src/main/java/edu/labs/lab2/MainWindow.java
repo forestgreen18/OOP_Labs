@@ -36,7 +36,6 @@ public class MainWindow extends Application {
         MenuItem exitItem = new MenuItem("Вихід");
 
         // MenuTimes for shapes
-
         MenuItem ellipseShapeItem = new MenuItem("Еліпс");
         MenuItem rectangleShapeItem = new MenuItem("Прямокутник");
         MenuItem pointShapeItem = new MenuItem("Точка");
@@ -66,6 +65,7 @@ public class MainWindow extends Application {
 
         ellipseShapeItem.setOnAction(e -> {
             shapeEditor[0] = new EllipseShapeEditor(shapeObjectsEditor, gc);
+            ellipseShapeItem.setText("Еліпс ✔");
 
             System.out.println("Ellipse menu item clicked");
             setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas);
