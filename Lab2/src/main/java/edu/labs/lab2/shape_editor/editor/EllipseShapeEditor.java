@@ -59,7 +59,7 @@ public class EllipseShapeEditor extends ShapeEditor {
         double width = Math.abs(startX - endX);
         double height = Math.abs(startY - endY);
 
-        gc.setFill(Color.TRANSPARENT);
+        gc.setFill(Color.YELLOWGREEN);
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(1);
         gc.strokeOval(centerX - width / 2, centerY - height / 2, width, height);
