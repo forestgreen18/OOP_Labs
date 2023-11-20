@@ -48,12 +48,13 @@ public class MainWindow extends Application {
         MenuItem rectangleShapeItem = new MenuItem(titles.shapesMenu.shapes.rectangleShapeItemTitle);
         MenuItem pointShapeItem = new MenuItem(titles.shapesMenu.shapes.pointShapeItemTitle);
         MenuItem lineShapeItem = new MenuItem(titles.shapesMenu.shapes.lineShapeItemTitle);
+        MenuItem clearCanvasItem = new MenuItem(titles.toolbarMenu.actions.erase);
 
         // Add menuItems to the Menus
         fileMenu.getItems().addAll(newItem, openFileItem, exitItem);
 
         // Add menuItems to the shapesMenu
-        shapesMenu.getItems().addAll(ellipseShapeItem, rectangleShapeItem, pointShapeItem, lineShapeItem);
+        shapesMenu.getItems().addAll(ellipseShapeItem, rectangleShapeItem, pointShapeItem, lineShapeItem, clearCanvasItem);
 
         // Add Menus to the MenuBar
         menuBar.getMenus().addAll(fileMenu, shapesMenu, helpMenu);
@@ -83,6 +84,10 @@ public class MainWindow extends Application {
         pointShapeItem.setOnAction(e -> {
             shapeEditor[0] = new PointShapeEditor(shapeObjectsEditor, gc);
             setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
+        });
+
+        clearCanvasItem.setOnAction(e -> {
+            shapeObjectsEditor.clearCanvas();
         });
 
         shapesMenu.setOnShowing(e -> {
