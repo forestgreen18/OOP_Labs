@@ -4,16 +4,16 @@ import edu.labs.lab2.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab2.shape_editor.shapes.LineShape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
 public class LineShapeEditor extends ShapeEditor {
     private ShapeObjectsEditor shapeObjectsEditor;
     private GraphicsContext gc;
-
+    private LineShape lineShape;
     public LineShapeEditor(ShapeObjectsEditor shapeObjectsEditor, GraphicsContext gc) {
         super(shapeObjectsEditor, gc);
         this.shapeObjectsEditor = shapeObjectsEditor;
         this.gc = gc;
+        this.lineShape = new LineShape(0, 0, 0, 0, gc);
     }
 
     @Override
@@ -54,8 +54,10 @@ public class LineShapeEditor extends ShapeEditor {
 
     @Override
     public void drawSolidShape(double startX, double startY, double endX, double endY) {
-        gc.setStroke(Color.BLACK);
-        gc.setLineWidth(1);
-        gc.strokeLine(startX, startY, endX, endY);
+        lineShape.setStartX(startX);
+        lineShape.setStartY(startY);
+        lineShape.setEndX(endX);
+        lineShape.setEndY(endY);
+        lineShape.draw(gc);
     }
 }

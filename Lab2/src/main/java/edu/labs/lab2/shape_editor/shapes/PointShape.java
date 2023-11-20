@@ -15,6 +15,24 @@ public class PointShape extends Shape {
         this.gc = gc;
     }
 
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+
     @Override
     public void draw(GraphicsContext gc) {
         gc.setFill(Color.BLACK);

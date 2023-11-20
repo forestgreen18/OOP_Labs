@@ -2,7 +2,6 @@ package edu.labs.lab2;
 
 import edu.labs.lab2.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab2.shape_editor.editor.*;
-import edu.labs.lab2.shape_editor.shapes.EllipseShape;
 import edu.labs.lab2.shape_editor.utils.JsonFileReader;
 import edu.labs.lab2.shape_editor.utils.Titles;
 import javafx.application.Application;

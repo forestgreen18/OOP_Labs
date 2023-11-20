@@ -4,17 +4,18 @@ import edu.labs.lab2.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab2.shape_editor.shapes.RectangleShape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
 public class RectangleShapeEditor  extends ShapeEditor {
 
     private ShapeObjectsEditor shapeObjectsEditor;
     private GraphicsContext gc;
+    private RectangleShape rectangleShape;
 
     public RectangleShapeEditor(ShapeObjectsEditor shapeObjectsEditor, GraphicsContext gc) {
         super(shapeObjectsEditor, gc);
         this.shapeObjectsEditor = shapeObjectsEditor;
         this.gc = gc;
+        this.rectangleShape = new RectangleShape(0, 0, 0, 0, gc);
     }
 
     @Override
@@ -55,16 +56,11 @@ public class RectangleShapeEditor  extends ShapeEditor {
 
     @Override
     public void drawSolidShape(double startX, double startY, double endX, double endY) {
-        double left = Math.min(startX, endX);
-        double top = Math.min(startY, endY);
-        double width = Math.abs(startX - endX);
-        double height = Math.abs(startY - endY);
-
-        gc.setFill(Color.TRANSPARENT);
-        gc.setStroke(Color.BLACK);
-        gc.setLineWidth(1);
-        gc.strokeRect(left, top, width, height);
-        gc.fillRect(left, top, width, height);
+        rectangleShape.setStartX(startX);
+        rectangleShape.setStartY(startY);
+        rectangleShape.setEndX(endX);
+        rectangleShape.setEndY(endY);
+        rectangleShape.draw(gc);
     }
 
 }

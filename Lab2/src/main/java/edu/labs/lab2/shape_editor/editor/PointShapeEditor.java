@@ -4,16 +4,18 @@ import edu.labs.lab2.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab2.shape_editor.shapes.PointShape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
 public class PointShapeEditor extends ShapeEditor {
     private ShapeObjectsEditor shapeObjectsEditor;
     private GraphicsContext gc;
+    private PointShape pointShape;
+
 
     public PointShapeEditor(ShapeObjectsEditor shapeObjectsEditor, GraphicsContext gc) {
         super(shapeObjectsEditor, gc);
         this.shapeObjectsEditor = shapeObjectsEditor;
         this.gc = gc;
+        this.pointShape = new PointShape(0, 0, gc);
     }
 
     @Override
@@ -47,7 +49,8 @@ public class PointShapeEditor extends ShapeEditor {
 
     @Override
     public void drawSolidShape(double x, double y, double endX, double endY) {
-        gc.setFill(Color.BLACK);
-        gc.fillOval(x - 2.5, y - 2.5, 5, 5); // Draw a small circle to represent the point
+        pointShape.setX(x);
+        pointShape.setY(y);
+        pointShape.draw(gc);
     }
 }

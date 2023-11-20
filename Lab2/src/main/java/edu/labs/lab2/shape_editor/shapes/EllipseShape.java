@@ -50,15 +50,6 @@ public class EllipseShape extends Shape {
         this.endY = endY;
     }
 
-    public GraphicsContext getGC() {
-        return this.gc;
-    }
-
-    public void setGC(GraphicsContext gc) {
-        this.gc = gc;
-    }
-
-
 
     @Override
     public void draw(GraphicsContext gc) {
