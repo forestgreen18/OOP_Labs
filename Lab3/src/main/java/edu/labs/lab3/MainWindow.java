@@ -4,6 +4,7 @@ import edu.labs.lab3.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab3.shape_editor.editor.*;
 import edu.labs.lab3.shape_editor.utils.JsonFileReader;
 import edu.labs.lab3.shape_editor.utils.Titles;
+import edu.labs.lab3.ui.PaintToolBar;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -12,6 +13,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ToolBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -56,7 +58,7 @@ public class MainWindow extends Application {
 
         // Add Menus to the MenuBar
         menuBar.getMenus().addAll(fileMenu, shapesMenu, helpMenu);
-        VBox vBox = new VBox(menuBar);
+
 
         Canvas canvas = new Canvas(800, 500);
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -104,7 +106,10 @@ public class MainWindow extends Application {
         });
 
 
+        ToolBar toolbar = new PaintToolBar().createToolBar();
 
+
+        VBox vBox = new VBox(menuBar, toolbar);
         StackPane root = new StackPane();
         root.getChildren().addAll(vBox, canvas);
         primaryStage.setScene(new Scene(root, 800, 600));
