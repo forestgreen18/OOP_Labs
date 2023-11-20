@@ -9,11 +9,13 @@ import javafx.scene.paint.Color;
 public class EllipseShapeEditor extends ShapeEditor {
     private ShapeObjectsEditor shapeObjectsEditor;
     private GraphicsContext gc;
+    private EllipseShape ellipseShape;
 
     public EllipseShapeEditor(ShapeObjectsEditor shapeObjectsEditor, GraphicsContext gc) {
         super(shapeObjectsEditor, gc);
         this.shapeObjectsEditor = shapeObjectsEditor;
         this.gc = gc;
+        this.ellipseShape = new EllipseShape(0, 0, 0, 0, gc);
     }
 
     @Override
@@ -54,15 +56,10 @@ public class EllipseShapeEditor extends ShapeEditor {
 
     @Override
     public void drawSolidShape(double startX, double startY, double endX, double endY) {
-        double centerX = (startX + endX) / 2;
-        double centerY = (startY + endY) / 2;
-        double width = Math.abs(startX - endX);
-        double height = Math.abs(startY - endY);
-
-        gc.setFill(Color.YELLOWGREEN);
-        gc.setStroke(Color.BLACK);
-        gc.setLineWidth(1);
-        gc.strokeOval(centerX - width / 2, centerY - height / 2, width, height);
-        gc.fillOval(centerX - width / 2, centerY - height / 2, width, height);
+        ellipseShape.setStartX(startX);
+        ellipseShape.setStartY(startY);
+        ellipseShape.setEndX(endX);
+        ellipseShape.setEndY(endY);
+        ellipseShape.draw(gc);
     }
 }

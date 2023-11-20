@@ -49,7 +49,6 @@ public class MainWindow extends Application {
         MenuItem pointShapeItem = new MenuItem(titles.shapesMenu.shapes.pointShapeItemTitle);
         MenuItem lineShapeItem = new MenuItem(titles.shapesMenu.shapes.lineShapeItemTitle);
 
-
         // Add menuItems to the Menus
         fileMenu.getItems().addAll(newItem, openFileItem, exitItem);
 
@@ -60,14 +59,10 @@ public class MainWindow extends Application {
         menuBar.getMenus().addAll(fileMenu, shapesMenu, helpMenu);
         VBox vBox = new VBox(menuBar);
 
-
-
         Canvas canvas = new Canvas(800, 500);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-
         ShapeObjectsEditor shapeObjectsEditor = new ShapeObjectsEditor(gc);
         List<EventHandler<MouseEvent>> handlers = new ArrayList<>();
-
         final ShapeEditor[] shapeEditor = new ShapeEditor[1];
 
         ellipseShapeItem.setOnAction(e -> {
