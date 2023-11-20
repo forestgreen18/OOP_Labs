@@ -17,11 +17,11 @@ public class PaintToolBar {
 
         double buttonHeight = 50;  // Replace with your desired button height
 
-        Button ellipseButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab3\\src\\main\\resources\\edu\\labs\\lab3\\images\\ellipse.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.ellipseShapeItemTitle);
-        Button rectangleButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab3\\src\\main\\resources\\edu\\labs\\lab3\\images\\rectangle.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.rectangleShapeItemTitle);
-        Button pointButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab3\\src\\main\\resources\\edu\\labs\\lab3\\images\\point.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.pointShapeItemTitle);
-        Button lineButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab3\\src\\main\\resources\\edu\\labs\\lab3\\images\\line.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.lineShapeItemTitle);
-        Button eraseButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab3\\src\\main\\resources\\edu\\labs\\lab3\\images\\erase.svg", buttonHeight, titles.toolbarMenu.actions.erase);
+        Button ellipseButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab3\\src\\main\\resources\\edu\\labs\\lab3\\images\\ellipse.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.ellipseShapeItemTitle, "ellipseButton");
+        Button rectangleButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab3\\src\\main\\resources\\edu\\labs\\lab3\\images\\rectangle.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.rectangleShapeItemTitle, "rectangleButton");
+        Button pointButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab3\\src\\main\\resources\\edu\\labs\\lab3\\images\\point.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.pointShapeItemTitle, "pointButton");
+        Button lineButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab3\\src\\main\\resources\\edu\\labs\\lab3\\images\\line.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.lineShapeItemTitle,"lineButton");
+        Button eraseButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab3\\src\\main\\resources\\edu\\labs\\lab3\\images\\erase.svg", buttonHeight, titles.toolbarMenu.actions.erase, "eraseButton");
 
         ToolBar toolBar = new ToolBar(
                 ellipseButton,
@@ -46,7 +46,7 @@ public class PaintToolBar {
         button.setTooltip(tooltip);
     }
 
-    private Button createButtonWithSVG(String svgFilePath, double height, String tooltipText) {
+    private Button createButtonWithSVG(String svgFilePath, double height, String tooltipText, String id) {
         String svgContent = SVGReader.readSVGFile(svgFilePath);
         SVGPath svgPath = new SVGPath();
         svgPath.setContent(svgContent);
@@ -56,9 +56,12 @@ public class PaintToolBar {
 
         setButtonHeight(button, height);
         setButtonTooltip(button, tooltipText);
+        // set the id of the button
+        button.setId(id);
 
         return button;
     }
+
 
 
 }

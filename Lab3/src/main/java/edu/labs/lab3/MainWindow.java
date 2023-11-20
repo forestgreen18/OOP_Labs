@@ -7,13 +7,11 @@ import edu.labs.lab3.utils.Titles;
 import edu.labs.lab3.ui.PaintToolBar;
 import javafx.application.Application;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ToolBar;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -86,6 +84,9 @@ public class MainWindow extends Application {
             setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
         });
 
+
+
+
         shapesMenu.setOnShowing(e -> {
             // Reset all menu items to their default state
             ellipseShapeItem.setText(titles.shapesMenu.shapes.ellipseShapeItemTitle);
@@ -107,6 +108,60 @@ public class MainWindow extends Application {
 
 
         ToolBar toolbar = new PaintToolBar().createToolBar();
+
+        for (Node node : toolbar.getItems()) {
+            // check if the node is a button
+            if (node instanceof Button) {
+                // cast the node to a button
+                Button button = (Button) node;
+                // get the id of the button
+                String id = button.getId();
+                // set the event handler for the button based on its id
+                switch (id) {
+                    case "ellipseButton":
+                        // set the event handler for drawing an ellipse
+                        button.setOnAction(e -> {
+                            shapeEditor[0] = new EllipseShapeEditor(shapeObjectsEditor, gc);
+                            setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
+                        });
+                        break;
+                    case "rectangleButton":
+                        // set the event handler for drawing a rectangle
+                        button.setOnAction(e -> {
+                            shapeEditor[0] = new RectangleShapeEditor(shapeObjectsEditor, gc);
+                            setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
+                        });
+                        break;
+
+                    case "pointButton":
+                        // set the event handler for drawing a rectangle
+                        button.setOnAction(e -> {
+
+
+                            shapeEditor[0] = new PointShapeEditor(shapeObjectsEditor, gc);
+                            setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
+                        });
+                        break;
+                    case "lineButton":
+                        // set the event handler for drawing a rectangle
+                        button.setOnAction(e -> {
+                            shapeEditor[0] = new LineShapeEditor(shapeObjectsEditor, gc);
+                            setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
+                        });
+                        break;
+                    case "eraseButton":
+                        // set the event handler for drawing a rectangle
+                        button.setOnAction(e -> {
+
+                        });
+                        break;
+                    // add more cases as needed
+                    default:
+                        // handle the default case
+                        break;
+                }
+            }
+        }
 
 
         VBox vBox = new VBox(menuBar, toolbar);
