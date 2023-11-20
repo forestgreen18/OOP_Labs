@@ -11,12 +11,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/ui/PaintToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/ui/PaintToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/images/ellipse.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/images/ellipse.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/images/erase.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/images/erase.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/images/line.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/images/line.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/images/point.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/images/point.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/images/rectangle.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/images/rectangle.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/utils/JsonFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/utils/JsonFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/utils/Titles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/utils/Titles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/menuTitles.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/labs/lab3/menuTitles.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +120,7 @@
       <workItem from="1700383043674" duration="3035000" />
       <workItem from="1700477815321" duration="8820000" />
       <workItem from="1700489154050" duration="9516000" />
-      <workItem from="1700501185760" duration="4023000" />
+      <workItem from="1700501185760" duration="5405000" />
     </task>
     <servers />
   </component>

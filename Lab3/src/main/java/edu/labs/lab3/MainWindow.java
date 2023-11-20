@@ -29,7 +29,7 @@ public class MainWindow extends Application {
         JsonFileReader jsonFileReader = new JsonFileReader();
         Titles titles = jsonFileReader.readJsonFile();
 
-        primaryStage.setTitle("Lab #2");
+        primaryStage.setTitle("Lab #3");
 
         // Create MenuBar
         MenuBar menuBar = new MenuBar();

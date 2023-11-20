@@ -18,6 +18,9 @@ public class JsonFileReader {
             titles.fileMenu = new Titles.FileMenu();
             titles.shapesMenu = new Titles.ShapesMenu();
             titles.shapesMenu.shapes = new Titles.ShapesMenu.ShapeTitles();
+            titles.toolbarMenu = new Titles.ToolbarMenu();  // Add this line
+            titles.toolbarMenu.actions = new Titles.ToolbarMenu.Actions();  // Add this line
+            titles.toolbarMenu.shapes = new Titles.ToolbarMenu.ShapeTitles();  // Add this
 
             JSONObject fileMenu = root.getJSONObject("fileMenu");
             titles.fileMenu.title = fileMenu.getString("title");
@@ -33,6 +36,18 @@ public class JsonFileReader {
             titles.shapesMenu.shapes.rectangleShapeItemTitle = shapes.getString("rectangleShapeItemTitle");
             titles.shapesMenu.shapes.lineShapeItemTitle = shapes.getString("lineShapeItemTitle");
             titles.shapesMenu.shapes.pointShapeItemTitle = shapes.getString("pointShapeItemTitle");
+
+            JSONObject toolbarMenu = root.getJSONObject("toolbarMenu");  // Add this line
+
+            JSONObject actions = toolbarMenu.getJSONObject("actions");  // Add this line
+            titles.toolbarMenu.actions.draw = actions.getString("draw");  // Add this line
+            titles.toolbarMenu.actions.erase = actions.getString("erase");  // Add this line
+
+            JSONObject toolbarShapes = toolbarMenu.getJSONObject("shapes");  // Add this line
+            titles.toolbarMenu.shapes.ellipseShapeItemTitle = toolbarShapes.getString("ellipseShapeItemTitle");  // Add this line
+            titles.toolbarMenu.shapes.rectangleShapeItemTitle = toolbarShapes.getString("rectangleShapeItemTitle");  // Add this line
+            titles.toolbarMenu.shapes.lineShapeItemTitle = toolbarShapes.getString("lineShapeItemTitle");  // Add this line
+            titles.toolbarMenu.shapes.pointShapeItemTitle = toolbarShapes.getString("pointShapeItemTitle");  // Add this line
 
             titles.helpMenuTitle = root.getString("helpMenuTitle");
             titles.selectMark = root.getString("selectMark");

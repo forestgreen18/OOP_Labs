@@ -1,14 +1,19 @@
 package edu.labs.lab3.ui;
 
+import edu.labs.lab3.utils.JsonFileReader;
 import edu.labs.lab3.utils.SVGReader;
+import edu.labs.lab3.utils.Titles;
 import javafx.scene.control.Button;
 import javafx.scene.control.Separator;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.Tooltip;
 import javafx.scene.shape.SVGPath;
 
 public class PaintToolBar {
 
     public ToolBar createToolBar() {
+        JsonFileReader jsonFileReader = new JsonFileReader();
+        Titles titles = jsonFileReader.readJsonFile();
 
         double buttonHeight = 50;  // Replace with your desired button height
 
@@ -74,6 +79,21 @@ public class PaintToolBar {
         eraseButton.setMaxHeight(buttonHeight);
         eraseButton.setPrefHeight(buttonHeight);
 
+
+        Tooltip ellipseTooltip = new Tooltip(titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.ellipseShapeItemTitle);
+        ellipseButton.setTooltip(ellipseTooltip);
+
+        Tooltip rectangleTooltip = new Tooltip(titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.rectangleShapeItemTitle);
+        rectangleButton.setTooltip(rectangleTooltip);
+
+        Tooltip pointTooltip = new Tooltip(titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.pointShapeItemTitle);
+        pointButton.setTooltip(pointTooltip);
+
+        Tooltip lineTooltip = new Tooltip(titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.lineShapeItemTitle);
+        lineButton.setTooltip(lineTooltip);
+
+        Tooltip eraseTooltip = new Tooltip(titles.toolbarMenu.actions.erase);
+        eraseButton.setTooltip(eraseTooltip);
 
 
         ToolBar toolBar = new ToolBar(

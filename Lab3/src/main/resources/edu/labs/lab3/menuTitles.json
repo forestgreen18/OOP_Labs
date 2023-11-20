@@ -15,5 +15,17 @@
     }
   },
   "helpMenuTitle": "Довідка",
-  "selectMark": " ✔"
+  "selectMark": " ✔",
+  "toolbarMenu": {
+    "actions": {
+      "draw": "Малювати ",
+      "erase": "Витерти полотно "
+    },
+    "shapes": {
+      "ellipseShapeItemTitle": "еліпс",
+      "rectangleShapeItemTitle": "прямокутник",
+      "lineShapeItemTitle": "лінію",
+      "pointShapeItemTitle": "точку"
+    }
+  }
 }
