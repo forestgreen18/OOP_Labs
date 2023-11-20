@@ -36,3 +36,20 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### For JavaFX and Maven
+*.exe
+*.class
+target/
+out/
+build/
+*.log
+*.env
+*.jar
+*.war
+*.ear
+.mvn/wrapper/maven-wrapper.jar
+*~
+*.tmp
+*.bak
+*.swp
