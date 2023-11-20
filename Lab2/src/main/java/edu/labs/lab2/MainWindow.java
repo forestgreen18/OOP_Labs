@@ -57,7 +57,7 @@ public class MainWindow extends Application {
 
 
 
-        Canvas canvas = new Canvas(400, 200);
+        Canvas canvas = new Canvas(800, 500);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         ShapeObjectsEditor shapeObjectsEditor = new ShapeObjectsEditor(gc);
@@ -104,13 +104,9 @@ public class MainWindow extends Application {
             }
         });
 
-
-
-
-
         StackPane root = new StackPane();
         root.getChildren().addAll(vBox, canvas);
-        primaryStage.setScene(new Scene(root, 400, 200));
+        primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
 

@@ -1,0 +1,19 @@
+{
+  "fileMenu": {
+    "title": "Файл",
+    "newItemTitle": "Створити новий файл",
+    "openFileItemTitle": "Відкрити файл",
+    "exitItemTitle": "Вихід"
+  },
+  "shapesMenu": {
+    "title": "Об'єкти",
+    "shapes": {
+      "ellipseShapeItemTitle": "Еліпс",
+      "rectangleShapeItemTitle": "Прямокутник",
+      "lineShapeItemTitle": "Лінія",
+      "pointShapeItemTitle": "Точка"
+    }
+  },
+  "helpMenuTitle": "Довідка",
+  "selectMark": "✔"
+}
