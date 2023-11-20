@@ -3,6 +3,8 @@ package edu.labs.lab2;
 import edu.labs.lab2.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab2.shape_editor.editor.*;
 import edu.labs.lab2.shape_editor.shapes.EllipseShape;
+import edu.labs.lab2.shape_editor.utils.JsonFileReader;
+import edu.labs.lab2.shape_editor.utils.Titles;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -23,26 +25,29 @@ public class MainWindow extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        JsonFileReader jsonFileReader = new JsonFileReader();
+        Titles titles = jsonFileReader.readJsonFile();
+
         primaryStage.setTitle("Lab #2");
 
         // Create MenuBar
         MenuBar menuBar = new MenuBar();
 
         // Create menus
-        Menu fileMenu = new Menu("Файл");
-        Menu shapesMenu = new Menu("Об'єкти");
-        Menu helpMenu = new Menu("Довідка");
+        Menu fileMenu = new Menu(titles.fileMenu.title);
+        Menu shapesMenu = new Menu(titles.shapesMenu.title);
+        Menu helpMenu = new Menu(titles.helpMenuTitle);
 
         // Create MenuItems
-        MenuItem newItem = new MenuItem("Створити новий файл");
-        MenuItem openFileItem = new MenuItem("Відкрити файл");
-        MenuItem exitItem = new MenuItem("Вихід");
+        MenuItem newItem = new MenuItem(titles.fileMenu.newItemTitle);
+        MenuItem openFileItem = new MenuItem(titles.fileMenu.openFileItemTitle);
+        MenuItem exitItem = new MenuItem(titles.fileMenu.exitItemTitle);
 
         // MenuTimes for shapes
-        MenuItem ellipseShapeItem = new MenuItem("Еліпс");
-        MenuItem rectangleShapeItem = new MenuItem("Прямокутник");
-        MenuItem pointShapeItem = new MenuItem("Точка");
-        MenuItem lineShapeItem = new MenuItem("Лінія");
+        MenuItem ellipseShapeItem = new MenuItem(titles.shapesMenu.shapes.ellipseShapeItemTitle);
+        MenuItem rectangleShapeItem = new MenuItem(titles.shapesMenu.shapes.rectangleShapeItemTitle);
+        MenuItem pointShapeItem = new MenuItem(titles.shapesMenu.shapes.pointShapeItemTitle);
+        MenuItem lineShapeItem = new MenuItem(titles.shapesMenu.shapes.lineShapeItemTitle);
 
 
         // Add menuItems to the Menus
@@ -87,22 +92,24 @@ public class MainWindow extends Application {
 
         shapesMenu.setOnShowing(e -> {
             // Reset all menu items to their default state
-            ellipseShapeItem.setText("Еліпс");
-            rectangleShapeItem.setText("Прямокутник");
-            lineShapeItem.setText("Лінія");
-            pointShapeItem.setText("Точка");
+            ellipseShapeItem.setText(titles.shapesMenu.shapes.ellipseShapeItemTitle);
+            rectangleShapeItem.setText(titles.shapesMenu.shapes.rectangleShapeItemTitle);
+            lineShapeItem.setText(titles.shapesMenu.shapes.lineShapeItemTitle   );
+            pointShapeItem.setText(titles.shapesMenu.shapes.pointShapeItemTitle);
             // Add the tick to the currently selected shape
             if (shapeEditor[0] instanceof EllipseShapeEditor) {
-                ellipseShapeItem.setText("Еліпс ✔");
+                ellipseShapeItem.setText(titles.shapesMenu.shapes.ellipseShapeItemTitle + titles.selectMark);
             } else if (shapeEditor[0] instanceof RectangleShapeEditor) {
-                rectangleShapeItem.setText("Прямокутник ✔");
+                rectangleShapeItem.setText(titles.shapesMenu.shapes.rectangleShapeItemTitle + titles.selectMark);
             } else if (shapeEditor[0] instanceof LineShapeEditor) {
-                lineShapeItem.setText("Лінія ✔");
+                lineShapeItem.setText(titles.shapesMenu.shapes.lineShapeItemTitle + titles.selectMark);
             }
             else if (shapeEditor[0] instanceof PointShapeEditor) {
-                pointShapeItem.setText("Точка ✔");
+                pointShapeItem.setText(titles.shapesMenu.shapes.pointShapeItemTitle + titles.selectMark);
             }
         });
+
+
 
         StackPane root = new StackPane();
         root.getChildren().addAll(vBox, canvas);

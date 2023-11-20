@@ -4,6 +4,7 @@ module edu.labs.lab2 {
 
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
+    requires org.json;
 
     opens edu.labs.lab2 to javafx.fxml;
     exports edu.labs.lab2;
