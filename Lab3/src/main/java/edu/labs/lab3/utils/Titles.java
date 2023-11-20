@@ -1,4 +1,4 @@
-package edu.labs.lab3.shape_editor.utils;
+package edu.labs.lab3.utils;
 
 public class Titles {
     public FileMenu fileMenu;

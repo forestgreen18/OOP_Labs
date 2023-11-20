@@ -2,8 +2,8 @@ package edu.labs.lab3;
 
 import edu.labs.lab3.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab3.shape_editor.editor.*;
-import edu.labs.lab3.shape_editor.utils.JsonFileReader;
-import edu.labs.lab3.shape_editor.utils.Titles;
+import edu.labs.lab3.utils.JsonFileReader;
+import edu.labs.lab3.utils.Titles;
 import edu.labs.lab3.ui.PaintToolBar;
 import javafx.application.Application;
 import javafx.event.EventHandler;
