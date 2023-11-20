@@ -10,7 +10,7 @@ import java.io.InputStream;
 public class JsonFileReader {
     public Titles readJsonFile() {
         try {
-            InputStream is = new FileInputStream("src/main/resources/edu/labs/lab2/menuTitles.json");
+            InputStream is = new FileInputStream("F:\\Labs\\OOP\\Lab2\\src\\main\\resources\\edu\\labs\\lab2\\menuTitles.json");
             JSONTokener tokener = new JSONTokener(is);
             JSONObject root = new JSONObject(tokener);
 
