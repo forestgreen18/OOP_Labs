@@ -116,4 +116,16 @@ public class ShapeObjectsEditor extends Application {
         this.currentShapeEditor = currentShapeEditor;
     }
 
+    public void clearCanvas() {
+        // Clear the canvas
+        if (gc != null) {
+            gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
+        }
+
+        // Reset the shapes array
+        shapes = new Shape[108];
+        shapeCount = 0;
+    }
+
+
 }

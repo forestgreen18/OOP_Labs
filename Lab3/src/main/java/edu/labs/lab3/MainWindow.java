@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainWindow extends Application {
@@ -84,9 +85,6 @@ public class MainWindow extends Application {
             setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
         });
 
-
-
-
         shapesMenu.setOnShowing(e -> {
             // Reset all menu items to their default state
             ellipseShapeItem.setText(titles.shapesMenu.shapes.ellipseShapeItemTitle);
@@ -105,7 +103,6 @@ public class MainWindow extends Application {
                 pointShapeItem.setText(titles.shapesMenu.shapes.pointShapeItemTitle + titles.selectMark);
             }
         });
-
 
         ToolBar toolbar = new PaintToolBar().createToolBar();
 
@@ -152,7 +149,7 @@ public class MainWindow extends Application {
                     case "eraseButton":
                         // set the event handler for drawing a rectangle
                         button.setOnAction(e -> {
-
+                            shapeObjectsEditor.clearCanvas();
                         });
                         break;
                     // add more cases as needed
@@ -194,8 +191,6 @@ public class MainWindow extends Application {
             handlers.add(newHandler);
         }
     }
-
-
 
 
 }
