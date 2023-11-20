@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0.00 0.00 512.00 512.00">
-<rect fill="#000000" x="-328.81" y="-10.24" transform="translate(256.01,256.01) rotate(-45.0)" width="657.62" height="20.48" rx="10.21"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50px" height="50px" viewBox="0 0 50 50" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 2.292969 46.292969 L 46.292969 2.292969 C 46.683594 1.902344 47.316406 1.902344 47.703125 2.292969 L 47.707031 2.296875 C 48.097656 2.6875 48.097656 3.316406 47.707031 3.707031 L 3.707031 47.707031 C 3.316406 48.097656 2.6875 48.097656 2.296875 47.707031 L 2.292969 47.703125 C 1.902344 47.316406 1.902344 46.683594 2.292969 46.292969 Z M 2.292969 46.292969 "/>
+</g>
 </svg>
