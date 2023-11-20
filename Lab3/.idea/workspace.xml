@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/ui/PaintToolBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab3/MainWindow.java" afterDir="false" />
-    </list>
+    <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +109,7 @@
       <workItem from="1700383043674" duration="3035000" />
       <workItem from="1700477815321" duration="8820000" />
       <workItem from="1700489154050" duration="9516000" />
-      <workItem from="1700501185760" duration="1589000" />
+      <workItem from="1700501185760" duration="2340000" />
     </task>
     <servers />
   </component>
