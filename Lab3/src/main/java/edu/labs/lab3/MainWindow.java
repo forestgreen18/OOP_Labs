@@ -64,7 +64,8 @@ public class MainWindow extends Application {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         ShapeObjectsEditor shapeObjectsEditor = new ShapeObjectsEditor(gc);
         List<EventHandler<MouseEvent>> handlers = new ArrayList<>();
-        final ShapeEditor[] shapeEditor = new ShapeEditor[1];
+        ShapeEditor shapeEditor = null;
+
 
 
 
@@ -75,14 +76,14 @@ public class MainWindow extends Application {
             lineShapeItem.setText(titles.shapesMenu.shapes.lineShapeItemTitle   );
             pointShapeItem.setText(titles.shapesMenu.shapes.pointShapeItemTitle);
             // Add the tick to the currently selected shape
-            if (shapeEditor[0] instanceof EllipseShapeEditor) {
+            if (shapeEditor instanceof EllipseShapeEditor) {
                 setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
-            } else if (shapeEditor[0] instanceof RectangleShapeEditor) {
+            } else if (shapeEditor instanceof RectangleShapeEditor) {
                 setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
-            } else if (shapeEditor[0] instanceof LineShapeEditor) {
+            } else if (shapeEditor instanceof LineShapeEditor) {
                 setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
             }
-            else if (shapeEditor[0] instanceof PointShapeEditor) {
+            else if (shapeEditor instanceof PointShapeEditor) {
                 setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
             }
         });
@@ -185,7 +186,7 @@ public class MainWindow extends Application {
 
 
 
-    public void setupShapeEditor(ShapeEditor[] shapeEditor, ShapeObjectsEditor shapeObjectsEditor, Canvas canvas, List<EventHandler<MouseEvent>> handlers) {
+    public void setupShapeEditor(ShapeEditor shapeEditor, ShapeObjectsEditor shapeObjectsEditor, Canvas canvas, List<EventHandler<MouseEvent>> handlers) {
         // If there's an old shape editor, remove its event handler
         if (!handlers.isEmpty()) {
             for (EventHandler<MouseEvent> handler : handlers) {
@@ -195,17 +196,17 @@ public class MainWindow extends Application {
         }
 
         // If there's a new shape editor, set it and add its event handler
-        if (shapeEditor[0] != null) {
-            shapeObjectsEditor.setCurrentShapeEditor(shapeEditor[0]);
-            EventHandler<MouseEvent> newHandler = shapeEditor[0]::processMouseEvent;
+        if (shapeEditor != null) {
+            shapeObjectsEditor.setCurrentShapeEditor(shapeEditor);
+            EventHandler<MouseEvent> newHandler = shapeEditor::processMouseEvent;
             canvas.addEventHandler(MouseEvent.ANY, newHandler);
             handlers.add(newHandler);
         }
     }
 
-    public void setupShape(String title, ShapeEditor editor, Stage primaryStage, ShapeEditor[] shapeEditor, ShapeObjectsEditor shapeObjectsEditor,  Canvas canvas, List<EventHandler<MouseEvent>> handlers) {
+    public void setupShape(String title, ShapeEditor editor, Stage primaryStage, ShapeEditor shapeEditor, ShapeObjectsEditor shapeObjectsEditor,  Canvas canvas, List<EventHandler<MouseEvent>> handlers) {
         primaryStage.setTitle(title);
-        shapeEditor[0] = editor;
+        shapeEditor = editor;
         setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
     }
 
