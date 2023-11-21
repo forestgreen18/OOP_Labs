@@ -58,7 +58,7 @@ public class EllipseShape extends Shape {
         double width = Math.abs(startX - endX);
         double height = Math.abs(startY - endY);
 
-        gc.setFill(Color.YELLOWGREEN);
+        gc.setFill(Color.CYAN);
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(1);
         gc.strokeOval(centerX - width / 2, centerY - height / 2, width, height);
@@ -71,7 +71,7 @@ public class EllipseShape extends Shape {
         double width = Math.abs(startX - endX);
         double height = Math.abs(startY - endY);
 
-        gc.setFill(Color.YELLOWGREEN);
+        gc.setFill(Color.CYAN);
         gc.setStroke(strokeColor);
         gc.setLineWidth(1);
         gc.strokeOval(centerX - width / 2, centerY - height / 2, width, height);
