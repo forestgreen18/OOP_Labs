@@ -66,31 +66,7 @@ public class MainWindow extends Application {
         List<EventHandler<MouseEvent>> handlers = new ArrayList<>();
         final ShapeEditor[] shapeEditor = new ShapeEditor[1];
 
-        ellipseShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
-        });
 
-        rectangleShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
-
-        });
-
-        lineShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
-
-
-        });
-
-        pointShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
-
-
-        });
-
-        clearCanvasItem.setOnAction(e -> {
-            primaryStage.setTitle(titles.toolbarMenu.actions.erase);
-            shapeObjectsEditor.clearCanvas();
-        });
 
         shapesMenu.setOnShowing(e -> {
             // Reset all menu items to their default state
@@ -163,6 +139,36 @@ public class MainWindow extends Application {
         }
 
 
+        ellipseShapeItem.setOnAction(e -> {
+            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
+            fireButtonById(toolbar, "ellipseButton");
+
+        });
+
+        rectangleShapeItem.setOnAction(e -> {
+            setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
+            fireButtonById(toolbar, "rectangleButton");
+        });
+
+        lineShapeItem.setOnAction(e -> {
+            setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
+            fireButtonById(toolbar, "lineButton");
+
+        });
+
+        pointShapeItem.setOnAction(e -> {
+            setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeEditor, shapeObjectsEditor, canvas, handlers);
+            fireButtonById(toolbar, "pointButton");
+
+        });
+
+        clearCanvasItem.setOnAction(e -> {
+            primaryStage.setTitle(titles.toolbarMenu.actions.erase);
+            shapeObjectsEditor.clearCanvas();
+            fireButtonById(toolbar, "eraseButton");
+        });
+
+
         VBox vBox = new VBox(menuBar, toolbar);
         StackPane root = new StackPane();
         root.getChildren().addAll(vBox, canvas);
@@ -202,6 +208,20 @@ public class MainWindow extends Application {
         shapeEditor[0] = editor;
         setupShapeEditor(shapeEditor, shapeObjectsEditor, canvas, handlers);
     }
+
+
+    public void fireButtonById(ToolBar toolbar, String id) {
+        for (Node node : toolbar.getItems()) {
+            if (node instanceof Button) {
+                Button button = (Button) node;
+                if (button.getId().equals(id)) {
+                    button.requestFocus();
+                    break;
+                }
+            }
+        }
+    }
+
 
 
 
