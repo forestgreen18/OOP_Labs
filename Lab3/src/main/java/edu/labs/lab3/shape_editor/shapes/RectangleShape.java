@@ -53,10 +53,15 @@ public class RectangleShape  extends Shape {
 
     @Override
     public void draw(GraphicsContext gc) {
-        double left = Math.min(startX, endX);
-        double top = Math.min(startY, endY);
-        double width = Math.abs(startX - endX);
-        double height = Math.abs(startY - endY);
+        double centerX = startX;
+        double centerY = startY;
+        double cornerX = endX;
+        double cornerY = endY;
+
+        double width = Math.abs(centerX - cornerX) * 2;
+        double height = Math.abs(centerY - cornerY) * 2;
+        double left = centerX - width / 2;
+        double top = centerY - height / 2;
 
         gc.setFill(Color.TRANSPARENT);
         gc.setStroke(Color.BLACK);
@@ -65,11 +70,17 @@ public class RectangleShape  extends Shape {
         gc.fillRect(left, top, width, height);
     }
 
+
     public void draw(GraphicsContext gc, Color strokeColor) {
-        double left = Math.min(startX, endX);
-        double top = Math.min(startY, endY);
-        double width = Math.abs(startX - endX);
-        double height = Math.abs(startY - endY);
+        double centerX = startX;
+        double centerY = startY;
+        double cornerX = endX;
+        double cornerY = endY;
+
+        double width = Math.abs(centerX - cornerX) * 2;
+        double height = Math.abs(centerY - cornerY) * 2;
+        double left = centerX - width / 2;
+        double top = centerY - height / 2;
 
         gc.setFill(Color.TRANSPARENT);
         gc.setStroke(strokeColor);
