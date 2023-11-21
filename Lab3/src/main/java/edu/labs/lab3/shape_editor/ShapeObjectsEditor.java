@@ -7,10 +7,12 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ShapeObjectsEditor extends Application {
-    private Shape[] shapes = new Shape[108];
+    private ArrayList<Shape> shapes = new ArrayList<>(108);
+
     private ShapeEditor currentShapeEditor;
     private int shapeCount = 0;
 
@@ -36,13 +38,13 @@ public class ShapeObjectsEditor extends Application {
     }
 
     public void addShape(Shape shape) {
-        if (shapeCount < shapes.length) {
-            shapes[shapeCount] = shape;
-            System.out.println(Arrays.toString(shapes));
-            shapeCount++;
+        if (shapes.size() < 108) {
+            shapes.add(shape);
+            System.out.println(shapes);
             redrawShapes();
         }
     }
+
 
     public void redrawShapes() {
         if (gc != null) {
@@ -123,7 +125,7 @@ public class ShapeObjectsEditor extends Application {
         }
 
         // Reset the shapes array
-        shapes = new Shape[108];
+        shapes.clear();
         shapeCount = 0;
     }
 
