@@ -4,6 +4,7 @@ import edu.labs.lab3.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab3.shape_editor.shapes.EllipseShape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 public class EllipseShapeEditor extends ShapeEditor {
     private ShapeObjectsEditor shapeObjectsEditor;
@@ -59,6 +60,6 @@ public class EllipseShapeEditor extends ShapeEditor {
         ellipseShape.setStartY(startY);
         ellipseShape.setEndX(endX);
         ellipseShape.setEndY(endY);
-        ellipseShape.draw(gc);
+        ellipseShape.draw(gc, Color.RED);
     }
 }

@@ -4,6 +4,7 @@ import edu.labs.lab3.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab3.shape_editor.shapes.RectangleShape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 public class RectangleShapeEditor  extends ShapeEditor {
 
@@ -60,7 +61,7 @@ public class RectangleShapeEditor  extends ShapeEditor {
         rectangleShape.setStartY(startY);
         rectangleShape.setEndX(endX);
         rectangleShape.setEndY(endY);
-        rectangleShape.draw(gc);
+        rectangleShape.draw(gc, Color.RED);
     }
 
 }

@@ -4,6 +4,7 @@ import edu.labs.lab3.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab3.shape_editor.shapes.PointShape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 public class PointShapeEditor extends ShapeEditor {
     private ShapeObjectsEditor shapeObjectsEditor;
@@ -51,6 +52,6 @@ public class PointShapeEditor extends ShapeEditor {
     public void drawSolidShape(double x, double y, double endX, double endY) {
         pointShape.setX(x);
         pointShape.setY(y);
-        pointShape.draw(gc);
+        pointShape.draw(gc, Color.RED);
     }
 }

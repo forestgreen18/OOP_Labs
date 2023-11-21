@@ -64,4 +64,17 @@ public class RectangleShape  extends Shape {
         gc.strokeRect(left, top, width, height);
         gc.fillRect(left, top, width, height);
     }
+
+    public void draw(GraphicsContext gc, Color strokeColor) {
+        double left = Math.min(startX, endX);
+        double top = Math.min(startY, endY);
+        double width = Math.abs(startX - endX);
+        double height = Math.abs(startY - endY);
+
+        gc.setFill(Color.TRANSPARENT);
+        gc.setStroke(strokeColor);
+        gc.setLineWidth(1);
+        gc.strokeRect(left, top, width, height);
+        gc.fillRect(left, top, width, height);
+    }
 }

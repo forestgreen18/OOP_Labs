@@ -4,6 +4,7 @@ import edu.labs.lab3.shape_editor.ShapeObjectsEditor;
 import edu.labs.lab3.shape_editor.shapes.LineShape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 public class LineShapeEditor extends ShapeEditor {
     private ShapeObjectsEditor shapeObjectsEditor;
@@ -58,6 +59,6 @@ public class LineShapeEditor extends ShapeEditor {
         lineShape.setStartY(startY);
         lineShape.setEndX(endX);
         lineShape.setEndY(endY);
-        lineShape.draw(gc);
+        lineShape.draw(gc, Color.RED);
     }
 }

@@ -38,4 +38,9 @@ public class PointShape extends Shape {
         gc.setFill(Color.BLACK);
         gc.fillOval(x - 2.5, y - 2.5, 5, 5); // Draw a small circle to represent the point
     }
+
+    public void draw(GraphicsContext gc, Color fillColor) {
+        gc.setFill(fillColor);
+        gc.fillOval(x - 2.5, y - 2.5, 5, 5);
+    }
 }

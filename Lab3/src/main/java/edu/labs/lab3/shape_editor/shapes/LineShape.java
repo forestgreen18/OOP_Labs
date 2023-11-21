@@ -57,4 +57,10 @@ public class LineShape extends Shape {
         gc.setLineWidth(1);
         gc.strokeLine(startX, startY, endX, endY);
     }
+
+    public void draw(GraphicsContext gc, Color strokeColor) {
+        gc.setStroke(strokeColor);
+        gc.setLineWidth(1);
+        gc.strokeLine(startX, startY, endX, endY);
+    }
 }
