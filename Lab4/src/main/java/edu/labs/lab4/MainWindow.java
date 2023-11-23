@@ -196,8 +196,7 @@ public class MainWindow extends Application {
 
     public void fireButtonById(ToolBar toolbar, String id) {
         for (Node node : toolbar.getItems()) {
-            if (node instanceof Button) {
-                Button button = (Button) node;
+            if (node instanceof Button button) {
                 if (button.getId().equals(id)) {
                     button.requestFocus();
                     break;
