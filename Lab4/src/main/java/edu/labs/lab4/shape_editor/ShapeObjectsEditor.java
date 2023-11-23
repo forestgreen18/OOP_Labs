@@ -39,7 +39,7 @@ public class ShapeObjectsEditor extends Application {
     public void addShape(Shape shape) {
         if (shapes.size() < 108) {
             shapes.add(shape);
-            System.out.println(shapes);
+//            System.out.println(shapes);
             redrawShapes();
         }
     }
