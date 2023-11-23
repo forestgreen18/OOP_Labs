@@ -59,7 +59,7 @@ public class ShapeObjectsEditor extends Application {
 
             // Draw the new shape if isDrawing is true
             if (isDrawing) {
-                currentShapeEditor.drawSolidShape(startX, startY, endX, endY);
+                currentShapeEditor.drawPreviewShape(startX, startY, endX, endY);
             }
         } else {
             System.out.println("gc is null. The start() method might not have been called yet.");

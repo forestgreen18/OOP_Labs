@@ -49,7 +49,7 @@ public class PointShapeEditor extends ShapeEditor {
     }
 
     @Override
-    public void drawSolidShape(double x, double y, double endX, double endY) {
+    public void drawPreviewShape(double x, double y, double endX, double endY) {
         pointShape.setX(x);
         pointShape.setY(y);
         pointShape.draw(gc, Color.RED);

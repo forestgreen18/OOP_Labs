@@ -41,6 +41,8 @@ public class PointShape extends Shape {
 
     public void draw(GraphicsContext gc, Color fillColor) {
         gc.setFill(fillColor);
+        gc.setLineDashes(10);
         gc.fillOval(x - 2.5, y - 2.5, 5, 5);
+        gc.setLineDashes(0);
     }
 }

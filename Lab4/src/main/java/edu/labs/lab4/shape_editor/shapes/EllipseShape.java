@@ -74,8 +74,10 @@ public class EllipseShape extends Shape {
         gc.setFill(Color.CYAN);
         gc.setStroke(strokeColor);
         gc.setLineWidth(1);
+        gc.setLineDashes(10);
         gc.strokeOval(centerX - width / 2, centerY - height / 2, width, height);
         gc.fillOval(centerX - width / 2, centerY - height / 2, width, height);
+        gc.setLineDashes(0);
     }
 
 }

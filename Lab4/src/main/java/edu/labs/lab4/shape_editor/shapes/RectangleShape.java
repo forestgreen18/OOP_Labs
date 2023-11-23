@@ -85,7 +85,9 @@ public class RectangleShape  extends Shape {
         gc.setFill(Color.TRANSPARENT);
         gc.setStroke(strokeColor);
         gc.setLineWidth(1);
+        gc.setLineDashes(10);
         gc.strokeRect(left, top, width, height);
         gc.fillRect(left, top, width, height);
+        gc.setLineDashes(0);
     }
 }

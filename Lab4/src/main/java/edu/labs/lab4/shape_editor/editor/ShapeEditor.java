@@ -35,7 +35,7 @@ public class ShapeEditor extends Editor {
         // Implement this method to save the shape
     }
 
-    public void drawSolidShape(double startX, double startY, double endX, double endY) {
+    public void drawPreviewShape(double startX, double startY, double endX, double endY) {
         // Implement this method to draw the shape
     }
 }

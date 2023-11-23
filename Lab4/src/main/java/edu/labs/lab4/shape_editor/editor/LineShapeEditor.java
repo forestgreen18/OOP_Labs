@@ -54,7 +54,7 @@ public class LineShapeEditor extends ShapeEditor {
     }
 
     @Override
-    public void drawSolidShape(double startX, double startY, double endX, double endY) {
+    public void drawPreviewShape(double startX, double startY, double endX, double endY) {
         lineShape.setStartX(startX);
         lineShape.setStartY(startY);
         lineShape.setEndX(endX);

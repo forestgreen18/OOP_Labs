@@ -56,7 +56,7 @@ public class RectangleShapeEditor  extends ShapeEditor {
     }
 
     @Override
-    public void drawSolidShape(double startX, double startY, double endX, double endY) {
+    public void drawPreviewShape(double startX, double startY, double endX, double endY) {
         rectangleShape.setStartX(startX);
         rectangleShape.setStartY(startY);
         rectangleShape.setEndX(endX);
