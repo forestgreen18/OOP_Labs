@@ -1,0 +1,31 @@
+{
+  "fileMenu": {
+    "title": "Файл",
+    "newItemTitle": "Створити новий файл",
+    "openFileItemTitle": "Відкрити файл",
+    "exitItemTitle": "Вихід"
+  },
+  "shapesMenu": {
+    "title": "Об'єкти",
+    "shapes": {
+      "ellipseShapeItemTitle": "Еліпс",
+      "rectangleShapeItemTitle": "Прямокутник",
+      "lineShapeItemTitle": "Лінія",
+      "pointShapeItemTitle": "Точка"
+    }
+  },
+  "helpMenuTitle": "Довідка",
+  "selectMark": " ✔",
+  "toolbarMenu": {
+    "actions": {
+      "draw": "Малювати ",
+      "erase": "Витерти полотно "
+    },
+    "shapes": {
+      "ellipseShapeItemTitle": "еліпс",
+      "rectangleShapeItemTitle": "прямокутник",
+      "lineShapeItemTitle": "лінію",
+      "pointShapeItemTitle": "точку"
+    }
+  }
+}
