@@ -1,6 +1,7 @@
 package edu.labs.lab4.shape_editor.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 public abstract class Shape {
 
@@ -51,4 +52,6 @@ public abstract class Shape {
     }
 
     public abstract void draw(GraphicsContext gc);
+
+    public abstract void draw(GraphicsContext gc, Color strokeColor);
 }
