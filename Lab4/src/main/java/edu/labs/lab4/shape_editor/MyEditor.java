@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ShapeObjectsEditor extends Application {
+public class MyEditor extends Application {
     private ArrayList<Shape> shapes = new ArrayList<>(108);
 
     private ShapeEditor currentShapeEditor;
@@ -23,7 +23,7 @@ public class ShapeObjectsEditor extends Application {
     private GraphicsContext gc;
 
 
-    public ShapeObjectsEditor(GraphicsContext gc) {
+    public MyEditor(GraphicsContext gc) {
         this.gc = gc;
     }
 

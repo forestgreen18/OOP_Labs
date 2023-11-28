@@ -1,6 +1,6 @@
 package edu.labs.lab4.shape_editor.editor;
 
-import edu.labs.lab4.shape_editor.ShapeObjectsEditor;
+import edu.labs.lab4.shape_editor.MyEditor;
 import edu.labs.lab4.shape_editor.shapes.RectangleShape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
@@ -8,13 +8,13 @@ import javafx.scene.paint.Color;
 
 public class RectangleShapeEditor  extends ShapeEditor {
 
-    private ShapeObjectsEditor shapeObjectsEditor;
+    private MyEditor myEditor;
     private GraphicsContext gc;
     private RectangleShape rectangleShape;
 
-    public RectangleShapeEditor(ShapeObjectsEditor shapeObjectsEditor, GraphicsContext gc) {
-        super(shapeObjectsEditor, gc);
-        this.shapeObjectsEditor = shapeObjectsEditor;
+    public RectangleShapeEditor(MyEditor myEditor, GraphicsContext gc) {
+        super(myEditor, gc);
+        this.myEditor = myEditor;
         this.gc = gc;
         this.rectangleShape = new RectangleShape(0, 0, 0, 0, gc);
     }
@@ -26,19 +26,19 @@ public class RectangleShapeEditor  extends ShapeEditor {
         double y = event.getY();
         switch (event.getEventType().getName()) {
             case "MOUSE_PRESSED":
-                shapeObjectsEditor.setDrawing(true);
-                shapeObjectsEditor.setStartX(x);
-                shapeObjectsEditor.setStartY(y);
-                shapeObjectsEditor.setEndX(x);
-                shapeObjectsEditor.setEndY(y);
+                myEditor.setDrawing(true);
+                myEditor.setStartX(x);
+                myEditor.setStartY(y);
+                myEditor.setEndX(x);
+                myEditor.setEndY(y);
                 break;
             case "MOUSE_DRAGGED":
-                shapeObjectsEditor.setEndX(x);
-                shapeObjectsEditor.setEndY(y);
-                shapeObjectsEditor.redrawShapes();
+                myEditor.setEndX(x);
+                myEditor.setEndY(y);
+                myEditor.redrawShapes();
                 break;
             case "MOUSE_RELEASED":
-                shapeObjectsEditor.setDrawing(false);
+                myEditor.setDrawing(false);
                 saveShape();
                 break;
         }
@@ -46,13 +46,13 @@ public class RectangleShapeEditor  extends ShapeEditor {
 
     @Override
     public void saveShape() {
-        double startX = shapeObjectsEditor.getStartX();
-        double startY = shapeObjectsEditor.getStartY();
-        double endX = shapeObjectsEditor.getEndX();
-        double endY = shapeObjectsEditor.getEndY();
+        double startX = myEditor.getStartX();
+        double startY = myEditor.getStartY();
+        double endX = myEditor.getEndX();
+        double endY = myEditor.getEndY();
 
         RectangleShape rectangle = new RectangleShape(startX, startY, endX, endY, gc);
-        shapeObjectsEditor.addShape(rectangle);
+        myEditor.addShape(rectangle);
     }
 
     @Override

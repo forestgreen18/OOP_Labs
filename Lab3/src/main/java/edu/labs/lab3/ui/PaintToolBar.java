@@ -9,7 +9,8 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.shape.SVGPath;
 
-public class PaintToolBar {
+public class
+PaintToolBar {
 
     public ToolBar createToolBar() {
         JsonFileReader jsonFileReader = new JsonFileReader();

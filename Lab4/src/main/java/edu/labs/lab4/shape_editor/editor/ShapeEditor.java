@@ -1,17 +1,12 @@
 package edu.labs.lab4.shape_editor.editor;
 
-import edu.labs.lab4.shape_editor.ShapeObjectsEditor;
+import edu.labs.lab4.shape_editor.MyEditor;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 
 public class ShapeEditor extends Editor {
-    private ShapeObjectsEditor shapeObjectsEditor;
-    private GraphicsContext gc;
 
-    public ShapeEditor(ShapeObjectsEditor shapeObjectsEditor, GraphicsContext gc) {
-        this.shapeObjectsEditor = shapeObjectsEditor;
-        this.gc = gc;
-    }
+
 
     @Override
     public void processMouseEvent(MouseEvent event) {

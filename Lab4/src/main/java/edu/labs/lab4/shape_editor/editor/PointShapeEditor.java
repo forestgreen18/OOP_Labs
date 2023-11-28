@@ -1,20 +1,20 @@
 package edu.labs.lab4.shape_editor.editor;
 
-import edu.labs.lab4.shape_editor.ShapeObjectsEditor;
+import edu.labs.lab4.shape_editor.MyEditor;
 import edu.labs.lab4.shape_editor.shapes.PointShape;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 public class PointShapeEditor extends ShapeEditor {
-    private ShapeObjectsEditor shapeObjectsEditor;
+    private MyEditor myEditor;
     private GraphicsContext gc;
     private PointShape pointShape;
 
 
-    public PointShapeEditor(ShapeObjectsEditor shapeObjectsEditor, GraphicsContext gc) {
-        super(shapeObjectsEditor, gc);
-        this.shapeObjectsEditor = shapeObjectsEditor;
+    public PointShapeEditor(MyEditor myEditor, GraphicsContext gc) {
+        super(myEditor, gc);
+        this.myEditor = myEditor;
         this.gc = gc;
         this.pointShape = new PointShape(0, 0, gc);
     }
@@ -26,14 +26,14 @@ public class PointShapeEditor extends ShapeEditor {
         double y = event.getY();
         switch (event.getEventType().getName()) {
             case "MOUSE_PRESSED":
-                shapeObjectsEditor.setDrawing(true);
-                shapeObjectsEditor.setStartX(x);
-                shapeObjectsEditor.setStartY(y);
-                shapeObjectsEditor.setEndX(x);
-                shapeObjectsEditor.setEndY(y);
+                myEditor.setDrawing(true);
+                myEditor.setStartX(x);
+                myEditor.setStartY(y);
+                myEditor.setEndX(x);
+                myEditor.setEndY(y);
                 break;
             case "MOUSE_RELEASED":
-                shapeObjectsEditor.setDrawing(false);
+                myEditor.setDrawing(false);
                 saveShape();
                 break;
         }
@@ -41,11 +41,11 @@ public class PointShapeEditor extends ShapeEditor {
 
     @Override
     public void saveShape() {
-        double x = shapeObjectsEditor.getStartX();
-        double y = shapeObjectsEditor.getStartY();
+        double x = myEditor.getStartX();
+        double y = myEditor.getStartY();
 
         PointShape point = new PointShape(x, y, gc);
-        shapeObjectsEditor.addShape(point);
+        myEditor.addShape(point);
     }
 
     @Override

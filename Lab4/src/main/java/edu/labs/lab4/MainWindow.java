@@ -1,6 +1,6 @@
 package edu.labs.lab4;
 
-import edu.labs.lab4.shape_editor.ShapeObjectsEditor;
+import edu.labs.lab4.shape_editor.MyEditor;
 import edu.labs.lab4.shape_editor.editor.*;
 import edu.labs.lab4.utils.JsonFileReader;
 import edu.labs.lab4.utils.Titles;
@@ -62,7 +62,7 @@ public class MainWindow extends Application {
 
         Canvas canvas = new Canvas(800, 600);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        ShapeObjectsEditor shapeObjectsEditor = new ShapeObjectsEditor(gc);
+        MyEditor myEditor = new MyEditor(gc);
         List<EventHandler<MouseEvent>> handlers = new ArrayList<>();
         ShapeEditor shapeEditor = null;
 
@@ -77,15 +77,15 @@ public class MainWindow extends Application {
             pointShapeItem.setText(titles.shapesMenu.shapes.pointShapeItemTitle);
             // Add the tick to the currently selected shape
             if (shapeEditor instanceof EllipseShapeEditor) {
-                setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers);
+                setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
             } else if (shapeEditor instanceof RectangleShapeEditor) {
 
-                setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers);
+                setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
             } else if (shapeEditor instanceof LineShapeEditor) {
-                setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers);
+                setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
             }
             else if (shapeEditor instanceof PointShapeEditor) {
-                setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers);
+                setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
             }
         });
 
@@ -100,22 +100,22 @@ public class MainWindow extends Application {
                 switch (id) {
                     case "ellipseButton" ->
                         // set the event handler for drawing an ellipse
-                            button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers));
+                            button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers));
 
                     case "rectangleButton" ->
                         // set the event handler for drawing a rectangle
-                            button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers));
+                            button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers));
                     case "pointButton" ->
                         // set the event handler for drawing a point
-                        button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers));
+                        button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers));
                     case "lineButton" ->
                         // set the event handler for drawing a line
-                            button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers));
+                            button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers));
                     case "eraseButton" ->
                         // set the event handler for erasing
                             button.setOnAction(e -> {
                                 primaryStage.setTitle(titles.toolbarMenu.actions.erase);
-                                shapeObjectsEditor.clearCanvas();
+                                myEditor.clearCanvas();
                             });
                     default ->
                     // handle the default case
@@ -127,31 +127,31 @@ public class MainWindow extends Application {
 
 
         ellipseShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers);
+            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
             fireButtonById(toolbar, "ellipseButton");
 
         });
 
         rectangleShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers);
+            setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
             fireButtonById(toolbar, "rectangleButton");
         });
 
         lineShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers);
+            setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
             fireButtonById(toolbar, "lineButton");
 
         });
 
         pointShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(shapeObjectsEditor, gc), primaryStage, shapeObjectsEditor, canvas, handlers);
+            setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
             fireButtonById(toolbar, "pointButton");
 
         });
 
         clearCanvasItem.setOnAction(e -> {
             primaryStage.setTitle(titles.toolbarMenu.actions.erase);
-            shapeObjectsEditor.clearCanvas();
+            myEditor.clearCanvas();
             fireButtonById(toolbar, "eraseButton");
         });
 
@@ -172,7 +172,7 @@ public class MainWindow extends Application {
 
 
 
-    public void setupShapeEditor(ShapeEditor shapeEditor, ShapeObjectsEditor shapeObjectsEditor, Canvas canvas, List<EventHandler<MouseEvent>> handlers) {
+    public void setupShapeEditor(ShapeEditor shapeEditor, MyEditor myEditor, Canvas canvas, List<EventHandler<MouseEvent>> handlers) {
         // If there's an old shape editor, remove its event handler
         if (!handlers.isEmpty()) {
             for (EventHandler<MouseEvent> handler : handlers) {
@@ -184,17 +184,17 @@ public class MainWindow extends Application {
         // If there's a new shape editor, set it and add its event handler
         if (shapeEditor != null) {
             System.out.println(shapeEditor);
-            shapeObjectsEditor.setCurrentShapeEditor(shapeEditor);
+            myEditor.setCurrentShapeEditor(shapeEditor);
             EventHandler<MouseEvent> newHandler = shapeEditor::processMouseEvent;
             canvas.addEventHandler(MouseEvent.ANY, newHandler);
             handlers.add(newHandler);
         }
     }
 
-    public void setupShape(String title, ShapeEditor editor, Stage primaryStage, ShapeObjectsEditor shapeObjectsEditor,  Canvas canvas, List<EventHandler<MouseEvent>> handlers) {
+    public void setupShape(String title, ShapeEditor editor, Stage primaryStage, MyEditor myEditor, Canvas canvas, List<EventHandler<MouseEvent>> handlers) {
         primaryStage.setTitle(title);
         this.shapeEditor = editor;
-        setupShapeEditor(this.shapeEditor, shapeObjectsEditor, canvas, handlers);
+        setupShapeEditor(this.shapeEditor, myEditor, canvas, handlers);
     }
 
 
