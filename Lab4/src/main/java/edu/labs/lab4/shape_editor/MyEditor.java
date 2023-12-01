@@ -4,6 +4,7 @@ import edu.labs.lab4.shape_editor.editor.ShapeEditor;
 import edu.labs.lab4.shape_editor.shapes.Shape;
 import javafx.application.Application;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 public class MyEditor extends Application {
     private ArrayList<Shape> shapes = new ArrayList<>(108);
 
-    private ShapeEditor currentShapeEditor;
+    private Shape currentShape;
     private int shapeCount = 0;
 
     private boolean isDrawing;
@@ -59,11 +60,57 @@ public class MyEditor extends Application {
 
             // Draw the new shape if isDrawing is true
             if (isDrawing) {
-                currentShapeEditor.drawPreviewShape(startX, startY, endX, endY);
+                currentShape.drawPreviewShape(startX, startY, endX, endY);
             }
         } else {
             System.out.println("gc is null. The start() method might not have been called yet.");
         }
+    }
+
+    public void clearCanvas() {
+        // Clear the canvas
+        if (gc != null) {
+            gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
+        }
+
+        // Reset the shapes array
+        shapes.clear();
+        shapeCount = 0;
+    }
+
+
+    public void draw(MouseEvent event) {
+
+        double x = event.getX();
+        double y = event.getY();
+        switch (event.getEventType().getName()) {
+            case "MOUSE_PRESSED":
+                this.setDrawing(true);
+                currentShape.setStartX(x);
+                currentShape.setStartY(y);
+                currentShape.setEndX(x);
+                currentShape.setEndY(y);
+                break;
+            case "MOUSE_DRAGGED":
+                currentShape.setEndX(x);
+                currentShape.setEndY(y);
+                this.redrawShapes();
+                break;
+            case "MOUSE_RELEASED":
+                this.setDrawing(false);
+                saveShape();
+                break;
+        }
+    }
+
+    public void saveShape() {
+        // Implement this method to save the shape
+    }
+
+
+
+    public void drawPreviewShape(double startX, double startY, double endX, double endY) {
+        // Implement this method to draw the shape
     }
 
 
@@ -107,25 +154,6 @@ public class MyEditor extends Application {
 
     public void setEndY(double endY) {
         this.endY = endY;
-    }
-
-    public ShapeEditor getCurrentShapeEditor() {
-        return currentShapeEditor;
-    }
-
-    public void setCurrentShapeEditor(ShapeEditor currentShapeEditor) {
-        this.currentShapeEditor = currentShapeEditor;
-    }
-
-    public void clearCanvas() {
-        // Clear the canvas
-        if (gc != null) {
-            gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
-        }
-
-        // Reset the shapes array
-        shapes.clear();
-        shapeCount = 0;
     }
 
 

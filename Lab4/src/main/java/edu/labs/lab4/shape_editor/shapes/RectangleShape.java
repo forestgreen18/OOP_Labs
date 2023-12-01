@@ -90,4 +90,14 @@ public class RectangleShape  extends Shape {
         gc.fillRect(left, top, width, height);
         gc.setLineDashes(0);
     }
+
+
+    @Override
+    public void drawPreviewShape(double startX, double startY, double endX, double endY) {
+        this.setStartX(startX);
+        this.setStartY(startY);
+        this.setEndX(endX);
+        this.setEndY(endY);
+        this.draw(gc, Color.RED);
+    }
 }

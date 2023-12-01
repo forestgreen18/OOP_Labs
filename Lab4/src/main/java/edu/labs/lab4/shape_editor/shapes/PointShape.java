@@ -45,4 +45,11 @@ public class PointShape extends Shape {
         gc.fillOval(x - 2.5, y - 2.5, 5, 5);
         gc.setLineDashes(0);
     }
+
+    @Override
+    public void drawPreviewShape(double x, double y, double endX, double endY) {
+        this.setX(x);
+        this.setY(y);
+        this.draw(gc, Color.RED);
+    }
 }

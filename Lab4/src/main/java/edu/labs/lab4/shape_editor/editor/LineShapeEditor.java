@@ -11,7 +11,7 @@ public class LineShapeEditor extends ShapeEditor {
     private GraphicsContext gc;
     private LineShape lineShape;
     public LineShapeEditor(MyEditor myEditor, GraphicsContext gc) {
-        super(myEditor, gc);
+        super(gc);
         this.myEditor = myEditor;
         this.gc = gc;
         this.lineShape = new LineShape(0, 0, 0, 0, gc);

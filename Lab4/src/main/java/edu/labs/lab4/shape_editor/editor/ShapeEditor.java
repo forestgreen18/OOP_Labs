@@ -7,6 +7,9 @@ import javafx.scene.input.MouseEvent;
 public class ShapeEditor extends Editor {
 
 
+    public ShapeEditor(GraphicsContext gc) {
+        super();
+    }
 
     @Override
     public void processMouseEvent(MouseEvent event) {

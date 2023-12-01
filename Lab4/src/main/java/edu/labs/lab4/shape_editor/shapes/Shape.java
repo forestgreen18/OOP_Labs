@@ -54,4 +54,6 @@ public abstract class Shape {
     public abstract void draw(GraphicsContext gc);
 
     public abstract void draw(GraphicsContext gc, Color strokeColor);
+
+    public abstract void drawPreviewShape(double startX, double startY, double endX, double endY);
 }
