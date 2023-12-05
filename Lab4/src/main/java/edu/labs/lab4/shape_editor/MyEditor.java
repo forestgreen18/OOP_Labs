@@ -1,6 +1,6 @@
 package edu.labs.lab4.shape_editor;
 
-import edu.labs.lab4.shape_editor.editor.ShapeEditor;
+
 import edu.labs.lab4.shape_editor.shapes.Shape;
 import javafx.application.Application;
 import javafx.scene.canvas.GraphicsContext;
@@ -60,7 +60,13 @@ public class MyEditor extends Application {
 
             // Draw the new shape if isDrawing is true
             if (isDrawing) {
-                currentShape.drawPreviewShape(startX, startY, endX, endY);
+                System.out.println("is called");
+                System.out.println("start x: " + startX);
+                System.out.println("start y: " + startY);
+                System.out.println("end x: " + endX);
+                System.out.println("end y: " + endY);
+                
+                currentShape.drawPreviewShape(currentShape.getStartX(), currentShape.getStartY(), currentShape.getEndX(), currentShape.getEndY());
             }
         } else {
             System.out.println("gc is null. The start() method might not have been called yet.");
@@ -81,10 +87,13 @@ public class MyEditor extends Application {
 
     public void draw(MouseEvent event) {
 
+
+
         double x = event.getX();
         double y = event.getY();
         switch (event.getEventType().getName()) {
             case "MOUSE_PRESSED":
+
                 this.setDrawing(true);
                 currentShape.setStartX(x);
                 currentShape.setStartY(y);
@@ -92,11 +101,13 @@ public class MyEditor extends Application {
                 currentShape.setEndY(y);
                 break;
             case "MOUSE_DRAGGED":
+
                 currentShape.setEndX(x);
                 currentShape.setEndY(y);
                 this.redrawShapes();
                 break;
             case "MOUSE_RELEASED":
+
                 this.setDrawing(false);
                 saveShape();
                 break;
@@ -155,6 +166,15 @@ public class MyEditor extends Application {
     public void setEndY(double endY) {
         this.endY = endY;
     }
+
+    public Shape getCurrentShape() {
+        return currentShape;
+    }
+
+    public void setCurrentShape(Shape currentShape) {
+        this.currentShape = currentShape;
+    }
+
 
 
 }

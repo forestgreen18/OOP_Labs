@@ -13,7 +13,7 @@ public class RectangleShapeEditor  extends ShapeEditor {
     private RectangleShape rectangleShape;
 
     public RectangleShapeEditor(MyEditor myEditor, GraphicsContext gc) {
-        super(myEditor, gc);
+        super( gc);
         this.myEditor = myEditor;
         this.gc = gc;
         this.rectangleShape = new RectangleShape(0, 0, 0, 0, gc);

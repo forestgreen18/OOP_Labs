@@ -12,7 +12,7 @@ public class EllipseShapeEditor extends ShapeEditor {
     private EllipseShape ellipseShape;
 
     public EllipseShapeEditor(MyEditor myEditor, GraphicsContext gc) {
-        super(myEditor, gc);
+        super( gc);
         this.myEditor = myEditor;
         this.gc = gc;
         this.ellipseShape = new EllipseShape(0, 0, 0, 0, gc);

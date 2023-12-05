@@ -13,7 +13,7 @@ public class PointShapeEditor extends ShapeEditor {
 
 
     public PointShapeEditor(MyEditor myEditor, GraphicsContext gc) {
-        super(myEditor, gc);
+        super( gc);
         this.myEditor = myEditor;
         this.gc = gc;
         this.pointShape = new PointShape(0, 0, gc);
