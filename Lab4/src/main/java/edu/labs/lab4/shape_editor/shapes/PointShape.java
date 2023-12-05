@@ -52,4 +52,9 @@ public class PointShape extends Shape {
         this.setY(y);
         this.draw(gc, Color.RED);
     }
+
+    @Override
+    public PointShape clone() {
+        return new PointShape(this.getX(), this.getY(), this.gc);
+    }
 }

@@ -100,4 +100,9 @@ public class RectangleShape  extends Shape {
         this.setEndY(endY);
         this.draw(gc, Color.RED);
     }
+
+    @Override
+    public RectangleShape clone() {
+        return new RectangleShape(this.startX, this.startY, this.endX, this.endY, this.gc);
+    }
 }

@@ -14,6 +14,7 @@ public class MyEditor extends Application {
     private ArrayList<Shape> shapes = new ArrayList<>(108);
 
     private Shape currentShape;
+
     private int shapeCount = 0;
 
     private boolean isDrawing;
@@ -40,7 +41,6 @@ public class MyEditor extends Application {
     public void addShape(Shape shape) {
         if (shapes.size() < 108) {
             shapes.add(shape);
-//            System.out.println(shapes);
             redrawShapes();
         }
     }
@@ -65,7 +65,7 @@ public class MyEditor extends Application {
                 System.out.println("start y: " + startY);
                 System.out.println("end x: " + endX);
                 System.out.println("end y: " + endY);
-                
+
                 currentShape.drawPreviewShape(currentShape.getStartX(), currentShape.getStartY(), currentShape.getEndX(), currentShape.getEndY());
             }
         } else {
@@ -87,13 +87,11 @@ public class MyEditor extends Application {
 
     public void draw(MouseEvent event) {
 
-
-
         double x = event.getX();
         double y = event.getY();
         switch (event.getEventType().getName()) {
             case "MOUSE_PRESSED":
-
+                currentShape = currentShape.clone();
                 this.setDrawing(true);
                 currentShape.setStartX(x);
                 currentShape.setStartY(y);
@@ -107,9 +105,8 @@ public class MyEditor extends Application {
                 this.redrawShapes();
                 break;
             case "MOUSE_RELEASED":
-
                 this.setDrawing(false);
-                saveShape();
+                this.addShape(currentShape);
                 break;
         }
     }

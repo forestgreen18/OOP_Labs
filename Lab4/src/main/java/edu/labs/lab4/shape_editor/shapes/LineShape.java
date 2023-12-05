@@ -74,4 +74,9 @@ public class LineShape extends Shape {
         this.setEndY(endY);
         this.draw(gc, Color.RED);
     }
+
+    @Override
+    public LineShape clone() {
+        return new LineShape(this.startX, this.startY, this.endX, this.endY, this.gc);
+    }
 }

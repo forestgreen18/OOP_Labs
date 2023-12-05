@@ -89,5 +89,11 @@ public class EllipseShape extends Shape {
         this.draw(gc, Color.RED);
     }
 
+    @Override
+    public EllipseShape clone() {
+        return new EllipseShape(this.startX, this.startY, this.endX, this.endY, this.gc);
+    }
+
+
 }
 
