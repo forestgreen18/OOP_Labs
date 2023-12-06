@@ -18,10 +18,7 @@ public class MyEditor extends Application {
     private int shapeCount = 0;
 
     private boolean isDrawing;
-    private double startX;
-    private double startY;
-    private double endX;
-    private double endY;
+
     private GraphicsContext gc;
 
 
@@ -60,12 +57,6 @@ public class MyEditor extends Application {
 
             // Draw the new shape if isDrawing is true
             if (isDrawing) {
-                System.out.println("is called");
-                System.out.println("start x: " + startX);
-                System.out.println("start y: " + startY);
-                System.out.println("end x: " + endX);
-                System.out.println("end y: " + endY);
-
                 currentShape.drawPreviewShape(currentShape.getStartX(), currentShape.getStartY(), currentShape.getEndX(), currentShape.getEndY());
             }
         } else {
@@ -111,57 +102,12 @@ public class MyEditor extends Application {
         }
     }
 
-    public void saveShape() {
-        // Implement this method to save the shape
-    }
-
-
-
-    public void drawPreviewShape(double startX, double startY, double endX, double endY) {
-        // Implement this method to draw the shape
-    }
-
-
     public boolean isDrawing() {
         return isDrawing;
     }
 
     public void setDrawing(boolean drawing) {
         this.isDrawing = drawing;
-    }
-
-
-    public double getStartX() {
-        return startX;
-    }
-
-    public double getStartY() {
-        return startY;
-    }
-
-    public double getEndX() {
-        return endX;
-    }
-
-    public double getEndY() {
-        return endY;
-    }
-
-
-    public void setStartX(double startX) {
-        this.startX = startX;
-    }
-
-    public void setStartY(double startY) {
-        this.startY = startY;
-    }
-
-    public void setEndX(double endX) {
-        this.endX = endX;
-    }
-
-    public void setEndY(double endY) {
-        this.endY = endY;
     }
 
     public Shape getCurrentShape() {
