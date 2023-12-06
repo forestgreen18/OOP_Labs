@@ -1,7 +1,7 @@
-package edu.labs.lab4.shape_editor;
+package edu.labs.lab4;
 
 
-import edu.labs.lab4.shape_editor.shapes.Shape;
+import edu.labs.lab4.shapes.Shape;
 import javafx.application.Application;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;

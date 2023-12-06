@@ -8,6 +8,4 @@ module edu.labs.lab4 {
 
     opens edu.labs.lab4 to javafx.fxml;
     exports edu.labs.lab4;
-    exports edu.labs.lab4.shape_editor;
-    opens edu.labs.lab4.shape_editor to javafx.fxml;
 }

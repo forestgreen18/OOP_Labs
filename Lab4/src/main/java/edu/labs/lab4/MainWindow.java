@@ -1,7 +1,6 @@
 package edu.labs.lab4;
 
-import edu.labs.lab4.shape_editor.MyEditor;
-import edu.labs.lab4.shape_editor.shapes.*;
+import edu.labs.lab4.shapes.*;
 import edu.labs.lab4.utils.JsonFileReader;
 import edu.labs.lab4.utils.Titles;
 import edu.labs.lab4.ui.PaintToolBar;

@@ -1,4 +1,4 @@
-package edu.labs.lab4.shape_editor.shapes;
+package edu.labs.lab4.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;

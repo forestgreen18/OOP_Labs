@@ -1,15 +1,16 @@
-package edu.labs.lab4.shape_editor.shapes;
+package edu.labs.lab4.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-public class EllipseShape extends Shape {
+
+public class LineShape extends Shape {
     private double startX;
     private double startY;
     private double endX;
     private double endY;
     private GraphicsContext gc;
 
-    public EllipseShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
+    public LineShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
         super(startX, startY, endX, endY);
         this.startX = startX;
         this.startY = startY;
@@ -50,33 +51,18 @@ public class EllipseShape extends Shape {
         this.endY = endY;
     }
 
-
     @Override
     public void draw(GraphicsContext gc) {
-        double centerX = (startX + endX) / 2;
-        double centerY = (startY + endY) / 2;
-        double width = Math.abs(startX - endX);
-        double height = Math.abs(startY - endY);
-
-        gc.setFill(Color.CYAN);
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(1);
-        gc.strokeOval(centerX - width / 2, centerY - height / 2, width, height);
-        gc.fillOval(centerX - width / 2, centerY - height / 2, width, height);
+        gc.strokeLine(startX, startY, endX, endY);
     }
 
     public void draw(GraphicsContext gc, Color strokeColor) {
-        double centerX = (startX + endX) / 2;
-        double centerY = (startY + endY) / 2;
-        double width = Math.abs(startX - endX);
-        double height = Math.abs(startY - endY);
-
-        gc.setFill(Color.CYAN);
         gc.setStroke(strokeColor);
         gc.setLineWidth(1);
         gc.setLineDashes(10);
-        gc.strokeOval(centerX - width / 2, centerY - height / 2, width, height);
-        gc.fillOval(centerX - width / 2, centerY - height / 2, width, height);
+        gc.strokeLine(startX, startY, endX, endY);
         gc.setLineDashes(0);
     }
 
@@ -90,10 +76,7 @@ public class EllipseShape extends Shape {
     }
 
     @Override
-    public EllipseShape clone() {
-        return new EllipseShape(this.startX, this.startY, this.endX, this.endY, this.gc);
+    public LineShape clone() {
+        return new LineShape(this.startX, this.startY, this.endX, this.endY, this.gc);
     }
-
-
 }
-

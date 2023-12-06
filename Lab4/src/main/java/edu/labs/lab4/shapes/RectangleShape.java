@@ -1,16 +1,16 @@
-package edu.labs.lab4.shape_editor.shapes;
+package edu.labs.lab4.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class LineShape extends Shape {
+public class RectangleShape  extends Shape {
     private double startX;
     private double startY;
     private double endX;
     private double endY;
     private GraphicsContext gc;
 
-    public LineShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
+    public RectangleShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
         super(startX, startY, endX, endY);
         this.startX = startX;
         this.startY = startY;
@@ -53,18 +53,44 @@ public class LineShape extends Shape {
 
     @Override
     public void draw(GraphicsContext gc) {
+        double centerX = startX;
+        double centerY = startY;
+        double cornerX = endX;
+        double cornerY = endY;
+
+        double width = Math.abs(centerX - cornerX) * 2;
+        double height = Math.abs(centerY - cornerY) * 2;
+        double left = centerX - width / 2;
+        double top = centerY - height / 2;
+
+        gc.setFill(Color.TRANSPARENT);
         gc.setStroke(Color.BLACK);
         gc.setLineWidth(1);
-        gc.strokeLine(startX, startY, endX, endY);
+        gc.strokeRect(left, top, width, height);
+        gc.fillRect(left, top, width, height);
     }
 
+
     public void draw(GraphicsContext gc, Color strokeColor) {
+        double centerX = startX;
+        double centerY = startY;
+        double cornerX = endX;
+        double cornerY = endY;
+
+        double width = Math.abs(centerX - cornerX) * 2;
+        double height = Math.abs(centerY - cornerY) * 2;
+        double left = centerX - width / 2;
+        double top = centerY - height / 2;
+
+        gc.setFill(Color.TRANSPARENT);
         gc.setStroke(strokeColor);
         gc.setLineWidth(1);
         gc.setLineDashes(10);
-        gc.strokeLine(startX, startY, endX, endY);
+        gc.strokeRect(left, top, width, height);
+        gc.fillRect(left, top, width, height);
         gc.setLineDashes(0);
     }
+
 
     @Override
     public void drawPreviewShape(double startX, double startY, double endX, double endY) {
@@ -76,7 +102,7 @@ public class LineShape extends Shape {
     }
 
     @Override
-    public LineShape clone() {
-        return new LineShape(this.startX, this.startY, this.endX, this.endY, this.gc);
+    public RectangleShape clone() {
+        return new RectangleShape(this.startX, this.startY, this.endX, this.endY, this.gc);
     }
 }
