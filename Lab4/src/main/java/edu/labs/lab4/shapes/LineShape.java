@@ -3,7 +3,7 @@ package edu.labs.lab4.shapes;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class LineShape extends Shape {
+public class LineShape extends Shape implements LineShapeInterface {
     private double startX;
     private double startY;
     private double endX;
@@ -58,6 +58,7 @@ public class LineShape extends Shape {
         gc.strokeLine(startX, startY, endX, endY);
     }
 
+    @Override
     public void draw(GraphicsContext gc, Color strokeColor) {
         gc.setStroke(strokeColor);
         gc.setLineWidth(1);

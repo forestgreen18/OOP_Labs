@@ -10,16 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/EllipseShapeInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineShapeInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/MyEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MyEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/EllipseShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/EllipseShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/LineShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/PointShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/PointShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/RectangleShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/RectangleShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/EllipseShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/EllipseShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineShape.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -85,6 +81,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Labs\OOP\Lab3\src\main\resources\edu\labs\lab3\images" />
       <recent name="F:\Labs\OOP\Lab2\src\main\resources\edu\labs\lab2" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="edu.labs.lab4.shapes" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="edu.labs.lab4" />

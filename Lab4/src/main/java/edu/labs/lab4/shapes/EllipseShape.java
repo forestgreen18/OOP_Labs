@@ -2,7 +2,7 @@ package edu.labs.lab4.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-public class EllipseShape extends Shape {
+public class EllipseShape extends Shape implements EllipseShapeInterface {
     private double startX;
     private double startY;
     private double endX;
@@ -65,6 +65,7 @@ public class EllipseShape extends Shape {
         gc.fillOval(centerX - width / 2, centerY - height / 2, width, height);
     }
 
+    @Override
     public void draw(GraphicsContext gc, Color strokeColor) {
         double centerX = (startX + endX) / 2;
         double centerY = (startY + endY) / 2;
