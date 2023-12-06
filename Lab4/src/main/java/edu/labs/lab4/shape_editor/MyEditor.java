@@ -42,7 +42,6 @@ public class MyEditor extends Application {
         }
     }
 
-
     public void redrawShapes() {
         if (gc != null) {
             // Clear the canvas
@@ -83,7 +82,7 @@ public class MyEditor extends Application {
         switch (event.getEventType().getName()) {
             case "MOUSE_PRESSED":
                 currentShape = currentShape.clone();
-                this.setDrawing(true);
+                isDrawing = true;
                 currentShape.setStartX(x);
                 currentShape.setStartY(y);
                 currentShape.setEndX(x);
@@ -96,28 +95,13 @@ public class MyEditor extends Application {
                 this.redrawShapes();
                 break;
             case "MOUSE_RELEASED":
-                this.setDrawing(false);
+                isDrawing = false;
                 this.addShape(currentShape);
                 break;
         }
     }
 
-    public boolean isDrawing() {
-        return isDrawing;
-    }
-
-    public void setDrawing(boolean drawing) {
-        this.isDrawing = drawing;
-    }
-
-    public Shape getCurrentShape() {
-        return currentShape;
-    }
-
     public void setCurrentShape(Shape currentShape) {
         this.currentShape = currentShape;
     }
-
-
-
 }

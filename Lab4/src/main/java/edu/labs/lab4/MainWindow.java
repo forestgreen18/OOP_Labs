@@ -182,7 +182,6 @@ public class MainWindow extends Application {
 
         // If there's a new shape editor, set it and add its event handler
         if (myEditor != null) {
-            System.out.println(111);
             myEditor.setCurrentShape(shape);
             EventHandler<MouseEvent> newHandler = myEditor::draw;
             canvas.addEventHandler(MouseEvent.ANY, newHandler);
