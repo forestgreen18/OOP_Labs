@@ -92,10 +92,18 @@ public class EllipseShape extends Shape  {
 
     @Override
     public void drawPreviewShape(double startX, double startY, double endX, double endY) {
+        this.setStartX(startX);
+        this.setStartY(startY);
+        this.setEndX(endX);
+        this.setEndY(endY);
         this.draw(gc, previewStrokeColor, fillColor, true);
     }
 
     public void drawPreviewShape(double startX, double startY, double endX, double endY, Color fillColor) {
+        this.setStartX(startX);
+        this.setStartY(startY);
+        this.setEndX(endX);
+        this.setEndY(endY);
         this.draw(gc, previewStrokeColor, fillColor, true);
     }
 

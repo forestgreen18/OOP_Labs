@@ -10,12 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineSegmentWithCirclesAtEnds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/geometry/GeometryUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/geometry/LineCoordinates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/EllipseShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/EllipseShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/EllipseShapeInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineShapeInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineSegmentWithCirclesAtEnds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineSegmentWithCirclesAtEnds.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
