@@ -1,7 +1,6 @@
 package edu.labs.lab4;
 
 import edu.labs.lab4.shape_editor.MyEditor;
-import edu.labs.lab4.shape_editor.editor.*;
 import edu.labs.lab4.shape_editor.shapes.*;
 import edu.labs.lab4.utils.JsonFileReader;
 import edu.labs.lab4.utils.Titles;
@@ -22,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainWindow extends Application {
-    private ShapeEditor shapeEditor;
+    private Shape shape;
 
     @Override
     public void start(Stage primaryStage) {
@@ -75,15 +74,15 @@ public class MainWindow extends Application {
             lineShapeItem.setText(titles.shapesMenu.shapes.lineShapeItemTitle   );
             pointShapeItem.setText(titles.shapesMenu.shapes.pointShapeItemTitle);
             // Add the tick to the currently selected shape
-            if (shapeEditor instanceof EllipseShapeEditor) {
+            if (shape instanceof EllipseShape) {
                 setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new EllipseShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
-            } else if (shapeEditor instanceof RectangleShapeEditor) {
+            } else if (shape instanceof RectangleShape) {
 
                 setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new RectangleShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
-            } else if (shapeEditor instanceof LineShapeEditor) {
+            } else if (shape instanceof LineShape) {
                 setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new PointShape(0,0,gc) ,  myEditor, canvas, handlers);
             }
-            else if (shapeEditor instanceof PointShapeEditor) {
+            else if (shape instanceof PointShape) {
                 setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers);
             }
         });
