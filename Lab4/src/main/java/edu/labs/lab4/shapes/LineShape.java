@@ -3,7 +3,7 @@ package edu.labs.lab4.shapes;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class LineShape extends Shape implements LineShapeInterface {
+public class LineShape extends Shape {
     private double startX;
     private double startY;
     private double endX;

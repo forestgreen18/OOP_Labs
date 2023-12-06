@@ -2,12 +2,15 @@ package edu.labs.lab4.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-public class EllipseShape extends Shape implements EllipseShapeInterface {
+public class EllipseShape extends Shape  {
     private double startX;
     private double startY;
     private double endX;
     private double endY;
     private GraphicsContext gc;
+    public static final Color fillColor = Color.CYAN;
+    public static final Color strokeColor = Color.BLACK;
+    public static final Color previewStrokeColor = Color.RED;
 
     public EllipseShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
         super(startX, startY, endX, endY);
@@ -53,41 +56,47 @@ public class EllipseShape extends Shape implements EllipseShapeInterface {
 
     @Override
     public void draw(GraphicsContext gc) {
-        double centerX = (startX + endX) / 2;
-        double centerY = (startY + endY) / 2;
-        double width = Math.abs(startX - endX);
-        double height = Math.abs(startY - endY);
-
-        gc.setFill(Color.CYAN);
-        gc.setStroke(Color.BLACK);
-        gc.setLineWidth(1);
-        gc.strokeOval(centerX - width / 2, centerY - height / 2, width, height);
-        gc.fillOval(centerX - width / 2, centerY - height / 2, width, height);
+        draw(gc, strokeColor, fillColor, false );
     }
 
     @Override
     public void draw(GraphicsContext gc, Color strokeColor) {
+        this.draw(gc, strokeColor ,fillColor , false);
+    }
+
+    public void draw(GraphicsContext gc, Color strokeColor, Color fillColor) {
+        this.draw(gc, strokeColor, fillColor, false);
+    }
+
+    public void draw(GraphicsContext gc, Color strokeColor, Color fillColor, boolean dashed) {
         double centerX = (startX + endX) / 2;
         double centerY = (startY + endY) / 2;
         double width = Math.abs(startX - endX);
         double height = Math.abs(startY - endY);
 
-        gc.setFill(Color.CYAN);
+        gc.setFill(fillColor);
         gc.setStroke(strokeColor);
         gc.setLineWidth(1);
-        gc.setLineDashes(10);
+
+        if (dashed) {
+            gc.setLineDashes(10);
+        }
+
         gc.strokeOval(centerX - width / 2, centerY - height / 2, width, height);
         gc.fillOval(centerX - width / 2, centerY - height / 2, width, height);
-        gc.setLineDashes(0);
+
+        if (dashed) {
+            gc.setLineDashes(0);
+        }
     }
 
     @Override
     public void drawPreviewShape(double startX, double startY, double endX, double endY) {
-        this.setStartX(startX);
-        this.setStartY(startY);
-        this.setEndX(endX);
-        this.setEndY(endY);
-        this.draw(gc, Color.RED);
+        this.draw(gc, previewStrokeColor, fillColor, true);
+    }
+
+    public void drawPreviewShape(double startX, double startY, double endX, double endY, Color fillColor) {
+        this.draw(gc, previewStrokeColor, fillColor, true);
     }
 
     @Override
