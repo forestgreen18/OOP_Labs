@@ -11,12 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/MyEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/MyEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/EllipseShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/EllipseShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/LineShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/LineShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/PointShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/PointShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/RectangleShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/RectangleShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shape_editor/shapes/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +136,8 @@
       <workItem from="1701275753772" duration="2022000" />
       <workItem from="1701447034738" duration="6269000" />
       <workItem from="1701723732512" duration="1040000" />
-      <workItem from="1701766508186" duration="4428000" />
+      <workItem from="1701766508186" duration="4693000" />
+      <workItem from="1701861793354" duration="294000" />
     </task>
     <servers />
   </component>

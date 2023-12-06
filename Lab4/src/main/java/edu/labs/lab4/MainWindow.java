@@ -2,9 +2,7 @@ package edu.labs.lab4;
 
 import edu.labs.lab4.shape_editor.MyEditor;
 import edu.labs.lab4.shape_editor.editor.*;
-import edu.labs.lab4.shape_editor.shapes.EllipseShape;
-import edu.labs.lab4.shape_editor.shapes.RectangleShape;
-import edu.labs.lab4.shape_editor.shapes.Shape;
+import edu.labs.lab4.shape_editor.shapes.*;
 import edu.labs.lab4.utils.JsonFileReader;
 import edu.labs.lab4.utils.Titles;
 import edu.labs.lab4.ui.PaintToolBar;
@@ -70,25 +68,25 @@ public class MainWindow extends Application {
 
 
 
-//        shapesMenu.setOnShowing(e -> {
-//            // Reset all menu items to their default state
-//            ellipseShapeItem.setText(titles.shapesMenu.shapes.ellipseShapeItemTitle);
-//            rectangleShapeItem.setText(titles.shapesMenu.shapes.rectangleShapeItemTitle);
-//            lineShapeItem.setText(titles.shapesMenu.shapes.lineShapeItemTitle   );
-//            pointShapeItem.setText(titles.shapesMenu.shapes.pointShapeItemTitle);
-//            // Add the tick to the currently selected shape
-//            if (shapeEditor instanceof EllipseShapeEditor) {
-//                setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
-//            } else if (shapeEditor instanceof RectangleShapeEditor) {
-//
-//                setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
-//            } else if (shapeEditor instanceof LineShapeEditor) {
-//                setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
-//            }
-//            else if (shapeEditor instanceof PointShapeEditor) {
-//                setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
-//            }
-//        });
+        shapesMenu.setOnShowing(e -> {
+            // Reset all menu items to their default state
+            ellipseShapeItem.setText(titles.shapesMenu.shapes.ellipseShapeItemTitle);
+            rectangleShapeItem.setText(titles.shapesMenu.shapes.rectangleShapeItemTitle);
+            lineShapeItem.setText(titles.shapesMenu.shapes.lineShapeItemTitle   );
+            pointShapeItem.setText(titles.shapesMenu.shapes.pointShapeItemTitle);
+            // Add the tick to the currently selected shape
+            if (shapeEditor instanceof EllipseShapeEditor) {
+                setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new EllipseShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
+            } else if (shapeEditor instanceof RectangleShapeEditor) {
+
+                setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new RectangleShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
+            } else if (shapeEditor instanceof LineShapeEditor) {
+                setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new PointShape(0,0,gc) ,  myEditor, canvas, handlers);
+            }
+            else if (shapeEditor instanceof PointShapeEditor) {
+                setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers);
+            }
+        });
 
         ToolBar toolbar = new PaintToolBar().createToolBar();
 
@@ -106,18 +104,18 @@ public class MainWindow extends Application {
                     case "rectangleButton" ->
                         // set the event handler for drawing a rectangle
                     button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new RectangleShape(0,0,0,0,gc) ,  myEditor, canvas, handlers));
-//                    case "pointButton" ->
-//                        // set the event handler for drawing a point
-//                        button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers));
-//                    case "lineButton" ->
-//                        // set the event handler for drawing a line
-//                            button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers));
-//                    case "eraseButton" ->
-//                        // set the event handler for erasing
-//                            button.setOnAction(e -> {
-//                                primaryStage.setTitle(titles.toolbarMenu.actions.erase);
-//                                myEditor.clearCanvas();
-//                            });
+                  case "pointButton" ->
+                       // set the event handler for drawing a point
+                          button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new PointShape(0,0,gc) ,  myEditor, canvas, handlers));
+                   case "lineButton" ->
+                      // set the event handler for drawing a line
+                           button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers));
+                   case "eraseButton" ->
+                      // set the event handler for erasing
+                         button.setOnAction(e -> {
+                               primaryStage.setTitle(titles.toolbarMenu.actions.erase);
+                               myEditor.clearCanvas();
+                            });
                     default ->
                     // handle the default case
                     {}
@@ -127,28 +125,28 @@ public class MainWindow extends Application {
 
 
 
-//        ellipseShapeItem.setOnAction(e -> {
-//            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, new EllipseShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
-//            fireButtonById(toolbar, "ellipseButton");
-//
-//        });
-//
-//        rectangleShapeItem.setOnAction(e -> {
-//            setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, new RectangleShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
-//            fireButtonById(toolbar, "rectangleButton");
-//        });
-//
-//        lineShapeItem.setOnAction(e -> {
-//            setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, new LineShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
-//            fireButtonById(toolbar, "lineButton");
-//
-//        });
-//
-//        pointShapeItem.setOnAction(e -> {
-//            setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, new PointShapeEditor(myEditor, gc), primaryStage, myEditor, canvas, handlers);
-//            fireButtonById(toolbar, "pointButton");
-//
-//        });
+        ellipseShapeItem.setOnAction(e -> {
+            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new EllipseShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
+            fireButtonById(toolbar, "ellipseButton");
+
+        });
+
+        rectangleShapeItem.setOnAction(e -> {
+            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new RectangleShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
+            fireButtonById(toolbar, "rectangleButton");
+        });
+
+        lineShapeItem.setOnAction(e -> {
+            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers);
+            fireButtonById(toolbar, "lineButton");
+
+        });
+
+        pointShapeItem.setOnAction(e -> {
+            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers);
+            fireButtonById(toolbar, "pointButton");
+
+        });
 
         clearCanvasItem.setOnAction(e -> {
             primaryStage.setTitle(titles.toolbarMenu.actions.erase);
