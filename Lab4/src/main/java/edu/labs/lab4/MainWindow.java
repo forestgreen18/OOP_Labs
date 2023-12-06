@@ -78,12 +78,12 @@ public class MainWindow extends Application {
                 setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new EllipseShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
             } else if (shape instanceof RectangleShape) {
 
-                setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new RectangleShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
+                setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, primaryStage, new RectangleShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
             } else if (shape instanceof LineShape) {
-                setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new PointShape(0,0,gc) ,  myEditor, canvas, handlers);
+                setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc)  ,  myEditor, canvas, handlers);
             }
             else if (shape instanceof PointShape) {
-                setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers);
+                setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, primaryStage, new PointShape(0,0,gc) ,  myEditor, canvas, handlers);
             }
         });
 
@@ -102,13 +102,13 @@ public class MainWindow extends Application {
 
                     case "rectangleButton" ->
                         // set the event handler for drawing a rectangle
-                    button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new RectangleShape(0,0,0,0,gc) ,  myEditor, canvas, handlers));
+                    button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, primaryStage, new RectangleShape(0,0,0,0,gc) ,  myEditor, canvas, handlers));
                   case "pointButton" ->
                        // set the event handler for drawing a point
-                          button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new PointShape(0,0,gc) ,  myEditor, canvas, handlers));
+                          button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, primaryStage, new PointShape(0,0,gc) ,  myEditor, canvas, handlers));
                    case "lineButton" ->
                       // set the event handler for drawing a line
-                           button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers));
+                           button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers));
                    case "eraseButton" ->
                       // set the event handler for erasing
                          button.setOnAction(e -> {
@@ -131,18 +131,18 @@ public class MainWindow extends Application {
         });
 
         rectangleShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new RectangleShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
+            setupShape(titles.shapesMenu.shapes.rectangleShapeItemTitle, primaryStage, new RectangleShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
             fireButtonById(toolbar, "rectangleButton");
         });
 
         lineShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers);
+            setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers);
             fireButtonById(toolbar, "lineButton");
 
         });
 
         pointShapeItem.setOnAction(e -> {
-            setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers);
+            setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, primaryStage, new PointShape(0,0,gc),  myEditor, canvas, handlers);
             fireButtonById(toolbar, "pointButton");
 
         });
