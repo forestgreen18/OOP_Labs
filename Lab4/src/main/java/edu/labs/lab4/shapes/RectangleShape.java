@@ -9,6 +9,9 @@ public class RectangleShape  extends Shape {
     private double endX;
     private double endY;
     private GraphicsContext gc;
+    public static final Color fillColor = Color.TRANSPARENT;
+    public static final Color strokeColor = Color.BLACK;
+    public static final Color previewStrokeColor = Color.RED;
 
     public RectangleShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
         super(startX, startY, endX, endY);
@@ -53,25 +56,19 @@ public class RectangleShape  extends Shape {
 
     @Override
     public void draw(GraphicsContext gc) {
-        double centerX = startX;
-        double centerY = startY;
-        double cornerX = endX;
-        double cornerY = endY;
-
-        double width = Math.abs(centerX - cornerX) * 2;
-        double height = Math.abs(centerY - cornerY) * 2;
-        double left = centerX - width / 2;
-        double top = centerY - height / 2;
-
-        gc.setFill(Color.TRANSPARENT);
-        gc.setStroke(Color.BLACK);
-        gc.setLineWidth(1);
-        gc.strokeRect(left, top, width, height);
-        gc.fillRect(left, top, width, height);
+        draw(gc, strokeColor, fillColor, false);
     }
 
-
+    @Override
     public void draw(GraphicsContext gc, Color strokeColor) {
+        draw(gc, strokeColor, fillColor, false);
+    }
+
+    public void draw(GraphicsContext gc, Color strokeColor, Color fillColor) {
+        draw(gc, strokeColor, fillColor, false);
+    }
+
+    public void draw(GraphicsContext gc, Color strokeColor, Color fillColor, boolean dashed) {
         double centerX = startX;
         double centerY = startY;
         double cornerX = endX;
@@ -82,15 +79,21 @@ public class RectangleShape  extends Shape {
         double left = centerX - width / 2;
         double top = centerY - height / 2;
 
-        gc.setFill(Color.TRANSPARENT);
+        gc.setFill(fillColor);
         gc.setStroke(strokeColor);
         gc.setLineWidth(1);
-        gc.setLineDashes(10);
+
+        if (dashed) {
+            gc.setLineDashes(10);
+        }
+
         gc.strokeRect(left, top, width, height);
         gc.fillRect(left, top, width, height);
-        gc.setLineDashes(0);
-    }
 
+        if (dashed) {
+            gc.setLineDashes(0);
+        }
+    }
 
     @Override
     public void drawPreviewShape(double startX, double startY, double endX, double endY) {
@@ -98,9 +101,16 @@ public class RectangleShape  extends Shape {
         this.setStartY(startY);
         this.setEndX(endX);
         this.setEndY(endY);
-        this.draw(gc, Color.RED);
+        this.draw(gc, previewStrokeColor, fillColor, true);
     }
 
+    public void drawPreviewShape(double startX, double startY, double endX, double endY, Color fillColor) {
+        this.setStartX(startX);
+        this.setStartY(startY);
+        this.setEndX(endX);
+        this.setEndY(endY);
+        this.draw(gc, previewStrokeColor, fillColor, true);
+    }
     @Override
     public RectangleShape clone() {
         return new RectangleShape(this.startX, this.startY, this.endX, this.endY, this.gc);

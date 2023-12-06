@@ -20,8 +20,8 @@ public class LineSegmentWithCirclesAtEnds extends Shape {
         LineCoordinates adjustedCoords = GeometryUtils.calculateAdjustedLineCoordinates(startX, startY, endX, endY, circleRadius);
 
         line = new LineShape(adjustedCoords.lineStartX, adjustedCoords.lineStartY, adjustedCoords.lineEndX, adjustedCoords.lineEndY, gc);
-        startCircle = new EllipseShape(startX - 10, startY - 10, startX + 10, startY + 10, gc); // 5 is the radius of the circle
-        endCircle = new EllipseShape(endX - 10, endY - 10, endX + 10, endY + 10, gc); // 5 is the radius of the circle
+        startCircle = new EllipseShape(startX - 10, startY - 10, startX + 10, startY + 10, gc);
+        endCircle = new EllipseShape(endX - 10, endY - 10, endX + 10, endY + 10, gc);
         this.gc = gc;
     }
 
