@@ -4,10 +4,10 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class RectangleShape  extends Shape {
-    private double startX;
-    private double startY;
-    private double endX;
-    private double endY;
+    private double left;
+    private double top;
+    private double right;
+    private double bottom;
     private GraphicsContext gc;
     public static final Color fillColor = Color.TRANSPARENT;
     public static final Color strokeColor = Color.BLACK;
@@ -15,44 +15,41 @@ public class RectangleShape  extends Shape {
 
     public RectangleShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
         super(startX, startY, endX, endY);
-        this.startX = startX;
-        this.startY = startY;
-        this.endX = endX;
-        this.endY = endY;
+        calculateBounds();
         this.gc = gc;
     }
 
-    public double getStartX() {
-        return startX;
+
+    private void calculateBounds() {
+        double centerX = getStartX();
+        double centerY = getStartY();
+        double cornerX = getEndX();
+        double cornerY = getEndY();
+
+        double width = Math.abs(centerX - cornerX) * 2;
+        double height = Math.abs(centerY - cornerY) * 2;
+        this.left = centerX - width / 2;
+        this.top = centerY - height / 2;
+        this.right = this.left + width;
+        this.bottom = this.top + height;
     }
 
-    public void setStartX(double startX) {
-        this.startX = startX;
+    public double getLeft() {
+        return this.left;
     }
 
-    public double getStartY() {
-        return startY;
+    public double getTop() {
+        return this.top;
     }
 
-    public void setStartY(double startY) {
-        this.startY = startY;
+    public double getRight() {
+        return this.right;
     }
 
-    public double getEndX() {
-        return endX;
+    public double getBottom() {
+        return this.bottom;
     }
 
-    public void setEndX(double endX) {
-        this.endX = endX;
-    }
-
-    public double getEndY() {
-        return endY;
-    }
-
-    public void setEndY(double endY) {
-        this.endY = endY;
-    }
 
     @Override
     public void draw(GraphicsContext gc) {
@@ -69,15 +66,9 @@ public class RectangleShape  extends Shape {
     }
 
     public void draw(GraphicsContext gc, Color strokeColor, Color fillColor, boolean dashed) {
-        double centerX = startX;
-        double centerY = startY;
-        double cornerX = endX;
-        double cornerY = endY;
-
-        double width = Math.abs(centerX - cornerX) * 2;
-        double height = Math.abs(centerY - cornerY) * 2;
-        double left = centerX - width / 2;
-        double top = centerY - height / 2;
+        calculateBounds();
+        double width = Math.abs(getStartX() - getEndX()) * 2;
+        double height = Math.abs(getStartY() - getEndY()) * 2;
 
         gc.setFill(fillColor);
         gc.setStroke(strokeColor);
@@ -87,13 +78,14 @@ public class RectangleShape  extends Shape {
             gc.setLineDashes(10);
         }
 
-        gc.strokeRect(left, top, width, height);
-        gc.fillRect(left, top, width, height);
+        gc.strokeRect(getLeft(), getTop(), width, height);
+        gc.fillRect(getLeft(), getTop(), width, height);
 
         if (dashed) {
             gc.setLineDashes(0);
         }
     }
+
 
     @Override
     public void drawPreviewShape(double startX, double startY, double endX, double endY) {
@@ -113,6 +105,6 @@ public class RectangleShape  extends Shape {
     }
     @Override
     public RectangleShape clone() {
-        return new RectangleShape(this.startX, this.startY, this.endX, this.endY, this.gc);
+        return new RectangleShape(this.getStartX(), this.getStartY(), this.getEndX(), this.getEndY(), gc);
     }
 }
