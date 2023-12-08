@@ -97,7 +97,7 @@ public class MainWindow extends Application {
                 switch (id) {
                     case "ellipseButton" ->
                         // set the event handler for drawing an ellipse
-                    button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new EllipseShape(0,0,0,0,gc) ,  myEditor, canvas, handlers));
+                    button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new CubeShape(0,0,0,0,gc) ,  myEditor, canvas, handlers));
 
                     case "rectangleButton" ->
                         // set the event handler for drawing a rectangle
