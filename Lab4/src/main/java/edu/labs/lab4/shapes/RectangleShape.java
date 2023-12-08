@@ -50,6 +50,28 @@ public class RectangleShape  extends Shape {
         return this.bottom;
     }
 
+    public void setLeft(double left) {
+        this.left = left;
+        calculateBounds();
+    }
+
+    public void setTop(double top) {
+        this.top = top;
+        calculateBounds();
+    }
+
+    public void setRight(double right) {
+        this.right = right;
+        calculateBounds();
+    }
+
+    public void setBottom(double bottom) {
+        this.bottom = bottom;
+        calculateBounds();
+    }
+
+
+
 
     @Override
     public void draw(GraphicsContext gc) {

@@ -14,17 +14,18 @@ public class CubeShape extends Shape {
 
         // Initialize your rectangles (squares) here
         rectangles = new RectangleShape[2];
-        rectangles[0] = new RectangleShape(startX, startY, endX, endY, gc);
-        rectangles[1] = new RectangleShape(startX + offset, startY + offset, endX + offset, endY + offset, gc);
+        rectangles[0] = new RectangleShape(startX - offset, startY - offset, startX + offset, startY + offset, gc);
+        rectangles[1] = new RectangleShape(endX - offset, endY - offset, endX + offset, endY + offset, gc);
 
         // Initialize your lines here
         lines = new LineShape[4];
-        lines[0] = new LineShape(startX, startY, startX + offset, startY + offset, gc);
-        lines[1] = new LineShape(endX, startY, endX + offset, startY + offset, gc);
-        lines[2] = new LineShape(startX, endY, startX + offset, endY + offset, gc);
-        lines[3] = new LineShape(endX, endY, endX + offset, endY + offset, gc);
+        lines[0] = new LineShape(rectangles[0].getLeft(), rectangles[0].getTop(), rectangles[1].getLeft(), rectangles[1].getTop(), gc);
+        lines[1] = new LineShape(rectangles[0].getRight(), rectangles[0].getTop(), rectangles[1].getRight(), rectangles[1].getTop(), gc);
+        lines[2] = new LineShape(rectangles[0].getLeft(), rectangles[0].getBottom(), rectangles[1].getLeft(), rectangles[1].getBottom(), gc);
+        lines[3] = new LineShape(rectangles[0].getRight(), rectangles[0].getBottom(), rectangles[1].getRight(), rectangles[1].getBottom(), gc);
         this.gc = gc;
     }
+
 
     @Override
     public void draw(GraphicsContext gc) {
@@ -51,6 +52,7 @@ public class CubeShape extends Shape {
         double offset = Math.min(endX - startX, endY - startY) / 2; // Adjust this value as needed
 
         // Update the positions of your rectangles (squares) here
+
         rectangles[0].setStartX(startX);
         rectangles[0].setStartY(startY);
         rectangles[0].setEndX(endX);
@@ -61,10 +63,43 @@ public class CubeShape extends Shape {
         rectangles[1].setEndX(endX + offset);
         rectangles[1].setEndY(endY + offset);
 
+        
+        rectangles[0].setLeft(startX - offset);
+        rectangles[0].setTop(startY - offset);
+        rectangles[0].setRight(endX - offset);
+        rectangles[0].setBottom(endY - offset);
 
+        rectangles[1].setLeft(startX);
+        rectangles[1].setTop(startY);
+        rectangles[1].setRight(endX);
+        rectangles[1].setBottom(endY);
+
+        // Update the positions of your lines here
+        lines[0].setStartX(rectangles[0].getLeft());
+        lines[0].setStartY(rectangles[0].getTop());
+        lines[0].setEndX(rectangles[1].getLeft());
+        lines[0].setEndY(rectangles[1].getTop());
+
+        lines[1].setStartX(rectangles[0].getRight());
+        lines[1].setStartY(rectangles[0].getTop());
+        lines[1].setEndX(rectangles[1].getRight());
+        lines[1].setEndY(rectangles[1].getTop());
+
+        lines[2].setStartX(rectangles[0].getLeft());
+        lines[2].setStartY(rectangles[0].getBottom());
+        lines[2].setEndX(rectangles[1].getLeft());
+        lines[2].setEndY(rectangles[1].getBottom());
+
+        lines[3].setStartX(rectangles[0].getRight());
+        lines[3].setStartY(rectangles[0].getBottom());
+        lines[3].setEndX(rectangles[1].getRight());
+        lines[3].setEndY(rectangles[1].getBottom());
+
+        System.out.println("is triggered");
 
         draw(gc, Color.RED);
     }
+
 
 
 
