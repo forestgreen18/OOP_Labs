@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MyEditor extends Application {
+public class Editor extends Application {
     private ArrayList<Shape> shapes = new ArrayList<>(108);
 
     private Shape currentShape;
@@ -22,7 +22,7 @@ public class MyEditor extends Application {
     private GraphicsContext gc;
 
 
-    public MyEditor(GraphicsContext gc) {
+    public Editor(GraphicsContext gc) {
         this.gc = gc;
     }
 

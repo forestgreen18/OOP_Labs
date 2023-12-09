@@ -1,4 +1,4 @@
-package edu.labs.lab4.utils;
+package edu.labs.lab4.utils.fileReaders;
 
 
 import org.json.JSONObject;

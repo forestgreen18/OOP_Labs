@@ -1,8 +1,8 @@
 package edu.labs.lab4.ui;
 
-import edu.labs.lab4.utils.JsonFileReader;
-import edu.labs.lab4.utils.SVGReader;
-import edu.labs.lab4.utils.Titles;
+import edu.labs.lab4.utils.fileReaders.JsonFileReader;
+import edu.labs.lab4.utils.fileReaders.SVGReader;
+import edu.labs.lab4.utils.fileReaders.Titles;
 import javafx.scene.control.Button;
 import javafx.scene.control.Separator;
 import javafx.scene.control.ToolBar;
