@@ -205,6 +205,16 @@ public class MainWindow extends Application {
         tableWindow.addRow("Shape1", "1", "2", "3", "4");
         tableWindow.addRow("Shape2", "1", "2", "3", "4");
 
+        List<TableWindow.ShapeData> shapeDataList = editor.getShapeData();
+        for (TableWindow.ShapeData shapeData : shapeDataList) {
+            tableWindow.addRow(shapeData.getName(), shapeData.getX1(), shapeData.getY1(), shapeData.getX2(), shapeData.getY2());
+            tableWindow.printTable();
+            System.out.println("It is run");
+        }
+
+
+
+
 
         primaryStage.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
             canvas.setWidth((double) newSceneWidth);
@@ -267,6 +277,19 @@ public class MainWindow extends Application {
         }
     }
 
+
+    public List<TableWindow.ShapeData> getShapeData(ArrayList<Shape> shapes) {
+        List<TableWindow.ShapeData> shapeDataList = new ArrayList<>();
+        for (Shape shape : shapes) {
+            String name = shape.getClass().getSimpleName();
+            String x1 = Double.toString(shape.getStartX());
+            String y1 = Double.toString(shape.getStartY());
+            String x2 = Double.toString(shape.getEndX());
+            String y2 = Double.toString(shape.getEndY());
+            shapeDataList.add(new TableWindow.ShapeData(name, x1, y1, x2, y2));
+        }
+        return shapeDataList;
+    }
 
 
 

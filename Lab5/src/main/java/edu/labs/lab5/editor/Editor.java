@@ -2,6 +2,7 @@ package edu.labs.lab5.editor;
 
 
 import edu.labs.lab5.shapes.Shape;
+import edu.labs.lab5.windows.TableWindow;
 import javafx.application.Application;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseEvent;
@@ -9,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Editor extends Application {
     private ArrayList<Shape> shapes = new ArrayList<>(108);
@@ -117,4 +119,22 @@ public class Editor extends Application {
     public void setCurrentShape(Shape currentShape) {
         this.currentShape = currentShape;
     }
+
+    public ArrayList<Shape> getShapes() {
+        return shapes;
+    }
+
+    public List<TableWindow.ShapeData> getShapeData() {
+        List<TableWindow.ShapeData> shapeDataList = new ArrayList<>();
+        for (Shape shape : shapes) {
+            String name = shape.getClass().getSimpleName();
+            String x1 = Double.toString(shape.getStartX());
+            String y1 = Double.toString(shape.getStartY());
+            String x2 = Double.toString(shape.getEndX());
+            String y2 = Double.toString(shape.getEndY());
+            shapeDataList.add(new TableWindow.ShapeData(name, x1, y1, x2, y2));
+        }
+        return shapeDataList;
+    }
+
 }
