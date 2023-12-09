@@ -5,6 +5,7 @@ import edu.labs.lab4.utils.JsonFileReader;
 import edu.labs.lab4.utils.Titles;
 import edu.labs.lab4.ui.PaintToolBar;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -12,6 +13,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -180,12 +183,41 @@ public class MainWindow extends Application {
         });
 
 
+        double toolbarHeight = toolbar.getHeight();
+        double menuHeight = menuBar.getHeight();
+
+        BorderPane borderPane = new BorderPane();
+
+
+        Pane pane = new Pane();
+        pane.getChildren().add(canvas);
         VBox vBox = new VBox(menuBar, toolbar);
-        StackPane root = new StackPane();
-        root.getChildren().addAll(vBox, canvas);
-        primaryStage.setScene(new Scene(root, 900, 800));
+        borderPane.setTop(vBox);
+        borderPane.setCenter(pane);
+        primaryStage.setScene(new Scene(borderPane, 900, 800));
         primaryStage.show();
 
+        primaryStage.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
+            canvas.setWidth((double) newSceneWidth);
+        });
+
+        primaryStage.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> {
+            canvas.setHeight((double) newSceneHeight - toolbarHeight - menuHeight);
+        });
+
+        // Set the initial Canvas size
+        Platform.runLater(() -> {
+            canvas.setWidth(primaryStage.getWidth());
+            canvas.setHeight(primaryStage.getHeight() - toolbarHeight - menuHeight);
+        });
+
+        canvas.widthProperty().addListener((observableValue, oldCanvasWidth, newCanvasWidth) -> {
+            myEditor.redrawShapes();
+        });
+
+        canvas.heightProperty().addListener((observableValue, oldCanvasHeight, newCanvasHeight) -> {
+            myEditor.redrawShapes();
+        });
 
 
     }
