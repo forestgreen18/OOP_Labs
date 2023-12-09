@@ -43,7 +43,7 @@ public class CubeShape extends Shape {
             line.draw(gc, strokeColor);
         }
         for (RectangleShape rectangle : rectangles) {
-            rectangle.draw(gc, strokeColor);
+            rectangle.draw(gc, strokeColor, Color.TRANSPARENT, true);
         }
     }
 
@@ -82,8 +82,6 @@ public class CubeShape extends Shape {
         lines[3].setStartY(rectangles[0].getBottom());
         lines[3].setEndX(rectangles[1].getRight());
         lines[3].setEndY(rectangles[1].getBottom());
-
-        System.out.println("is triggered");
 
         draw(gc, Color.RED);
     }
