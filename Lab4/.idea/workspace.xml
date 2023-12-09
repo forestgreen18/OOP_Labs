@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="" />
+    <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -28,24 +32,29 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/MainWindow.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/shape_editor/ShapeObjectsEditor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/shape_editor/editor/Editor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/shape_editor/editor/EllipseShapeEditor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/shape_editor/editor/LineShapeEditor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/shape_editor/editor/ShapeEditor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/shape_editor/shapes/EllipseShape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/shape_editor/shapes/LineShape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/shape_editor/shapes/PointShape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/shape_editor/shapes/RectangleShape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/shape_editor/shapes/Shape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/utils/JsonFileReader.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab3/utils/Titles.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/MyEditor.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/EllipseShape.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineShape.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/PointShape.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/RectangleShape.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/Shape.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/JsonFileReader.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/Titles.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/module-info.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/edu/labs/lab3/menuTitles.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/edu/labs/lab4/images/lineSegmentWithCirclesAtEnds.svg" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/edu/labs/lab4/menuTitles.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2Y5b70wxLQBjGUt3nI4lii28y1K" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -71,19 +80,23 @@
       <recent name="F:\Labs\OOP\Lab3\src\main\resources\edu\labs\lab3\images" />
       <recent name="F:\Labs\OOP\Lab2\src\main\resources\edu\labs\lab2" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="edu.labs.lab4.shapes" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.labs.lab4" />
       <recent name="edu.labs.lab3" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="edu.labs.lab4.MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="edu.labs.lab3.MainWindow" />
-      <module name="Lab3" />
+      <option name="MAIN_CLASS_NAME" value="edu.labs.lab4.MainWindow" />
+      <module name="Lab4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.labs.lab3.*" />
+          <option name="PATTERN" value="edu.labs.lab4.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,7 +106,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainWindow" />
+        <item itemvalue="Application.edu.labs.lab4.MainWindow" />
       </list>
     </recent_temporary>
   </component>
@@ -116,8 +129,19 @@
       <workItem from="1700501185760" duration="8971000" />
       <workItem from="1700554437041" duration="10000" />
       <workItem from="1700558587663" duration="8018000" />
-      <workItem from="1701158788974" duration="6614000" />
-      <workItem from="1701275725131" duration="27000" />
+      <workItem from="1700733213929" duration="605000" />
+      <workItem from="1700734146754" duration="297000" />
+      <workItem from="1700734465546" duration="5181000" />
+      <workItem from="1700855372698" duration="2729000" />
+      <workItem from="1700908314382" duration="3247000" />
+      <workItem from="1701158766268" duration="19000" />
+      <workItem from="1701275753772" duration="2022000" />
+      <workItem from="1701447034738" duration="6269000" />
+      <workItem from="1701723732512" duration="1040000" />
+      <workItem from="1701766508186" duration="4693000" />
+      <workItem from="1701861793354" duration="2373000" />
+      <workItem from="1702056710725" duration="11464000" />
+      <workItem from="1702117283217" duration="6680000" />
     </task>
     <servers />
   </component>
