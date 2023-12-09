@@ -1,11 +1,10 @@
 package edu.labs.lab5.windows;
 
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -16,21 +15,41 @@ public class TableWindow {
     // Data model class
     public static class ShapeData {
         private final SimpleStringProperty name;
-        private final SimpleStringProperty x;
-        private final SimpleStringProperty y;
-        private final SimpleStringProperty z;
-        private final SimpleStringProperty w;
+        private final SimpleStringProperty x1;
+        private final SimpleStringProperty y1;
+        private final SimpleStringProperty x2;
+        private final SimpleStringProperty y2;
 
-        public ShapeData(String name, String x, String y, String z, String w) {
+        public ShapeData(String name, String x1, String y1, String x2, String y2) {
             this.name = new SimpleStringProperty(name);
-            this.x = new SimpleStringProperty(x);
-            this.y = new SimpleStringProperty(y);
-            this.z = new SimpleStringProperty(z);
-            this.w = new SimpleStringProperty(w);
+            this.x1 = new SimpleStringProperty(x1);
+            this.y1 = new SimpleStringProperty(y1);
+            this.x2 = new SimpleStringProperty(x2);
+            this.y2 = new SimpleStringProperty(y2);
         }
 
-        // getters and setters for each property...
+        public String getName() {
+            return name.get();
+        }
+
+        public String getX1() {
+            return x1.get();
+        }
+
+        public String getY1() {
+            return y1.get();
+        }
+
+        public String getX2() {
+            return x2.get();
+        }
+
+        public String getY2() {
+            return y2.get();
+        }
     }
+
+
 
     public TableWindow() {
         stage = new Stage();
@@ -41,14 +60,23 @@ public class TableWindow {
         table.setEditable(true);
 
         // Create columns
-        TableColumn<ShapeData, String> nameColumn = new TableColumn<>("Name");
-        TableColumn<ShapeData, String> xColumn = new TableColumn<>("X");
-        TableColumn<ShapeData, String> yColumn = new TableColumn<>("Y");
-        TableColumn<ShapeData, String> zColumn = new TableColumn<>("Z");
-        TableColumn<ShapeData, String> wColumn = new TableColumn<>("W");
+        TableColumn<ShapeData, String> nameColumn = new TableColumn<>("Назва");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        TableColumn<ShapeData, String> x1Column = new TableColumn<>("X1");
+        x1Column.setCellValueFactory(new PropertyValueFactory<>("x1"));
+
+        TableColumn<ShapeData, String> y1Column = new TableColumn<>("Y1");
+        y1Column.setCellValueFactory(new PropertyValueFactory<>("y1"));
+
+        TableColumn<ShapeData, String> x2Column = new TableColumn<>("X2");
+        x2Column.setCellValueFactory(new PropertyValueFactory<>("x2"));
+
+        TableColumn<ShapeData, String> y2Column = new TableColumn<>("Y2");
+        y2Column.setCellValueFactory(new PropertyValueFactory<>("y2"));
 
         // Add columns to the table
-        table.getColumns().addAll(nameColumn, xColumn, yColumn, zColumn, wColumn);
+        table.getColumns().addAll(nameColumn, x1Column, y1Column, x2Column, y2Column);
 
         // Create a VBox and add the table to it
         VBox vbox = new VBox(table);
@@ -64,8 +92,14 @@ public class TableWindow {
         stage.show();
     }
 
-    public void addRow(String name, String x, String y, String z, String w) {
-        ShapeData data = new ShapeData(name, x, y, z, w);
+    public void addRow(String name, String x1, String y1, String x2, String y2) {
+        ShapeData data = new ShapeData(name, x1, y1, x2, y2);
         table.getItems().add(data);
+    }
+
+    public void printTable() {
+        for (ShapeData data : table.getItems()) {
+            System.out.println("Name: " + data.name.get() + ", X1: " + data.x1.get() + ", Y1: " + data.y1.get() + ", X2: " + data.x2.get() + ", Y2: " + data.y2.get());
+        }
     }
 }

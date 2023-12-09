@@ -184,9 +184,6 @@ public class MainWindow extends Application {
         });
 
 
-        TableWindow tableWindow = new TableWindow();
-        tableWindow.show();
-        tableWindow.addRow("Shape1", "1", "2", "3", "4");
 
 
         double toolbarHeight = toolbar.getHeight();
@@ -202,6 +199,12 @@ public class MainWindow extends Application {
         borderPane.setCenter(pane);
         primaryStage.setScene(new Scene(borderPane, 900, 800));
         primaryStage.show();
+
+        TableWindow tableWindow = new TableWindow();
+        tableWindow.show();
+        tableWindow.addRow("Shape1", "1", "2", "3", "4");
+        tableWindow.addRow("Shape2", "1", "2", "3", "4");
+
 
         primaryStage.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
             canvas.setWidth((double) newSceneWidth);
