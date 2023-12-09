@@ -71,6 +71,27 @@ public class RectangleShape  extends Shape {
     }
 
 
+    public void setStartX(double startX) {
+        super.setStartX(startX);
+        calculateBounds();
+    }
+
+    public void setStartY(double startY) {
+        super.setStartY(startY);
+        calculateBounds();
+    }
+
+    public void setEndX(double endX) {
+        super.setEndX(endX);
+        calculateBounds();
+    }
+
+    public void setEndY(double endY) {
+        super.setEndY(endY);
+        calculateBounds();
+    }
+
+
 
 
     @Override

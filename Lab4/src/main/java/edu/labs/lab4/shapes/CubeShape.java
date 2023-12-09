@@ -52,7 +52,6 @@ public class CubeShape extends Shape {
         double offset = Math.min(endX - startX, endY - startY) / 2; // Adjust this value as needed
 
         // Update the positions of your rectangles (squares) here
-
         rectangles[0].setStartX(startX);
         rectangles[0].setStartY(startY);
         rectangles[0].setEndX(endX);
@@ -62,17 +61,6 @@ public class CubeShape extends Shape {
         rectangles[1].setStartY(startY + offset);
         rectangles[1].setEndX(endX + offset);
         rectangles[1].setEndY(endY + offset);
-
-        
-        rectangles[0].setLeft(startX - offset);
-        rectangles[0].setTop(startY - offset);
-        rectangles[0].setRight(endX - offset);
-        rectangles[0].setBottom(endY - offset);
-
-        rectangles[1].setLeft(startX);
-        rectangles[1].setTop(startY);
-        rectangles[1].setRight(endX);
-        rectangles[1].setBottom(endY);
 
         // Update the positions of your lines here
         lines[0].setStartX(rectangles[0].getLeft());
