@@ -23,6 +23,8 @@ public class Titles {
             public String rectangleShapeItemTitle;
             public String lineShapeItemTitle;
             public String pointShapeItemTitle;
+            public String lineSegmentWithCirclesAtEndsShapeItemTitle;
+            public String ParallelepipedShapeItemTitle;
         }
     }
 
@@ -41,6 +43,8 @@ public class Titles {
             public String rectangleShapeItemTitle;
             public String lineShapeItemTitle;
             public String pointShapeItemTitle;
+            public String lineSegmentWithCirclesAtEndsShapeItemTitle;
+            public String ParallelepipedShapeItemTitle;
         }
     }
 }

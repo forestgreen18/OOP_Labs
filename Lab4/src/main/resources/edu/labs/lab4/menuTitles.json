@@ -11,7 +11,9 @@
       "ellipseShapeItemTitle": "Еліпс",
       "rectangleShapeItemTitle": "Прямокутник",
       "lineShapeItemTitle": "Лінія",
-      "pointShapeItemTitle": "Точка"
+      "pointShapeItemTitle": "Точка",
+      "lineSegmentWithCirclesAtEndsShapeItemTitle": "Відрізок прямої з еліпсами на кінцях",
+      "ParallelepipedShapeItemTitle": "Паралелепіпед"
     }
   },
   "helpMenuTitle": "Довідка",
@@ -25,7 +27,9 @@
       "ellipseShapeItemTitle": "еліпс",
       "rectangleShapeItemTitle": "прямокутник",
       "lineShapeItemTitle": "лінію",
-      "pointShapeItemTitle": "точку"
+      "pointShapeItemTitle": "точку",
+      "lineSegmentWithCirclesAtEndsShapeItemTitle": "Відрізок прямої з еліпсами на кінцях",
+      "ParallelepipedShapeItemTitle": "Паралелепіпед"
     }
   }
 }

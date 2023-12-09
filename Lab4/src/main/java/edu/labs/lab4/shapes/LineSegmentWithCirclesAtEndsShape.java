@@ -5,7 +5,7 @@ import edu.labs.lab4.utils.geometry.LineCoordinates;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class LineSegmentWithCirclesAtEnds extends Shape {
+public class LineSegmentWithCirclesAtEndsShape extends Shape {
     private LineShape line;
     private EllipseShape startCircle;
     private EllipseShape endCircle;
@@ -15,7 +15,7 @@ public class LineSegmentWithCirclesAtEnds extends Shape {
     public static final Color previewStrokeColor = Color.RED;
     private double circleRadius = 10.0; // Radius of the circles
 
-    public LineSegmentWithCirclesAtEnds(double startX, double startY, double endX, double endY, GraphicsContext gc) {
+    public LineSegmentWithCirclesAtEndsShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
         super(startX, startY, endX, endY);
         LineCoordinates adjustedCoords = GeometryUtils.calculateAdjustedLineCoordinates(startX, startY, endX, endY, circleRadius);
 
@@ -51,6 +51,6 @@ public class LineSegmentWithCirclesAtEnds extends Shape {
 
     @Override
     public Shape clone() {
-        return new LineSegmentWithCirclesAtEnds(getStartX(), getStartY(), getEndX(), getEndY(), gc);
+        return new LineSegmentWithCirclesAtEndsShape(getStartX(), getStartY(), getEndX(), getEndY(), gc);
     }
 }

@@ -3,12 +3,12 @@ package edu.labs.lab4.shapes;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class CubeShape extends Shape {
+public class ParallelepipedShape extends Shape {
     private LineShape[] lines;
     private RectangleShape[] rectangles;
     private GraphicsContext gc;
 
-    public CubeShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
+    public ParallelepipedShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
         super(startX, startY, endX, endY);
         double offset = Math.min(endX - startX, endY - startY) / 2; // Adjust this value as needed
 
@@ -93,6 +93,6 @@ public class CubeShape extends Shape {
 
     @Override
     public Shape clone() {
-        return new CubeShape(getStartX(), getStartY(), getEndX(), getEndY(), gc);
+        return new ParallelepipedShape(getStartX(), getStartY(), getEndX(), getEndY(), gc);
     }
 }

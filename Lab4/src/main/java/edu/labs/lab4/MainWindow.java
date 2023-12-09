@@ -47,13 +47,15 @@ public class MainWindow extends Application {
         MenuItem rectangleShapeItem = new MenuItem(titles.shapesMenu.shapes.rectangleShapeItemTitle);
         MenuItem pointShapeItem = new MenuItem(titles.shapesMenu.shapes.pointShapeItemTitle);
         MenuItem lineShapeItem = new MenuItem(titles.shapesMenu.shapes.lineShapeItemTitle);
+        MenuItem lineSegmentWithCirclesAtEndsShapeItem = new MenuItem(titles.shapesMenu.shapes.lineSegmentWithCirclesAtEndsShapeItemTitle);
+        MenuItem ParallelepipedShapeItem = new MenuItem(titles.shapesMenu.shapes.ParallelepipedShapeItemTitle);
         MenuItem clearCanvasItem = new MenuItem(titles.toolbarMenu.actions.erase);
 
         // Add menuItems to the Menus
         fileMenu.getItems().addAll(newItem, openFileItem, exitItem);
 
         // Add menuItems to the shapesMenu
-        shapesMenu.getItems().addAll(ellipseShapeItem, rectangleShapeItem, pointShapeItem, lineShapeItem, clearCanvasItem);
+        shapesMenu.getItems().addAll(ellipseShapeItem, rectangleShapeItem, pointShapeItem, lineShapeItem, lineSegmentWithCirclesAtEndsShapeItem, ParallelepipedShapeItem, clearCanvasItem);
 
         // Add Menus to the MenuBar
         menuBar.getMenus().addAll(fileMenu, shapesMenu, helpMenu);
@@ -97,7 +99,7 @@ public class MainWindow extends Application {
                 switch (id) {
                     case "ellipseButton" ->
                         // set the event handler for drawing an ellipse
-                    button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new CubeShape(0,0,0,0,gc) ,  myEditor, canvas, handlers));
+                    button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new EllipseShape(0,0,0,0,gc) ,  myEditor, canvas, handlers));
 
                     case "rectangleButton" ->
                         // set the event handler for drawing a rectangle

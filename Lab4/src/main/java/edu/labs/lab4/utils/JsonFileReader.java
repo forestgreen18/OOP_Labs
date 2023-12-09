@@ -36,6 +36,8 @@ public class JsonFileReader {
             titles.shapesMenu.shapes.rectangleShapeItemTitle = shapes.getString("rectangleShapeItemTitle");
             titles.shapesMenu.shapes.lineShapeItemTitle = shapes.getString("lineShapeItemTitle");
             titles.shapesMenu.shapes.pointShapeItemTitle = shapes.getString("pointShapeItemTitle");
+            titles.shapesMenu.shapes.lineSegmentWithCirclesAtEndsShapeItemTitle = shapes.getString("lineSegmentWithCirclesAtEndsShapeItemTitle");
+            titles.shapesMenu.shapes.ParallelepipedShapeItemTitle = shapes.getString("ParallelepipedShapeItemTitle");
 
             JSONObject toolbarMenu = root.getJSONObject("toolbarMenu");  // Add this line
 
@@ -48,6 +50,9 @@ public class JsonFileReader {
             titles.toolbarMenu.shapes.rectangleShapeItemTitle = toolbarShapes.getString("rectangleShapeItemTitle");  // Add this line
             titles.toolbarMenu.shapes.lineShapeItemTitle = toolbarShapes.getString("lineShapeItemTitle");  // Add this line
             titles.toolbarMenu.shapes.pointShapeItemTitle = toolbarShapes.getString("pointShapeItemTitle");  // Add this line
+            titles.toolbarMenu.shapes.lineSegmentWithCirclesAtEndsShapeItemTitle = shapes.getString("lineSegmentWithCirclesAtEndsShapeItemTitle");
+            titles.toolbarMenu.shapes.ParallelepipedShapeItemTitle = shapes.getString("ParallelepipedShapeItemTitle");
+
 
             titles.helpMenuTitle = root.getString("helpMenuTitle");
             titles.selectMark = root.getString("selectMark");
