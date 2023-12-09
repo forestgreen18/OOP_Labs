@@ -48,14 +48,14 @@ public class MainWindow extends Application {
         MenuItem pointShapeItem = new MenuItem(titles.shapesMenu.shapes.pointShapeItemTitle);
         MenuItem lineShapeItem = new MenuItem(titles.shapesMenu.shapes.lineShapeItemTitle);
         MenuItem lineSegmentWithCirclesAtEndsShapeItem = new MenuItem(titles.shapesMenu.shapes.lineSegmentWithCirclesAtEndsShapeItemTitle);
-        MenuItem ParallelepipedShapeItem = new MenuItem(titles.shapesMenu.shapes.ParallelepipedShapeItemTitle);
+        MenuItem parallelepipedShapeItem = new MenuItem(titles.shapesMenu.shapes.parallelepipedShapeItemTitle);
         MenuItem clearCanvasItem = new MenuItem(titles.toolbarMenu.actions.erase);
 
         // Add menuItems to the Menus
         fileMenu.getItems().addAll(newItem, openFileItem, exitItem);
 
         // Add menuItems to the shapesMenu
-        shapesMenu.getItems().addAll(ellipseShapeItem, rectangleShapeItem, pointShapeItem, lineShapeItem, lineSegmentWithCirclesAtEndsShapeItem, ParallelepipedShapeItem, clearCanvasItem);
+        shapesMenu.getItems().addAll(ellipseShapeItem, rectangleShapeItem, pointShapeItem, lineShapeItem, lineSegmentWithCirclesAtEndsShapeItem, parallelepipedShapeItem, clearCanvasItem);
 
         // Add Menus to the MenuBar
         menuBar.getMenus().addAll(fileMenu, shapesMenu, helpMenu);
@@ -72,8 +72,10 @@ public class MainWindow extends Application {
             // Reset all menu items to their default state
             ellipseShapeItem.setText(titles.shapesMenu.shapes.ellipseShapeItemTitle);
             rectangleShapeItem.setText(titles.shapesMenu.shapes.rectangleShapeItemTitle);
-            lineShapeItem.setText(titles.shapesMenu.shapes.lineShapeItemTitle   );
+            lineShapeItem.setText(titles.shapesMenu.shapes.lineShapeItemTitle);
             pointShapeItem.setText(titles.shapesMenu.shapes.pointShapeItemTitle);
+            lineSegmentWithCirclesAtEndsShapeItem.setText(titles.shapesMenu.shapes.lineSegmentWithCirclesAtEndsShapeItemTitle);
+            parallelepipedShapeItem.setText(titles.shapesMenu.shapes.parallelepipedShapeItemTitle);
             // Add the tick to the currently selected shape
             if (shape instanceof EllipseShape) {
                 setupShape(titles.shapesMenu.shapes.ellipseShapeItemTitle, primaryStage, new EllipseShape(0,0,0,0,gc) ,  myEditor, canvas, handlers);
@@ -85,6 +87,10 @@ public class MainWindow extends Application {
             }
             else if (shape instanceof PointShape) {
                 setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, primaryStage, new PointShape(0,0,gc) ,  myEditor, canvas, handlers);
+            } else if (shape instanceof LineSegmentWithCirclesAtEndsShape) {
+                setupShape(titles.shapesMenu.shapes.lineSegmentWithCirclesAtEndsShapeItemTitle, primaryStage, new LineSegmentWithCirclesAtEndsShape(0,0,0,0,gc)  ,  myEditor, canvas, handlers);
+            } else if (shape instanceof ParallelepipedShape) {
+                setupShape(titles.shapesMenu.shapes.parallelepipedShapeItemTitle, primaryStage, new ParallelepipedShape(0,0,0,0,gc)  ,  myEditor, canvas, handlers);
             }
         });
 
@@ -110,6 +116,12 @@ public class MainWindow extends Application {
                    case "lineButton" ->
                       // set the event handler for drawing a line
                            button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.lineShapeItemTitle, primaryStage, new LineShape(0,0,0,0,gc),  myEditor, canvas, handlers));
+                    case "parallelepipedButton" ->
+                        // set the event handler for drawing a line
+                            button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.parallelepipedShapeItemTitle, primaryStage, new ParallelepipedShape(0,0,0,0,gc),  myEditor, canvas, handlers));
+                    case "lineSegmentWithCirclesAtEndsButton" ->
+                        // set the event handler for drawing a line
+                            button.setOnAction(e -> setupShape(titles.shapesMenu.shapes.lineSegmentWithCirclesAtEndsShapeItemTitle, primaryStage, new LineSegmentWithCirclesAtEndsShape(0,0,0,0,gc),  myEditor, canvas, handlers));
                    case "eraseButton" ->
                       // set the event handler for erasing
                          button.setOnAction(e -> {
@@ -145,6 +157,19 @@ public class MainWindow extends Application {
         pointShapeItem.setOnAction(e -> {
             setupShape(titles.shapesMenu.shapes.pointShapeItemTitle, primaryStage, new PointShape(0,0,gc),  myEditor, canvas, handlers);
             fireButtonById(toolbar, "pointButton");
+
+        });
+
+
+        lineSegmentWithCirclesAtEndsShapeItem.setOnAction(e -> {
+            setupShape(titles.shapesMenu.shapes.lineSegmentWithCirclesAtEndsShapeItemTitle, primaryStage, new LineSegmentWithCirclesAtEndsShape(0,0,0,0,gc),  myEditor, canvas, handlers);
+            fireButtonById(toolbar, "lineSegmentWithCirclesButton");
+
+        });
+
+        parallelepipedShapeItem.setOnAction(e -> {
+            setupShape(titles.shapesMenu.shapes.parallelepipedShapeItemTitle, primaryStage, new ParallelepipedShape(0,0,0,0,gc),  myEditor, canvas, handlers);
+            fireButtonById(toolbar, "parallelepipedButton");
 
         });
 

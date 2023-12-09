@@ -21,6 +21,10 @@ public class PaintToolBar {
         Button rectangleButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab4\\src\\main\\resources\\edu\\labs\\lab4\\images\\rectangle.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.rectangleShapeItemTitle, "rectangleButton");
         Button pointButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab4\\src\\main\\resources\\edu\\labs\\lab4\\images\\point.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.pointShapeItemTitle, "pointButton");
         Button lineButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab4\\src\\main\\resources\\edu\\labs\\lab4\\images\\line.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.lineShapeItemTitle,"lineButton");
+
+        Button parallelepipedButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab4\\src\\main\\resources\\edu\\labs\\lab4\\images\\parallelepiped.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.parallelepipedShapeItemTitle, "parallelepipedButton");
+        Button lineSegmentWithCirclesAtEndsButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab4\\src\\main\\resources\\edu\\labs\\lab4\\images\\lineSegmentWithCirclesAtEnds.svg", buttonHeight, titles.toolbarMenu.actions.draw + titles.toolbarMenu.shapes.lineSegmentWithCirclesAtEndsShapeItemTitle,"lineSegmentWithCirclesAtEndsButton");
+
         Button eraseButton = createButtonWithSVG("F:\\Labs\\OOP\\Lab4\\src\\main\\resources\\edu\\labs\\lab4\\images\\erase.svg", buttonHeight, titles.toolbarMenu.actions.erase, "eraseButton");
 
         ToolBar toolBar = new ToolBar(
@@ -28,6 +32,8 @@ public class PaintToolBar {
                 rectangleButton,
                 pointButton,
                 lineButton,
+                parallelepipedButton,
+                lineSegmentWithCirclesAtEndsButton,
                 new Separator(),
                 eraseButton
         );

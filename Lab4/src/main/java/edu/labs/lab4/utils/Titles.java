@@ -24,7 +24,7 @@ public class Titles {
             public String lineShapeItemTitle;
             public String pointShapeItemTitle;
             public String lineSegmentWithCirclesAtEndsShapeItemTitle;
-            public String ParallelepipedShapeItemTitle;
+            public String parallelepipedShapeItemTitle;
         }
     }
 
@@ -44,7 +44,7 @@ public class Titles {
             public String lineShapeItemTitle;
             public String pointShapeItemTitle;
             public String lineSegmentWithCirclesAtEndsShapeItemTitle;
-            public String ParallelepipedShapeItemTitle;
+            public String parallelepipedShapeItemTitle;
         }
     }
 }

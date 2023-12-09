@@ -12,9 +12,9 @@
     <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/CubeShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/ParallelepipedShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineSegmentWithCirclesAtEnds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineSegmentWithCirclesAtEndsShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/ui/PaintToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/ui/PaintToolBar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/JsonFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/JsonFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/SVGReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/SVGReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/Titles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/Titles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/edu/labs/lab4/menuTitles.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/labs/lab4/menuTitles.json" afterDir="false" />
     </list>
@@ -47,6 +47,7 @@
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/JsonFileReader.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/Titles.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/module-info.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/edu/labs/lab4/images/lineSegmentWithCirclesAtEnds.svg" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/edu/labs/lab4/menuTitles.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -145,7 +146,7 @@
       <workItem from="1701766508186" duration="4693000" />
       <workItem from="1701861793354" duration="2373000" />
       <workItem from="1702056710725" duration="11464000" />
-      <workItem from="1702117283217" duration="1606000" />
+      <workItem from="1702117283217" duration="5993000" />
     </task>
     <servers />
   </component>

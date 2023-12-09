@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class SVGReader {
 
     public static String readSVGFile(String filePath) {
-        String content = "";
+        StringBuilder content = new StringBuilder();
 
         try {
             // Read the entire SVG file
@@ -21,14 +21,15 @@ public class SVGReader {
             // Create a Matcher object
             Matcher matcher = pattern.matcher(svgContent);
 
-            // Find the SVG path data
-            if (matcher.find()) {
-                content = matcher.group(1);
+            // Find all SVG path data
+            while (matcher.find()) {
+                content.append(matcher.group(1)).append("\n");
             }
         } catch (IOException e) {
             System.err.println("Error reading SVG file: " + e.getMessage());
         }
 
-        return content;
+        return content.toString();
     }
+
 }

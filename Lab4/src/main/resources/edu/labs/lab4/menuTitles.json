@@ -13,7 +13,7 @@
       "lineShapeItemTitle": "Лінія",
       "pointShapeItemTitle": "Точка",
       "lineSegmentWithCirclesAtEndsShapeItemTitle": "Відрізок прямої з еліпсами на кінцях",
-      "ParallelepipedShapeItemTitle": "Паралелепіпед"
+      "parallelepipedShapeItemTitle": "Паралелепіпед"
     }
   },
   "helpMenuTitle": "Довідка",
@@ -29,7 +29,7 @@
       "lineShapeItemTitle": "лінію",
       "pointShapeItemTitle": "точку",
       "lineSegmentWithCirclesAtEndsShapeItemTitle": "Відрізок прямої з еліпсами на кінцях",
-      "ParallelepipedShapeItemTitle": "Паралелепіпед"
+      "parallelepipedShapeItemTitle": "Паралелепіпед"
     }
   }
 }
