@@ -184,6 +184,11 @@ public class MainWindow extends Application {
         });
 
 
+        TableWindow tableWindow = new TableWindow();
+        tableWindow.show();
+        tableWindow.addRow("Shape1", "1", "2", "3", "4");
+
+
         double toolbarHeight = toolbar.getHeight();
         double menuHeight = menuBar.getHeight();
 
