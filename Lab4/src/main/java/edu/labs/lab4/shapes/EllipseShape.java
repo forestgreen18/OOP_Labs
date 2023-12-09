@@ -3,10 +3,6 @@ package edu.labs.lab4.shapes;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 public class EllipseShape extends Shape  {
-    private double startX;
-    private double startY;
-    private double endX;
-    private double endY;
     private GraphicsContext gc;
     public static final Color fillColor = Color.CYAN;
     public static final Color strokeColor = Color.BLACK;
@@ -14,45 +10,8 @@ public class EllipseShape extends Shape  {
 
     public EllipseShape(double startX, double startY, double endX, double endY, GraphicsContext gc) {
         super(startX, startY, endX, endY);
-        this.startX = startX;
-        this.startY = startY;
-        this.endX = endX;
-        this.endY = endY;
         this.gc = gc;
     }
-
-    public double getStartX() {
-        return startX;
-    }
-
-    public void setStartX(double startX) {
-        this.startX = startX;
-    }
-
-    public double getStartY() {
-        return startY;
-    }
-
-    public void setStartY(double startY) {
-        this.startY = startY;
-    }
-
-    public double getEndX() {
-        return endX;
-    }
-
-    public void setEndX(double endX) {
-        this.endX = endX;
-    }
-
-    public double getEndY() {
-        return endY;
-    }
-
-    public void setEndY(double endY) {
-        this.endY = endY;
-    }
-
 
     @Override
     public void draw(GraphicsContext gc) {
@@ -69,10 +28,10 @@ public class EllipseShape extends Shape  {
     }
 
     public void draw(GraphicsContext gc, Color strokeColor, Color fillColor, boolean dashed) {
-        double centerX = (startX + endX) / 2;
-        double centerY = (startY + endY) / 2;
-        double width = Math.abs(startX - endX);
-        double height = Math.abs(startY - endY);
+        double centerX = (this.getStartX() + this.getEndX()) / 2;
+        double centerY = (this.getStartY() + this.getEndY()) / 2;
+        double width = Math.abs(this.getStartX() - this.getEndX());
+        double height = Math.abs(this.getStartY() - this.getEndY());
 
         gc.setFill(fillColor);
         gc.setStroke(strokeColor);
@@ -109,7 +68,7 @@ public class EllipseShape extends Shape  {
 
     @Override
     public EllipseShape clone() {
-        return new EllipseShape(this.startX, this.startY, this.endX, this.endY, this.gc);
+        return new EllipseShape(this.getStartX(), this.getStartY(), this.getEndX(), this.getEndY(), this.gc);
     }
 
 
