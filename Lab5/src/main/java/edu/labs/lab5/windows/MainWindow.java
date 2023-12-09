@@ -1,10 +1,10 @@
-package edu.labs.lab5;
+package edu.labs.lab5.windows;
 
+import edu.labs.lab5.editor.Editor;
 import edu.labs.lab5.shapes.*;
 import edu.labs.lab5.utils.fileReaders.JsonFileReader;
 import edu.labs.lab5.utils.fileReaders.Titles;
 import edu.labs.lab5.ui.PaintToolBar;
-import edu.labs.lab5.shapes.*;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;

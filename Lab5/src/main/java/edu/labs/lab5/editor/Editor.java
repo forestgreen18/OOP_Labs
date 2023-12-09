@@ -1,4 +1,4 @@
-package edu.labs.lab5;
+package edu.labs.lab5.editor;
 
 
 import edu.labs.lab5.shapes.Shape;

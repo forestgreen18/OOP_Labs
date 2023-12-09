@@ -6,6 +6,9 @@ module edu.labs.lab5 {
     requires org.kordamp.bootstrapfx.core;
     requires org.json;
 
-    opens edu.labs.lab5 to javafx.fxml;
-    exports edu.labs.lab5;
+
+    exports edu.labs.lab5.windows;
+    opens edu.labs.lab5.windows to javafx.fxml;
+    exports edu.labs.lab5.editor;
+    opens edu.labs.lab5.editor to javafx.fxml;
 }
