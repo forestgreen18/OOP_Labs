@@ -66,7 +66,8 @@ public class MainWindow extends Application {
 
         Canvas canvas = new Canvas(800, 600);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        Editor editor = new Editor(gc);
+        Editor editor = Editor.getInstance();
+        editor.setGraphicsContext(gc);
         List<EventHandler<MouseEvent>> handlers = new ArrayList<>();
 
 

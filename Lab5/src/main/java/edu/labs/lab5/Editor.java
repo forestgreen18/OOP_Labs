@@ -21,8 +21,21 @@ public class Editor extends Application {
 
     private GraphicsContext gc;
 
+    // Private static class that holds the Singleton
+    private static class Holder {
+        private static final Editor INSTANCE = new Editor();
+    }
 
-    public Editor(GraphicsContext gc) {
+    // Private constructor to prevent instantiation
+    private Editor() {}
+
+    // Method to get the singleton instance
+    public static Editor getInstance() {
+        return Holder.INSTANCE;
+    }
+
+    // Method to set the GraphicsContext
+    public void setGraphicsContext(GraphicsContext gc) {
         this.gc = gc;
     }
 
