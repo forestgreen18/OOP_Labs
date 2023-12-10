@@ -2,6 +2,8 @@ package edu.labs.lab5.editor;
 
 
 import edu.labs.lab5.shapes.Shape;
+import edu.labs.lab5.utils.fileReaders.JsonFileReader;
+import edu.labs.lab5.utils.fileReaders.Titles;
 import edu.labs.lab5.windows.TableWindow;
 import javafx.application.Application;
 import javafx.scene.canvas.GraphicsContext;
@@ -24,6 +26,9 @@ public class Editor extends Application {
     private boolean isDrawing;
 
     private GraphicsContext gc;
+    JsonFileReader jsonFileReader = new JsonFileReader();
+    Titles titles = jsonFileReader.readJsonFile();
+
 
     // Private static class that holds the Singleton
     private static class Holder {
@@ -31,7 +36,10 @@ public class Editor extends Application {
     }
 
     // Private constructor to prevent instantiation
-    private Editor() {}
+    private Editor() {
+
+
+    }
 
     // Method to get the singleton instance
     public static Editor getInstance() {
@@ -132,19 +140,41 @@ public class Editor extends Application {
     }
 
     public TableWindow.ShapeData getShapeData(Shape shape) {
-        String name = shape.getClass().getSimpleName();
-        String x1 = Double.toString(shape.getStartX());
-        String y1 = Double.toString(shape.getStartY());
-        String x2 = Double.toString(shape.getEndX());
-        String y2 = Double.toString(shape.getEndY());
+        String name = getShapeTitle(shape.getClass().getSimpleName());
+        String x1 = String.format("%.2f", shape.getStartX());
+        String y1 = String.format("%.2f", shape.getStartY());
+        String x2 = String.format("%.2f", shape.getEndX());
+        String y2 = String.format("%.2f", shape.getEndY());
         return new TableWindow.ShapeData(name, x1, y1, x2, y2);
     }
+
 
 
     public void updateTable(Shape shape) {
         TableWindow.ShapeData data = getShapeData(shape);
         tableWindow.addRow(data.getName(), data.getX1(), data.getY1(), data.getX2(), data.getY2());
     }
+
+
+    public String getShapeTitle(String className) {
+        switch (className) {
+            case "EllipseShape":
+                return titles.shapesMenu.shapes.ellipseShapeItemTitle;
+            case "RectangleShape":
+                return titles.shapesMenu.shapes.rectangleShapeItemTitle;
+            case "LineShape":
+                return titles.shapesMenu.shapes.lineShapeItemTitle;
+            case "PointShape":
+                return titles.shapesMenu.shapes.pointShapeItemTitle;
+            case "LineSegmentWithCirclesAtEndsShape":
+                return titles.shapesMenu.shapes.lineSegmentWithCirclesAtEndsShapeItemTitle;
+            case "ParallelepipedShape":
+                return titles.shapesMenu.shapes.parallelepipedShapeItemTitle;
+            default:
+                return "";
+        }
+    }
+
 
 
 }
