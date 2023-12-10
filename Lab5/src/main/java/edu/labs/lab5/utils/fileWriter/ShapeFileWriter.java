@@ -23,7 +23,7 @@ public class ShapeFileWriter {
 
 
 
-    private void clearFileIfExists() {
+    private void deleteFileIfExists() {
         Path path = Paths.get(filename);
         if (Files.exists(path)) {
             try {
@@ -35,10 +35,21 @@ public class ShapeFileWriter {
         }
     }
 
+    public void clearFileContent() {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename, false))) {
+            // PrintWriter initiated with FileWriter having append flag as false will overwrite the file,
+            // effectively clearing it.
+        } catch (IOException e) {
+            System.out.println("An error occurred while clearing the file content.");
+            e.printStackTrace();
+        }
+    }
+
+
 
     public ShapeFileWriter(String filename) {
         this.filename = filename;
-        clearFileIfExists();
+        deleteFileIfExists();
     }
 
     public void writeShape(Shape shape) {

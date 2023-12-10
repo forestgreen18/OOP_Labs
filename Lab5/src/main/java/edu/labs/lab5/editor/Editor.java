@@ -106,6 +106,7 @@ public class Editor extends Application {
 
         // Clear the table
         tableWindow.clearTable();
+        writer.clearFileContent();
     }
 
 
