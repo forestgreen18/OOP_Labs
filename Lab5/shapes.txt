@@ -1,5 +1,3 @@
-LineSegmentWithCirclesAtEndsShape	252,00	92,00	274,40	161,60
-LineSegmentWithCirclesAtEndsShape	230,40	268,80	455,20	216,80
-LineSegmentWithCirclesAtEndsShape	519,20	168,80	188,80	103,20
-LineSegmentWithCirclesAtEndsShape	124,80	84,80	214,40	231,20
-RectangleShape	68,00	173,60	223,20	286,40
+ParallelepipedShape	139,20	212,80	220,00	271,20
+ParallelepipedShape	218,40	344,80	321,60	224,80
+ParallelepipedShape	420,80	210,40	319,20	222,40

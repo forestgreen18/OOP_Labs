@@ -10,6 +10,9 @@ import edu.labs.lab5.windows.TableWindow;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 
 public class ShapeFileWriter {
@@ -18,8 +21,24 @@ public class ShapeFileWriter {
 
     private String filename;
 
+
+
+    private void clearFileIfExists() {
+        Path path = Paths.get(filename);
+        if (Files.exists(path)) {
+            try {
+                Files.delete(path);
+            } catch (IOException e) {
+                System.out.println("An error occurred while deleting the file.");
+                e.printStackTrace();
+            }
+        }
+    }
+
+
     public ShapeFileWriter(String filename) {
         this.filename = filename;
+        clearFileIfExists();
     }
 
     public void writeShape(Shape shape) {
