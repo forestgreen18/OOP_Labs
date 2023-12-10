@@ -4,6 +4,7 @@ package edu.labs.lab5.editor;
 import edu.labs.lab5.shapes.Shape;
 import edu.labs.lab5.utils.fileReaders.JsonFileReader;
 import edu.labs.lab5.utils.fileReaders.Titles;
+import edu.labs.lab5.utils.fileWriter.ShapeFileWriter;
 import edu.labs.lab5.windows.TableWindow;
 import javafx.application.Application;
 import javafx.scene.canvas.GraphicsContext;
@@ -66,6 +67,8 @@ public class Editor extends Application {
             redrawShapes();
 
             updateTable(shape);
+            ShapeFileWriter writer = new ShapeFileWriter("shapes.txt");
+            writer.writeShape(shape);
         }
     }
 
