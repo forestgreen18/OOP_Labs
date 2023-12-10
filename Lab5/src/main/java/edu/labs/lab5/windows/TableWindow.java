@@ -21,6 +21,15 @@ public class TableWindow {
         return instance;
     }
 
+    public boolean isShowing() {
+        return stage.isShowing();
+    }
+
+    public void hide() {
+        stage.hide();
+    }
+
+
     // Data model class
     public static class ShapeData {
         private final SimpleStringProperty name;

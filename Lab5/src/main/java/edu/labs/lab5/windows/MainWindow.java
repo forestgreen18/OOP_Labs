@@ -79,6 +79,17 @@ public class MainWindow extends Application {
 
 
 
+        showCoordinatesTableItem.setOnAction(e -> {
+            if (tableWindow.isShowing()) {
+                tableWindow.hide();
+                showCoordinatesTableItem.setText(titles.helpMenu.items.showCoordinatesTableItemTitle);
+            } else {
+                showCoordinatesTableItem.setText("Сховати таблицю з координатами");
+                tableWindow.show();
+            }
+        });
+
+
 
         shapesMenu.setOnShowing(e -> {
             // Reset all menu items to their default state
