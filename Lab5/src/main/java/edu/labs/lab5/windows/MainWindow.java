@@ -200,21 +200,9 @@ public class MainWindow extends Application {
         primaryStage.setScene(new Scene(borderPane, 900, 800));
         primaryStage.show();
 
-        TableWindow tableWindow = new TableWindow();
+
+        TableWindow tableWindow = TableWindow.getInstance();
         tableWindow.show();
-        tableWindow.addRow("Shape1", "1", "2", "3", "4");
-        tableWindow.addRow("Shape2", "1", "2", "3", "4");
-
-        List<TableWindow.ShapeData> shapeDataList = editor.getShapeData();
-        for (TableWindow.ShapeData shapeData : shapeDataList) {
-            tableWindow.addRow(shapeData.getName(), shapeData.getX1(), shapeData.getY1(), shapeData.getX2(), shapeData.getY2());
-            tableWindow.printTable();
-            System.out.println("It is run");
-        }
-
-
-
-
 
         primaryStage.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
             canvas.setWidth((double) newSceneWidth);

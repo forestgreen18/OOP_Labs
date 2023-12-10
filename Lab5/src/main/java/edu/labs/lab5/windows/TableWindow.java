@@ -9,8 +9,17 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class TableWindow {
+    private static TableWindow instance;
+
     private Stage stage;
     private TableView<ShapeData> table;
+
+    public static TableWindow getInstance() {
+        if (instance == null) {
+            instance = new TableWindow();
+        }
+        return instance;
+    }
 
     // Data model class
     public static class ShapeData {
@@ -51,7 +60,7 @@ public class TableWindow {
 
 
 
-    public TableWindow() {
+    private TableWindow() {
         stage = new Stage();
         stage.setTitle("Table Window");
 

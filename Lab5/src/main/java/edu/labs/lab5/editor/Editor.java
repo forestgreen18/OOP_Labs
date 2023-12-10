@@ -54,6 +54,10 @@ public class Editor extends Application {
         if (shapes.size() < 108) {
             shapes.add(shape);
             redrawShapes();
+
+            TableWindow tableWindow = TableWindow.getInstance();
+            TableWindow.ShapeData data = getShapeData(shape);
+            tableWindow.addRow(data.getName(), data.getX1(), data.getY1(), data.getX2(), data.getY2());
         }
     }
 
@@ -124,17 +128,14 @@ public class Editor extends Application {
         return shapes;
     }
 
-    public List<TableWindow.ShapeData> getShapeData() {
-        List<TableWindow.ShapeData> shapeDataList = new ArrayList<>();
-        for (Shape shape : shapes) {
-            String name = shape.getClass().getSimpleName();
-            String x1 = Double.toString(shape.getStartX());
-            String y1 = Double.toString(shape.getStartY());
-            String x2 = Double.toString(shape.getEndX());
-            String y2 = Double.toString(shape.getEndY());
-            shapeDataList.add(new TableWindow.ShapeData(name, x1, y1, x2, y2));
-        }
-        return shapeDataList;
+    public TableWindow.ShapeData getShapeData(Shape shape) {
+        String name = shape.getClass().getSimpleName();
+        String x1 = Double.toString(shape.getStartX());
+        String y1 = Double.toString(shape.getStartY());
+        String x2 = Double.toString(shape.getEndX());
+        String y2 = Double.toString(shape.getEndY());
+        return new TableWindow.ShapeData(name, x1, y1, x2, y2);
     }
+
 
 }
