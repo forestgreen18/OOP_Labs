@@ -1,5 +1,6 @@
 package edu.labs.lab5.windows;
 
+import edu.labs.lab5.utils.fileWriter.ShapeFileWriter;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
