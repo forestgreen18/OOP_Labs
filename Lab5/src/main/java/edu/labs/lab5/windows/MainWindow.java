@@ -30,7 +30,7 @@ public class MainWindow extends Application {
         JsonFileReader jsonFileReader = new JsonFileReader();
         Titles titles = jsonFileReader.readJsonFile();
 
-        primaryStage.setTitle("Lab #4");
+        primaryStage.setTitle("Lab #5");
 
         // Create MenuBar
         MenuBar menuBar = new MenuBar();
@@ -38,7 +38,7 @@ public class MainWindow extends Application {
         // Create menus
         Menu fileMenu = new Menu(titles.fileMenu.title);
         Menu shapesMenu = new Menu(titles.shapesMenu.title);
-        Menu helpMenu = new Menu(titles.helpMenuTitle);
+        Menu helpMenu = new Menu(titles.helpMenu.title);
 
         // Create MenuItems
         MenuItem newItem = new MenuItem(titles.fileMenu.newItemTitle);
@@ -54,6 +54,8 @@ public class MainWindow extends Application {
         MenuItem parallelepipedShapeItem = new MenuItem(titles.shapesMenu.shapes.parallelepipedShapeItemTitle);
         MenuItem clearCanvasItem = new MenuItem(titles.toolbarMenu.actions.erase);
 
+        MenuItem showCoordinatesTableItem = new MenuItem(titles.helpMenu.items.showCoordinatesTableItemTitle);
+
         // Add menuItems to the Menus
         fileMenu.getItems().addAll(newItem, openFileItem, exitItem);
 
@@ -63,12 +65,18 @@ public class MainWindow extends Application {
         // Add Menus to the MenuBar
         menuBar.getMenus().addAll(fileMenu, shapesMenu, helpMenu);
 
+        // Add Menus to the HelpMenu
+        helpMenu.getItems().addAll(showCoordinatesTableItem);
+
 
         Canvas canvas = new Canvas(800, 600);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         Editor editor = Editor.getInstance();
         editor.setGraphicsContext(gc);
         List<EventHandler<MouseEvent>> handlers = new ArrayList<>();
+
+        TableWindow tableWindow = TableWindow.getInstance();
+
 
 
 
@@ -201,8 +209,7 @@ public class MainWindow extends Application {
         primaryStage.show();
 
 
-        TableWindow tableWindow = TableWindow.getInstance();
-        tableWindow.show();
+
 
         primaryStage.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
             canvas.setWidth((double) newSceneWidth);

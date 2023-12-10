@@ -3,7 +3,8 @@ package edu.labs.lab5.utils.fileReaders;
 public class Titles {
     public FileMenu fileMenu;
     public ShapesMenu shapesMenu;
-    public String helpMenuTitle;
+    public HelpMenu helpMenu;
+
     public String selectMark;
     public ToolbarMenu toolbarMenu;  // Add this line
 
@@ -27,6 +28,16 @@ public class Titles {
             public String parallelepipedShapeItemTitle;
         }
     }
+
+    public static class HelpMenu {
+        public String title;
+        public Items items;
+
+        public static class Items {
+            public String showCoordinatesTableItemTitle;
+        }
+    }
+
 
     // Add this new class
     public static class ToolbarMenu {

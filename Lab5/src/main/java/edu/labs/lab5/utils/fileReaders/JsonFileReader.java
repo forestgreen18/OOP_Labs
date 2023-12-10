@@ -10,7 +10,7 @@ import java.io.InputStream;
 public class JsonFileReader {
     public Titles readJsonFile() {
         try {
-            InputStream is = new FileInputStream("F:\\Labs\\OOP\\Lab4\\src\\main\\resources\\edu\\labs\\lab4\\menuTitles.json");
+            InputStream is = new FileInputStream("F:\\Labs\\OOP\\Lab5\\src\\main\\resources\\edu\\labs\\lab4\\menuTitles.json");
             JSONTokener tokener = new JSONTokener(is);
             JSONObject root = new JSONObject(tokener);
 
@@ -21,6 +21,8 @@ public class JsonFileReader {
             titles.toolbarMenu = new Titles.ToolbarMenu();  // Add this line
             titles.toolbarMenu.actions = new Titles.ToolbarMenu.Actions();  // Add this line
             titles.toolbarMenu.shapes = new Titles.ToolbarMenu.ShapeTitles();  // Add this
+            titles.helpMenu = new Titles.HelpMenu();
+            titles.helpMenu.items = new Titles.HelpMenu.Items();
 
             JSONObject fileMenu = root.getJSONObject("fileMenu");
             titles.fileMenu.title = fileMenu.getString("title");
@@ -54,7 +56,12 @@ public class JsonFileReader {
             titles.toolbarMenu.shapes.parallelepipedShapeItemTitle = shapes.getString("parallelepipedShapeItemTitle");
 
 
-            titles.helpMenuTitle = root.getString("helpMenuTitle");
+            JSONObject helpMenu = root.getJSONObject("helpMenu");
+            titles.helpMenu.title = helpMenu.getString("title");
+            JSONObject items = helpMenu.getJSONObject("items");
+            titles.helpMenu.items.showCoordinatesTableItemTitle = items.getString("showCoordinatesTableItemTitle");
+
+
             titles.selectMark = root.getString("selectMark");
 
             return titles;

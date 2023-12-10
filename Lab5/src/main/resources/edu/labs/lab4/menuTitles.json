@@ -16,7 +16,12 @@
       "parallelepipedShapeItemTitle": "Паралелепіпед"
     }
   },
-  "helpMenuTitle": "Довідка",
+  "helpMenu": {
+    "title": "Довідка",
+    "items": {
+      "showCoordinatesTableItemTitle": "Показати таблицю з координатами"
+    }
+  },
   "selectMark": " ✔",
   "toolbarMenu": {
     "actions": {
