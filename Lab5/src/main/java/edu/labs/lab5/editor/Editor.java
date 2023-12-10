@@ -68,7 +68,6 @@ public class Editor extends Application {
             redrawShapes();
 
             updateTable(shape);
-
             writer.writeShape(shape);
         }
     }
@@ -139,6 +138,14 @@ public class Editor extends Application {
     public void setCurrentShape(Shape currentShape) {
         this.currentShape = currentShape;
     }
+
+    public void setShapes(ArrayList<Shape> newShapes) {
+        for (Shape shape : newShapes) {
+            addShape(shape);
+        }
+    }
+
+
 
     public ArrayList<Shape> getShapes() {
         return shapes;

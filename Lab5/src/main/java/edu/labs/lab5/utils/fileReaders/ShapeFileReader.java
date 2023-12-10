@@ -24,10 +24,10 @@ public class ShapeFileReader {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split("\t");
                 String shapeType = parts[0];
-                double startX = Double.parseDouble(parts[1]);
-                double startY = Double.parseDouble(parts[2]);
-                double endX = Double.parseDouble(parts[3]);
-                double endY = Double.parseDouble(parts[4]);
+                double startX = Double.parseDouble(parts[1].replace(",", "."));
+                double startY = Double.parseDouble(parts[2].replace(",", "."));
+                double endX = Double.parseDouble(parts[3].replace(",", "."));
+                double endY = Double.parseDouble(parts[4].replace(",", "."));
                 Shape shape = createShape(shapeType, startX, startY, endX, endY, gc);
                 shapes.add(shape);
             }
@@ -37,6 +37,7 @@ public class ShapeFileReader {
         }
         return shapes;
     }
+
 
     private Shape createShape(String shapeType, double startX, double startY, double endX, double endY, GraphicsContext gc) {
         switch (shapeType) {

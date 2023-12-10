@@ -3,6 +3,7 @@ package edu.labs.lab5.windows;
 import edu.labs.lab5.editor.Editor;
 import edu.labs.lab5.shapes.*;
 import edu.labs.lab5.utils.fileReaders.JsonFileReader;
+import edu.labs.lab5.utils.fileReaders.ShapeFileReader;
 import edu.labs.lab5.utils.fileReaders.Titles;
 import edu.labs.lab5.ui.PaintToolBar;
 import javafx.application.Application;
@@ -76,8 +77,8 @@ public class MainWindow extends Application {
         List<EventHandler<MouseEvent>> handlers = new ArrayList<>();
 
         TableWindow tableWindow = TableWindow.getInstance();
-
-
+        ShapeFileReader reader = new ShapeFileReader("saved_shapes.txt");
+        ArrayList<Shape> newShapes = reader.readShapes(gc);
 
         showCoordinatesTableItem.setOnAction(e -> {
             if (tableWindow.isShowing()) {
@@ -200,7 +201,15 @@ public class MainWindow extends Application {
             primaryStage.setTitle(titles.toolbarMenu.actions.erase);
             editor.clearCanvas();
             fireButtonById(toolbar, "eraseButton");
+
         });
+
+        openFileItem.setOnAction(e -> {
+            editor.setShapes(newShapes);
+        });
+
+
+
 
 
 
