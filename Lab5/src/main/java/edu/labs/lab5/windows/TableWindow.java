@@ -111,4 +111,9 @@ public class TableWindow {
             System.out.println("Name: " + data.name.get() + ", X1: " + data.x1.get() + ", Y1: " + data.y1.get() + ", X2: " + data.x2.get() + ", Y2: " + data.y2.get());
         }
     }
+
+    public void clearTable() {
+        table.getItems().clear();
+    }
+
 }

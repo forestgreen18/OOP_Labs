@@ -91,6 +91,9 @@ public class Editor extends Application {
         // Reset the shapes array
         shapes.clear();
         shapeCount = 0;
+
+        // Clear the table
+        tableWindow.clearTable();
     }
 
 
