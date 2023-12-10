@@ -2,12 +2,19 @@ package edu.labs.lab5.utils.fileWriter;
 
 
 import edu.labs.lab5.shapes.Shape;
+import edu.labs.lab5.utils.dataFormatters.ShapeUtils;
+import edu.labs.lab5.utils.fileReaders.JsonFileReader;
+import edu.labs.lab5.utils.fileReaders.Titles;
+import edu.labs.lab5.windows.TableWindow;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
 public class ShapeFileWriter {
+    static JsonFileReader jsonFileReader = new JsonFileReader();
+    private static Titles titles = jsonFileReader.readJsonFile(); // Assuming Titles is a class that holds the titles.
 
     private String filename;
 
@@ -17,14 +24,17 @@ public class ShapeFileWriter {
 
     public void writeShape(Shape shape) {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename, true))) {
-            writer.println(shape.getClass().getSimpleName() + "\t" +
-                    shape.getStartX() + "\t" +
-                    shape.getStartY() + "\t" +
-                    shape.getEndX() + "\t" +
-                    shape.getEndY());
+            ShapeUtils shapeUtils = new ShapeUtils(titles); // Assuming titles is available here
+            TableWindow.ShapeData data = shapeUtils.getShapeDataWithoutTitle(shape);
+            writer.println(data.getName() + "\t" +
+                    data.getX1() + "\t" +
+                    data.getY1() + "\t" +
+                    data.getX2() + "\t" +
+                    data.getY2());
         } catch (IOException e) {
             System.out.println("An error occurred while writing to the file.");
             e.printStackTrace();
         }
     }
+
 }
