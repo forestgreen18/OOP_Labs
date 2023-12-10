@@ -8,28 +8,28 @@ import java.util.regex.Pattern;
 
 public class SVGReader {
 
-    public static String readSVGFile(String filePath) {
-        StringBuilder content = new StringBuilder();
+  public static String readSVGFile(String filePath) {
+    StringBuilder content = new StringBuilder();
 
-        try {
-            // Read the entire SVG file
-            String svgContent = new String(Files.readAllBytes(Paths.get(filePath)));
+    try {
+      // Read the entire SVG file
+      String svgContent = new String(Files.readAllBytes(Paths.get(filePath)));
 
-            // Create a Pattern object for the SVG path data
-            Pattern pattern = Pattern.compile("<path[^>]*d=\"([^\"]*)\"[^>]*>");
+      // Create a Pattern object for the SVG path data
+      Pattern pattern = Pattern.compile("<path[^>]*d=\"([^\"]*)\"[^>]*>");
 
-            // Create a Matcher object
-            Matcher matcher = pattern.matcher(svgContent);
+      // Create a Matcher object
+      Matcher matcher = pattern.matcher(svgContent);
 
-            // Find all SVG path data
-            while (matcher.find()) {
-                content.append(matcher.group(1)).append("\n");
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading SVG file: " + e.getMessage());
-        }
-
-        return content.toString();
+      // Find all SVG path data
+      while (matcher.find()) {
+        content.append(matcher.group(1)).append("\n");
+      }
+    } catch (IOException e) {
+      System.err.println("Error reading SVG file: " + e.getMessage());
     }
+
+    return content.toString();
+  }
 
 }
