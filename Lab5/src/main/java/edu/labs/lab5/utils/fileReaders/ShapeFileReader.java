@@ -1,7 +1,6 @@
 package edu.labs.lab5.utils.fileReaders;
 
-import edu.labs.lab5.shapes.RectangleShape;
-import edu.labs.lab5.shapes.Shape;
+import edu.labs.lab5.shapes.*;
 import javafx.scene.canvas.GraphicsContext;
 
 import java.io.BufferedReader;
@@ -43,7 +42,16 @@ public class ShapeFileReader {
         switch (shapeType) {
             case "RectangleShape":
                 return new RectangleShape(startX, startY, endX, endY, gc);
-            // Add cases for other shape types...
+            case "EllipseShape":
+                return new EllipseShape(startX, startY, endX, endY, gc);
+            case "LineShape":
+                return new LineShape(startX, startY, endX, endY, gc);
+            case "PointShape":
+                return new PointShape(startX, startY, gc);
+            case "LineSegmentWithCirclesAtEndsShape":
+                return new LineSegmentWithCirclesAtEndsShape(startX, startY, endX, endY, gc);
+            case "ParallelepipedShape":
+                return new ParallelepipedShape(startX, startY, endX, endY, gc);
             default:
                 throw new IllegalArgumentException("Invalid shape type: " + shapeType);
         }

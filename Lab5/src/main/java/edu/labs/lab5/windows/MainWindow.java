@@ -209,7 +209,7 @@ public class MainWindow extends Application {
 
 
         openFileItem.setOnAction(e -> fileHandler.handleOpenTxtFile());
-        
+
 
         double toolbarHeight = toolbar.getHeight();
         double menuHeight = menuBar.getHeight();
@@ -297,18 +297,7 @@ public class MainWindow extends Application {
     }
 
 
-    public List<TableWindow.ShapeData> getShapeData(ArrayList<Shape> shapes) {
-        List<TableWindow.ShapeData> shapeDataList = new ArrayList<>();
-        for (Shape shape : shapes) {
-            String name = shape.getClass().getSimpleName();
-            String x1 = Double.toString(shape.getStartX());
-            String y1 = Double.toString(shape.getStartY());
-            String x2 = Double.toString(shape.getEndX());
-            String y2 = Double.toString(shape.getEndY());
-            shapeDataList.add(new TableWindow.ShapeData(name, x1, y1, x2, y2));
-        }
-        return shapeDataList;
-    }
+
 
 
 

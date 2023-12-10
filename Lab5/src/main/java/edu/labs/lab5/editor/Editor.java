@@ -160,8 +160,4 @@ public class Editor extends Application {
     }
 
 
-
-
-
-
 }
