@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Editor extends Application {
+    private TableWindow tableWindow = TableWindow.getInstance();
+
     private ArrayList<Shape> shapes = new ArrayList<>(108);
 
     private Shape currentShape;
@@ -55,9 +57,7 @@ public class Editor extends Application {
             shapes.add(shape);
             redrawShapes();
 
-            TableWindow tableWindow = TableWindow.getInstance();
-            TableWindow.ShapeData data = getShapeData(shape);
-            tableWindow.addRow(data.getName(), data.getX1(), data.getY1(), data.getX2(), data.getY2());
+            updateTable(shape);
         }
     }
 
@@ -135,6 +135,12 @@ public class Editor extends Application {
         String x2 = Double.toString(shape.getEndX());
         String y2 = Double.toString(shape.getEndY());
         return new TableWindow.ShapeData(name, x1, y1, x2, y2);
+    }
+
+
+    public void updateTable(Shape shape) {
+        TableWindow.ShapeData data = getShapeData(shape);
+        tableWindow.addRow(data.getName(), data.getX1(), data.getY1(), data.getX2(), data.getY2());
     }
 
 
