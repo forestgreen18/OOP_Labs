@@ -29,6 +29,11 @@ public class TableWindow {
         stage.hide();
     }
 
+    public void close() {
+        stage.close();
+    }
+
+
 
     // Data model class
     public static class ShapeData {

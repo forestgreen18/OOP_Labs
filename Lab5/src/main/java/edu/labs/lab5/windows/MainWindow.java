@@ -230,6 +230,7 @@ public class MainWindow extends Application {
             canvas.setHeight((double) newSceneHeight - toolbarHeight - menuHeight);
         });
 
+
         // Set the initial Canvas size
         Platform.runLater(() -> {
             canvas.setWidth(primaryStage.getWidth());
@@ -242,6 +243,12 @@ public class MainWindow extends Application {
 
         canvas.heightProperty().addListener((observableValue, oldCanvasHeight, newCanvasHeight) -> {
             editor.redrawShapes();
+        });
+
+
+        // Close other windows when closing main window
+        primaryStage.setOnCloseRequest(e -> {
+            tableWindow.close();
         });
 
 
