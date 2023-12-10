@@ -16,12 +16,22 @@ public class ShapeUtils {
 
     public static TableWindow.ShapeData getShapeData(Shape shape) {
         String name = getShapeTitle(shape.getClass().getSimpleName());
+        return createShapeData(shape, name);
+    }
+
+    public static TableWindow.ShapeData getShapeDataWithoutTitle(Shape shape) {
+        String name = shape.getClass().getSimpleName();
+        return createShapeData(shape, name);
+    }
+
+    private static TableWindow.ShapeData createShapeData(Shape shape, String name) {
         String x1 = String.format("%.2f", shape.getStartX());
         String y1 = String.format("%.2f", shape.getStartY());
         String x2 = String.format("%.2f", shape.getEndX());
         String y2 = String.format("%.2f", shape.getEndY());
         return new TableWindow.ShapeData(name, x1, y1, x2, y2);
     }
+
 
     public static String getShapeTitle(String className) {
         switch (className) {
