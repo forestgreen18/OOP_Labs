@@ -2,6 +2,7 @@ package edu.labs.lab5.windows;
 
 import edu.labs.lab5.editor.Editor;
 import edu.labs.lab5.shapes.*;
+import edu.labs.lab5.utils.FileHandler;
 import edu.labs.lab5.utils.fileReaders.JsonFileReader;
 import edu.labs.lab5.utils.fileReaders.ShapeFileReader;
 import edu.labs.lab5.utils.fileReaders.Titles;
@@ -18,8 +19,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,8 +80,8 @@ public class MainWindow extends Application {
         List<EventHandler<MouseEvent>> handlers = new ArrayList<>();
 
         TableWindow tableWindow = TableWindow.getInstance();
-        ShapeFileReader reader = new ShapeFileReader("saved_shapes.txt");
-        ArrayList<Shape> newShapes = reader.readShapes(gc);
+        FileHandler fileHandler = new FileHandler(primaryStage, gc, editor);
+
 
         showCoordinatesTableItem.setOnAction(e -> {
             if (tableWindow.isShowing()) {
@@ -204,15 +207,9 @@ public class MainWindow extends Application {
 
         });
 
-        openFileItem.setOnAction(e -> {
-            editor.setShapes(newShapes);
-        });
 
-
-
-
-
-
+        openFileItem.setOnAction(e -> fileHandler.handleOpenTxtFile());
+        
 
         double toolbarHeight = toolbar.getHeight();
         double menuHeight = menuBar.getHeight();

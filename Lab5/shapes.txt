@@ -1,9 +1,0 @@
-RectangleShape	142,40	104,80	170,40	145,60
-RectangleShape	244,00	171,20	300,80	161,60
-RectangleShape	379,20	111,20	371,20	111,20
-RectangleShape	320,00	100,80	270,40	114,40
-RectangleShape	270,40	223,20	348,00	183,20
-RectangleShape	465,60	174,40	320,80	149,60
-RectangleShape	319,20	148,80	392,00	250,40
-RectangleShape	400,80	248,80	505,60	240,80
-LineSegmentWithCirclesAtEndsShape	156,00	392,00	582,40	392,80
