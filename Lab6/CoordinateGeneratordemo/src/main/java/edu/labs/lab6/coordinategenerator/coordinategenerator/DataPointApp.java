@@ -42,6 +42,8 @@ public class DataPointApp extends Application {
 
   @Override
   public void start(Stage primaryStage) {
+
+    primaryStage.setTitle("Генератор координат");
     TableView<Point> table = new TableView<>();
     table.setPrefHeight(200);
     table.setPrefWidth(300);
@@ -61,7 +63,7 @@ public class DataPointApp extends Application {
     table.getColumns().addAll(numberColumn, xColumn, yColumn);
 
     Button generateButton = new Button("Згенерувати набір координат");
-    generateButton.setPrefWidth(150);
+    generateButton.setPrefWidth(generateButton.getMaxWidth());
     generateButton.setPrefHeight(30);
     generateButton.setFont(new Font(18));
 
