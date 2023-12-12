@@ -25,10 +25,11 @@ public class DataPointGenerator {
     for (int i = 0; i < nPoints; i++) {
       double x = xMin + (xMax - xMin) * rand.nextDouble();
       double y = yMin + (yMax - yMin) * rand.nextDouble();
-      points[i][0] = x;
-      points[i][1] = y;
+      points[i][0] = Math.round(x * 100.0) / 100.0;
+      points[i][1] = Math.round(y * 100.0) / 100.0;
     }
 
     return points;
   }
+
 }
