@@ -78,6 +78,9 @@ public class DataPointApp extends Application {
       }
 
       table.setItems(data);
+
+      String result =  generator.readFromClipboard();
+      System.out.println("result is " + result);
     });
 
     VBox vbox = new VBox(10, table, generateButton);

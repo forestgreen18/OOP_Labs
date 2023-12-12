@@ -1,5 +1,7 @@
 package edu.labs.lab6.coordinategenerator.coordinategenerator;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.DataFlavor;
 import java.util.Random;
 
 public class DataPointGenerator {
@@ -30,6 +32,17 @@ public class DataPointGenerator {
     }
 
     return points;
+  }
+
+  public String readFromClipboard() {
+    String result = "";
+    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
+    try {
+      result = (String) clipboard.getData(java.awt.datatransfer.DataFlavor.stringFlavor);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return result;
   }
 
 }
