@@ -46,7 +46,7 @@ public class FormWindow extends Application {
     grid.getChildren().add(yMaxField);
 
 
-    Button submitButton = createButton("Submit");
+    Button submitButton = createButton("Передати дані");
     GridPane.setConstraints(submitButton, 1, 0);
     grid.getChildren().add(submitButton);
 
@@ -58,7 +58,17 @@ public class FormWindow extends Application {
       String yMin = yMinField.getText();
       String yMax = yMaxField.getText();
 
-      // TODO: Add your logic here to use these values
+      // Convert the values to a single string
+      String dataString = nPoint + "\n" + xMin + "\n" + xMax + "\n" + yMin + "\n" + yMax;
+
+      // Create a StringSelection object
+      java.awt.datatransfer.StringSelection stringSelection = new java.awt.datatransfer.StringSelection(dataString);
+
+      // Get the system clipboard
+      java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
+
+      // Write the string to the clipboard
+      clipboard.setContents(stringSelection, null);
     });
 
     Scene scene = new Scene(grid, 700, 500);
