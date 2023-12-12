@@ -61,7 +61,7 @@
             <id>default-cli</id>
             <configuration>
               <mainClass>
-                edu.labs.lab6.mainapp.mainapp/edu.labs.lab6.mainapp.HelloApplication
+                edu.labs.lab6.mainapp.mainapp/edu.labs.lab6.mainapp.FormWindow
               </mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
