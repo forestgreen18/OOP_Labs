@@ -72,6 +72,7 @@ public class DataPointApp extends Application {
     generateButton.setOnAction(event -> {
       DataPointGenerator generator = new DataPointGenerator(10, 0.0, 100.0, 0.0, 100.0);
       double[][] points = generator.generatePoints();
+      generator.writePointsToClipboard(points);
 
       ObservableList<Point> data = FXCollections.observableArrayList();
       for (int i = 0; i < points.length; i++) {

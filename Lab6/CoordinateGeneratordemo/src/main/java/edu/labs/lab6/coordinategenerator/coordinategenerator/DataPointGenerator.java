@@ -55,4 +55,23 @@ public class DataPointGenerator {
   }
 
 
+  public void writePointsToClipboard(double[][] points) {
+    StringBuilder clipboardString = new StringBuilder();
+
+    for (int i = 0; i < points.length; i++) {
+      clipboardString.append("Number: ").append(i + 1).append(", X: ").append(points[i][0]).append(", Y: ").append(points[i][1]).append(";\n");
+    }
+
+    // Create a StringSelection object
+    java.awt.datatransfer.StringSelection stringSelection = new java.awt.datatransfer.StringSelection(clipboardString.toString());
+
+    // Get the system clipboard
+    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
+
+    // Write the string to the clipboard
+    clipboard.setContents(stringSelection, null);
+  }
+
+
+
 }
