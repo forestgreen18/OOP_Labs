@@ -10,9 +10,6 @@ import javafx.stage.Stage;
 
 public class LineChart extends Application {
 
-  // TODO: Replace with your actual data
-  private double[][] dataPoints = {{1, 23}, {2, 14}, {3, 15}};
-
   @Override
   public void start(Stage stage) {
     stage.setTitle("Лінійний графік");
@@ -29,6 +26,8 @@ public class LineChart extends Application {
     // Preparing the series and adding data
     XYChart.Series<Number, Number> series = new XYChart.Series<>();
     series.setName("Мій графік");
+
+    double[][] dataPoints = readAndParseFromClipboard();
 
     // Adding data from dataPoints to the series
     for (double[] dataPoint : dataPoints) {
@@ -50,4 +49,26 @@ public class LineChart extends Application {
   public static void main(String[] args) {
     launch(args);
   }
+
+
+  public double[][] readAndParseFromClipboard() {
+    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
+    try {
+      String data = (String) clipboard.getData(java.awt.datatransfer.DataFlavor.stringFlavor);
+      String[] lines = data.split("\\n");
+      double[][] points = new double[lines.length][2];
+      for (int i = 0; i < lines.length; i++) {
+        String[] parts = lines[i].split(", ");
+        if (parts.length == 3) {
+          points[i][0] = Double.parseDouble(parts[1].split(": ")[1]);
+          points[i][1] = Double.parseDouble(parts[2].split(": ")[1].replace(";", ""));
+        }
+      }
+      return points;
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return new double[0][0];
+  }
+
 }
