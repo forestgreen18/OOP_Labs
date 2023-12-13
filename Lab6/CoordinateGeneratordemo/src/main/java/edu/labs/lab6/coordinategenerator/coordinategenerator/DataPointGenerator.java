@@ -2,6 +2,8 @@ package edu.labs.lab6.coordinategenerator.coordinategenerator;
 
 import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 public class DataPointGenerator {
@@ -34,15 +36,23 @@ public class DataPointGenerator {
     return points;
   }
 
-  public String readFromClipboard() {
-    String result = "";
+  public Map<String, Double> readFromClipboard() {
+    Map<String, Double> result = new HashMap<>();
     java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
     try {
-      result = (String) clipboard.getData(java.awt.datatransfer.DataFlavor.stringFlavor);
+      String data = (String) clipboard.getData(java.awt.datatransfer.DataFlavor.stringFlavor);
+      String[] lines = data.split("\\n");
+      for (String line : lines) {
+        String[] parts = line.split(": ");
+        if (parts.length == 2) {
+          result.put(parts[0], Double.parseDouble(parts[1].replace(";", "")));
+        }
+      }
     } catch (Exception e) {
       e.printStackTrace();
     }
     return result;
   }
+
 
 }

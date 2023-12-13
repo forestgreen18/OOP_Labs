@@ -1,4 +1,5 @@
 package edu.labs.lab6.coordinategenerator.coordinategenerator;
+import java.util.Map;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -79,7 +80,7 @@ public class DataPointApp extends Application {
 
       table.setItems(data);
 
-      String result =  generator.readFromClipboard();
+      Map<String, Double> result =  generator.readFromClipboard();
       System.out.println("result is " + result);
     });
 
