@@ -17,6 +17,7 @@ public class FormWindow extends Application {
 
   @Override
   public void start(Stage primaryStage) {
+    primaryStage.setTitle("Форма вводу даних");
     GridPane grid = new GridPane();
     grid.setPadding(new Insets(10, 10, 10, 10));
     grid.setVgap(5);
@@ -58,8 +59,12 @@ public class FormWindow extends Application {
       String yMin = yMinField.getText();
       String yMax = yMaxField.getText();
 
-      // Convert the values to a single string
-      String dataString = nPoint + "\n" + xMin + "\n" + xMax + "\n" + yMin + "\n" + yMax;
+      // Convert the values to a single string in the desired format
+      String dataString = "nPoint: " + nPoint + ";\n" +
+          "xMin: " + xMin + ";\n" +
+          "xMax: " + xMax + ";\n" +
+          "yMin: " + yMin + ";\n" +
+          "yMax: " + yMax + ";";
 
       // Create a StringSelection object
       java.awt.datatransfer.StringSelection stringSelection = new java.awt.datatransfer.StringSelection(dataString);
@@ -70,6 +75,7 @@ public class FormWindow extends Application {
       // Write the string to the clipboard
       clipboard.setContents(stringSelection, null);
     });
+
 
     Scene scene = new Scene(grid, 700, 500);
     primaryStage.setScene(scene);
