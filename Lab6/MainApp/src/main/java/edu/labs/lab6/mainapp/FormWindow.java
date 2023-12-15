@@ -46,7 +46,6 @@ public class FormWindow extends Application {
     GridPane.setConstraints(yMaxField, 0, 4);
     grid.getChildren().add(yMaxField);
 
-
     Button submitButton = createButton("Передати дані");
     GridPane.setConstraints(submitButton, 1, 0);
     grid.getChildren().add(submitButton);
