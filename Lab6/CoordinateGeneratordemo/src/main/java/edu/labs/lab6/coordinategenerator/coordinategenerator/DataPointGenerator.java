@@ -36,7 +36,7 @@ public class DataPointGenerator {
     return points;
   }
 
-  public void readFromClipboard() {
+  public void readFromClipboard() throws Exception {
     Map<String, Double> result = new HashMap<>();
     java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
     try {
@@ -58,11 +58,13 @@ public class DataPointGenerator {
         this.xMax = result.get("xMax");
         this.yMin = result.get("yMin");
         this.yMax = result.get("yMax");
+      } else {
+        throw new Exception("Invalid clipboard data");
       }
-
 
     } catch (Exception e) {
       e.printStackTrace();
+      throw e;
     }
   }
 

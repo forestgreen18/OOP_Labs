@@ -1,7 +1,7 @@
 package edu.labs.lab6.coordinategenerator.coordinategenerator;
+
 import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.AppLauncher;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.RunningJavaApps;
-import java.util.Map;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 public class DataPointApp extends Application {
 
   public static class Point {
+
     private final int number;
     private final double x;
     private final double y;
@@ -70,42 +71,48 @@ public class DataPointApp extends Application {
     generateButton.setPrefHeight(30);
     generateButton.setFont(new Font(18));
 
-
     generateButton.setOnAction(event -> {
-      // Create a DataPointGenerator with default values
-      DataPointGenerator generator = new DataPointGenerator(10, 0.0, 100.0, 0.0, 100.0);
+      try {
+        // Create a DataPointGenerator with default values
+        DataPointGenerator generator = new DataPointGenerator(10, 0.0, 100.0, 0.0, 100.0);
 
-      // Read the values from the clipboard and update the generator's values
-      generator.readFromClipboard();
+        // Read the values from the clipboard and update the generator's values
+        generator.readFromClipboard();
 
+        double[][] points = generator.generatePoints();
 
-      double[][] points = generator.generatePoints();
+        generator.writePointsToClipboard(points);
 
+        ObservableList<Point> data = FXCollections.observableArrayList();
+        for (int i = 0; i < points.length; i++) {
+          data.add(new Point(i + 1, points[i][0], points[i][1]));
+        }
 
+        table.setItems(data);
 
+        boolean isThereChartApp = RunningJavaApps.isAppRunning("Chart.jar");
+        System.out.println(isThereChartApp);
 
-      generator.writePointsToClipboard(points);
+        // Only launch the app if it's not already running
+        if (!isThereChartApp) {
+          // Run launchApp in a new thread
+          new Thread(() -> {
+            AppLauncher.launchApp(
+                "\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
+          }).start();
+        }
 
-      ObservableList<Point> data = FXCollections.observableArrayList();
-      for (int i = 0; i < points.length; i++) {
-        data.add(new Point(i + 1, points[i][0], points[i][1]));
+      } catch (Exception e) {
+        // Create an Alert
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
+        alert.setTitle("Помилка");
+        alert.setHeaderText(null);
+        alert.setContentText("Виникла помилка під час читання даних з буфера обміну. \n" + "Error: " + e.getMessage());
+
+        // Show the Alert
+        alert.showAndWait();
       }
 
-      table.setItems(data);
-
-
-
-      boolean isThereChartApp = RunningJavaApps.isAppRunning("Chart.jar");
-      System.out.println(isThereChartApp);
-
-      // Only launch the app if it's not already running
-      if (!isThereChartApp) {
-        // Run launchApp in a new thread
-        new Thread(() -> {
-          AppLauncher.launchApp(
-              "\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
-        }).start();
-      }
 
     });
 
