@@ -1,5 +1,6 @@
 package edu.labs.lab6.mainapp;
 
+import edu.labs.lab6.mainapp.sockets.Client;
 import edu.labs.lab6.mainapp.utils.AppLauncher;
 import edu.labs.lab6.mainapp.utils.RunningJavaApps;
 import javafx.application.Application;
@@ -85,7 +86,14 @@ public class FormWindow extends Application {
         // Run launchApp in a new thread
         new Thread(() -> {
           AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\CoordinateGeneratordemo\\out\\artifacts\\CoordinateGenerator_jar\\coordinategenerator.bat\"");
+
         }).start();
+
+//        new Thread(() -> {
+//          Client client = new Client();
+//          client.sendMessage();
+//        }).start();
+
       }
     });
 

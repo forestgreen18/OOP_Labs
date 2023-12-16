@@ -1,7 +1,9 @@
 package edu.labs.lab6.coordinategenerator.coordinategenerator;
 
+import edu.labs.lab6.coordinategenerator.coordinategenerator.sockets.Server;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.AppLauncher;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.RunningJavaApps;
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,6 +44,8 @@ public class DataPointApp extends Application {
       return y;
     }
   }
+  private Server server;
+
 
 
   @Override
@@ -128,4 +132,27 @@ public class DataPointApp extends Application {
   public static void main(String[] args) {
     launch(args);
   }
+
+  @Override
+  public void init() {
+    server = new Server();
+    new Thread(() -> {
+      try {
+        server.startServer();
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }).start();
+  }
+
+  @Override
+  public void stop() {
+    try {
+      System.out.println("Stopped");
+      server.stopServer();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
 }
