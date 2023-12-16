@@ -1,5 +1,6 @@
 package edu.labs.lab6.coordinategenerator.coordinategenerator;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.AppLauncher;
+import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.RunningJavaApps;
 import java.util.Map;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -85,10 +86,19 @@ public class DataPointApp extends Application {
       Map<String, Double> result =  generator.readFromClipboard();
       System.out.println("result is " + result);
 
-      // Run launchApp in a new thread
-      new Thread(() -> {
-        AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
-      }).start();
+      boolean isThereChartApp = RunningJavaApps.isAppRunning("Chart.jar");
+      System.out.println(isThereChartApp);
+
+      // Only launch the app if it's not already running
+      if (!isThereChartApp) {
+        // Run launchApp in a new thread
+        new Thread(() -> {
+          AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
+        }).start();
+      }
+
+
+
     });
 
     VBox vbox = new VBox(10, table, generateButton);
