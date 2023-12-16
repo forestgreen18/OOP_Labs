@@ -97,8 +97,6 @@ public class DataPointApp extends Application {
         }).start();
       }
 
-
-
     });
 
     VBox vbox = new VBox(10, table, generateButton);

@@ -1,5 +1,7 @@
 package edu.labs.lab6.mainapp;
 
+import edu.labs.lab6.mainapp.utils.AppLauncher;
+import edu.labs.lab6.mainapp.utils.RunningJavaApps;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -73,6 +75,18 @@ public class FormWindow extends Application {
 
       // Write the string to the clipboard
       clipboard.setContents(stringSelection, null);
+
+      boolean isThereChartApp = RunningJavaApps.isAppRunning("CoordinateGenerator.jar");
+      System.out.println(isThereChartApp);
+      RunningJavaApps.listRunningJavaApps();
+
+      // Only launch the app if it's not already running
+      if (!isThereChartApp) {
+        // Run launchApp in a new thread
+        new Thread(() -> {
+          AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\CoordinateGeneratordemo\\out\\artifacts\\CoordinateGenerator_jar\\coordinategenerator.bat\"");
+        }).start();
+      }
     });
 
 
