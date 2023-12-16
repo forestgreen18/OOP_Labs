@@ -36,7 +36,7 @@ public class DataPointGenerator {
     return points;
   }
 
-  public Map<String, Double> readFromClipboard() {
+  public void readFromClipboard() {
     Map<String, Double> result = new HashMap<>();
     java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
     try {
@@ -48,12 +48,23 @@ public class DataPointGenerator {
           result.put(parts[0], Double.parseDouble(parts[1].replace(";", "")));
         }
       }
+
+      System.out.println(result);
+
+      // Check if the necessary keys exist in the map before trying to access their values
+      if (result.containsKey("nPoint") && result.containsKey("xMin") && result.containsKey("xMax") && result.containsKey("yMin") && result.containsKey("yMax")) {
+        this.nPoints = result.get("nPoint").intValue();
+        this.xMin = result.get("xMin");
+        this.xMax = result.get("xMax");
+        this.yMin = result.get("yMin");
+        this.yMax = result.get("yMax");
+      }
+
+
     } catch (Exception e) {
       e.printStackTrace();
     }
-    return result;
   }
-
 
   public void writePointsToClipboard(double[][] points) {
     StringBuilder clipboardString = new StringBuilder();
