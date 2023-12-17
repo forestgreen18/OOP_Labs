@@ -7,7 +7,7 @@ public class Server {
   private ServerSocket serverSocket;
 
   public void startServer() throws IOException {
-    serverSocket = new ServerSocket(6666);
+    serverSocket = new ServerSocket(6667);
     new Thread(() -> {
       while (!serverSocket.isClosed()) {
         try {

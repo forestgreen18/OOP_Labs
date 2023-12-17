@@ -89,10 +89,10 @@ public class FormWindow extends Application {
 
         }).start();
 
-//        new Thread(() -> {
-//          Client client = new Client();
-//          client.sendMessage();
-//        }).start();
+        new Thread(() -> {
+          Client client = new Client();
+          client.sendMessage();
+        }).start();
 
       }
     });
