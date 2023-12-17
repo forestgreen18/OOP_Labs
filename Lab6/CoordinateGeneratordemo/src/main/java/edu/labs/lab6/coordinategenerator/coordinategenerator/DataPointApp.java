@@ -45,14 +45,14 @@ public class DataPointApp extends Application {
     }
   }
   private Server server;
-
+  private TableView<Point> table = new TableView<>();
 
 
   @Override
   public void start(Stage primaryStage) {
 
     primaryStage.setTitle("Генератор координат");
-    TableView<Point> table = new TableView<>();
+
     table.setPrefHeight(200);
     table.setPrefWidth(300);
 
@@ -77,7 +77,7 @@ public class DataPointApp extends Application {
 
     generateButton.setOnAction(event -> {
       try {
-        generateCoordinatesAndLaunchApp(table);
+        generateCoordinatesAndLaunchApp();
       } catch (Exception e) {
         // Create an Alert
         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
@@ -103,7 +103,7 @@ public class DataPointApp extends Application {
   }
 
 
-  private void generateCoordinatesAndLaunchApp(TableView<Point> table) throws Exception {
+  private void generateCoordinatesAndLaunchApp() throws Exception {
     // Create a DataPointGenerator with default values
     DataPointGenerator generator = new DataPointGenerator(10, 0.0, 100.0, 0.0, 100.0);
 
@@ -134,7 +134,7 @@ public class DataPointApp extends Application {
   }
 
   @Override
-  public void init() {
+  public void init() throws Exception {
     server = new Server();
     new Thread(() -> {
       try {
@@ -143,6 +143,8 @@ public class DataPointApp extends Application {
         e.printStackTrace();
       }
     }).start();
+
+    generateCoordinatesAndLaunchApp();
   }
 
   @Override
