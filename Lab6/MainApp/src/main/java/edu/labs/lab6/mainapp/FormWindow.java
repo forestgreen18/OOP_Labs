@@ -77,24 +77,37 @@ public class FormWindow extends Application {
       // Write the string to the clipboard
       clipboard.setContents(stringSelection, null);
 
-      boolean isThereChartApp = RunningJavaApps.isAppRunning("CoordinateGenerator.jar");
-      System.out.println(isThereChartApp);
-      RunningJavaApps.listRunningJavaApps();
 
-      // Only launch the app if it's not already running
-      if (!isThereChartApp) {
-        // Run launchApp in a new thread
-        new Thread(() -> {
-          AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\CoordinateGeneratordemo\\out\\artifacts\\CoordinateGenerator_jar\\coordinategenerator.bat\"");
 
-        }).start();
-
-        new Thread(() -> {
-          Client client = new Client();
+      new Thread(() -> {
+        Client client = new Client();
+        boolean isConnected = client.sendMessage("START");
+        System.out.println(isConnected);
+        if (!isConnected) {
+          // Run launchApp in a new thread
+          new Thread(() -> {
+            AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\CoordinateGeneratordemo\\out\\artifacts\\CoordinateGenerator_jar\\coordinategenerator.bat\"");
+          }).start();
+        } else {
           client.sendMessage("UPDATE");
-        }).start();
+        }
+      }).start();
 
-      }
+
+//      // Only launch the app if it's not already running
+//      if (!isThereChartApp) {
+//        // Run launchApp in a new thread
+//        new Thread(() -> {
+//          AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\CoordinateGeneratordemo\\out\\artifacts\\CoordinateGenerator_jar\\coordinategenerator.bat\"");
+//
+//        }).start();
+//
+//        new Thread(() -> {
+//          Client client = new Client();
+//          client.sendMessage("UPDATE");
+//        }).start();
+//
+//      }
     });
 
 
