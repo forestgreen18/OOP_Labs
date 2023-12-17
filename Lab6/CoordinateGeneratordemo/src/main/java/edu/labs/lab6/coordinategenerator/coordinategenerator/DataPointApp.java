@@ -5,6 +5,7 @@ import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.AppLauncher;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.RunningJavaApps;
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -79,14 +80,7 @@ public class DataPointApp extends Application {
       try {
         generateCoordinatesAndLaunchApp();
       } catch (Exception e) {
-        // Create an Alert
-        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
-        alert.setTitle("Помилка");
-        alert.setHeaderText(null);
-        alert.setContentText("Виникла помилка під час читання даних з буфера обміну. \n" + "Error: " + e.getMessage());
-
-        // Show the Alert
-        alert.showAndWait();
+        showError(e);
       }
     });
     VBox vbox = new VBox(10, table, generateButton);
@@ -133,6 +127,22 @@ public class DataPointApp extends Application {
     }
   }
 
+
+  private void showError(Exception e) {
+    Platform.runLater(() -> {
+      // Create an Alert
+      javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
+      alert.setTitle("Помилка");
+      alert.setHeaderText(null);
+      alert.setContentText("Виникла помилка під час читання даних з буфера обміну. \n" + "Error: " + e.getMessage());
+
+      // Show the Alert
+      alert.showAndWait();
+    });
+  }
+
+
+
   @Override
   public void init() throws Exception {
     server = new Server();
@@ -144,7 +154,12 @@ public class DataPointApp extends Application {
       }
     }).start();
 
-    generateCoordinatesAndLaunchApp();
+    try {
+      generateCoordinatesAndLaunchApp();
+    } catch (Exception e) {
+      e.printStackTrace();
+      showError(e);
+    }
   }
 
   @Override
