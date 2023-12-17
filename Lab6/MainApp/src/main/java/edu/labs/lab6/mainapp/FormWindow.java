@@ -91,7 +91,7 @@ public class FormWindow extends Application {
 
         new Thread(() -> {
           Client client = new Client();
-          client.sendMessage();
+          client.sendMessage("UPDATE");
         }).start();
 
       }

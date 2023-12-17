@@ -97,7 +97,7 @@ public class DataPointApp extends Application {
   }
 
 
-  private void generateCoordinatesAndLaunchApp() throws Exception {
+  public void generateCoordinatesAndLaunchApp() throws Exception {
     // Create a DataPointGenerator with default values
     DataPointGenerator generator = new DataPointGenerator(10, 0.0, 100.0, 0.0, 100.0);
 
@@ -145,7 +145,7 @@ public class DataPointApp extends Application {
 
   @Override
   public void init() throws Exception {
-    server = new Server();
+    server = new Server(this);
     new Thread(() -> {
       try {
         server.startServer();

@@ -4,13 +4,13 @@ import java.io.*;
 import java.net.*;
 
 public class Client {
-  public void sendMessage() {
+  public void sendMessage(String message) {
     while (true) {
       try {
         Socket socket = new Socket("localhost", 6667);
         DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
-        dataOutputStream.writeUTF("Clipboard data updated");
+        dataOutputStream.writeUTF(message);
         dataOutputStream.flush();
 
         dataOutputStream.close();
