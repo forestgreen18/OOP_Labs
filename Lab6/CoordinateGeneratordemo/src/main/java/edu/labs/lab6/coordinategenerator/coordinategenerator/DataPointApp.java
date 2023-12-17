@@ -77,35 +77,7 @@ public class DataPointApp extends Application {
 
     generateButton.setOnAction(event -> {
       try {
-        // Create a DataPointGenerator with default values
-        DataPointGenerator generator = new DataPointGenerator(10, 0.0, 100.0, 0.0, 100.0);
-
-        // Read the values from the clipboard and update the generator's values
-        generator.readFromClipboard();
-
-        double[][] points = generator.generatePoints();
-
-        generator.writePointsToClipboard(points);
-
-        ObservableList<Point> data = FXCollections.observableArrayList();
-        for (int i = 0; i < points.length; i++) {
-          data.add(new Point(i + 1, points[i][0], points[i][1]));
-        }
-
-        table.setItems(data);
-
-        boolean isThereChartApp = RunningJavaApps.isAppRunning("Chart.jar");
-        System.out.println(isThereChartApp);
-
-        // Only launch the app if it's not already running
-        if (!isThereChartApp) {
-          // Run launchApp in a new thread
-          new Thread(() -> {
-            AppLauncher.launchApp(
-                "\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
-          }).start();
-        }
-
+        generateCoordinatesAndLaunchApp(table);
       } catch (Exception e) {
         // Create an Alert
         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
@@ -116,10 +88,7 @@ public class DataPointApp extends Application {
         // Show the Alert
         alert.showAndWait();
       }
-
-
     });
-
     VBox vbox = new VBox(10, table, generateButton);
     vbox.setAlignment(Pos.CENTER);
     vbox.setPadding(new Insets(10));
@@ -131,6 +100,37 @@ public class DataPointApp extends Application {
 
   public static void main(String[] args) {
     launch(args);
+  }
+
+
+  private void generateCoordinatesAndLaunchApp(TableView<Point> table) throws Exception {
+    // Create a DataPointGenerator with default values
+    DataPointGenerator generator = new DataPointGenerator(10, 0.0, 100.0, 0.0, 100.0);
+
+    // Read the values from the clipboard and update the generator's values
+    generator.readFromClipboard();
+
+    double[][] points = generator.generatePoints();
+
+    generator.writePointsToClipboard(points);
+
+    ObservableList<Point> data = FXCollections.observableArrayList();
+    for (int i = 0; i < points.length; i++) {
+      data.add(new Point(i + 1, points[i][0], points[i][1]));
+    }
+
+    table.setItems(data);
+
+    boolean isThereChartApp = RunningJavaApps.isAppRunning("Chart.jar");
+    System.out.println(isThereChartApp);
+
+    // Only launch the app if it's not already running
+    if (!isThereChartApp) {
+      // Run launchApp in a new thread
+      new Thread(() -> {
+        AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
+      }).start();
+    }
   }
 
   @Override
@@ -154,5 +154,8 @@ public class DataPointApp extends Application {
       e.printStackTrace();
     }
   }
+
+
+
 
 }
