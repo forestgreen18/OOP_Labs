@@ -1,23 +1,30 @@
 package edu.labs.configurableregistrationpanels.panels;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
-public abstract class Panel {
+public abstract class Panel extends Parent {
   protected VBox panel;
-  protected Button nextButton;
+  public Button nextButton;
   protected Button backButton;
-  protected Button cancelButton;
+  public Button cancelButton;
   protected TextField[] textFields;
+  protected Label[] labels;
 
-  public Panel(int numFields) {
+  public Panel(String[] fieldNames) {
     panel = new VBox();
+    int numFields = fieldNames.length;
     textFields = new TextField[numFields];
+    labels = new Label[numFields];
 
     for (int i = 0; i < numFields; i++) {
+      labels[i] = new Label(fieldNames[i]);
       textFields[i] = new TextField();
-      panel.getChildren().add(textFields[i]);
+      panel.getChildren().addAll(labels[i], textFields[i]);
     }
 
     nextButton = new Button("Next >>");
@@ -32,4 +39,9 @@ public abstract class Panel {
 
   public abstract void handleNextButton();
   public abstract void handleBackButton();
+
+  @Override
+  public Node getStyleableNode() {
+    return super.getStyleableNode();
+  }
 }
