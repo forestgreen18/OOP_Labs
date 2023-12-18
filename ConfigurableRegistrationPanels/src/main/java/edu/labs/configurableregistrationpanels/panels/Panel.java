@@ -67,4 +67,11 @@ public abstract class Panel extends Parent {
 
   public abstract String getPanelType();
 
+  public void clearInputFields() {
+    for (TextField textField : textFields) {
+      textField.clear();
+    }
+  }
+
+
 }

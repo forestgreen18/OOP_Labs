@@ -18,12 +18,13 @@ public class MainApplication extends Application {
   private List<GeneralPanel> panels;
   private int currentPanelIndex;
   private Pane root;
+  private DataSaver dataSaver;
 
   @Override
   public void start(Stage primaryStage) throws IOException {
     Configuration config = new Configuration("F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
     panels = new ArrayList<>();
-    DataSaver dataSaver = new DataSaver();
+    dataSaver = new DataSaver();
 
     for (int i = 0; i < config.getNumPanels(); i++) {
 
@@ -54,6 +55,13 @@ public class MainApplication extends Application {
     currentPanel.backButton.setOnAction(e -> {
       currentPanelIndex--;
       displayCurrentPanel();
+    });
+
+    currentPanel.cancelButton.setOnAction(e -> {
+      for (GeneralPanel generalPanel : panels) {
+        generalPanel.getPanelObject().clearInputFields();
+      }
+      dataSaver.clearData();
     });
   }
 

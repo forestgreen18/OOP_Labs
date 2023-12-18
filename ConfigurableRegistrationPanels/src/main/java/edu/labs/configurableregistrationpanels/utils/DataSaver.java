@@ -30,4 +30,10 @@ public class DataSaver {
   public JSONObject getData () {
     return data;
   }
+
+  public void clearData() {
+    data = new JSONObject();
+  }
+
+
 }
