@@ -5,6 +5,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import javafx.application.Platform;
 
 public class Server {
 
@@ -29,6 +30,19 @@ public class Server {
           if (str.equals("UPDATE")) {
             dataPointApp.generateCoordinates();
             dataPointApp.launchApp();
+          }
+
+          // If the received message is "CLOSE", close the application
+          if (str.equals("CLOSE")) {
+
+            Platform.runLater(() -> {
+              // This will close the JavaFX application
+              Platform.exit();
+              // This will close the JVM if there are no other non-daemon threads running
+              System.exit(0);
+            });
+
+
           }
 
         } catch (IOException e) {

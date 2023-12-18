@@ -6,13 +6,19 @@ import java.net.Socket;
 
 public class Client {
 
+  private final int port;
+
+  public Client(int port) {
+    this.port = port;
+  }
+
   public boolean sendMessage(String message) {
     int maxRetries = 5; // Maximum number of retries
     int retries = 0; // Current number of retries
 
     while (retries < maxRetries) {
       try {
-        Socket socket = new Socket("localhost", 6667);
+        Socket socket = new Socket("localhost", port);
         DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
         dataOutputStream.writeUTF(message);
@@ -41,4 +47,3 @@ public class Client {
     return false;
   }
 }
-

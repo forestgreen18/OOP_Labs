@@ -33,6 +33,17 @@ public class Server {
                 () -> lineChartApp.addDataToSeries(lineChartApp.getLineChart()));
           }
 
+          // Inside your Server class
+          if (str.equals("CLOSE")) {
+            javafx.application.Platform.runLater(() -> {
+              // This will close the JavaFX application
+              javafx.application.Platform.exit();
+              // This will close the JVM if there are no other non-daemon threads running
+              System.exit(0);
+            });
+          }
+
+
         } catch (IOException e) {
           if (serverSocket.isClosed()) {
             System.out.println("Server socket is closed, stopping accept loop.");

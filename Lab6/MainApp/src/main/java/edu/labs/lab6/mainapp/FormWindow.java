@@ -15,6 +15,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class FormWindow extends Application {
+  public static final int COORDINATE_GENERATOR_PORT = 6667;
+  public static final int CHART_PORT = 6668;
 
   public static void main(String[] args) {
     launch(args);
@@ -49,7 +51,7 @@ public class FormWindow extends Application {
     GridPane.setConstraints(yMaxField, 0, 4);
     grid.getChildren().add(yMaxField);
 
-    Button submitButton = createButton("Передати дані");
+    Button submitButton = createButton("Надіслати");
     GridPane.setConstraints(submitButton, 1, 0);
     grid.getChildren().add(submitButton);
 
@@ -68,7 +70,7 @@ public class FormWindow extends Application {
       clipboardManager.copyToClipboard(dataString);
 
       new Thread(() -> {
-        Client client = new Client();
+        Client client = new Client(COORDINATE_GENERATOR_PORT);
         boolean isConnected = client.sendMessage("START");
         System.out.println(isConnected);
         if (!isConnected) {
@@ -114,4 +116,25 @@ public class FormWindow extends Application {
     button.setFont(new Font(18)); // Increase the font size
     return button;
   }
+
+  // Inside your FormWindow class
+  @Override
+  public void stop() {
+    // This method is called when the application is closing
+    new Thread(() -> {
+      Client client = new Client(COORDINATE_GENERATOR_PORT);
+      boolean isConnected = client.sendMessage("CLOSE");
+      if (!isConnected) {
+        System.out.println("Failed to send CLOSE message");
+      }
+
+
+      Client clientToChart = new Client(CHART_PORT);
+      boolean isConnectedToChart = clientToChart.sendMessage("CLOSE");
+      if (!isConnectedToChart) {
+        System.out.println("Failed to send CLOSE message to Chart");
+      }
+    }).start();
+  }
+
 }
