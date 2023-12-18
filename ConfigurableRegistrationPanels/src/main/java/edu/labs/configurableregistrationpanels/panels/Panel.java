@@ -1,5 +1,6 @@
 package edu.labs.configurableregistrationpanels.panels;
 
+import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -48,5 +49,20 @@ public abstract class Panel extends Parent {
   public void hideNextButton() {
     nextButton.setVisible(false);
   }
+
+  public void saveInput(DataSaver dataSaver) {
+    for (int i = 0; i < textFields.length; i++) {
+      TextField textField = textFields[i];
+      String fieldName = labels[i].getText();
+      textField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+        if (!newValue) {  // If the text field has lost focus
+          dataSaver.saveInput(getPanelType(), fieldName, textField.getText());
+          System.out.println(dataSaver.getData());
+        }
+      });
+    }
+  }
+
+  public abstract String getPanelType();
 
 }

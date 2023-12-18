@@ -20,4 +20,9 @@ public class FirstPanel extends Panel {
   public void handleBackButton() {
     // The back button is disabled on the first panel, so this method can be left empty
   }
+
+  @Override
+  public String getPanelType() {
+    return "first";
+  }
 }

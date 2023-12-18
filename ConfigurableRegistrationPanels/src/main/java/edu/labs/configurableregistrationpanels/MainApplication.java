@@ -3,6 +3,7 @@ package edu.labs.configurableregistrationpanels;
 import edu.labs.configurableregistrationpanels.panels.GeneralPanel;
 import edu.labs.configurableregistrationpanels.panels.Panel;
 import edu.labs.configurableregistrationpanels.utils.Configuration;
+import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -22,8 +23,12 @@ public class MainApplication extends Application {
   public void start(Stage primaryStage) throws IOException {
     Configuration config = new Configuration("F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
     panels = new ArrayList<>();
+    DataSaver dataSaver = new DataSaver();
+
     for (int i = 0; i < config.getNumPanels(); i++) {
-      panels.add(new GeneralPanel(config.getPanelConfig(i)));
+      GeneralPanel generalPanel = new GeneralPanel(config.getPanelConfig(i));
+      generalPanel.getPanelObject().saveInput(dataSaver);
+      panels.add(generalPanel);
     }
 
     root = new Pane();

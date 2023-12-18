@@ -24,6 +24,11 @@ public class LastPanel extends Panel {
     // This could involve switching to the previous panel
   }
 
+  @Override
+  public String getPanelType() {
+    return "last";
+  }
+
   public void handleFinishButton() {
     // Implement the functionality for the finish button here
     // This could involve saving the input field values to a text file

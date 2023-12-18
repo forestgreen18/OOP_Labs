@@ -20,4 +20,9 @@ public class MiddlePanel extends Panel {
     // Implement the functionality for the back button here
     // This could involve switching to the previous panel
   }
+
+  @Override
+  public String getPanelType() {
+    return "middle";
+  }
 }
