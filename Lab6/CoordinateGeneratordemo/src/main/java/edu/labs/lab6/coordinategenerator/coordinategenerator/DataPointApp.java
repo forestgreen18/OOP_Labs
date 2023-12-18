@@ -1,5 +1,6 @@
 package edu.labs.lab6.coordinategenerator.coordinategenerator;
 
+import edu.labs.lab6.coordinategenerator.coordinategenerator.sockets.Client;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.sockets.Server;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.AppLauncher;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.RunningJavaApps;
@@ -76,13 +77,13 @@ public class DataPointApp extends Application {
     generateButton.setPrefHeight(30);
     generateButton.setFont(new Font(18));
 
-    generateButton.setOnAction(event -> {
-      try {
-        generateCoordinatesAndLaunchApp();
-      } catch (Exception e) {
-        showError(e);
-      }
-    });
+    try {
+      generateCoordinatesAndLaunchApp();
+    } catch (Exception e) {
+      showError(e);
+    }
+
+
     VBox vbox = new VBox(10, table, generateButton);
     vbox.setAlignment(Pos.CENTER);
     vbox.setPadding(new Insets(10));
@@ -115,16 +116,32 @@ public class DataPointApp extends Application {
 
     table.setItems(data);
 
-    boolean isThereChartApp = RunningJavaApps.isAppRunning("Chart.jar");
-    System.out.println(isThereChartApp);
+//    boolean isThereChartApp = RunningJavaApps.isAppRunning("Chart.jar");
+//    System.out.println(isThereChartApp);
+//
+//    // Only launch the app if it's not already running
+//    if (!isThereChartApp) {
+//      // Run launchApp in a new thread
+//      new Thread(() -> {
+//        AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
+//      }).start();
+//    }
 
-    // Only launch the app if it's not already running
-    if (!isThereChartApp) {
-      // Run launchApp in a new thread
-      new Thread(() -> {
-        AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
-      }).start();
-    }
+
+    new Thread(() -> {
+      Client client = new Client();
+      boolean isConnected = client.sendMessage("START");
+      System.out.println(isConnected);
+      if (!isConnected) {
+        // Run launchApp in a new thread
+        new Thread(() -> {
+          AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
+        }).start();
+      } else {
+        client.sendMessage("UPDATE");
+      }
+    }).start();
+
   }
 
 
