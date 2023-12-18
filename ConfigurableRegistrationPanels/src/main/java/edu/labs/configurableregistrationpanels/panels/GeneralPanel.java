@@ -1,6 +1,5 @@
 package edu.labs.configurableregistrationpanels.panels;
 
-import javafx.scene.layout.VBox;
 import org.json.JSONObject;
 
 public class GeneralPanel {
@@ -26,9 +25,10 @@ public class GeneralPanel {
     }
   }
 
-  public VBox getPanel() {
-    return panel.getPanel();
+  public Panel getPanelObject() {
+    return panel;
   }
+
 
 
 }

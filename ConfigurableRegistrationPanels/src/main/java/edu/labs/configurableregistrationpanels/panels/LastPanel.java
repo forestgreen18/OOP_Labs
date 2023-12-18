@@ -10,6 +10,7 @@ public class LastPanel extends Panel {
     backButton = new Button("<< Back");
     finishButton = new Button("Finish >>");
     panel.getChildren().addAll(backButton, finishButton);  // Add the back and finish buttons
+    hideNextButton();  // Hide the Next button
   }
 
   @Override

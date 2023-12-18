@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 public abstract class Panel extends Parent {
   protected VBox panel;
   public Button nextButton;
-  protected Button backButton;
+  public Button backButton;
   public Button cancelButton;
   protected TextField[] textFields;
   protected Label[] labels;
@@ -33,7 +33,7 @@ public abstract class Panel extends Parent {
     panel.getChildren().addAll(nextButton, cancelButton);
   }
 
-  public VBox getPanel() {
+  public VBox getPanelLayout() {
     return panel;
   }
 
@@ -44,4 +44,9 @@ public abstract class Panel extends Parent {
   public Node getStyleableNode() {
     return super.getStyleableNode();
   }
+
+  public void hideNextButton() {
+    nextButton.setVisible(false);
+  }
+
 }
