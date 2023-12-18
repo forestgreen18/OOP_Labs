@@ -2,9 +2,9 @@ package edu.labs.lab6.mainapp;
 
 import edu.labs.lab6.mainapp.sockets.Client;
 import edu.labs.lab6.mainapp.utils.AppLauncher;
-import edu.labs.lab6.mainapp.utils.RunningJavaApps;
+import edu.labs.lab6.mainapp.utils.ClipboardManager;
+import edu.labs.lab6.mainapp.utils.DataFormatter;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,8 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class FormWindow extends Application {
 
@@ -55,27 +53,17 @@ public class FormWindow extends Application {
 
     submitButton.setOnAction(event -> {
       // Get the values from the text fields
-      String nPoint = nPointField.getText();
-      String xMin = xMinField.getText();
-      String xMax = xMaxField.getText();
-      String yMin = yMinField.getText();
-      String yMax = yMaxField.getText();
+      DataFormatter dataFormatter = new DataFormatter();
+      String dataString = dataFormatter.getFormattedData(
+          nPointField.getText(),
+          xMinField.getText(),
+          xMaxField.getText(),
+          yMinField.getText(),
+          yMaxField.getText()
+      );
 
-      // Convert the values to a single string in the desired format
-      String dataString = "nPoint: " + nPoint + ";\n" +
-          "xMin: " + xMin + ";\n" +
-          "xMax: " + xMax + ";\n" +
-          "yMin: " + yMin + ";\n" +
-          "yMax: " + yMax + ";";
-
-      // Create a StringSelection object
-      java.awt.datatransfer.StringSelection stringSelection = new java.awt.datatransfer.StringSelection(dataString);
-
-      // Get the system clipboard
-      java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
-
-      // Write the string to the clipboard
-      clipboard.setContents(stringSelection, null);
+      ClipboardManager clipboardManager = new ClipboardManager();
+      clipboardManager.copyToClipboard(dataString);
 
 
 

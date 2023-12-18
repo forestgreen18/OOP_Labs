@@ -4,8 +4,6 @@ package edu.labs.lab6.mainapp.utils;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-;
-
 public class RunningJavaApps {
 
   public static boolean isAppRunning(String appName) {
