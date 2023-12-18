@@ -1,21 +1,24 @@
 package edu.labs.lab6.chart.chart.utils;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 
 public class ClipboardManager {
 
   public static double[][] readAndParseFromClipboard() {
-    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit()
-        .getSystemClipboard();
+    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
     try {
       String data = (String) clipboard.getData(java.awt.datatransfer.DataFlavor.stringFlavor);
-      String[] lines = data.split("\\n");
-      double[][] points = new double[lines.length][2];
-      for (int i = 0; i < lines.length; i++) {
-        String[] parts = lines[i].split(", ");
-        if (parts.length == 3) {
-          points[i][0] = Double.parseDouble(parts[1].split(": ")[1]);
-          points[i][1] = Double.parseDouble(parts[2].split(": ")[1].replace(";", ""));
-        }
-      }
+
+      // Create a Gson object
+      Gson gson = new Gson();
+
+      // Define the type of the data to be parsed
+      Type type = new TypeToken<double[][]>(){}.getType();
+
+      // Parse the JSON string to a 2D array
+      double[][] points = gson.fromJson(data, type);
+
       return points;
     } catch (Exception e) {
       e.printStackTrace();

@@ -4,7 +4,7 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-import com.google.gson.Gson; // You'll need to add the Gson library to your project
+import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 public class DataPointGenerator {
 
@@ -71,20 +71,17 @@ public class DataPointGenerator {
   }
 
   public void writePointsToClipboard(double[][] points) {
-    StringBuilder clipboardString = new StringBuilder();
+    // Create a Gson object
+    Gson gson = new Gson();
 
-    for (int i = 0; i < points.length; i++) {
-      clipboardString.append("Number: ").append(i + 1).append(", X: ").append(points[i][0])
-          .append(", Y: ").append(points[i][1]).append(";\n");
-    }
+    // Convert the points array to a JSON string
+    String jsonPoints = gson.toJson(points);
 
     // Create a StringSelection object
-    java.awt.datatransfer.StringSelection stringSelection = new java.awt.datatransfer.StringSelection(
-        clipboardString.toString());
+    java.awt.datatransfer.StringSelection stringSelection = new java.awt.datatransfer.StringSelection(jsonPoints);
 
     // Get the system clipboard
-    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit()
-        .getSystemClipboard();
+    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
 
     // Write the string to the clipboard
     clipboard.setContents(stringSelection, null);
