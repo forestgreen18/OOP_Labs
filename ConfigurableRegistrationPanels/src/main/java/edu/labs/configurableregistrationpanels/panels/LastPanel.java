@@ -4,7 +4,7 @@ import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import javafx.scene.control.Button;
 
 public class LastPanel extends Panel {
-  private Button finishButton;
+  public Button finishButton;
 
   public LastPanel(String[] fieldNames, DataSaver dataSaver) {
     super(fieldNames, dataSaver);
@@ -14,6 +14,7 @@ public class LastPanel extends Panel {
     hideNextButton();  // Hide the Next button
 
     finishButton.setOnAction(event -> handleFinishButton());
+
   }
 
   @Override
@@ -36,5 +37,7 @@ public class LastPanel extends Panel {
     // Save the input field values to a text file
     dataSaver.saveToFile("savedData.json");
   }
+
+
 
 }
