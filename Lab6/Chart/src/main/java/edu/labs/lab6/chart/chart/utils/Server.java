@@ -24,7 +24,8 @@ public class Server {
 
           // If the received message is "UPDATE", generate new coordinates
           if (str.equals("UPDATE")) {
-            lineChartApp.addDataToSeries(lineChartApp.getLineChart());
+            System.out.println("I get update message. Working on it.");
+            javafx.application.Platform.runLater(() -> lineChartApp.addDataToSeries(lineChartApp.getLineChart()));
           }
 
         } catch (IOException e) {
