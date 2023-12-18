@@ -26,7 +26,8 @@ public class MainApplication extends Application {
     DataSaver dataSaver = new DataSaver();
 
     for (int i = 0; i < config.getNumPanels(); i++) {
-      GeneralPanel generalPanel = new GeneralPanel(config.getPanelConfig(i));
+
+      GeneralPanel generalPanel = new GeneralPanel(config.getPanelConfig(i), dataSaver);
       generalPanel.getPanelObject().saveInput(dataSaver);
       panels.add(generalPanel);
     }

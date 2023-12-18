@@ -1,5 +1,7 @@
 package edu.labs.configurableregistrationpanels.utils;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import org.json.JSONObject;
 
 public class DataSaver {
@@ -16,7 +18,13 @@ public class DataSaver {
   }
 
   public void saveToFile(String filename) {
-    // Implement the functionality to save the data JSONObject to a file
+    try (FileWriter file = new FileWriter(filename)) {
+      file.write(data.toString());
+      System.out.println("Successfully Copied JSON Object to File...");
+      System.out.println("\nJSON Object: " + data);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 
   public JSONObject getData () {

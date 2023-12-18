@@ -1,16 +1,19 @@
 package edu.labs.configurableregistrationpanels.panels;
 
+import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import javafx.scene.control.Button;
 
 public class LastPanel extends Panel {
   private Button finishButton;
 
-  public LastPanel(String[] fieldNames) {
-    super(fieldNames);
+  public LastPanel(String[] fieldNames, DataSaver dataSaver) {
+    super(fieldNames, dataSaver);
     backButton = new Button("<< Back");
     finishButton = new Button("Finish >>");
     panel.getChildren().addAll(backButton, finishButton);  // Add the back and finish buttons
     hideNextButton();  // Hide the Next button
+
+    finishButton.setOnAction(event -> handleFinishButton());
   }
 
   @Override
@@ -30,7 +33,8 @@ public class LastPanel extends Panel {
   }
 
   public void handleFinishButton() {
-    // Implement the functionality for the finish button here
-    // This could involve saving the input field values to a text file
+    // Save the input field values to a text file
+    dataSaver.saveToFile("savedData.json");
   }
+
 }

@@ -15,8 +15,10 @@ public abstract class Panel extends Parent {
   public Button cancelButton;
   protected TextField[] textFields;
   protected Label[] labels;
+  protected DataSaver dataSaver;
 
-  public Panel(String[] fieldNames) {
+  public Panel(String[] fieldNames , DataSaver dataSaver) {
+    this.dataSaver = dataSaver;
     panel = new VBox();
     int numFields = fieldNames.length;
     textFields = new TextField[numFields];
