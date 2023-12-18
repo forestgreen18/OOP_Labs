@@ -16,10 +16,10 @@ public class GeneralPanel {
         panel = new FirstPanel(fields);
         break;
       case "middle":
-//        panel = new MiddlePanel(fields);
+        panel = new MiddlePanel(fields);
         break;
       case "last":
-//        panel = new LastPanel(fields);
+        panel = new LastPanel(fields);
         break;
       default:
         throw new IllegalArgumentException("Invalid panel type: " + panelType);

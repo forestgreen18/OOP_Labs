@@ -14,7 +14,7 @@ public class MainApplication extends Application {
 
     Configuration config = new Configuration("F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
 
-    GeneralPanel generalPanel = new GeneralPanel(config.getPanelConfig(0));
+    GeneralPanel generalPanel = new GeneralPanel(config.getPanelConfig(3));
 
     // Add the panel to a scene and display it
     Scene scene = new Scene(generalPanel.getPanel(), 300, 200);
