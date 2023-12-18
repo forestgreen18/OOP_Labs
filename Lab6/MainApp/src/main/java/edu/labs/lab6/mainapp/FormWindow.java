@@ -16,6 +16,10 @@ import javafx.stage.Stage;
 
 public class FormWindow extends Application {
 
+  public static void main(String[] args) {
+    launch(args);
+  }
+
   @Override
   public void start(Stage primaryStage) {
     primaryStage.setTitle("Форма вводу даних");
@@ -25,11 +29,9 @@ public class FormWindow extends Application {
     grid.setHgap(5);
     grid.setAlignment(Pos.CENTER);
 
-
     TextField nPointField = createTextField("Enter nPoint");
     GridPane.setConstraints(nPointField, 0, 0);
     grid.getChildren().add(nPointField);
-
 
     TextField xMinField = createTextField("Enter xMin");
     GridPane.setConstraints(xMinField, 0, 1);
@@ -65,8 +67,6 @@ public class FormWindow extends Application {
       ClipboardManager clipboardManager = new ClipboardManager();
       clipboardManager.copyToClipboard(dataString);
 
-
-
       new Thread(() -> {
         Client client = new Client();
         boolean isConnected = client.sendMessage("START");
@@ -74,7 +74,8 @@ public class FormWindow extends Application {
         if (!isConnected) {
           // Run launchApp in a new thread
           new Thread(() -> {
-            AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\CoordinateGeneratordemo\\out\\artifacts\\CoordinateGenerator_jar\\coordinategenerator.bat\"");
+            AppLauncher.launchApp(
+                "\"F:\\Labs\\OOP\\Lab6\\CoordinateGeneratordemo\\out\\artifacts\\CoordinateGenerator_jar\\coordinategenerator.bat\"");
           }).start();
         } else {
           client.sendMessage("UPDATE");
@@ -83,7 +84,6 @@ public class FormWindow extends Application {
 
 
     });
-
 
     Scene scene = new Scene(grid, 700, 500);
     primaryStage.setScene(scene);
@@ -96,7 +96,6 @@ public class FormWindow extends Application {
     textField.setPrefWidth(200); // Increase the width
     textField.setPrefHeight(30); // Increase the height
     textField.setFont(new Font(18)); // Increase the font size
-
 
     // Add a change listener that only allows numeric input
     textField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -114,9 +113,5 @@ public class FormWindow extends Application {
     button.setPrefHeight(30); // Increase the height
     button.setFont(new Font(18)); // Increase the font size
     return button;
-  }
-
-  public static void main(String[] args) {
-    launch(args);
   }
 }

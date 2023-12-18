@@ -3,7 +3,6 @@ package edu.labs.lab6.coordinategenerator.coordinategenerator;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.sockets.Client;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.sockets.Server;
 import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.AppLauncher;
-import edu.labs.lab6.coordinategenerator.coordinategenerator.utils.RunningJavaApps;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -22,33 +21,12 @@ import javafx.stage.Stage;
 
 public class DataPointApp extends Application {
 
-  public static class Point {
-
-    private final int number;
-    private final double x;
-    private final double y;
-
-    public Point(int number, double x, double y) {
-      this.number = number;
-      this.x = x;
-      this.y = y;
-    }
-
-    public int getNumber() {
-      return number;
-    }
-
-    public double getX() {
-      return x;
-    }
-
-    public double getY() {
-      return y;
-    }
-  }
   private Server server;
-  private TableView<Point> table = new TableView<>();
+  private final TableView<Point> table = new TableView<>();
 
+  public static void main(String[] args) {
+    launch(args);
+  }
 
   @Override
   public void start(Stage primaryStage) {
@@ -79,18 +57,19 @@ public class DataPointApp extends Application {
 
     generateButton.setOnAction(event -> {
       try {
-        generateCoordinatesAndLaunchApp();
+        generateCoordinates();
+        launchApp();
       } catch (Exception e) {
         e.printStackTrace();
       }
     });
 
     try {
-      generateCoordinatesAndLaunchApp();
+      generateCoordinates();
+      launchApp();
     } catch (Exception e) {
       e.printStackTrace();
     }
-
 
     VBox vbox = new VBox(10, table, generateButton);
     vbox.setAlignment(Pos.CENTER);
@@ -101,12 +80,7 @@ public class DataPointApp extends Application {
     primaryStage.show();
   }
 
-  public static void main(String[] args) {
-    launch(args);
-  }
-
-
-  public void generateCoordinatesAndLaunchApp() throws Exception {
+  public void generateCoordinates() throws Exception {
     // Create a DataPointGenerator with default values
     DataPointGenerator generator = new DataPointGenerator(10, 0.0, 100.0, 0.0, 100.0);
 
@@ -123,7 +97,9 @@ public class DataPointApp extends Application {
     }
 
     table.setItems(data);
+  }
 
+  public void launchApp() {
     new Thread(() -> {
       Client client = new Client();
       boolean isConnected = client.sendMessage("START");
@@ -131,30 +107,29 @@ public class DataPointApp extends Application {
       if (!isConnected) {
         // Run launchApp in a new thread
         new Thread(() -> {
-          AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
+          AppLauncher.launchApp(
+              "\"F:\\Labs\\OOP\\Lab6\\Chart\\out\\artifacts\\Chart_jar\\chart.bat\"");
         }).start();
       } else {
         client.sendMessage("UPDATE");
       }
     }).start();
-
   }
-
 
   private void showError(Exception e) {
     Platform.runLater(() -> {
       // Create an Alert
-      javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.ERROR);
+      javafx.scene.control.Alert alert = new javafx.scene.control.Alert(
+          javafx.scene.control.Alert.AlertType.ERROR);
       alert.setTitle("Помилка");
       alert.setHeaderText(null);
-      alert.setContentText("Виникла помилка під час читання даних з буфера обміну. \n" + "Error: " + e.getMessage());
+      alert.setContentText(
+          "Виникла помилка під час читання даних з буфера обміну. \n" + "Error: " + e.getMessage());
 
       // Show the Alert
       alert.showAndWait();
     });
   }
-
-
 
   @Override
   public void init() throws Exception {
@@ -168,7 +143,8 @@ public class DataPointApp extends Application {
     }).start();
 
     try {
-      generateCoordinatesAndLaunchApp();
+      generateCoordinates();
+      launchApp();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -184,7 +160,30 @@ public class DataPointApp extends Application {
     }
   }
 
+  public static class Point {
 
+    private final int number;
+    private final double x;
+    private final double y;
+
+    public Point(int number, double x, double y) {
+      this.number = number;
+      this.x = x;
+      this.y = y;
+    }
+
+    public int getNumber() {
+      return number;
+    }
+
+    public double getX() {
+      return x;
+    }
+
+    public double getY() {
+      return y;
+    }
+  }
 
 
 }

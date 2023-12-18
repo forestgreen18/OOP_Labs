@@ -2,16 +2,20 @@ package edu.labs.lab6.chart.chart.utils;
 
 
 import edu.labs.lab6.chart.chart.LineChart;
-import java.io.*;
-import java.net.*;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Server {
+
   private ServerSocket serverSocket;
-  private LineChart lineChartApp;
+  private final LineChart lineChartApp;
 
   public Server(LineChart lineChartApp) {
     this.lineChartApp = lineChartApp;
   }
+
   public void startServer() throws IOException {
     serverSocket = new ServerSocket(6668);
     new Thread(() -> {
@@ -25,11 +29,12 @@ public class Server {
           // If the received message is "UPDATE", generate new coordinates
           if (str.equals("UPDATE")) {
             System.out.println("I get update message. Working on it.");
-            javafx.application.Platform.runLater(() -> lineChartApp.addDataToSeries(lineChartApp.getLineChart()));
+            javafx.application.Platform.runLater(
+                () -> lineChartApp.addDataToSeries(lineChartApp.getLineChart()));
           }
 
         } catch (IOException e) {
-          if(serverSocket.isClosed()) {
+          if (serverSocket.isClosed()) {
             System.out.println("Server socket is closed, stopping accept loop.");
           } else {
             e.printStackTrace();
@@ -40,7 +45,6 @@ public class Server {
       }
     }).start();
   }
-
 
 
   public void stopServer() throws IOException {

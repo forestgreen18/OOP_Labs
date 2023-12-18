@@ -1,7 +1,5 @@
 package edu.labs.lab6.coordinategenerator.coordinategenerator;
 
-import java.awt.Toolkit;
-import java.awt.datatransfer.DataFlavor;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -38,7 +36,8 @@ public class DataPointGenerator {
 
   public void readFromClipboard() throws Exception {
     Map<String, Double> result = new HashMap<>();
-    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
+    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit()
+        .getSystemClipboard();
     try {
       String data = (String) clipboard.getData(java.awt.datatransfer.DataFlavor.stringFlavor);
       String[] lines = data.split("\\n");
@@ -52,7 +51,8 @@ public class DataPointGenerator {
       System.out.println(result);
 
       // Check if the necessary keys exist in the map before trying to access their values
-      if (result.containsKey("nPoint") && result.containsKey("xMin") && result.containsKey("xMax") && result.containsKey("yMin") && result.containsKey("yMax")) {
+      if (result.containsKey("nPoint") && result.containsKey("xMin") && result.containsKey("xMax")
+          && result.containsKey("yMin") && result.containsKey("yMax")) {
         this.nPoints = result.get("nPoint").intValue();
         this.xMin = result.get("xMin");
         this.xMax = result.get("xMax");
@@ -72,19 +72,21 @@ public class DataPointGenerator {
     StringBuilder clipboardString = new StringBuilder();
 
     for (int i = 0; i < points.length; i++) {
-      clipboardString.append("Number: ").append(i + 1).append(", X: ").append(points[i][0]).append(", Y: ").append(points[i][1]).append(";\n");
+      clipboardString.append("Number: ").append(i + 1).append(", X: ").append(points[i][0])
+          .append(", Y: ").append(points[i][1]).append(";\n");
     }
 
     // Create a StringSelection object
-    java.awt.datatransfer.StringSelection stringSelection = new java.awt.datatransfer.StringSelection(clipboardString.toString());
+    java.awt.datatransfer.StringSelection stringSelection = new java.awt.datatransfer.StringSelection(
+        clipboardString.toString());
 
     // Get the system clipboard
-    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
+    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit()
+        .getSystemClipboard();
 
     // Write the string to the clipboard
     clipboard.setContents(stringSelection, null);
   }
-
 
 
 }

@@ -1,9 +1,11 @@
 package edu.labs.lab6.mainapp.sockets;
 
-import java.io.*;
-import java.net.*;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
 
 public class Client {
+
   public boolean sendMessage(String message) {
     int maxRetries = 5; // Maximum number of retries
     int retries = 0; // Current number of retries

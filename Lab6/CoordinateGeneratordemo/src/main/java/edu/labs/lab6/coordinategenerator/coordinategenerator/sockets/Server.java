@@ -1,16 +1,20 @@
 package edu.labs.lab6.coordinategenerator.coordinategenerator.sockets;
 
 import edu.labs.lab6.coordinategenerator.coordinategenerator.DataPointApp;
-import java.io.*;
-import java.net.*;
+import java.io.DataInputStream;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Server {
+
   private ServerSocket serverSocket;
-  private DataPointApp dataPointApp;
+  private final DataPointApp dataPointApp;
 
   public Server(DataPointApp dataPointApp) {
     this.dataPointApp = dataPointApp;
   }
+
   public void startServer() throws IOException {
     serverSocket = new ServerSocket(6667);
     new Thread(() -> {
@@ -23,11 +27,12 @@ public class Server {
 
           // If the received message is "UPDATE", generate new coordinates
           if (str.equals("UPDATE")) {
-            dataPointApp.generateCoordinatesAndLaunchApp();
+            dataPointApp.generateCoordinates();
+            dataPointApp.launchApp();
           }
 
         } catch (IOException e) {
-          if(serverSocket.isClosed()) {
+          if (serverSocket.isClosed()) {
             System.out.println("Server socket is closed, stopping accept loop.");
           } else {
             e.printStackTrace();
@@ -38,7 +43,6 @@ public class Server {
       }
     }).start();
   }
-
 
 
   public void stopServer() throws IOException {
