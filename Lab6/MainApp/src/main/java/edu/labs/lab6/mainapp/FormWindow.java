@@ -94,20 +94,6 @@ public class FormWindow extends Application {
       }).start();
 
 
-//      // Only launch the app if it's not already running
-//      if (!isThereChartApp) {
-//        // Run launchApp in a new thread
-//        new Thread(() -> {
-//          AppLauncher.launchApp("\"F:\\Labs\\OOP\\Lab6\\CoordinateGeneratordemo\\out\\artifacts\\CoordinateGenerator_jar\\coordinategenerator.bat\"");
-//
-//        }).start();
-//
-//        new Thread(() -> {
-//          Client client = new Client();
-//          client.sendMessage("UPDATE");
-//        }).start();
-//
-//      }
     });
 
 
@@ -122,6 +108,15 @@ public class FormWindow extends Application {
     textField.setPrefWidth(200); // Increase the width
     textField.setPrefHeight(30); // Increase the height
     textField.setFont(new Font(18)); // Increase the font size
+
+
+    // Add a change listener that only allows numeric input
+    textField.textProperty().addListener((observable, oldValue, newValue) -> {
+      if (!newValue.matches("\\d*")) {
+        textField.setText(newValue.replaceAll("[^\\d]", ""));
+      }
+    });
+
     return textField;
   }
 
