@@ -8,22 +8,31 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Lab6/Chart/.idea/artifacts/Chart_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab6/CoordinateGeneratordemo/.idea/artifacts/CoordinateGenerator_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab6/CoordinateGeneratordemo/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab6/MainApp/src/main/java/edu/labs/lab6/mainapp/FormWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/MainApp/src/main/java/edu/labs/lab6/mainapp/FormWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shapes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/shapes.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -32,26 +41,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/MainWindow.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/ShapeObjectsEditor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/editor/Editor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/editor/EllipseShapeEditor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/editor/LineShapeEditor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/editor/ShapeEditor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/shapes/EllipseShape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/shapes/LineShape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/shapes/PointShape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/shapes/RectangleShape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/shapes/Shape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/utils/JsonFileReader.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab2/shape_editor/utils/Titles.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/module-info.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/resources/edu/labs/lab2/menuTitles.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/saved_shapes.txt" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2Y5b70wxLQBjGUt3nI4lii28y1K" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -61,31 +62,39 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Labs/OOP/Lab2&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/Labs/OOP/Lab4&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Labs\OOP\Lab3\src\main\resources\edu\labs\lab3\images" />
       <recent name="F:\Labs\OOP\Lab2\src\main\resources\edu\labs\lab2" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="edu.labs.lab4.shapes" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="edu.labs.lab5.editor" />
+      <recent name="edu.labs.lab5.windows" />
+      <recent name="edu.labs.lab4" />
+      <recent name="edu.labs.lab3" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="edu.labs.lab5.windows.MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="edu.labs.lab2.MainWindow" />
-      <module name="Lab2" />
+      <option name="MAIN_CLASS_NAME" value="edu.labs.lab5.windows.MainWindow" />
+      <module name="Lab5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.labs.lab2.*" />
+          <option name="PATTERN" value="edu.labs.lab4.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,11 +104,14 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MainWindow" />
+        <item itemvalue="Application.edu.labs.lab5.windows.MainWindow" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="" />
@@ -115,8 +127,29 @@
       <workItem from="1700383043674" duration="3035000" />
       <workItem from="1700477815321" duration="8820000" />
       <workItem from="1700489154050" duration="9516000" />
-      <workItem from="1700554449499" duration="2957000" />
-      <workItem from="1702675862634" duration="837000" />
+      <workItem from="1700501185760" duration="8971000" />
+      <workItem from="1700554437041" duration="10000" />
+      <workItem from="1700558587663" duration="8018000" />
+      <workItem from="1700733213929" duration="605000" />
+      <workItem from="1700734146754" duration="297000" />
+      <workItem from="1700734465546" duration="5181000" />
+      <workItem from="1700855372698" duration="2729000" />
+      <workItem from="1700908314382" duration="3247000" />
+      <workItem from="1701158766268" duration="19000" />
+      <workItem from="1701275753772" duration="2022000" />
+      <workItem from="1701447034738" duration="6269000" />
+      <workItem from="1701723732512" duration="1040000" />
+      <workItem from="1701766508186" duration="4693000" />
+      <workItem from="1701861793354" duration="2373000" />
+      <workItem from="1702056710725" duration="11464000" />
+      <workItem from="1702117283217" duration="6680000" />
+      <workItem from="1702150639134" duration="29000" />
+      <workItem from="1702150709111" duration="11000" />
+      <workItem from="1702150750213" duration="7718000" />
+      <workItem from="1702203468590" duration="18892000" />
+      <workItem from="1702315183228" duration="1044000" />
+      <workItem from="1702369564511" duration="887000" />
+      <workItem from="1702397939726" duration="830000" />
     </task>
     <servers />
   </component>

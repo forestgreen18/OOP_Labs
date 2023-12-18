@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: edu.labs.lab6.coordinategenerator.coordinategenerator.DataPo
+ intApp
+
