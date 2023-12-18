@@ -1,9 +1,11 @@
 package edu.labs.lab6.coordinategenerator.coordinategenerator;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-
+import com.google.gson.Gson; // You'll need to add the Gson library to your project
+import com.google.gson.reflect.TypeToken;
 public class DataPointGenerator {
 
   private int nPoints;
@@ -35,18 +37,18 @@ public class DataPointGenerator {
   }
 
   public void readFromClipboard() throws Exception {
-    Map<String, Double> result = new HashMap<>();
-    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit()
-        .getSystemClipboard();
+    java.awt.datatransfer.Clipboard clipboard = java.awt.Toolkit.getDefaultToolkit().getSystemClipboard();
     try {
       String data = (String) clipboard.getData(java.awt.datatransfer.DataFlavor.stringFlavor);
-      String[] lines = data.split("\\n");
-      for (String line : lines) {
-        String[] parts = line.split(": ");
-        if (parts.length == 2) {
-          result.put(parts[0], Double.parseDouble(parts[1].replace(";", "")));
-        }
-      }
+
+      // Create a Gson object
+      Gson gson = new Gson();
+
+      // Define the type of the data to be parsed
+      Type type = new TypeToken<Map<String, Double>>(){}.getType();
+
+      // Parse the JSON string to a map
+      Map<String, Double> result = gson.fromJson(data, type);
 
       System.out.println(result);
 
