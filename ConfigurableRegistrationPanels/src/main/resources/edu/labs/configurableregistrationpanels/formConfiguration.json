@@ -1,0 +1,20 @@
+{
+  "panels": [
+    {
+      "panelType": "first",
+      "fields": ["Name", "Surname"]
+    },
+    {
+      "panelType": "middle",
+      "fields": ["Email", "Password"]
+    },
+    {
+      "panelType": "middle",
+      "fields": ["Address", "Phone Number", "Date of Birth"]
+    },
+    {
+      "panelType": "last",
+      "fields": ["Security Question", "Security Answer"]
+    }
+  ]
+}

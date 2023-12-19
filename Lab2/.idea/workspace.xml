@@ -10,8 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Lab6/Chart/.idea/artifacts/Chart_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab6/CoordinateGeneratordemo/.idea/artifacts/CoordinateGenerator_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab6/CoordinateGeneratordemo/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab6/MainApp/src/main/java/edu/labs/lab6/mainapp/FormWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/MainApp/src/main/java/edu/labs/lab6/mainapp/FormWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +116,7 @@
       <workItem from="1700477815321" duration="8820000" />
       <workItem from="1700489154050" duration="9516000" />
       <workItem from="1700554449499" duration="2957000" />
+      <workItem from="1702675862634" duration="837000" />
     </task>
     <servers />
   </component>
