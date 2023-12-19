@@ -18,8 +18,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Lab4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shapes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/shapes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/Editor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/Editor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/EllipseShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/EllipseShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/LineSegmentWithCirclesAtEndsShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/LineSegmentWithCirclesAtEndsShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/LineShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/LineShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/ParallelepipedShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/ParallelepipedShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/PointShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/PointShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/RectangleShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/RectangleShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/shapes/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/ui/PaintToolBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/ui/PaintToolBar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/utils/fileReaders/JsonFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/utils/fileReaders/JsonFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/utils/fileReaders/SVGReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/utils/fileReaders/SVGReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/utils/fileReaders/Titles.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/utils/fileReaders/Titles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/utils/geometry/GeometryUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/utils/geometry/GeometryUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/utils/geometry/LineCoordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/edu/labs/lab4/utils/geometry/LineCoordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab4/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +78,8 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;F:/Labs/OOP/Lab4&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
@@ -98,6 +116,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Lab5" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Lab5" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -150,6 +181,8 @@
       <workItem from="1702315183228" duration="1044000" />
       <workItem from="1702369564511" duration="887000" />
       <workItem from="1702397939726" duration="830000" />
+      <workItem from="1702973969420" duration="17000" />
+      <workItem from="1702974009001" duration="17000" />
     </task>
     <servers />
   </component>
