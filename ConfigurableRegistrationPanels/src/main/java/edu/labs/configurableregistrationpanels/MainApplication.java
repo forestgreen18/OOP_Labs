@@ -5,6 +5,7 @@ import edu.labs.configurableregistrationpanels.panels.LastPanel;
 import edu.labs.configurableregistrationpanels.panels.Panel;
 import edu.labs.configurableregistrationpanels.utils.Configuration;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
+import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -37,11 +38,8 @@ public class MainApplication extends Application {
     Menu fileMenu = new Menu("File");
     MenuItem openConfigMenuItem = new MenuItem("Open configuration file");
 
-    openConfigMenuItem.setOnAction(e -> {
-      fileChooser.setTitle("Open Configuration File");
-      fileChooser.showOpenDialog(primaryStage);
-      // Here you can add the code to handle the selected file
-    });
+
+
 
     fileMenu.getItems().add(openConfigMenuItem);
     menuBar.getMenus().add(fileMenu);
@@ -56,6 +54,21 @@ public class MainApplication extends Application {
       generalPanel.getPanelObject().saveInput(dataSaver);
       panels.add(generalPanel);
     }
+
+    openConfigMenuItem.setOnAction(e -> {
+      File file = fileChooser.showOpenDialog(primaryStage);
+      if (file != null) {
+        try {
+          loadPanels(panels, dataSaver, file.getPath());
+          // Reset the current panel index and refresh the view
+          currentPanelIndex = 0;
+          displayCurrentPanel();
+        } catch (IOException ex) {
+          // Handle the exception (e.g., show an error message to the user)
+        }
+      }
+    });
+
 
     root = new Pane();
     VBox vBox = new VBox(menuBar, root);
@@ -117,6 +130,21 @@ public class MainApplication extends Application {
     primaryStage.setScene(createDataScene());
   }
 
+
+  public void loadPanels(List<GeneralPanel> panels, DataSaver dataSaver, String configFilePath) throws IOException {
+    // Clear the existing panels
+    panels.clear();
+
+    // Load the new configuration
+    Configuration config = new Configuration(configFilePath);
+
+    // Create the panels based on the new configuration
+    for (int i = 0; i < config.getNumPanels(); i++) {
+      GeneralPanel generalPanel = new GeneralPanel(config.getPanelConfig(i), dataSaver);
+      generalPanel.getPanelObject().saveInput(dataSaver);
+      panels.add(generalPanel);
+    }
+  }
 
 
   public static void main(String[] args) {

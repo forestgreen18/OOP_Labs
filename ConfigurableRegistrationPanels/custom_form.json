@@ -1,0 +1,12 @@
+{
+  "panels": [
+    {
+      "panelType": "first",
+      "fields": ["Customer name", "Customer field"]
+    },
+    {
+      "panelType": "last",
+      "fields": ["Last Question", "Last Answer"]
+    }
+  ]
+}
