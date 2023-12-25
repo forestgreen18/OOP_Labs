@@ -59,6 +59,7 @@ public class MainApplication extends Application {
       File file = fileChooser.showOpenDialog(primaryStage);
       if (file != null) {
         try {
+          dataSaver.clearData();
           loadPanels(panels, dataSaver, file.getPath());
           // Reset the current panel index and refresh the view
           currentPanelIndex = 0;

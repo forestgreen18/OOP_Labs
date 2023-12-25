@@ -56,14 +56,13 @@ public abstract class Panel extends Parent {
     for (int i = 0; i < textFields.length; i++) {
       TextField textField = textFields[i];
       String fieldName = labels[i].getText();
-      textField.focusedProperty().addListener((observable, oldValue, newValue) -> {
-        if (!newValue) {  // If the text field has lost focus
-          dataSaver.saveInput(getPanelType(), fieldName, textField.getText());
-          System.out.println(dataSaver.getData());
-        }
+      textField.textProperty().addListener((observable, oldValue, newValue) -> {
+        dataSaver.saveInput(getPanelType(), fieldName, newValue);
+        System.out.println(dataSaver.getData());
       });
     }
   }
+
 
   public abstract String getPanelType();
 
