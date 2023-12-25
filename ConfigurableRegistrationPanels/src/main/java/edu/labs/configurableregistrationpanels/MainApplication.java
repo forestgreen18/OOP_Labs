@@ -9,8 +9,12 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -27,6 +31,21 @@ public class MainApplication extends Application {
   public void start(Stage primaryStage) throws IOException {
     this.primaryStage = primaryStage;
 
+    FileChooser fileChooser = new FileChooser();
+
+    MenuBar menuBar = new MenuBar();
+    Menu fileMenu = new Menu("File");
+    MenuItem openConfigMenuItem = new MenuItem("Open configuration file");
+
+    openConfigMenuItem.setOnAction(e -> {
+      fileChooser.setTitle("Open Configuration File");
+      fileChooser.showOpenDialog(primaryStage);
+      // Here you can add the code to handle the selected file
+    });
+
+    fileMenu.getItems().add(openConfigMenuItem);
+    menuBar.getMenus().add(fileMenu);
+
     Configuration config = new Configuration("F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
     panels = new ArrayList<>();
     dataSaver = new DataSaver();
@@ -39,7 +58,8 @@ public class MainApplication extends Application {
     }
 
     root = new Pane();
-    Scene scene = new Scene(root, 300, 200);
+    VBox vBox = new VBox(menuBar, root);
+    Scene scene = new Scene(vBox, 300, 200);
     primaryStage.setScene(scene);
     primaryStage.show();
 
