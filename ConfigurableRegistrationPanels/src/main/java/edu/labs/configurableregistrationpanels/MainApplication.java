@@ -10,6 +10,7 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -41,6 +42,7 @@ public class MainApplication extends Application {
 
 
 
+
     root = new VBox();
     VBox vBox = new VBox(menuBar, root);
     Scene scene = new Scene(vBox, 300, 200);
@@ -55,6 +57,18 @@ public class MainApplication extends Application {
 
   private void displayCurrentPanel() {
     root.getChildren().clear();
+
+    // Get the root node of the scene
+    Parent rootOfScene = primaryStage.getScene().getRoot();
+
+// Check if the root is the expected layout component
+    if (rootOfScene instanceof VBox vbox) {
+
+      // Remove all labels from the VBox
+      vbox.getChildren().removeIf(node -> node instanceof Label);
+    }
+
+
     Panel currentPanel = panels.get(currentPanelIndex).getPanelObject();
     VBox currentVBox = currentPanel.getPanelLayout();
     root.getChildren().add(currentVBox);
