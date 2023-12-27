@@ -8,6 +8,8 @@ import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -24,61 +26,31 @@ import java.util.List;
 public class MainApplication extends Application {
   private List<GeneralPanel> panels;
   private int currentPanelIndex;
-  private Pane root;
+  private VBox root;
   private DataSaver dataSaver;
   private Stage primaryStage;
+
+  private FileChooser fileChooser;
 
   @Override
   public void start(Stage primaryStage) throws IOException {
     this.primaryStage = primaryStage;
 
-    FileChooser fileChooser = new FileChooser();
-
-    MenuBar menuBar = new MenuBar();
-    Menu fileMenu = new Menu("File");
-    MenuItem openConfigMenuItem = new MenuItem("Open configuration file");
+    fileChooser = new FileChooser();
+    MenuBar menuBar = createMenuBar();
 
 
 
-
-    fileMenu.getItems().add(openConfigMenuItem);
-    menuBar.getMenus().add(fileMenu);
-
-    Configuration config = new Configuration("F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
-    panels = new ArrayList<>();
-    dataSaver = new DataSaver();
-
-    for (int i = 0; i < config.getNumPanels(); i++) {
-
-      GeneralPanel generalPanel = new GeneralPanel(config.getPanelConfig(i), dataSaver);
-      generalPanel.getPanelObject().saveInput(dataSaver);
-      panels.add(generalPanel);
-    }
-
-    openConfigMenuItem.setOnAction(e -> {
-      File file = fileChooser.showOpenDialog(primaryStage);
-      if (file != null) {
-        try {
-          dataSaver.clearData();
-          loadPanels(panels, dataSaver, file.getPath());
-          // Reset the current panel index and refresh the view
-          currentPanelIndex = 0;
-          displayCurrentPanel();
-        } catch (IOException ex) {
-          // Handle the exception (e.g., show an error message to the user)
-        }
-      }
-    });
-
-
-    root = new Pane();
+    root = new VBox();
     VBox vBox = new VBox(menuBar, root);
     Scene scene = new Scene(vBox, 300, 200);
     primaryStage.setScene(scene);
     primaryStage.show();
 
-    currentPanelIndex = 0;
-    displayCurrentPanel();
+//    currentPanelIndex = 0;
+//    displayCurrentPanel();
+
+    createForm("F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
   }
 
   private void displayCurrentPanel() {
@@ -86,15 +58,29 @@ public class MainApplication extends Application {
     Panel currentPanel = panels.get(currentPanelIndex).getPanelObject();
     VBox currentVBox = currentPanel.getPanelLayout();
     root.getChildren().add(currentVBox);
+    // Print the children of the root pane
+    System.out.println("Root children: " + root.getChildren());
 
-    currentPanel.nextButton.setOnAction(e -> {
-      currentPanelIndex++;
-      displayCurrentPanel();
-    });
-    currentPanel.backButton.setOnAction(e -> {
-      currentPanelIndex--;
-      displayCurrentPanel();
-    });
+    // Print the children of the VBox
+    for (Node child : currentVBox.getChildren()) {
+      System.out.println("VBox child: " + child);
+    }
+
+    System.out.println("===============================");
+
+    if (currentPanel.nextButton.getOnAction() == null) {
+      currentPanel.nextButton.setOnAction(e -> {
+        currentPanelIndex++;
+        displayCurrentPanel();
+      });
+    }
+    if (currentPanel.backButton.getOnAction() == null) {
+      currentPanel.backButton.setOnAction(e -> {
+        currentPanelIndex--;
+        displayCurrentPanel();
+      });
+    }
+
 
     currentPanel.cancelButton.setOnAction(e -> {
       for (GeneralPanel generalPanel : panels) {
@@ -118,7 +104,9 @@ public class MainApplication extends Application {
 
 
   private Scene createDataScene() {
-    VBox layout = new VBox();
+    MenuBar menuBar = createMenuBar();
+    root.getChildren().clear();
+    VBox layout = new VBox(menuBar, root);  // Include root in the layout
     for (String key : dataSaver.getData().keySet()) {
       Label label = new Label(key + ": " + dataSaver.getData().get(key));
       layout.getChildren().add(label);
@@ -127,9 +115,52 @@ public class MainApplication extends Application {
   }
 
 
+
   public void displayDataScene() {
     primaryStage.setScene(createDataScene());
   }
+
+
+
+  private MenuBar createMenuBar() {
+    MenuBar menuBar = new MenuBar();
+    Menu fileMenu = new Menu("File");
+    MenuItem openConfigMenuItem = new MenuItem("Open configuration file");
+
+    openConfigMenuItem.setOnAction(e -> {
+      File file = fileChooser.showOpenDialog(primaryStage);
+      if (file != null) {
+        try {
+          createForm(file.getPath());
+        } catch (IOException ex) {
+          // Handle the exception (e.g., show an error message to the user)
+        }
+      }
+    });
+
+
+    fileMenu.getItems().add(openConfigMenuItem);
+    menuBar.getMenus().add(fileMenu);
+
+    return menuBar;
+  }
+
+
+  public void createForm(String configFilePath) throws IOException {
+    Configuration config = new Configuration(configFilePath);
+    panels = new ArrayList<>();
+    dataSaver = new DataSaver();
+
+    for (int i = 0; i < config.getNumPanels(); i++) {
+      GeneralPanel generalPanel = new GeneralPanel(config.getPanelConfig(i), dataSaver);
+      generalPanel.getPanelObject().saveInput(dataSaver);
+      panels.add(generalPanel);
+    }
+
+    currentPanelIndex = 0;
+    Platform.runLater(this::displayCurrentPanel);
+  }
+
 
 
   public void loadPanels(List<GeneralPanel> panels, DataSaver dataSaver, String configFilePath) throws IOException {
