@@ -66,3 +66,8 @@ Lab5/saved_shapes.txt
 cmake-build-debug/
 cmake-build-release/
 CMakeLists.txt.user
+
+# CMake
+cmake-build-*/
+*.cmake
+*.make

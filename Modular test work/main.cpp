@@ -1,5 +1,7 @@
     #include <iostream>
 #include "Person.h"
+#include "Author.h" // Include the header that contains the class declaration
+
 
     int main() {
         std::cout << "Hello, World!" << std::endl;
@@ -15,6 +17,20 @@
 
         // Call the display method
         s.display();
+
+
+
+        // Create an Author object
+        Author a("John", 40, "Math", 5000, "Sci-Fi", 10);
+
+        // Call the display method
+        a.display();
+
+        // Call the teach method
+        a.teach();
+
+        // Call the write method
+        a.write();
 
         return 0;
 
