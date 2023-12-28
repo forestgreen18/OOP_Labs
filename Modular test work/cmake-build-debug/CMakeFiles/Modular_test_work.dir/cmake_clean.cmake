@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Modular_test_work.dir/Graduate.cpp.obj"
   "CMakeFiles/Modular_test_work.dir/Person.cpp.obj"
   "CMakeFiles/Modular_test_work.dir/Student.cpp.obj"
+  "CMakeFiles/Modular_test_work.dir/Teacher.cpp.obj"
+  "CMakeFiles/Modular_test_work.dir/Writer.cpp.obj"
   "CMakeFiles/Modular_test_work.dir/main.cpp.obj"
   "Modular_test_work.exe"
   "Modular_test_work.exe.manifest"

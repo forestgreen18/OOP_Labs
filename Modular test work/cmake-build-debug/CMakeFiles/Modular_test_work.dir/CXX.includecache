@@ -6,49 +6,27 @@
 
 #IncludeRegexTransform: 
 
-F:/Labs/OOP/Modular test work/Author.h
-string
--
-
-F:/Labs/OOP/Modular test work/Graduate.cpp
-Graduate.h
-F:/Labs/OOP/Modular test work/Graduate.h
-iostream
--
-
-F:/Labs/OOP/Modular test work/Graduate.h
-Student.h
-F:/Labs/OOP/Modular test work/Student.h
-
-F:/Labs/OOP/Modular test work/Person.cpp
-Person.h
-F:/Labs/OOP/Modular test work/Person.h
-iostream
--
-
-F:/Labs/OOP/Modular test work/Person.h
-string
--
-
-F:/Labs/OOP/Modular test work/Student.cpp
-Student.h
-F:/Labs/OOP/Modular test work/Student.h
-iostream
--
-
-F:/Labs/OOP/Modular test work/Student.h
-Person.h
-F:/Labs/OOP/Modular test work/Person.h
-
-F:/Labs/OOP/Modular test work/main.cpp
-iostream
--
-Person.h
-F:/Labs/OOP/Modular test work/Person.h
+F:/Labs/OOP/Modular test work/Author.cpp
 Author.h
 F:/Labs/OOP/Modular test work/Author.h
-Student.h
-F:/Labs/OOP/Modular test work/Student.h
-Graduate.h
-F:/Labs/OOP/Modular test work/Graduate.h
+iostream
+-
+
+F:/Labs/OOP/Modular test work/Author.h
+Teacher.h
+F:/Labs/OOP/Modular test work/Teacher.h
+Writer.h
+F:/Labs/OOP/Modular test work/Writer.h
+
+F:/Labs/OOP/Modular test work/Person.h
+string
+-
+
+F:/Labs/OOP/Modular test work/Teacher.h
+Person.h
+F:/Labs/OOP/Modular test work/Person.h
+
+F:/Labs/OOP/Modular test work/Writer.h
+Person.h
+F:/Labs/OOP/Modular test work/Person.h
 

@@ -230,6 +230,60 @@ Student.cpp.s:
 	$(MAKE) -f CMakeFiles\Modular_test_work.dir\build.make CMakeFiles/Modular_test_work.dir/Student.cpp.s
 .PHONY : Student.cpp.s
 
+Teacher.obj: Teacher.cpp.obj
+
+.PHONY : Teacher.obj
+
+# target to build an object file
+Teacher.cpp.obj:
+	$(MAKE) -f CMakeFiles\Modular_test_work.dir\build.make CMakeFiles/Modular_test_work.dir/Teacher.cpp.obj
+.PHONY : Teacher.cpp.obj
+
+Teacher.i: Teacher.cpp.i
+
+.PHONY : Teacher.i
+
+# target to preprocess a source file
+Teacher.cpp.i:
+	$(MAKE) -f CMakeFiles\Modular_test_work.dir\build.make CMakeFiles/Modular_test_work.dir/Teacher.cpp.i
+.PHONY : Teacher.cpp.i
+
+Teacher.s: Teacher.cpp.s
+
+.PHONY : Teacher.s
+
+# target to generate assembly for a file
+Teacher.cpp.s:
+	$(MAKE) -f CMakeFiles\Modular_test_work.dir\build.make CMakeFiles/Modular_test_work.dir/Teacher.cpp.s
+.PHONY : Teacher.cpp.s
+
+Writer.obj: Writer.cpp.obj
+
+.PHONY : Writer.obj
+
+# target to build an object file
+Writer.cpp.obj:
+	$(MAKE) -f CMakeFiles\Modular_test_work.dir\build.make CMakeFiles/Modular_test_work.dir/Writer.cpp.obj
+.PHONY : Writer.cpp.obj
+
+Writer.i: Writer.cpp.i
+
+.PHONY : Writer.i
+
+# target to preprocess a source file
+Writer.cpp.i:
+	$(MAKE) -f CMakeFiles\Modular_test_work.dir\build.make CMakeFiles/Modular_test_work.dir/Writer.cpp.i
+.PHONY : Writer.cpp.i
+
+Writer.s: Writer.cpp.s
+
+.PHONY : Writer.s
+
+# target to generate assembly for a file
+Writer.cpp.s:
+	$(MAKE) -f CMakeFiles\Modular_test_work.dir\build.make CMakeFiles/Modular_test_work.dir/Writer.cpp.s
+.PHONY : Writer.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -278,6 +332,12 @@ help:
 	@echo ... Student.obj
 	@echo ... Student.i
 	@echo ... Student.s
+	@echo ... Teacher.obj
+	@echo ... Teacher.i
+	@echo ... Teacher.s
+	@echo ... Writer.obj
+	@echo ... Writer.i
+	@echo ... Writer.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -106,6 +106,18 @@
 		<Unit filename="F:/Labs/OOP/Modular test work/Student.h">
 			<Option target="Modular_test_work"/>
 		</Unit>
+		<Unit filename="F:/Labs/OOP/Modular test work/Teacher.cpp">
+			<Option target="Modular_test_work"/>
+		</Unit>
+		<Unit filename="F:/Labs/OOP/Modular test work/Teacher.h">
+			<Option target="Modular_test_work"/>
+		</Unit>
+		<Unit filename="F:/Labs/OOP/Modular test work/Writer.cpp">
+			<Option target="Modular_test_work"/>
+		</Unit>
+		<Unit filename="F:/Labs/OOP/Modular test work/Writer.h">
+			<Option target="Modular_test_work"/>
+		</Unit>
 		<Unit filename="F:/Labs/OOP/Modular test work/main.cpp">
 			<Option target="Modular_test_work"/>
 		</Unit>

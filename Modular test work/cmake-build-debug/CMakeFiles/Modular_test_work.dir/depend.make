@@ -3,6 +3,9 @@
 
 CMakeFiles/Modular_test_work.dir/Author.cpp.obj: ../Author.cpp
 CMakeFiles/Modular_test_work.dir/Author.cpp.obj: ../Author.h
+CMakeFiles/Modular_test_work.dir/Author.cpp.obj: ../Person.h
+CMakeFiles/Modular_test_work.dir/Author.cpp.obj: ../Teacher.h
+CMakeFiles/Modular_test_work.dir/Author.cpp.obj: ../Writer.h
 
 CMakeFiles/Modular_test_work.dir/Graduate.cpp.obj: ../Graduate.cpp
 CMakeFiles/Modular_test_work.dir/Graduate.cpp.obj: ../Graduate.h
@@ -16,9 +19,17 @@ CMakeFiles/Modular_test_work.dir/Student.cpp.obj: ../Person.h
 CMakeFiles/Modular_test_work.dir/Student.cpp.obj: ../Student.cpp
 CMakeFiles/Modular_test_work.dir/Student.cpp.obj: ../Student.h
 
+CMakeFiles/Modular_test_work.dir/Teacher.cpp.obj: ../Person.h
+CMakeFiles/Modular_test_work.dir/Teacher.cpp.obj: ../Teacher.cpp
+CMakeFiles/Modular_test_work.dir/Teacher.cpp.obj: ../Teacher.h
+
+CMakeFiles/Modular_test_work.dir/Writer.cpp.obj: ../Person.h
+CMakeFiles/Modular_test_work.dir/Writer.cpp.obj: ../Writer.cpp
+CMakeFiles/Modular_test_work.dir/Writer.cpp.obj: ../Writer.h
+
 CMakeFiles/Modular_test_work.dir/main.cpp.obj: ../Author.h
-CMakeFiles/Modular_test_work.dir/main.cpp.obj: ../Graduate.h
 CMakeFiles/Modular_test_work.dir/main.cpp.obj: ../Person.h
-CMakeFiles/Modular_test_work.dir/main.cpp.obj: ../Student.h
+CMakeFiles/Modular_test_work.dir/main.cpp.obj: ../Teacher.h
+CMakeFiles/Modular_test_work.dir/main.cpp.obj: ../Writer.h
 CMakeFiles/Modular_test_work.dir/main.cpp.obj: ../main.cpp
 
