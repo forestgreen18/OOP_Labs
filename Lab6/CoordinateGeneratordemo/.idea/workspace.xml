@@ -10,16 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="122cdf85-a6bd-4315-bbf6-51563718ff95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../ConfigurableRegistrationPanels/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ConfigurableRegistrationPanels/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ConfigurableRegistrationPanels/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ConfigurableRegistrationPanels/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ConfigurableRegistrationPanels/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ConfigurableRegistrationPanels/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ConfigurableRegistrationPanels/src/main/java/edu/labs/configurableregistrationpanels/configurableregistrationpanels/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ConfigurableRegistrationPanels/src/main/java/edu/labs/configurableregistrationpanels/configurableregistrationpanels/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ConfigurableRegistrationPanels/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../ConfigurableRegistrationPanels/src/main/resources/edu/labs/configurableregistrationpanels/configurableregistrationpanels/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Lab5/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab5/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chart/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Chart/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MainApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MainApp/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +97,7 @@
       <workItem from="1702810516445" duration="11941000" />
       <workItem from="1702894927929" duration="8352000" />
       <workItem from="1702907563869" duration="5549000" />
+      <workItem from="1702975742884" duration="628000" />
     </task>
     <servers />
   </component>
