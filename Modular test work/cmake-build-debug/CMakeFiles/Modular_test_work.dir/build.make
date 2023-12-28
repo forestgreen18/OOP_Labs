@@ -82,21 +82,66 @@ CMakeFiles/Modular_test_work.dir/Person.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Modular_test_work.dir/Person.cpp.s"
 	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "F:\Labs\OOP\Modular test work\Person.cpp" -o CMakeFiles\Modular_test_work.dir\Person.cpp.s
 
+CMakeFiles/Modular_test_work.dir/Author.cpp.obj: CMakeFiles/Modular_test_work.dir/flags.make
+CMakeFiles/Modular_test_work.dir/Author.cpp.obj: ../Author.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:\Labs\OOP\Modular test work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Modular_test_work.dir/Author.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Modular_test_work.dir\Author.cpp.obj -c "F:\Labs\OOP\Modular test work\Author.cpp"
+
+CMakeFiles/Modular_test_work.dir/Author.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Modular_test_work.dir/Author.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "F:\Labs\OOP\Modular test work\Author.cpp" > CMakeFiles\Modular_test_work.dir\Author.cpp.i
+
+CMakeFiles/Modular_test_work.dir/Author.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Modular_test_work.dir/Author.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "F:\Labs\OOP\Modular test work\Author.cpp" -o CMakeFiles\Modular_test_work.dir\Author.cpp.s
+
+CMakeFiles/Modular_test_work.dir/Student.cpp.obj: CMakeFiles/Modular_test_work.dir/flags.make
+CMakeFiles/Modular_test_work.dir/Student.cpp.obj: ../Student.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:\Labs\OOP\Modular test work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Modular_test_work.dir/Student.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Modular_test_work.dir\Student.cpp.obj -c "F:\Labs\OOP\Modular test work\Student.cpp"
+
+CMakeFiles/Modular_test_work.dir/Student.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Modular_test_work.dir/Student.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "F:\Labs\OOP\Modular test work\Student.cpp" > CMakeFiles\Modular_test_work.dir\Student.cpp.i
+
+CMakeFiles/Modular_test_work.dir/Student.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Modular_test_work.dir/Student.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "F:\Labs\OOP\Modular test work\Student.cpp" -o CMakeFiles\Modular_test_work.dir\Student.cpp.s
+
+CMakeFiles/Modular_test_work.dir/Graduate.cpp.obj: CMakeFiles/Modular_test_work.dir/flags.make
+CMakeFiles/Modular_test_work.dir/Graduate.cpp.obj: ../Graduate.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="F:\Labs\OOP\Modular test work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Modular_test_work.dir/Graduate.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Modular_test_work.dir\Graduate.cpp.obj -c "F:\Labs\OOP\Modular test work\Graduate.cpp"
+
+CMakeFiles/Modular_test_work.dir/Graduate.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Modular_test_work.dir/Graduate.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "F:\Labs\OOP\Modular test work\Graduate.cpp" > CMakeFiles\Modular_test_work.dir\Graduate.cpp.i
+
+CMakeFiles/Modular_test_work.dir/Graduate.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Modular_test_work.dir/Graduate.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "F:\Labs\OOP\Modular test work\Graduate.cpp" -o CMakeFiles\Modular_test_work.dir\Graduate.cpp.s
+
 # Object files for target Modular_test_work
 Modular_test_work_OBJECTS = \
 "CMakeFiles/Modular_test_work.dir/main.cpp.obj" \
-"CMakeFiles/Modular_test_work.dir/Person.cpp.obj"
+"CMakeFiles/Modular_test_work.dir/Person.cpp.obj" \
+"CMakeFiles/Modular_test_work.dir/Author.cpp.obj" \
+"CMakeFiles/Modular_test_work.dir/Student.cpp.obj" \
+"CMakeFiles/Modular_test_work.dir/Graduate.cpp.obj"
 
 # External object files for target Modular_test_work
 Modular_test_work_EXTERNAL_OBJECTS =
 
 Modular_test_work.exe: CMakeFiles/Modular_test_work.dir/main.cpp.obj
 Modular_test_work.exe: CMakeFiles/Modular_test_work.dir/Person.cpp.obj
+Modular_test_work.exe: CMakeFiles/Modular_test_work.dir/Author.cpp.obj
+Modular_test_work.exe: CMakeFiles/Modular_test_work.dir/Student.cpp.obj
+Modular_test_work.exe: CMakeFiles/Modular_test_work.dir/Graduate.cpp.obj
 Modular_test_work.exe: CMakeFiles/Modular_test_work.dir/build.make
 Modular_test_work.exe: CMakeFiles/Modular_test_work.dir/linklibs.rsp
 Modular_test_work.exe: CMakeFiles/Modular_test_work.dir/objects1.rsp
 Modular_test_work.exe: CMakeFiles/Modular_test_work.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="F:\Labs\OOP\Modular test work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Modular_test_work.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="F:\Labs\OOP\Modular test work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Modular_test_work.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Modular_test_work.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

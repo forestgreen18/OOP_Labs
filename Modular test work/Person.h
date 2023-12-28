@@ -1,6 +1,6 @@
 // Person.h
-#ifndef MODULAR_TEST_WORK_PERSON_H
-#define MODULAR_TEST_WORK_PERSON_H
+#ifndef PERSON_H // Include guard
+#define PERSON_H
 
 #include <string> // Include the header for std::string
 
@@ -18,18 +18,4 @@ public:
     void display();
 };
 
-// Derived class declaration
-class Student : public Person {
-public:
-    // Public members are accessible from anywhere
-    int id;
-    double gpa;
-
-    // Public constructor
-    Student(std::string n, int a, int i, double g);
-
-    // Public method
-    void display();
-};
-
-#endif //MODULAR_TEST_WORK_PERSON_H
+#endif // End of include guard

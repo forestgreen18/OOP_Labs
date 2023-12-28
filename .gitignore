@@ -71,3 +71,15 @@ CMakeLists.txt.user
 cmake-build-*/
 *.cmake
 *.make
+
+
+### For C++ and CMake
+**/cmake-build-debug/
+**/cmake-build-release/
+**/CMakeLists.txt.user
+
+# CMake
+**/cmake-build-*/
+**/*.cmake
+**/*.make
+

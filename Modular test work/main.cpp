@@ -1,22 +1,19 @@
     #include <iostream>
 #include "Person.h"
 #include "Author.h" // Include the header that contains the class declaration
-
+#include "Student.h" // Include the header that contains the first derived class declaration
+#include "Graduate.h" // Include the header that contains the second derived class declaration
 
     int main() {
-        std::cout << "Hello, World!" << std::endl;
 
-        // Create a Person object
-        Person p("Alice", 25);
-
-        // Call the display method
-        p.display();
-
-        // Create a Student object
-        Student s("Bob", 20, 123, 3.5);
+        // Create a Graduate object
+        Graduate g("Alice", 25, 123, 3.5, "MSc", "Machine Learning");
 
         // Call the display method
-        s.display();
+        g.display();
+
+
+
 
 
 
