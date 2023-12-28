@@ -11,6 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f9233c28-027e-43d2-8de3-47b5f0e54d32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
 <<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" afterDir="false" />
 =======
@@ -19,6 +20,8 @@
       <change beforePath="$PROJECT_DIR$/../Lab6/CoordinateGeneratordemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/CoordinateGeneratordemo/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Lab6/MainApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/MainApp/.idea/workspace.xml" afterDir="false" />
 >>>>>>> Stashed changes
+=======
+>>>>>>> main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +42,19 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/Editor.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/MainWindow.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/MyEditor.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/EllipseShape.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/LineShape.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/PointShape.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/RectangleShape.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/shapes/Shape.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/JsonFileReader.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/Titles.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/ui/PaintToolBar.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/fileReaders/JsonFileReader.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/fileReaders/SVGReader.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/fileReaders/Titles.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/geometry/GeometryUtils.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/lab4/utils/geometry/LineCoordinates.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/module-info.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/edu/labs/lab4/images/lineSegmentWithCirclesAtEnds.svg" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/edu/labs/lab4/menuTitles.json" root0="FORCE_HIGHLIGHTING" />
@@ -149,6 +156,7 @@
       <workItem from="1701861793354" duration="2373000" />
       <workItem from="1702056710725" duration="11464000" />
       <workItem from="1702117283217" duration="6680000" />
+      <workItem from="1702150639134" duration="29000" />
     </task>
     <servers />
   </component>

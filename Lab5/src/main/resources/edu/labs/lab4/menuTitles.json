@@ -1,0 +1,40 @@
+{
+  "fileMenu": {
+    "title": "Файл",
+    "newItemTitle": "Створити новий файл",
+    "openFileItemTitle": "Відкрити файл",
+    "exitItemTitle": "Вихід"
+  },
+  "shapesMenu": {
+    "title": "Об'єкти",
+    "shapes": {
+      "ellipseShapeItemTitle": "Еліпс",
+      "rectangleShapeItemTitle": "Прямокутник",
+      "lineShapeItemTitle": "Лінія",
+      "pointShapeItemTitle": "Точка",
+      "lineSegmentWithCirclesAtEndsShapeItemTitle": "Відрізок прямої з еліпсами на кінцях",
+      "parallelepipedShapeItemTitle": "Паралелепіпед"
+    }
+  },
+  "helpMenu": {
+    "title": "Довідка",
+    "items": {
+      "showCoordinatesTableItemTitle": "Показати таблицю з координатами"
+    }
+  },
+  "selectMark": " ✔",
+  "toolbarMenu": {
+    "actions": {
+      "draw": "Малювати ",
+      "erase": "Витерти полотно "
+    },
+    "shapes": {
+      "ellipseShapeItemTitle": "еліпс",
+      "rectangleShapeItemTitle": "прямокутник",
+      "lineShapeItemTitle": "лінію",
+      "pointShapeItemTitle": "точку",
+      "lineSegmentWithCirclesAtEndsShapeItemTitle": "Відрізок прямої з еліпсами на кінцях",
+      "parallelepipedShapeItemTitle": "Паралелепіпед"
+    }
+  }
+}
