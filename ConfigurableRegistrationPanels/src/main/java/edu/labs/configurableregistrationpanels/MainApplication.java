@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -33,6 +35,9 @@ public class MainApplication extends Application {
 
   private FileChooser fileChooser;
 
+
+
+
   @Override
   public void start(Stage primaryStage) throws IOException {
     this.primaryStage = primaryStage;
@@ -44,15 +49,21 @@ public class MainApplication extends Application {
 
 
     root = new VBox();
-    VBox vBox = new VBox(menuBar, root);
-    Scene scene = new Scene(vBox, 300, 200);
+    root.setPrefWidth(0.65 * primaryStage.getWidth());
+    HBox centeredRoot = new HBox(root);
+    centeredRoot.setAlignment(Pos.CENTER);
+
+    VBox vBox = new VBox(menuBar, centeredRoot);
+    Scene scene = new Scene(vBox, 800, 600);
     primaryStage.setScene(scene);
     primaryStage.show();
 
-//    currentPanelIndex = 0;
-//    displayCurrentPanel();
-
     createForm("F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
+
+    primaryStage.widthProperty().addListener((observable, oldValue, newValue) -> {
+      root.setPrefWidth(0.65 * newValue.doubleValue());
+    });
+
   }
 
   private void displayCurrentPanel() {
@@ -80,7 +91,6 @@ public class MainApplication extends Application {
       System.out.println("VBox child: " + child);
     }
 
-    System.out.println("===============================");
 
     if (currentPanel.nextButton.getOnAction() == null) {
       currentPanel.nextButton.setOnAction(e -> {
@@ -191,6 +201,8 @@ public class MainApplication extends Application {
       panels.add(generalPanel);
     }
   }
+
+
 
 
   public static void main(String[] args) {

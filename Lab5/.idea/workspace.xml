@@ -3,18 +3,26 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1e0264e0-e8a8-4ec8-95a5-85a39f588716" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Lab4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab6/Chart/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/Chart/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab6/CoordinateGeneratordemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/CoordinateGeneratordemo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab6/MainApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab6/MainApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConfigurableRegistrationPanels/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConfigurableRegistrationPanels/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ConfigurableRegistrationPanels/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ConfigurableRegistrationPanels/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -27,13 +35,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+  </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.labs.lab5.windows.MainWindow" />
@@ -44,6 +51,9 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1e0264e0-e8a8-4ec8-95a5-85a39f588716" name="Changes" comment="" />
@@ -52,10 +62,17 @@
       <option name="presentableId" value="Default" />
       <updated>1702974227520</updated>
       <workItem from="1702974229170" duration="3413000" />
+      <workItem from="1703757794148" duration="57000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1203" y="262" key="FileChooserDialogImpl" timestamp="1703757847806">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1203" y="262" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1703757847806" />
   </component>
 </project>

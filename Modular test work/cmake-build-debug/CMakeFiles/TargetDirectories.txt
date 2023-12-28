@@ -1,0 +1,3 @@
+F:/Labs/OOP/Modular test work/cmake-build-debug/CMakeFiles/Modular_test_work.dir
+F:/Labs/OOP/Modular test work/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/Labs/OOP/Modular test work/cmake-build-debug/CMakeFiles/rebuild_cache.dir
