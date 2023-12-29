@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -53,6 +54,7 @@ public class MainApplication extends Application {
     HBox centeredRoot = new HBox(root);
     centeredRoot.setAlignment(Pos.CENTER);
 
+
     VBox vBox = new VBox(menuBar, centeredRoot);
     Scene scene = new Scene(vBox, 800, 600);
     primaryStage.setScene(scene);
@@ -61,6 +63,8 @@ public class MainApplication extends Application {
 
 
     root.setPrefWidth(0.65 * primaryStage.getWidth());
+    root.setPadding(new Insets(50, 25, 25, 25));
+
     createForm("F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
 
     primaryStage.widthProperty().addListener((observable, oldValue, newValue) -> {
