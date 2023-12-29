@@ -39,8 +39,9 @@ public abstract class Panel extends Parent {
 
     nextButton = new Button("Next >>");  // Initialize nextButton
     cancelButton = new Button("Cancel");  // Initialize cancelButton
+    backButton = new Button("<< Back");
 
-    buttonBox.getChildren().addAll(nextButton, cancelButton);  // Add the buttons to the HBox
+    buttonBox.getChildren().addAll( backButton,nextButton, cancelButton);  // Add the buttons to the HBox
 
     buttonBox.setSpacing(10);  // Add some space between the buttons
 
@@ -63,7 +64,7 @@ public abstract class Panel extends Parent {
   }
 
   public void hideNextButton() {
-    buttonBox.getChildren().remove(0);
+  buttonBox.getChildren().remove(nextButton);
   }
 
   public void saveInput(DataSaver dataSaver) {

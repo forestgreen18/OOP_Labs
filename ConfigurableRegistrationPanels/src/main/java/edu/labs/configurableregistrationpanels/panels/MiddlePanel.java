@@ -1,15 +1,13 @@
 package edu.labs.configurableregistrationpanels.panels;
 
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
+import java.util.Collections;
 import javafx.scene.control.Button;
 
 public class MiddlePanel extends Panel {
   public MiddlePanel(String[] fieldNames, DataSaver dataSaver) {
     super(fieldNames, dataSaver);
-    backButton = new Button("<< Back");
-
-    buttonBox.getChildren().removeAll(nextButton,cancelButton);
-    buttonBox.getChildren().addAll(backButton, nextButton, cancelButton);
+    backButton.setDisable(false);
   }
 
   @Override

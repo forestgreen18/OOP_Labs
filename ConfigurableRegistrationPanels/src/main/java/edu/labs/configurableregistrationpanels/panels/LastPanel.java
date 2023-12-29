@@ -8,12 +8,10 @@ public class LastPanel extends Panel {
 
   public LastPanel(String[] fieldNames, DataSaver dataSaver) {
     super(fieldNames, dataSaver);
-    backButton = new Button("<< Back");
     finishButton = new Button("Finish >>");
     hideNextButton();  // Hide the Next button
 
-    buttonBox.getChildren().remove(cancelButton);
-    buttonBox.getChildren().addAll(backButton, finishButton, cancelButton);
+    buttonBox.getChildren().add(1, finishButton);
 
 
     finishButton.setOnAction(event -> handleFinishButton());
