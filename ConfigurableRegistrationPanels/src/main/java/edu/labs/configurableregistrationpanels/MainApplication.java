@@ -21,11 +21,13 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONObject;
 
 public class MainApplication extends Application {
   private List<GeneralPanel> panels;
@@ -145,12 +147,51 @@ public class MainApplication extends Application {
     MenuBar menuBar = createMenuBar();
     root.getChildren().clear();
     VBox layout = new VBox(menuBar, root);  // Include root in the layout
-    for (String key : dataSaver.getData().keySet()) {
-      Label label = new Label(key + ": " + dataSaver.getData().get(key));
-      layout.getChildren().add(label);
+    layout.setAlignment(Pos.CENTER);  // Center the layout
+
+    // Parse the JSON object
+      JSONObject jsonObject = dataSaver.getData();
+    System.out.println("=============== data saver get data below ===============");
+//    System.out.println(dataSaver.getData().toString());
+    System.out.println(dataSaver.getData().getClass());
+
+    // Iterate over the keys (i.e., "middle", "first")
+    for (String key : jsonObject.keySet()) {
+      // Check if the value associated with the key is a JSONObject
+      if (jsonObject.get(key) instanceof JSONObject) {
+        // Get the inner JSON object
+        JSONObject innerJsonObject = jsonObject.getJSONObject(key);
+
+        // Iterate over the keys of the inner JSON object
+        for (String innerKey : innerJsonObject.keySet()) {
+          // Create a label with the key and value from the inner JSON object
+          Label label = new Label(innerKey + ": " + innerJsonObject.getString(innerKey));
+
+          // Set the font size of the label
+          label.setFont(new Font(20));  // Set the font size to 20
+
+          // Add the label to the layout
+          layout.getChildren().add(label);
+        }
+      } else {
+        // Handle non-JSONObject values here
+        // For example, if the value is a String, you can create a label with the key and value
+        String value = jsonObject.getString(key);
+        Label label = new Label(key + ": " + value);
+        label.setFont(new Font(20));  // Set the font size to 20
+        layout.getChildren().add(label);
+      }
     }
-    return new Scene(layout, 300, 200);
+
+
+    // Create a title label
+    Label titleLabel = new Label("Data from the Form");
+    titleLabel.setFont(new Font(24));  // Set the font size of the title to 24
+    layout.getChildren().add(0, titleLabel);  // Add the title label at the beginning of the layout
+
+    return new Scene(layout, 800, 600);
   }
+
 
 
 

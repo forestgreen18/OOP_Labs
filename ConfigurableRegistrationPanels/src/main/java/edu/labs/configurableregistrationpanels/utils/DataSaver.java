@@ -20,16 +20,17 @@ public class DataSaver {
   public void saveToFile(String filename) {
     try (FileWriter file = new FileWriter(filename)) {
       file.write(data.toString());
-      System.out.println("Successfully Copied JSON Object to File...");
-      System.out.println("\nJSON Object: " + data);
+//      System.out.println("Successfully Copied JSON Object to File...");
+//      System.out.println("\nJSON Object: " + data);
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
 
-  public JSONObject getData () {
+  public JSONObject getData() {
     return data;
   }
+
 
   public void clearData() {
     data = new JSONObject();
