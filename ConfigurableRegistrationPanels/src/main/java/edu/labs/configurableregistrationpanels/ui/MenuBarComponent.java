@@ -1,5 +1,6 @@
 package edu.labs.configurableregistrationpanels.ui;
 
+import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -11,14 +12,16 @@ import java.io.IOException;
 
 public class MenuBarComponent {
   private Stage primaryStage;
+  private DataSaver dataSaver;
   private FileChooser fileChooser;
 
   private MenuBar menuBar;
   private MenuItem openConfigMenuItem;
   private MenuItem saveFormDataItem;
 
-  public MenuBarComponent(Stage primaryStage) {
+  public MenuBarComponent(Stage primaryStage, DataSaver dataSaver) {
     this.primaryStage = primaryStage;
+    this.dataSaver = dataSaver;
     this.fileChooser = new FileChooser();
   }
 
@@ -40,8 +43,14 @@ public class MenuBarComponent {
     });
 
     saveFormDataItem.setOnAction(e -> {
-      // Your action here
+      FileChooser fileChooser = new FileChooser();
+      fileChooser.setTitle("Save Data");
+      File file = fileChooser.showSaveDialog(primaryStage);
+      if (file != null) {
+        dataSaver.saveToFile(file.getPath());
+      }
     });
+
 
     fileMenu.getItems().addAll(openConfigMenuItem, saveFormDataItem);
     menuBar.getMenus().add(fileMenu);
