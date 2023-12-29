@@ -3,6 +3,8 @@ package edu.labs.configurableregistrationpanels.utils;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.json.JSONObject;
+import java.awt.datatransfer.StringSelection;
+import java.awt.Toolkit;
 
 public class DataSaver {
   private JSONObject data;
@@ -34,6 +36,11 @@ public class DataSaver {
 
   public void clearData() {
     data = new JSONObject();
+  }
+
+  public void copyDataToClipboard() {
+    StringSelection stringSelection = new StringSelection(data.toString());
+    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
   }
 
 

@@ -14,6 +14,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -189,7 +190,19 @@ public class MainApplication extends Application {
     // Create a title label
     Label titleLabel = new Label("Data from the Form");
     titleLabel.setFont(new Font(24));  // Set the font size of the title to 24
+
+
+    Button copyDataToClipboardButton = new Button("Copy data to clipboard");
+    copyDataToClipboardButton.setOnAction(e -> {
+      dataSaver.copyDataToClipboard();
+    });
+
+    Insets margin = new Insets(10, 10, 10, 10);
+
+    VBox.setMargin(copyDataToClipboardButton, margin);
+
     layout.getChildren().add(1, titleLabel);  // Add the title label at the beginning of the layout
+    layout.getChildren().add(copyDataToClipboardButton);
     return new Scene(borderPane, 800, 600);
   }
 
