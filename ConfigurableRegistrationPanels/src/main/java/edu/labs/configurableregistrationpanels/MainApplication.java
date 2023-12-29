@@ -49,7 +49,7 @@ public class MainApplication extends Application {
 
 
     root = new VBox();
-    root.setPrefWidth(0.65 * primaryStage.getWidth());
+
     HBox centeredRoot = new HBox(root);
     centeredRoot.setAlignment(Pos.CENTER);
 
@@ -58,11 +58,21 @@ public class MainApplication extends Application {
     primaryStage.setScene(scene);
     primaryStage.show();
 
+
+
+    root.setPrefWidth(0.65 * primaryStage.getWidth());
     createForm("F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
 
     primaryStage.widthProperty().addListener((observable, oldValue, newValue) -> {
       root.setPrefWidth(0.65 * newValue.doubleValue());
     });
+
+    primaryStage.showingProperty().addListener((observable, oldValue, newValue) -> {
+      if (newValue) {
+        root.setPrefWidth(0.65 * primaryStage.getWidth());
+      }
+    });
+
 
   }
 

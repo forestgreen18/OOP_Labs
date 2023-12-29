@@ -7,7 +7,9 @@ public class MiddlePanel extends Panel {
   public MiddlePanel(String[] fieldNames, DataSaver dataSaver) {
     super(fieldNames, dataSaver);
     backButton = new Button("<< Back");
-    panel.getChildren().add(0, backButton);  // Add the back button at the beginning
+
+    buttonBox.getChildren().removeAll(nextButton,cancelButton);
+    buttonBox.getChildren().addAll(backButton, nextButton, cancelButton);
   }
 
   @Override

@@ -1,18 +1,23 @@
 package edu.labs.configurableregistrationpanels.panels;
 
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 public abstract class Panel extends Parent {
   protected VBox panel;
+  protected HBox buttonBox;
   public Button nextButton;
   public Button backButton;
   public Button cancelButton;
+
+
   protected TextField[] textFields;
   protected Label[] labels;
   protected DataSaver dataSaver;
@@ -20,6 +25,8 @@ public abstract class Panel extends Parent {
   public Panel(String[] fieldNames , DataSaver dataSaver) {
     this.dataSaver = dataSaver;
     panel = new VBox();
+    buttonBox = new HBox();  // Initialize the HBox here
+
     int numFields = fieldNames.length;
     textFields = new TextField[numFields];
     labels = new Label[numFields];
@@ -30,10 +37,17 @@ public abstract class Panel extends Parent {
       panel.getChildren().addAll(labels[i], textFields[i]);
     }
 
-    nextButton = new Button("Next >>");
-    cancelButton = new Button("Cancel");
+    nextButton = new Button("Next >>");  // Initialize nextButton
+    cancelButton = new Button("Cancel");  // Initialize cancelButton
 
-    panel.getChildren().addAll(nextButton, cancelButton);
+    buttonBox.getChildren().addAll(nextButton, cancelButton);  // Add the buttons to the HBox
+
+    buttonBox.setSpacing(10);  // Add some space between the buttons
+
+    VBox.setMargin(buttonBox, new Insets(20, 0, 0, 0));  // Add some margin to the top of the buttonBox
+    panel.getChildren().add(buttonBox);  // Add the HBox to the panel
+
+
   }
 
   public VBox getPanelLayout() {
@@ -49,7 +63,7 @@ public abstract class Panel extends Parent {
   }
 
   public void hideNextButton() {
-    nextButton.setVisible(false);
+    buttonBox.getChildren().remove(0);
   }
 
   public void saveInput(DataSaver dataSaver) {

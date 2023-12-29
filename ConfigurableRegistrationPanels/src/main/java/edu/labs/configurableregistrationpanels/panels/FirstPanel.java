@@ -7,8 +7,10 @@ public class FirstPanel extends Panel {
   public FirstPanel(String[] fieldNames, DataSaver dataSaver) {
     super(fieldNames, dataSaver);
     backButton = new Button("<< Back");
+
+
     backButton.setDisable(true);  // The back button should be disabled on the first panel
-    panel.getChildren().add(0, backButton);  // Add the back button at the beginning
+    buttonBox.getChildren().add(0, backButton);  // Add the back button to the beginning of the HBox
   }
 
   @Override
