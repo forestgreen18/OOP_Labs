@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -147,13 +148,14 @@ public class MainApplication extends Application {
     MenuBar menuBar = createMenuBar();
     root.getChildren().clear();
     VBox layout = new VBox(menuBar, root);  // Include root in the layout
-    layout.setAlignment(Pos.CENTER);  // Center the layout
+    layout.setAlignment(Pos.TOP_CENTER);
+
+    BorderPane borderPane = new BorderPane();
+    borderPane.setCenter(layout);
+
 
     // Parse the JSON object
       JSONObject jsonObject = dataSaver.getData();
-    System.out.println("=============== data saver get data below ===============");
-//    System.out.println(dataSaver.getData().toString());
-    System.out.println(dataSaver.getData().getClass());
 
     // Iterate over the keys (i.e., "middle", "first")
     for (String key : jsonObject.keySet()) {
@@ -187,9 +189,8 @@ public class MainApplication extends Application {
     // Create a title label
     Label titleLabel = new Label("Data from the Form");
     titleLabel.setFont(new Font(24));  // Set the font size of the title to 24
-    layout.getChildren().add(0, titleLabel);  // Add the title label at the beginning of the layout
-
-    return new Scene(layout, 800, 600);
+    layout.getChildren().add(1, titleLabel);  // Add the title label at the beginning of the layout
+    return new Scene(borderPane, 800, 600);
   }
 
 
