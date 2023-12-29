@@ -3,9 +3,9 @@ package edu.labs.configurableregistrationpanels;
 import edu.labs.configurableregistrationpanels.panels.GeneralPanel;
 import edu.labs.configurableregistrationpanels.panels.LastPanel;
 import edu.labs.configurableregistrationpanels.panels.Panel;
+import edu.labs.configurableregistrationpanels.ui.MenuBarComponent;
 import edu.labs.configurableregistrationpanels.utils.Configuration;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
-import java.io.File;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -16,12 +16,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
@@ -48,7 +45,10 @@ public class MainApplication extends Application {
     this.primaryStage = primaryStage;
 
     fileChooser = new FileChooser();
-    MenuBar menuBar = createMenuBar();
+    MenuBarComponent menuBarComponent = new MenuBarComponent(primaryStage);
+    menuBarComponent.createMenuBar();
+    menuBarComponent.getSaveFormDataItem().setDisable(true);
+    MenuBar menuBar = menuBarComponent.getMenuBar();
 
 
 
@@ -146,7 +146,12 @@ public class MainApplication extends Application {
 
 
   private Scene createDataScene() {
-    MenuBar menuBar = createMenuBar();
+    MenuBarComponent menuBarComponent = new MenuBarComponent(primaryStage);
+    menuBarComponent.createMenuBar();
+    menuBarComponent.getSaveFormDataItem().setDisable(false);
+    MenuBar menuBar = menuBarComponent.getMenuBar();
+
+
     root.getChildren().clear();
     VBox layout = new VBox(menuBar, root);  // Include root in the layout
     layout.setAlignment(Pos.TOP_CENTER);
@@ -215,28 +220,6 @@ public class MainApplication extends Application {
 
 
 
-  private MenuBar createMenuBar() {
-    MenuBar menuBar = new MenuBar();
-    Menu fileMenu = new Menu("File");
-    MenuItem openConfigMenuItem = new MenuItem("Open configuration file");
-
-    openConfigMenuItem.setOnAction(e -> {
-      File file = fileChooser.showOpenDialog(primaryStage);
-      if (file != null) {
-        try {
-          createForm(file.getPath());
-        } catch (IOException ex) {
-          // Handle the exception (e.g., show an error message to the user)
-        }
-      }
-    });
-
-
-    fileMenu.getItems().add(openConfigMenuItem);
-    menuBar.getMenus().add(fileMenu);
-
-    return menuBar;
-  }
 
 
   public void createForm(String configFilePath) throws IOException {
@@ -249,6 +232,7 @@ public class MainApplication extends Application {
       generalPanel.getPanelObject().saveInput(dataSaver);
       panels.add(generalPanel);
     }
+
 
     currentPanelIndex = 0;
     Platform.runLater(this::displayCurrentPanel);
