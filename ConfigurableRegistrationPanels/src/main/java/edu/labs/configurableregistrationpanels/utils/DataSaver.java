@@ -39,9 +39,20 @@ public class DataSaver {
   }
 
   public void copyDataToClipboard() {
-    StringSelection stringSelection = new StringSelection(data.toString());
+    String formattedData = formatData();
+    StringSelection stringSelection = new StringSelection(formattedData);
     Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
   }
 
+  private String formatData() {
+    StringBuilder formatted = new StringBuilder();
+    for (String key : data.keySet()) {
+      JSONObject innerData = data.getJSONObject(key);
+      for (String innerKey : innerData.keySet()) {
+        formatted.append(innerKey).append(": ").append(innerData.getString(innerKey)).append("\n");
+      }
+    }
+    return formatted.toString();
+  }
 
 }
