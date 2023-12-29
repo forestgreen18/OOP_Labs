@@ -32,6 +32,13 @@ public class MenuBarComponent {
     saveFormDataItem = new MenuItem("Save data from the form into file");
 
     openConfigMenuItem.setOnAction(e -> {
+      FileChooser fileChooser = new FileChooser();
+      fileChooser.setTitle("Open Configuration File");
+
+      // Set extension filter
+      FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JSON files (*.json)", "*.json");
+      fileChooser.getExtensionFilters().add(extFilter);
+
       File file = fileChooser.showOpenDialog(primaryStage);
       if (file != null) {
         try {
@@ -42,14 +49,21 @@ public class MenuBarComponent {
       }
     });
 
+
     saveFormDataItem.setOnAction(e -> {
       FileChooser fileChooser = new FileChooser();
       fileChooser.setTitle("Save Data");
+
+      // Set extension filter
+      FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+      fileChooser.getExtensionFilters().add(extFilter);
+
       File file = fileChooser.showSaveDialog(primaryStage);
       if (file != null) {
         dataSaver.saveToFile(file.getPath());
       }
     });
+
 
 
     fileMenu.getItems().addAll(openConfigMenuItem, saveFormDataItem);

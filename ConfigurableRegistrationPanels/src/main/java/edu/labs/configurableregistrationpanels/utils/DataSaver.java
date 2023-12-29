@@ -20,14 +20,24 @@ public class DataSaver {
   }
 
   public void saveToFile(String filename) {
+    // Save the formatted text
     try (FileWriter file = new FileWriter(filename)) {
+      file.write(formatData());
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    // Remove the .txt extension from the filename
+    String baseFilename = filename.endsWith(".txt") ? filename.substring(0, filename.length() - 4) : filename;
+
+    // Save the JSON data
+    try (FileWriter file = new FileWriter(baseFilename + ".config.json")) {
       file.write(data.toString());
-//      System.out.println("Successfully Copied JSON Object to File...");
-//      System.out.println("\nJSON Object: " + data);
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
+
 
   public JSONObject getData() {
     return data;
