@@ -3,6 +3,7 @@ package edu.labs.configurableregistrationpanels;
 import edu.labs.configurableregistrationpanels.panels.GeneralPanel;
 import edu.labs.configurableregistrationpanels.panels.LastPanel;
 import edu.labs.configurableregistrationpanels.panels.Panel;
+import edu.labs.configurableregistrationpanels.ui.DataSceneCreator;
 import edu.labs.configurableregistrationpanels.ui.MenuBarComponent;
 import edu.labs.configurableregistrationpanels.utils.Configuration;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
@@ -34,6 +35,7 @@ public class MainApplication extends Application {
   private VBox root;
   private DataSaver dataSaver;
   private Stage primaryStage;
+  private DataSceneCreator dataSceneCreator;
 
   private FileChooser fileChooser;
 
@@ -145,77 +147,15 @@ public class MainApplication extends Application {
   }
 
 
-  private Scene createDataScene() {
-    MenuBarComponent menuBarComponent = new MenuBarComponent(primaryStage, dataSaver, this);
-    menuBarComponent.createMenuBar();
-    menuBarComponent.getSaveFormDataItem().setDisable(false);
-    MenuBar menuBar = menuBarComponent.getMenuBar();
 
-
-    root.getChildren().clear();
-    VBox layout = new VBox(menuBar, root);  // Include root in the layout
-    layout.setAlignment(Pos.TOP_CENTER);
-
-    BorderPane borderPane = new BorderPane();
-    borderPane.setCenter(layout);
-
-
-    // Parse the JSON object
-      JSONObject jsonObject = dataSaver.getData();
-
-    // Iterate over the keys (i.e., "middle", "first")
-    for (String key : jsonObject.keySet()) {
-      // Check if the value associated with the key is a JSONObject
-      if (jsonObject.get(key) instanceof JSONObject) {
-        // Get the inner JSON object
-        JSONObject innerJsonObject = jsonObject.getJSONObject(key);
-
-        // Iterate over the keys of the inner JSON object
-        for (String innerKey : innerJsonObject.keySet()) {
-          // Create a label with the key and value from the inner JSON object
-          Label label = new Label(innerKey + ": " + innerJsonObject.getString(innerKey));
-
-          // Set the font size of the label
-          label.setFont(new Font(20));  // Set the font size to 20
-
-          // Add the label to the layout
-          layout.getChildren().add(label);
-        }
-      } else {
-        // Handle non-JSONObject values here
-        // For example, if the value is a String, you can create a label with the key and value
-        String value = jsonObject.getString(key);
-        Label label = new Label(key + ": " + value);
-        label.setFont(new Font(20));  // Set the font size to 20
-        layout.getChildren().add(label);
-      }
-    }
-
-
-    // Create a title label
-    Label titleLabel = new Label("Data from the Form");
-    titleLabel.setFont(new Font(24));  // Set the font size of the title to 24
-
-
-    Button copyDataToClipboardButton = new Button("Copy data to clipboard");
-    copyDataToClipboardButton.setOnAction(e -> {
-      dataSaver.copyDataToClipboard();
-    });
-
-    Insets margin = new Insets(10, 10, 10, 10);
-
-    VBox.setMargin(copyDataToClipboardButton, margin);
-
-    layout.getChildren().add(1, titleLabel);  // Add the title label at the beginning of the layout
-    layout.getChildren().add(copyDataToClipboardButton);
-    return new Scene(borderPane, 800, 600);
-  }
 
 
 
 
   public void displayDataScene() {
-    primaryStage.setScene(createDataScene());
+    dataSceneCreator = new DataSceneCreator(primaryStage, dataSaver, root, this);
+    Scene dataScene = dataSceneCreator.createDataScene();
+    primaryStage.setScene(dataScene);
   }
 
 
@@ -223,6 +163,14 @@ public class MainApplication extends Application {
 
 
   public void createForm(String configFilePath) throws IOException {
+
+
+    if (dataSceneCreator != null) {
+      dataSceneCreator.hideDataSceneContent();
+    }
+
+    
+
     Configuration config = new Configuration(configFilePath);
     panels = new ArrayList<>();
     dataSaver = new DataSaver();
