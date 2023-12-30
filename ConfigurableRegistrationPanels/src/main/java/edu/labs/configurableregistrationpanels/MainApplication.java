@@ -45,7 +45,7 @@ public class MainApplication extends Application {
     this.primaryStage = primaryStage;
 
     fileChooser = new FileChooser();
-    MenuBarComponent menuBarComponent = new MenuBarComponent(primaryStage, dataSaver);
+    MenuBarComponent menuBarComponent = new MenuBarComponent(primaryStage, dataSaver, this  );
     menuBarComponent.createMenuBar();
     menuBarComponent.getSaveFormDataItem().setDisable(true);
     MenuBar menuBar = menuBarComponent.getMenuBar();
@@ -146,7 +146,7 @@ public class MainApplication extends Application {
 
 
   private Scene createDataScene() {
-    MenuBarComponent menuBarComponent = new MenuBarComponent(primaryStage, dataSaver);
+    MenuBarComponent menuBarComponent = new MenuBarComponent(primaryStage, dataSaver, this);
     menuBarComponent.createMenuBar();
     menuBarComponent.getSaveFormDataItem().setDisable(false);
     MenuBar menuBar = menuBarComponent.getMenuBar();
