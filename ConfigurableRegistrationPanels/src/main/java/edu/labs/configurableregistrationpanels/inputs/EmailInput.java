@@ -9,6 +9,8 @@ import javafx.scene.paint.Color;
 public class EmailInput extends VBox {
   private TextField emailField;
   private Label errorLabel;
+  private static final String EMAIL_REGEX = "^[\\w-]+@([\\w-]+\\.)+[\\w-]+$";
+
 
   public EmailInput() {
     emailField = new TextField();
@@ -16,7 +18,7 @@ public class EmailInput extends VBox {
     errorLabel.setTextFill(Color.RED);  // Set the text color to red
 
     emailField.textProperty().addListener((observable, oldValue, newValue) -> {
-      if (!newValue.matches("^(.+)@(\\S+)$")) {
+      if (!newValue.matches(EMAIL_REGEX)) {
         errorLabel.setText("Invalid email format");
       } else {
         errorLabel.setText("");  // Clear the error message when the email is valid
