@@ -3,6 +3,7 @@ package edu.labs.configurableregistrationpanels.inputs;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
@@ -16,14 +17,21 @@ public class PhoneInput extends VBox {
     errorLabel = new Label();
     errorLabel.setTextFill(Color.RED);  // Set the text color to red
 
-    phoneField.textProperty().addListener((observable, oldValue, newValue) -> {
-      if (!newValue.matches(PHONE_REGEX)) {
-        errorLabel.setText("Invalid phone number format");
-      } else {
-        errorLabel.setText("");  // Clear the error message when the phone number is valid
+    // Add an event filter to consume non-numeric input
+    phoneField.addEventFilter(KeyEvent.KEY_TYPED, event -> {
+      if (!event.getCharacter().matches("[\\d+-.\\s()]")) {
+        event.consume();
       }
     });
 
+    // Add a listener to validate the phone number when it changes
+    phoneField.textProperty().addListener((observable, oldValue, newValue) -> {
+      if (!newValue.matches(PHONE_REGEX)) {
+        errorLabel.setText("Invalid phone number");
+      } else {
+        errorLabel.setText("");  // Clear the error message
+      }
+    });
     getChildren().addAll(phoneField, errorLabel);
   }
 
