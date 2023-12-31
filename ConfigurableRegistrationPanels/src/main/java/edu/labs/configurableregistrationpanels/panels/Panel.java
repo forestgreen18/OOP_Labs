@@ -1,5 +1,6 @@
 package edu.labs.configurableregistrationpanels.panels;
 
+import edu.labs.configurableregistrationpanels.inputs.PasswordInput;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -24,7 +25,7 @@ public abstract class Panel extends Parent {
   public Button cancelButton;
 
 
-  protected Control[] controls;
+  protected Node[] controls;
   protected Label[] labels;
   protected DataSaver dataSaver;
   protected HBox[] fieldBoxes;
@@ -35,59 +36,30 @@ public abstract class Panel extends Parent {
     buttonBox = new HBox();  // Initialize the HBox here
 
     int numFields = fieldTitles.length;
-    controls = new Control[numFields];
+    controls = new Node[numFields];
     fieldBoxes = new HBox[numFields];
 
     labels = new Label[numFields];
 
     for (int i = 0; i < numFields; i++) {
       labels[i] = new Label(fieldTitles[i]);
-      fieldBoxes[i] = new HBox();
-      fieldBoxes[i].setAlignment(Pos.CENTER_LEFT);  // Align items to the center left
 
       switch (fieldTypes[i]) {
         case "text":
           controls[i] = new TextField();
-          fieldBoxes[i].getChildren().add(controls[i]);
           break;
         case "password":
-          PasswordField passwordField = new PasswordField();
-          TextField textField = new TextField();
-          textField.setManaged(false);
-          textField.setVisible(false);
-
-          CheckBox checkBox = new CheckBox("Show password");
-          HBox.setMargin(checkBox, new Insets(0, 0, 0, 10));  // Add left margin to the checkbox
-
-          checkBox.selectedProperty().addListener((observable, oldValue, isSelected) -> {
-            if (isSelected) {
-              textField.setText(passwordField.getText());
-              textField.setManaged(true);
-              textField.setVisible(true);
-              passwordField.setManaged(false);
-              passwordField.setVisible(false);
-            } else {
-              passwordField.setText(textField.getText());
-              passwordField.setManaged(true);
-              passwordField.setVisible(true);
-              textField.setManaged(false);
-              textField.setVisible(false);
-            }
-          });
-
-          fieldBoxes[i].getChildren().addAll(passwordField, textField, checkBox);
-          controls[i] = passwordField;
+          controls[i] = new PasswordInput();
           break;
         case "date":
           controls[i] = new DatePicker();
-          fieldBoxes[i].getChildren().add(controls[i]);
           break;
         // Add more cases as needed
         default:
           throw new IllegalArgumentException("Invalid field type: " + fieldTypes[i]);
       }
 
-      panel.getChildren().addAll(labels[i], fieldBoxes[i]);
+      panel.getChildren().addAll(labels[i], controls[i]);
     }
     nextButton = new Button("Next >>");  // Initialize nextButton
     cancelButton = new Button("Cancel");  // Initialize cancelButton
@@ -121,7 +93,7 @@ public abstract class Panel extends Parent {
 
   public void saveInput(DataSaver dataSaver) {
     for (int i = 0; i < controls.length; i++) {
-      Control control = controls[i];
+      Node control = controls[i];
       String fieldName = labels[i].getText();
 
       if (control instanceof TextField) {
@@ -137,6 +109,13 @@ public abstract class Panel extends Parent {
           System.out.println(dataSaver.getData());
         });
       }
+      else if (control instanceof PasswordInput) {
+        PasswordInput passwordInput = (PasswordInput) control;
+        passwordInput.textProperty().addListener((observable, oldValue, newValue) -> {
+          dataSaver.saveInput(getPanelType(), fieldName, newValue);
+          System.out.println(dataSaver.getData());
+        });
+      }
       // Add more cases as needed
     }
   }
@@ -146,13 +125,16 @@ public abstract class Panel extends Parent {
   public abstract String getPanelType();
 
   public void clearInputFields() {
-    for (Control control : controls) {
+    for (Node control : controls) {
       if (control instanceof TextField) {
         ((TextField) control).clear();
       } else if (control instanceof DatePicker) {
         ((DatePicker) control).setValue(null);
+      } else if (control instanceof PasswordInput) {
+        ((PasswordInput) control).clear();
       }
       // Add more cases as needed
     }
   }
+
 }
