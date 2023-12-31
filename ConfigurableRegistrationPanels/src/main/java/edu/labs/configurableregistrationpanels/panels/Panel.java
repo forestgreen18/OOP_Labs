@@ -22,7 +22,7 @@ public abstract class Panel extends Parent {
   public Button cancelButton;
 
 
-  protected Control[] textFields;
+  protected Control[] controls;
   protected Label[] labels;
   protected DataSaver dataSaver;
 
@@ -32,7 +32,8 @@ public abstract class Panel extends Parent {
     buttonBox = new HBox();  // Initialize the HBox here
 
     int numFields = fieldTitles.length;
-    textFields = new TextInputControl[numFields];
+    controls = new Control[numFields];
+
     labels = new Label[numFields];
 
     for (int i = 0; i < numFields; i++) {
@@ -40,20 +41,20 @@ public abstract class Panel extends Parent {
 
       switch (fieldTypes[i]) {
         case "text":
-          textFields[i] = new TextField();
+          controls[i] = new TextField();
           break;
         case "password":
-          textFields[i] = new PasswordField();
+          controls[i] = new PasswordField();
           break;
         case "date":
-          textFields[i] = new DatePicker();
+          controls[i] = new DatePicker();
           break;
         // Add more cases as needed
         default:
           throw new IllegalArgumentException("Invalid field type: " + fieldTypes[i]);
       }
 
-      panel.getChildren().addAll(labels[i], textFields[i]);
+      panel.getChildren().addAll(labels[i], controls[i]);
     }
     nextButton = new Button("Next >>");  // Initialize nextButton
     cancelButton = new Button("Cancel");  // Initialize cancelButton
@@ -86,8 +87,8 @@ public abstract class Panel extends Parent {
   }
 
   public void saveInput(DataSaver dataSaver) {
-    for (int i = 0; i < textFields.length; i++) {
-      Control control = textFields[i];
+    for (int i = 0; i < controls.length; i++) {
+      Control control = controls[i];
       String fieldName = labels[i].getText();
 
       if (control instanceof TextField) {
@@ -109,11 +110,10 @@ public abstract class Panel extends Parent {
 
 
 
-
   public abstract String getPanelType();
 
   public void clearInputFields() {
-    for (Control control : textFields) {
+    for (Control control : controls) {
       if (control instanceof TextField) {
         ((TextField) control).clear();
       } else if (control instanceof DatePicker) {
@@ -121,6 +121,5 @@ public abstract class Panel extends Parent {
       }
       // Add more cases as needed
     }
-
   }
 }
