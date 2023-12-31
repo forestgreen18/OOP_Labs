@@ -20,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
@@ -45,26 +46,7 @@ public class MainApplication extends Application {
   @Override
   public void start(Stage primaryStage) throws IOException {
     this.primaryStage = primaryStage;
-
-    fileChooser = new FileChooser();
-    MenuBarComponent menuBarComponent = new MenuBarComponent(primaryStage, dataSaver, this  );
-    menuBarComponent.createMenuBar();
-    menuBarComponent.getSaveFormDataItem().setDisable(true);
-    MenuBar menuBar = menuBarComponent.getMenuBar();
-
-
-
-
-    root = new VBox();
-
-    HBox centeredRoot = new HBox(root);
-    centeredRoot.setAlignment(Pos.CENTER);
-
-
-    VBox vBox = new VBox(menuBar, centeredRoot);
-    Scene scene = new Scene(vBox, 800, 600);
-    primaryStage.setScene(scene);
-    primaryStage.show();
+    setupScene();
 
 
 
@@ -163,14 +145,9 @@ public class MainApplication extends Application {
 
 
   public void createForm(String configFilePath) throws IOException {
+    setupScene();
 
-
-    if (dataSceneCreator != null) {
-      dataSceneCreator.hideDataSceneContent();
-    }
-
-    
-
+    // Continue with the rest of your code...
     Configuration config = new Configuration(configFilePath);
     panels = new ArrayList<>();
     dataSaver = new DataSaver();
@@ -181,11 +158,9 @@ public class MainApplication extends Application {
       panels.add(generalPanel);
     }
 
-
     currentPanelIndex = 0;
     Platform.runLater(this::displayCurrentPanel);
   }
-
 
 
   public void loadPanels(List<GeneralPanel> panels, DataSaver dataSaver, String configFilePath) throws IOException {
@@ -203,6 +178,29 @@ public class MainApplication extends Application {
     }
   }
 
+  private void setupScene() {
+    // Create a new MenuBarComponent
+    MenuBarComponent menuBarComponent = new MenuBarComponent(primaryStage, dataSaver, this);
+    menuBarComponent.createMenuBar();
+    MenuBar menuBar = menuBarComponent.getMenuBar();
+
+    // Create a new root node
+    root = new VBox();
+
+    // Create a centered HBox with the root node
+    HBox centeredRoot = new HBox(root);
+    centeredRoot.setAlignment(Pos.CENTER);
+
+    // Create a VBox with the menuBar and centeredRoot
+    VBox vBox = new VBox(menuBar, centeredRoot);
+
+    // Create a new scene with the vBox
+    Scene scene = new Scene(vBox, 800, 600);
+
+    // Set the new scene on the primaryStage
+    primaryStage.setScene(scene);
+    primaryStage.show();
+  }
 
 
 

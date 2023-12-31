@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1944a23-6dc7-4a88-9831-2146c7674530" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/DataSceneCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savedData.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savedData.json.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.json.config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/DataSceneCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/DataSceneCreator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +91,8 @@
       <workItem from="1703579932762" duration="19000" />
       <workItem from="1703701122648" duration="5656000" />
       <workItem from="1703870610316" duration="13673000" />
-      <workItem from="1703927679338" duration="7883000" />
+      <workItem from="1703927679338" duration="8478000" />
+      <workItem from="1704044673689" duration="2983000" />
     </task>
     <servers />
   </component>

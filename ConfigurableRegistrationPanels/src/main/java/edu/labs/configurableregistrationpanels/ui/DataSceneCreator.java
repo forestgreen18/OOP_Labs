@@ -103,6 +103,10 @@ public class DataSceneCreator {
     }
   }
 
+  public Scene getDataScene() {
+    return dataScene;
+  }
+
   public void hideDataSceneContent() {
     if (this.dataScene != null && primaryStage.getScene() == this.dataScene) {
       // If the dataScene is currently displayed, clear its content
