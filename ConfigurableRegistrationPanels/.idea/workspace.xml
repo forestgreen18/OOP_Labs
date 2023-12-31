@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1944a23-6dc7-4a88-9831-2146c7674530" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/PasswordInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/EmailInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savedData.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savedData.json.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.json.config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/labs/configurableregistrationpanels/formConfiguration.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/labs/configurableregistrationpanels/formConfiguration.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

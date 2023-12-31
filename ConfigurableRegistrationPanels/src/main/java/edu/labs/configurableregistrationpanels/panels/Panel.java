@@ -1,5 +1,6 @@
 package edu.labs.configurableregistrationpanels.panels;
 
+import edu.labs.configurableregistrationpanels.inputs.EmailInput;
 import edu.labs.configurableregistrationpanels.inputs.PasswordInput;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import javafx.geometry.Insets;
@@ -16,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public abstract class Panel extends Parent {
   protected VBox panel;
@@ -54,10 +56,13 @@ public abstract class Panel extends Parent {
         case "date":
           controls[i] = new DatePicker();
           break;
-        // Add more cases as needed
+        case "email":
+          controls[i] = new EmailInput();
+          break;
         default:
           throw new IllegalArgumentException("Invalid field type: " + fieldTypes[i]);
       }
+
 
       panel.getChildren().addAll(labels[i], controls[i]);
     }
@@ -115,6 +120,12 @@ public abstract class Panel extends Parent {
           dataSaver.saveInput(getPanelType(), fieldName, newValue);
           System.out.println(dataSaver.getData());
         });
+      } else if (control instanceof EmailInput) {
+        EmailInput emailInput = (EmailInput) control;
+        emailInput.textProperty().addListener((observable, oldValue, newValue) -> {
+          dataSaver.saveInput(getPanelType(), fieldName, newValue);
+          System.out.println(dataSaver.getData());
+        });
       }
       // Add more cases as needed
     }
@@ -132,6 +143,8 @@ public abstract class Panel extends Parent {
         ((DatePicker) control).setValue(null);
       } else if (control instanceof PasswordInput) {
         ((PasswordInput) control).clear();
+      } else if (control instanceof EmailInput) {
+        ((EmailInput) control).clear();
       }
       // Add more cases as needed
     }

@@ -18,7 +18,7 @@
       "fields": [
         {
           "title": "Email",
-          "type": "text"
+          "type": "email"
         },
         {
           "title": "Password",
