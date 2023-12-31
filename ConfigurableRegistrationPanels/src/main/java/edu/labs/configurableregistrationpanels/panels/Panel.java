@@ -2,6 +2,7 @@ package edu.labs.configurableregistrationpanels.panels;
 
 import edu.labs.configurableregistrationpanels.inputs.EmailInput;
 import edu.labs.configurableregistrationpanels.inputs.PasswordInput;
+import edu.labs.configurableregistrationpanels.inputs.PhoneInput;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -58,6 +59,9 @@ public abstract class Panel extends Parent {
           break;
         case "email":
           controls[i] = new EmailInput();
+          break;
+          case "phone":
+          controls[i] = new PhoneInput();
           break;
         default:
           throw new IllegalArgumentException("Invalid field type: " + fieldTypes[i]);
@@ -126,6 +130,12 @@ public abstract class Panel extends Parent {
           dataSaver.saveInput(getPanelType(), fieldName, newValue);
           System.out.println(dataSaver.getData());
         });
+      }    else if (control instanceof PhoneInput) {
+        PhoneInput phoneInput = (PhoneInput) control;
+        phoneInput.textProperty().addListener((observable, oldValue, newValue) -> {
+          dataSaver.saveInput(getPanelType(), fieldName, newValue);
+          System.out.println(dataSaver.getData());
+        });
       }
       // Add more cases as needed
     }
@@ -145,6 +155,8 @@ public abstract class Panel extends Parent {
         ((PasswordInput) control).clear();
       } else if (control instanceof EmailInput) {
         ((EmailInput) control).clear();
+      } else if (control instanceof PhoneInput) {
+        ((PhoneInput) control).clear();
       }
       // Add more cases as needed
     }
