@@ -4,8 +4,8 @@ import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import javafx.scene.control.Button;
 
 public class FirstPanel extends Panel {
-  public FirstPanel(String[] fieldNames, DataSaver dataSaver) {
-    super(fieldNames, dataSaver);
+  public FirstPanel(String[] fieldTitles, String[] fieldTypes, DataSaver dataSaver) {
+    super(fieldTitles, fieldTypes, dataSaver);
     backButton.setDisable(true);  // The back button should be disabled on the first panel
   }
 

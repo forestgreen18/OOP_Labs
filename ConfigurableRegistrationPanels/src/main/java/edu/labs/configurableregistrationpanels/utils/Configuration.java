@@ -26,11 +26,20 @@ public class Configuration {
     return panels.getJSONObject(index).getString("panelType");
   }
 
-  public List<String> getFields(int index) {
+  public List<String> getFieldTitles(int index) {
     JSONArray fields = panels.getJSONObject(index).getJSONArray("fields");
     List<String> list = new ArrayList<>();
     for (int i = 0; i < fields.length(); i++) {
-      list.add(fields.getString(i));
+      list.add(fields.getJSONObject(i).getString("title"));
+    }
+    return list;
+  }
+
+  public List<String> getFieldTypes(int index) {
+    JSONArray fields = panels.getJSONObject(index).getJSONArray("fields");
+    List<String> list = new ArrayList<>();
+    for (int i = 0; i < fields.length(); i++) {
+      list.add(fields.getJSONObject(i).getString("type"));
     }
     return list;
   }
@@ -38,6 +47,5 @@ public class Configuration {
   public JSONObject getPanelConfig(int index) {
     return panels.getJSONObject(index);
   }
-
 }
 

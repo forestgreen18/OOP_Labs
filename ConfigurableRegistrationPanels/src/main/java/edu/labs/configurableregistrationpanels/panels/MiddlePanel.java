@@ -5,8 +5,8 @@ import java.util.Collections;
 import javafx.scene.control.Button;
 
 public class MiddlePanel extends Panel {
-  public MiddlePanel(String[] fieldNames, DataSaver dataSaver) {
-    super(fieldNames, dataSaver);
+  public MiddlePanel(String[] fieldTitles, String[] fieldTypes, DataSaver dataSaver) {
+    super(fieldTitles, fieldTypes, dataSaver);
     backButton.setDisable(false);
   }
 

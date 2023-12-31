@@ -2,19 +2,59 @@
   "panels": [
     {
       "panelType": "first",
-      "fields": ["Name", "Surname"]
+      "fields": [
+        {
+          "title": "Name",
+          "type": "text"
+        },
+        {
+          "title": "Surname",
+          "type": "text"
+        }
+      ]
     },
     {
       "panelType": "middle",
-      "fields": ["Email", "Password"]
+      "fields": [
+        {
+          "title": "Email",
+          "type": "text"
+        },
+        {
+          "title": "Password",
+          "type": "password"
+        }
+      ]
     },
     {
       "panelType": "middle",
-      "fields": ["Address", "Phone Number", "Date of Birth"]
+      "fields": [
+        {
+          "title": "Address",
+          "type": "text"
+        },
+        {
+          "title": "Phone Number",
+          "type": "text"
+        },
+        {
+          "title": "Date of Birth",
+          "type": "date"
+        }
+      ]
     },
     {
       "panelType": "last",
-      "fields": ["Security Question", "Security Answer"]
+      "fields": [
+        {
+          "title": "Security Question",
+          "type": "text"
+        },
+        {
+          "title": "Security Answer",
+          "type": "text"
+        }
+      ]
     }
   ]
 }

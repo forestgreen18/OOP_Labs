@@ -5,8 +5,12 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputControl;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -18,25 +22,39 @@ public abstract class Panel extends Parent {
   public Button cancelButton;
 
 
-  protected TextField[] textFields;
+  protected Control[] textFields;
   protected Label[] labels;
   protected DataSaver dataSaver;
 
-  public Panel(String[] fieldNames , DataSaver dataSaver) {
+  public Panel(String[] fieldTitles, String[] fieldTypes, DataSaver dataSaver) {
     this.dataSaver = dataSaver;
     panel = new VBox();
     buttonBox = new HBox();  // Initialize the HBox here
 
-    int numFields = fieldNames.length;
-    textFields = new TextField[numFields];
+    int numFields = fieldTitles.length;
+    textFields = new TextInputControl[numFields];
     labels = new Label[numFields];
 
     for (int i = 0; i < numFields; i++) {
-      labels[i] = new Label(fieldNames[i]);
-      textFields[i] = new TextField();
+      labels[i] = new Label(fieldTitles[i]);
+
+      switch (fieldTypes[i]) {
+        case "text":
+          textFields[i] = new TextField();
+          break;
+        case "password":
+          textFields[i] = new PasswordField();
+          break;
+        case "date":
+          textFields[i] = new DatePicker();
+          break;
+        // Add more cases as needed
+        default:
+          throw new IllegalArgumentException("Invalid field type: " + fieldTypes[i]);
+      }
+
       panel.getChildren().addAll(labels[i], textFields[i]);
     }
-
     nextButton = new Button("Next >>");  // Initialize nextButton
     cancelButton = new Button("Cancel");  // Initialize cancelButton
     backButton = new Button("<< Back");
@@ -69,23 +87,40 @@ public abstract class Panel extends Parent {
 
   public void saveInput(DataSaver dataSaver) {
     for (int i = 0; i < textFields.length; i++) {
-      TextField textField = textFields[i];
+      Control control = textFields[i];
       String fieldName = labels[i].getText();
-      textField.textProperty().addListener((observable, oldValue, newValue) -> {
-        dataSaver.saveInput(getPanelType(), fieldName, newValue);
-        System.out.println(dataSaver.getData());
-      });
+
+      if (control instanceof TextField) {
+        TextField textField = (TextField) control;
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+          dataSaver.saveInput(getPanelType(), fieldName, newValue);
+          System.out.println(dataSaver.getData());
+        });
+      } else if (control instanceof DatePicker) {
+        DatePicker datePicker = (DatePicker) control;
+        datePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+          dataSaver.saveInput(getPanelType(), fieldName, newValue.toString());
+          System.out.println(dataSaver.getData());
+        });
+      }
+      // Add more cases as needed
     }
   }
+
+
 
 
   public abstract String getPanelType();
 
   public void clearInputFields() {
-    for (TextField textField : textFields) {
-      textField.clear();
+    for (Control control : textFields) {
+      if (control instanceof TextField) {
+        ((TextField) control).clear();
+      } else if (control instanceof DatePicker) {
+        ((DatePicker) control).setValue(null);
+      }
+      // Add more cases as needed
     }
+
   }
-
-
 }

@@ -163,20 +163,7 @@ public class MainApplication extends Application {
   }
 
 
-  public void loadPanels(List<GeneralPanel> panels, DataSaver dataSaver, String configFilePath) throws IOException {
-    // Clear the existing panels
-    panels.clear();
 
-    // Load the new configuration
-    Configuration config = new Configuration(configFilePath);
-
-    // Create the panels based on the new configuration
-    for (int i = 0; i < config.getNumPanels(); i++) {
-      GeneralPanel generalPanel = new GeneralPanel(config.getPanelConfig(i), dataSaver);
-      generalPanel.getPanelObject().saveInput(dataSaver);
-      panels.add(generalPanel);
-    }
-  }
 
   private void setupScene() {
     // Create a new MenuBarComponent
