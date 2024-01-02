@@ -1,5 +1,6 @@
 package edu.labs.configurableregistrationpanels.panels;
 
+import edu.labs.configurableregistrationpanels.datastructures.FormFieldDataStructure;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import java.util.List;
 import org.json.JSONArray;
@@ -12,27 +13,25 @@ public class GeneralPanel {
     // Extract panelType
     String panelType = panelConfig.getString("panelType");
 
-    // Extract field titles and types
+    // Extract fields
     JSONArray fieldsArray = panelConfig.getJSONArray("fields");
-    String[] titlesArray = new String[fieldsArray.length()];
-    String[] typesArray = new String[fieldsArray.length()];
+    FormFieldDataStructure[] fields = new FormFieldDataStructure[fieldsArray.length()];
 
     for (int i = 0; i < fieldsArray.length(); i++) {
       JSONObject fieldObject = fieldsArray.getJSONObject(i);
-      titlesArray[i] = fieldObject.getString("title");
-      typesArray[i] = fieldObject.getString("type");
+      fields[i] = new FormFieldDataStructure(fieldObject.getString("title"), fieldObject.getString("type"), fieldObject.optString("value", ""));
     }
 
     // Create the appropriate panel
     switch (panelType) {
       case "first":
-        panel = new FirstPanel(titlesArray, typesArray, dataSaver);
+        panel = new FirstPanel(fields, dataSaver);
         break;
       case "middle":
-        panel = new MiddlePanel(titlesArray, typesArray, dataSaver);
+        panel = new MiddlePanel(fields, dataSaver);
         break;
       case "last":
-        panel = new LastPanel(titlesArray, typesArray, dataSaver);
+        panel = new LastPanel(fields, dataSaver);
         break;
       default:
         throw new IllegalArgumentException("Invalid panel type: " + panelType);

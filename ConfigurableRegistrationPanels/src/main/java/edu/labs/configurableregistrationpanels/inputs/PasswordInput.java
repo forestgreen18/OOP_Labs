@@ -11,9 +11,11 @@ public class PasswordInput extends HBox {
   private PasswordField passwordField;
   private TextField textField;
 
-  public PasswordInput() {
+  public PasswordInput(String initialValue) {
     passwordField = new PasswordField();
+    passwordField.setText(initialValue);
     textField = new TextField();
+    textField.setText(initialValue);
     textField.setManaged(false);
     textField.setVisible(false);
 

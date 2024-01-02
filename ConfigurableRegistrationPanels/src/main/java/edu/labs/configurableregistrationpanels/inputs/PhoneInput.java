@@ -12,8 +12,9 @@ public class PhoneInput extends VBox {
   private TextField phoneField;
   private Label errorLabel;
 
-  public PhoneInput() {
+  public PhoneInput(String initialValue) {
     phoneField = new TextField();
+    phoneField.setText(initialValue);
     errorLabel = new Label();
     errorLabel.setTextFill(Color.RED);  // Set the text color to red
 

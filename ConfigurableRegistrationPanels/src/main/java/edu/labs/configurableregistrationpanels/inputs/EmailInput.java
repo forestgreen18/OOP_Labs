@@ -12,8 +12,9 @@ public class EmailInput extends VBox {
   private static final String EMAIL_REGEX = "^[\\w-]+@([\\w-]+\\.)+[\\w-]+$";
 
 
-  public EmailInput() {
+  public EmailInput(String initialValue) {
     emailField = new TextField();
+    emailField.setText(initialValue);
     errorLabel = new Label();
     errorLabel.setTextFill(Color.RED);  // Set the text color to red
 

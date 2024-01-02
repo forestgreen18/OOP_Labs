@@ -1,9 +1,11 @@
 package edu.labs.configurableregistrationpanels.panels;
 
+import edu.labs.configurableregistrationpanels.datastructures.FormFieldDataStructure;
 import edu.labs.configurableregistrationpanels.inputs.EmailInput;
 import edu.labs.configurableregistrationpanels.inputs.PasswordInput;
 import edu.labs.configurableregistrationpanels.inputs.PhoneInput;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
+import java.time.LocalDate;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -33,40 +35,42 @@ public abstract class Panel extends Parent {
   protected DataSaver dataSaver;
   protected HBox[] fieldBoxes;
 
-  public Panel(String[] fieldTitles, String[] fieldTypes, DataSaver dataSaver) {
+  public Panel(FormFieldDataStructure[] fields, DataSaver dataSaver) {
     this.dataSaver = dataSaver;
     panel = new VBox();
-    buttonBox = new HBox();  // Initialize the HBox here
+    buttonBox = new HBox();
 
-    int numFields = fieldTitles.length;
+    int numFields = fields.length;
     controls = new Node[numFields];
     fieldBoxes = new HBox[numFields];
-
     labels = new Label[numFields];
 
     for (int i = 0; i < numFields; i++) {
-      labels[i] = new Label(fieldTitles[i]);
+      FormFieldDataStructure field = fields[i];
+      labels[i] = new Label(field.getTitle());
 
-      switch (fieldTypes[i]) {
+      switch (field.getType()) {
         case "text":
-          controls[i] = new TextField();
+          controls[i] = new TextField(field.getValue());
           break;
         case "password":
-          controls[i] = new PasswordInput();
+          controls[i] = new PasswordInput(field.getValue());
           break;
         case "date":
           controls[i] = new DatePicker();
+          if (!field.getValue().isEmpty()) {
+            ((DatePicker) controls[i]).setValue(LocalDate.parse(field.getValue()));
+          }
           break;
         case "email":
-          controls[i] = new EmailInput();
+          controls[i] = new EmailInput(field.getValue());
           break;
-          case "phone":
-          controls[i] = new PhoneInput();
+        case "phone":
+          controls[i] = new PhoneInput(field.getValue());
           break;
         default:
-          throw new IllegalArgumentException("Invalid field type: " + fieldTypes[i]);
+          throw new IllegalArgumentException("Invalid field type: " + field.getType());
       }
-
 
       panel.getChildren().addAll(labels[i], controls[i]);
     }

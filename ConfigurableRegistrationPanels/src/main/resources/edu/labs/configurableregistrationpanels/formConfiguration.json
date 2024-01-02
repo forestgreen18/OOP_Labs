@@ -5,11 +5,13 @@
       "fields": [
         {
           "title": "Name",
-          "type": "text"
+          "type": "text",
+          "value": "my name"
         },
         {
           "title": "Surname",
-          "type": "text"
+          "type": "text",
+          "value": "my surname"
         }
       ]
     },
@@ -18,11 +20,13 @@
       "fields": [
         {
           "title": "Email",
-          "type": "email"
+          "type": "email",
+          "value": "testemail@mail.net"
         },
         {
           "title": "Password",
-          "type": "password"
+          "type": "password",
+          "value": "123456qwerty"
         }
       ]
     },
@@ -31,15 +35,18 @@
       "fields": [
         {
           "title": "Address",
-          "type": "text"
+          "type": "text",
+          "value": "Some place, South Ave 32"
         },
         {
           "title": "Phone Number",
-          "type": "phone"
+          "type": "phone",
+          "value": "38012345678"
         },
         {
           "title": "Date of Birth",
-          "type": "date"
+          "type": "date",
+          "value": ""
         }
       ]
     },
@@ -48,11 +55,13 @@
       "fields": [
         {
           "title": "Security Question",
-          "type": "text"
+          "type": "text",
+          "value": "Some security question"
         },
         {
           "title": "Security Answer",
-          "type": "text"
+          "type": "text",
+          "value": "Security answer"
         }
       ]
     }
