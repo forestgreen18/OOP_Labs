@@ -1,6 +1,7 @@
 package edu.labs.configurableregistrationpanels.panels;
 
 import edu.labs.configurableregistrationpanels.datastructures.FormFieldDataStructure;
+import edu.labs.configurableregistrationpanels.inputs.DateInput;
 import edu.labs.configurableregistrationpanels.inputs.EmailInput;
 import edu.labs.configurableregistrationpanels.inputs.PasswordInput;
 import edu.labs.configurableregistrationpanels.inputs.PhoneInput;
@@ -57,10 +58,7 @@ public abstract class Panel extends Parent {
           controls[i] = new PasswordInput(field.getValue());
           break;
         case "date":
-          controls[i] = new DatePicker();
-          if (!field.getValue().isEmpty()) {
-            ((DatePicker) controls[i]).setValue(LocalDate.parse(field.getValue()));
-          }
+          controls[i] = new DateInput(field.getValue());
           break;
         case "email":
           controls[i] = new EmailInput(field.getValue());
