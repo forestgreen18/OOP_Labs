@@ -14,6 +14,7 @@ public class DataSaver {
   public DataSaver(JSONObject config) {
     data = new JSONObject();
     this.config = new JSONObject(config.toString());  // Deep copy
+    setData(config);
   }
 
   public void saveInput(String panelType, String fieldName, String inputText) {

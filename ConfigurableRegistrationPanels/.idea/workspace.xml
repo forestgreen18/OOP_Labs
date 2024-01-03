@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savedData.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savedData.json.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.json.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/DataSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/DataSaver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +94,7 @@
       <workItem from="1703927679338" duration="8478000" />
       <workItem from="1704044673689" duration="2983000" />
       <workItem from="1704211418514" duration="9217000" />
-      <workItem from="1704276577919" duration="3613000" />
+      <workItem from="1704276577919" duration="4401000" />
     </task>
     <servers />
   </component>

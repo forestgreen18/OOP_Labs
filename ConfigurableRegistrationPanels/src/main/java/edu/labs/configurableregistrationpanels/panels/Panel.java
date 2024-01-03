@@ -113,9 +113,9 @@ public abstract class Panel extends Parent {
           dataSaver.saveInput(getPanelType(), fieldName, newValue);
           System.out.println(dataSaver.getData());
         });
-      } else if (control instanceof DatePicker) {
-        DatePicker datePicker = (DatePicker) control;
-        datePicker.valueProperty().addListener((observable, oldValue, newValue) -> {
+      }  else if (control instanceof DateInput) {
+        DateInput dateInput = (DateInput) control;
+        dateInput.dateProperty().addListener((observable, oldValue, newValue) -> {
           dataSaver.saveInput(getPanelType(), fieldName, newValue.toString());
           System.out.println(dataSaver.getData());
         });
