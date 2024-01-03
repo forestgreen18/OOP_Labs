@@ -11,9 +11,11 @@ import java.util.List;
 
 public class Configuration {
   private JSONArray panels;
+  private JSONObject config;
 
   public Configuration(String filename) throws IOException {
     String content = new String(Files.readAllBytes(Paths.get(filename)));
+    config = new JSONObject(content);
     JSONObject jsonObject = new JSONObject(content);
     panels = jsonObject.getJSONArray("panels");
   }
@@ -47,5 +49,12 @@ public class Configuration {
   public JSONObject getPanelConfig(int index) {
     return panels.getJSONObject(index);
   }
+
+  public JSONObject getConfig() {
+    return config;
+  }
+
+
+
 }
 

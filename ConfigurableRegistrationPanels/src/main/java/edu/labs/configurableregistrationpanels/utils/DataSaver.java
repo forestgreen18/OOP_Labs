@@ -2,22 +2,48 @@ package edu.labs.configurableregistrationpanels.utils;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import java.awt.datatransfer.StringSelection;
 import java.awt.Toolkit;
 
 public class DataSaver {
   private JSONObject data;
+  private JSONObject config;
 
-  public DataSaver() {
+  public DataSaver(JSONObject config) {
     data = new JSONObject();
+    this.config = new JSONObject(config.toString());  // Deep copy
   }
 
   public void saveInput(String panelType, String fieldName, String inputText) {
-    JSONObject panelData = data.has(panelType) ? data.getJSONObject(panelType) : new JSONObject();
-    panelData.put(fieldName, inputText);
-    data.put(panelType, panelData);
+    // Update the configuration
+    JSONArray panels = config.getJSONArray("panels");
+    for (int i = 0; i < panels.length(); i++) {
+      JSONObject panel = panels.getJSONObject(i);
+      if (panel.getString("panelType").equals(panelType)) {
+        JSONArray fields = panel.getJSONArray("fields");
+        for (int j = 0; j < fields.length(); j++) {
+          JSONObject field = fields.getJSONObject(j);
+          if (field.getString("title").equals(fieldName)) {
+            field.put("value", inputText);
+          }
+        }
+      }
+    }
+
+    // Create a new JSONObject and put the panels JSONArray into it
+    JSONObject dataObject = new JSONObject();
+    dataObject.put("panels", panels);
+
+    // Set this object as your data
+    setData(dataObject);
   }
+
+
+
+
+
 
   public void saveToFile(String filename) {
     // Save the formatted text
@@ -43,6 +69,10 @@ public class DataSaver {
     return data;
   }
 
+
+  public void setData(JSONObject dataObject) {
+    this.data = dataObject;
+  }
 
   public void clearData() {
     data = new JSONObject();

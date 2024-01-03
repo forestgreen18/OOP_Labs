@@ -150,7 +150,7 @@ public class MainApplication extends Application {
     // Continue with the rest of your code...
     Configuration config = new Configuration(configFilePath);
     panels = new ArrayList<>();
-    dataSaver = new DataSaver();
+    dataSaver = new DataSaver(config.getConfig());
 
     for (int i = 0; i < config.getNumPanels(); i++) {
       GeneralPanel generalPanel = new GeneralPanel(config.getPanelConfig(i), dataSaver);
