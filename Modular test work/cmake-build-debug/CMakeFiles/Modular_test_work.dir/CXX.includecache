@@ -6,6 +6,7 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< Updated upstream
 F:/Labs/OOP/Modular test work/Person.cpp
 Person.h
 F:/Labs/OOP/Modular test work/Person.h
@@ -22,3 +23,9 @@ iostream
 Person.h
 F:/Labs/OOP/Modular test work/Person.h
 
+=======
+F:/Labs/OOP/Modular test work/main.cpp
+iostream
+-
+
+>>>>>>> Stashed changes

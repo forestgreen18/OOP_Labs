@@ -2,19 +2,68 @@
   "panels": [
     {
       "panelType": "first",
-      "fields": ["Name", "Surname"]
+      "fields": [
+        {
+          "title": "Name",
+          "type": "text",
+          "value": "John"
+        },
+        {
+          "title": "Surname",
+          "type": "text",
+          "value": "Doe"
+        }
+      ]
     },
     {
       "panelType": "middle",
-      "fields": ["Email", "Password"]
+      "fields": [
+        {
+          "title": "Email",
+          "type": "email",
+          "value": "johndoe@example.com"
+        },
+        {
+          "title": "Password",
+          "type": "password",
+          "value": "SecurePassword123"
+        }
+      ]
     },
     {
       "panelType": "middle",
-      "fields": ["Address", "Phone Number", "Date of Birth"]
+      "fields": [
+        {
+          "title": "Address",
+          "type": "text",
+          "value": "123 Main St, Anytown"
+        },
+        {
+          "title": "Phone Number",
+          "type": "phone",
+          "value": "+1234567890"
+        },
+        {
+          "title": "Date of Birth",
+          "type": "date",
+          "value": "01.01.1990"
+        }
+      ]
     },
     {
       "panelType": "last",
-      "fields": ["Security Question", "Security Answer"]
+      "fields": [
+        {
+          "title": "Security Question",
+          "type": "text",
+          "value": "What is your mother's maiden name?"
+        },
+        {
+          "title": "Security Answer",
+          "type": "text",
+          "value": "Smith"
+        }
+      ]
     }
   ]
 }
