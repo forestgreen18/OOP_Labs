@@ -7,9 +7,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 public class EmailInput extends VBox {
-  private TextField emailField;
-  private Label errorLabel;
+
   private static final String EMAIL_REGEX = "^[\\w-]+@([\\w-]+\\.)+[\\w-]+$";
+  private final TextField emailField;
+  private final Label errorLabel;
 
 
   public EmailInput(String initialValue) {

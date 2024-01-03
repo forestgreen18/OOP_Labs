@@ -6,10 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="c1944a23-6dc7-4a88-9831-2146c7674530" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savedData.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savedData.json.config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/savedData.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savedData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/datastructures/FormFieldDataStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/datastructures/FormFieldDataStructure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/DateInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/DateInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/EmailInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/EmailInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/PasswordInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/PasswordInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/PhoneInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/PhoneInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/FirstPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/FirstPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/GeneralPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/GeneralPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/LastPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/LastPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/MiddlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/MiddlePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/DataSceneCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/DataSceneCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/MenuBarComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/MenuBarComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/DataSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/DataSaver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +41,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/savedData.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/savedData.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/FirstPanel.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/GeneralPanel.java" root0="FORCE_HIGHLIGHTING" />
@@ -56,17 +69,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.1150748&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.1150748",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.labs.configurableregistrationpanels.MainApplication" />
@@ -94,7 +108,7 @@
       <workItem from="1703927679338" duration="8478000" />
       <workItem from="1704044673689" duration="2983000" />
       <workItem from="1704211418514" duration="9217000" />
-      <workItem from="1704276577919" duration="4623000" />
+      <workItem from="1704276577919" duration="5753000" />
     </task>
     <servers />
   </component>

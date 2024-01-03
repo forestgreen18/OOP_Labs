@@ -5,7 +5,8 @@ import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import javafx.scene.control.Button;
 
 public class LastPanel extends Panel {
-  public Button finishButton;
+
+  public final Button finishButton;
 
   public LastPanel(FormFieldDataStructure[] fields, DataSaver dataSaver) {
     super(fields, dataSaver);
@@ -18,17 +19,6 @@ public class LastPanel extends Panel {
   }
 
   @Override
-  public void handleNextButton() {
-    // The next button is not present on the last panel, so this method can be left empty
-  }
-
-  @Override
-  public void handleBackButton() {
-    // Implement the functionality for the back button here
-    // This could involve switching to the previous panel
-  }
-
-  @Override
   public String getPanelType() {
     return "last";
   }
@@ -37,7 +27,6 @@ public class LastPanel extends Panel {
     // Save the input field values to a text file
     dataSaver.saveToFile("savedData.txt");
   }
-
 
 
 }

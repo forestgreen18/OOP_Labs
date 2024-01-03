@@ -8,9 +8,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 public class PhoneInput extends VBox {
+
   private static final String PHONE_REGEX = "^\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}$";
-  private TextField phoneField;
-  private Label errorLabel;
+  private final TextField phoneField;
+  private final Label errorLabel;
 
   public PhoneInput(String initialValue) {
     phoneField = new TextField();

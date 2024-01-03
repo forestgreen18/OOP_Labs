@@ -2,33 +2,31 @@ package edu.labs.configurableregistrationpanels.ui;
 
 import edu.labs.configurableregistrationpanels.MainApplication;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
+import java.io.File;
+import java.io.IOException;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
-
 public class MenuBarComponent {
-  private Stage primaryStage;
-  private DataSaver dataSaver;
-  private FileChooser fileChooser;
 
+  private final Stage primaryStage;
+  private final DataSaver dataSaver;
+  private final MainApplication mainApplication;
   private MenuBar menuBar;
   private MenuItem openConfigMenuItem;
   private MenuItem saveFormDataItem;
-  private MainApplication mainApplication;
 
-  public MenuBarComponent(Stage primaryStage, DataSaver dataSaver, MainApplication mainApplication) {
+  public MenuBarComponent(Stage primaryStage, DataSaver dataSaver,
+      MainApplication mainApplication) {
     this.primaryStage = primaryStage;
     this.dataSaver = dataSaver;
-    this.fileChooser = new FileChooser();
     this.mainApplication = mainApplication;
   }
 
-  public javafx.scene.control.MenuBar createMenuBar() {
+  public void createMenuBar() {
     menuBar = new javafx.scene.control.MenuBar();
     Menu fileMenu = new Menu("File");
     openConfigMenuItem = new MenuItem("Open configuration file");
@@ -39,7 +37,8 @@ public class MenuBarComponent {
       fileChooser.setTitle("Open Configuration File");
 
       // Set extension filter
-      FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JSON files (*.json)", "*.json");
+      FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JSON files (*.json)",
+          "*.json");
       fileChooser.getExtensionFilters().add(extFilter);
 
       File file = fileChooser.showOpenDialog(primaryStage);
@@ -52,13 +51,13 @@ public class MenuBarComponent {
       }
     });
 
-
     saveFormDataItem.setOnAction(e -> {
       FileChooser fileChooser = new FileChooser();
       fileChooser.setTitle("Save Data");
 
       // Set extension filter
-      FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+      FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)",
+          "*.txt");
       fileChooser.getExtensionFilters().add(extFilter);
 
       File file = fileChooser.showSaveDialog(primaryStage);
@@ -67,12 +66,9 @@ public class MenuBarComponent {
       }
     });
 
-
-
     fileMenu.getItems().addAll(openConfigMenuItem, saveFormDataItem);
     menuBar.getMenus().add(fileMenu);
 
-    return menuBar;
   }
 
   public MenuItem getOpenConfigMenuItem() {

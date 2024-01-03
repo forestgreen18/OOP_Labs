@@ -1,15 +1,16 @@
 package edu.labs.configurableregistrationpanels.utils;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import java.awt.datatransfer.StringSelection;
-import java.awt.Toolkit;
 
 public class DataSaver {
+
+  private final JSONObject config;
   private JSONObject data;
-  private JSONObject config;
 
   public DataSaver(JSONObject config) {
     data = new JSONObject();
@@ -42,10 +43,6 @@ public class DataSaver {
   }
 
 
-
-
-
-
   public void saveToFile(String filename) {
     // Save the formatted text
     try (FileWriter file = new FileWriter(filename)) {
@@ -55,7 +52,8 @@ public class DataSaver {
     }
 
     // Remove the .txt extension from the filename
-    String baseFilename = filename.endsWith(".txt") ? filename.substring(0, filename.length() - 4) : filename;
+    String baseFilename =
+        filename.endsWith(".txt") ? filename.substring(0, filename.length() - 4) : filename;
 
     // Save the JSON data
     try (FileWriter file = new FileWriter(baseFilename + ".config.json")) {
@@ -93,7 +91,8 @@ public class DataSaver {
       JSONArray fields = panel.getJSONArray("fields");
       for (int j = 0; j < fields.length(); j++) {
         JSONObject field = fields.getJSONObject(j);
-        formatted.append(field.getString("title")).append(": ").append(field.getString("value")).append("\n");
+        formatted.append(field.getString("title")).append(": ").append(field.getString("value"))
+            .append("\n");
       }
     }
     return formatted.toString();

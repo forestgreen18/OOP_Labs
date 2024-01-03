@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -18,10 +17,10 @@ import org.json.JSONObject;
 
 public class DataSceneCreator {
 
-  private Stage primaryStage;
-  private DataSaver dataSaver;
-  private MainApplication mainApplication;
-  private VBox root;
+  private final Stage primaryStage;
+  private final DataSaver dataSaver;
+  private final MainApplication mainApplication;
+  private final VBox root;
   private Scene dataScene;
 
   public DataSceneCreator(Stage primaryStage, DataSaver dataSaver, VBox root,
@@ -80,9 +79,7 @@ public class DataSceneCreator {
     titleLabel.setFont(new Font(24));  // Set the font size of the title to 24
 
     Button copyDataToClipboardButton = new Button("Copy data to clipboard");
-    copyDataToClipboardButton.setOnAction(e -> {
-      dataSaver.copyDataToClipboard();
-    });
+    copyDataToClipboardButton.setOnAction(e -> dataSaver.copyDataToClipboard());
 
     Insets margin = new Insets(10, 10, 10, 10);
 
@@ -94,23 +91,5 @@ public class DataSceneCreator {
     return this.dataScene;
   }
 
-
-  public void hideDataScene() {
-    if (this.dataScene != null && primaryStage.getScene() == this.dataScene) {
-      // If the dataScene is currently displayed, hide the primaryStage
-      primaryStage.hide();
-    }
-  }
-
-  public Scene getDataScene() {
-    return dataScene;
-  }
-
-  public void hideDataSceneContent() {
-    if (this.dataScene != null && primaryStage.getScene() == this.dataScene) {
-      // If the dataScene is currently displayed, clear its content
-      ((Pane) this.dataScene.getRoot()).getChildren().clear();
-    }
-  }
 
 }

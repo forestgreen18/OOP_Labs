@@ -8,6 +8,8 @@ import edu.labs.configurableregistrationpanels.ui.MenuBarComponent;
 import edu.labs.configurableregistrationpanels.utils.Configuration;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -15,49 +17,38 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-
 public class MainApplication extends Application {
+
   private List<GeneralPanel> panels;
   private int currentPanelIndex;
   private VBox root;
   private DataSaver dataSaver;
   private Stage primaryStage;
-  private DataSceneCreator dataSceneCreator;
-
-  private FileChooser fileChooser;
 
 
-
+  public static void main(String[] args) {
+    launch(args);
+  }
 
   @Override
   public void start(Stage primaryStage) throws IOException {
     this.primaryStage = primaryStage;
     setupScene();
 
-
-
     root.setPrefWidth(0.65 * primaryStage.getWidth());
     root.setPadding(new Insets(50, 25, 25, 25));
 
-    createForm("F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
+    createForm(
+        "F:\\Labs\\OOP\\ConfigurableRegistrationPanels\\src\\main\\resources\\edu\\labs\\configurableregistrationpanels\\formConfiguration.json");
 
-    primaryStage.widthProperty().addListener((observable, oldValue, newValue) -> {
-      root.setPrefWidth(0.65 * newValue.doubleValue());
-    });
+    primaryStage.widthProperty().addListener(
+        (observable, oldValue, newValue) -> root.setPrefWidth(0.65 * newValue.doubleValue()));
 
     primaryStage.showingProperty().addListener((observable, oldValue, newValue) -> {
       if (newValue) {
@@ -81,7 +72,6 @@ public class MainApplication extends Application {
       vbox.getChildren().removeIf(node -> node instanceof Label);
     }
 
-
     Panel currentPanel = panels.get(currentPanelIndex).getPanelObject();
     VBox currentVBox = currentPanel.getPanelLayout();
     root.getChildren().add(currentVBox);
@@ -92,7 +82,6 @@ public class MainApplication extends Application {
     for (Node child : currentVBox.getChildren()) {
       System.out.println("VBox child: " + child);
     }
-
 
     if (currentPanel.nextButton.getOnAction() == null) {
       currentPanel.nextButton.setOnAction(e -> {
@@ -107,7 +96,6 @@ public class MainApplication extends Application {
       });
     }
 
-
     currentPanel.cancelButton.setOnAction(e -> {
       for (GeneralPanel generalPanel : panels) {
         generalPanel.getPanelObject().clearInputFields();
@@ -117,7 +105,7 @@ public class MainApplication extends Application {
 
     // Check if the current panel is the last panel
     if (currentPanel.getPanelType().equals("last")) {
-      // Cast the current panel to LastPanel so you can access the finishButton
+      // Cast the current panel to LastPanel, so you can access the finishButton
       LastPanel lastPanel = (LastPanel) currentPanel;
       lastPanel.finishButton.setOnAction(e -> {
         // Save the input field values to a text file
@@ -128,21 +116,11 @@ public class MainApplication extends Application {
     }
   }
 
-
-
-
-
-
-
   public void displayDataScene() {
-    dataSceneCreator = new DataSceneCreator(primaryStage, dataSaver, root, this);
+    DataSceneCreator dataSceneCreator = new DataSceneCreator(primaryStage, dataSaver, root, this);
     Scene dataScene = dataSceneCreator.createDataScene();
     primaryStage.setScene(dataScene);
   }
-
-
-
-
 
   public void createForm(String configFilePath) throws IOException {
     setupScene();
@@ -161,9 +139,6 @@ public class MainApplication extends Application {
     currentPanelIndex = 0;
     Platform.runLater(this::displayCurrentPanel);
   }
-
-
-
 
   private void setupScene() {
     // Create a new MenuBarComponent
@@ -187,11 +162,5 @@ public class MainApplication extends Application {
     // Set the new scene on the primaryStage
     primaryStage.setScene(scene);
     primaryStage.show();
-  }
-
-
-
-  public static void main(String[] args) {
-    launch(args);
   }
 }

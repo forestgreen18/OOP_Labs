@@ -8,8 +8,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 public class PasswordInput extends HBox {
-  private PasswordField passwordField;
-  private TextField textField;
+
+  private final PasswordField passwordField;
+  private final TextField textField;
 
   public PasswordInput(String initialValue) {
     passwordField = new PasswordField();
