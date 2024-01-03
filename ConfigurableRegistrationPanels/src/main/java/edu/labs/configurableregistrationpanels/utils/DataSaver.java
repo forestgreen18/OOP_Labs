@@ -86,13 +86,17 @@ public class DataSaver {
 
   private String formatData() {
     StringBuilder formatted = new StringBuilder();
-    for (String key : data.keySet()) {
-      JSONObject innerData = data.getJSONObject(key);
-      for (String innerKey : innerData.keySet()) {
-        formatted.append(innerKey).append(": ").append(innerData.getString(innerKey)).append("\n");
+    JSONArray panels = data.getJSONArray("panels");
+    for (int i = 0; i < panels.length(); i++) {
+      JSONObject panel = panels.getJSONObject(i);
+      JSONArray fields = panel.getJSONArray("fields");
+      for (int j = 0; j < fields.length(); j++) {
+        JSONObject field = fields.getJSONObject(j);
+        formatted.append(field.getString("title")).append(": ").append(field.getString("value")).append("\n");
       }
     }
     return formatted.toString();
   }
+
 
 }

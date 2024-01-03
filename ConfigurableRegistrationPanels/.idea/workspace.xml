@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c1944a23-6dc7-4a88-9831-2146c7674530" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savedData.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savedData.json.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.json.config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/Configuration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/DataSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/DataSaver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +93,7 @@
       <workItem from="1703927679338" duration="8478000" />
       <workItem from="1704044673689" duration="2983000" />
       <workItem from="1704211418514" duration="9217000" />
-      <workItem from="1704276577919" duration="2309000" />
+      <workItem from="1704276577919" duration="3613000" />
     </task>
     <servers />
   </component>

@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class DataSceneCreator {
@@ -47,31 +48,29 @@ public class DataSceneCreator {
 
     // Parse the JSON object
     JSONObject jsonObject = dataSaver.getData();
+// Get the panels JSONArray from the jsonObject
+    JSONArray panels = jsonObject.getJSONArray("panels");
 
-    // Iterate over the keys (i.e., "middle", "first")
-    for (String key : jsonObject.keySet()) {
-      // Check if the value associated with the key is a JSONObject
-      if (jsonObject.get(key) instanceof JSONObject) {
-        // Get the inner JSON object
-        JSONObject innerJsonObject = jsonObject.getJSONObject(key);
+    // Iterate over the panels
+    for (int i = 0; i < panels.length(); i++) {
+      // Get the panel JSONObject
+      JSONObject panel = panels.getJSONObject(i);
 
-        // Iterate over the keys of the inner JSON object
-        for (String innerKey : innerJsonObject.keySet()) {
-          // Create a label with the key and value from the inner JSON object
-          Label label = new Label(innerKey + ": " + innerJsonObject.getString(innerKey));
+      // Get the fields JSONArray from the panel
+      JSONArray fields = panel.getJSONArray("fields");
 
-          // Set the font size of the label
-          label.setFont(new Font(20));  // Set the font size to 20
+      // Iterate over the fields
+      for (int j = 0; j < fields.length(); j++) {
+        // Get the field JSONObject
+        JSONObject field = fields.getJSONObject(j);
 
-          // Add the label to the layout
-          layout.getChildren().add(label);
-        }
-      } else {
-        // Handle non-JSONObject values here
-        // For example, if the value is a String, you can create a label with the key and value
-        String value = jsonObject.getString(key);
-        Label label = new Label(key + ": " + value);
+        // Create a label with the title and value from the field
+        Label label = new Label(field.getString("title") + ": " + field.getString("value"));
+
+        // Set the font size of the label
         label.setFont(new Font(20));  // Set the font size to 20
+
+        // Add the label to the layout
         layout.getChildren().add(label);
       }
     }
