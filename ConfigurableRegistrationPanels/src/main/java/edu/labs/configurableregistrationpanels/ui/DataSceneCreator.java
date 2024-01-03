@@ -2,6 +2,7 @@ package edu.labs.configurableregistrationpanels.ui;
 
 import edu.labs.configurableregistrationpanels.MainApplication;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
+import edu.labs.configurableregistrationpanels.utils.SceneConfig;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -86,7 +87,7 @@ public class DataSceneCreator {
 
     layout.getChildren().add(1, titleLabel);  // Add the title label at the beginning of the layout
     layout.getChildren().add(copyDataToClipboardButton);
-    return new Scene(borderPane, 800, 600);
+    return new Scene(borderPane, SceneConfig.SCENE_WIDTH, SceneConfig.SCENE_HEIGHT);
   }
 
 

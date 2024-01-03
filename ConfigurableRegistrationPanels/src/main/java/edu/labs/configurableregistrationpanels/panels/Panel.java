@@ -53,7 +53,7 @@ public abstract class Panel extends Parent {
 
       panel.getChildren().addAll(labels[i], controls[i]);
     }
-    nextButton = new Button("Вперед >>");  // Initialize nextButton
+    nextButton = new Button("Далі >>");  // Initialize nextButton
     cancelButton = new Button("Відмінити");  // Initialize cancelButton
     backButton = new Button("<< Назад");
 

@@ -7,6 +7,7 @@ import edu.labs.configurableregistrationpanels.ui.DataSceneCreator;
 import edu.labs.configurableregistrationpanels.ui.MenuBarComponent;
 import edu.labs.configurableregistrationpanels.utils.Configuration;
 import edu.labs.configurableregistrationpanels.utils.DataSaver;
+import edu.labs.configurableregistrationpanels.utils.SceneConfig;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,6 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -151,7 +151,7 @@ public class MainApplication extends Application {
     VBox vBox = new VBox(menuBar, centeredRoot);
 
     // Create a new scene with the vBox
-    Scene scene = new Scene(vBox, 800, 600);
+    Scene scene = new Scene(vBox, SceneConfig.SCENE_WIDTH, SceneConfig.SCENE_HEIGHT);
 
     // Set the new scene on the primaryStage
     primaryStage.setScene(scene);
