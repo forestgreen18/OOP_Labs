@@ -35,7 +35,7 @@ public class LastPanel extends Panel {
 
   public void handleFinishButton() {
     // Save the input field values to a text file
-    dataSaver.saveToFile("savedData.json");
+    dataSaver.saveToFile("savedData.txt");
   }
 
 

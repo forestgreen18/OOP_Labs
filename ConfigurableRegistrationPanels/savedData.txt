@@ -4,6 +4,6 @@ Email: testemail@mail.net
 Password: 123456qwerty
 Address: Some place, South Ave 32
 Phone Number: 38012345678
-Date of Birth: 2000-09-29
+Date of Birth: 12.09.2000
 Security Question: Some security question
 Security Answer: Security answer

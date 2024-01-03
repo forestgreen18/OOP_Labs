@@ -121,7 +121,7 @@ public class MainApplication extends Application {
       LastPanel lastPanel = (LastPanel) currentPanel;
       lastPanel.finishButton.setOnAction(e -> {
         // Save the input field values to a text file
-        dataSaver.saveToFile("savedData.json");
+        dataSaver.saveToFile("savedData.txt");
         // Display the data scene
         displayDataScene();
       });
