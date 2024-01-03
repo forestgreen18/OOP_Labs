@@ -39,6 +39,7 @@ public class MainApplication extends Application {
   @Override
   public void start(Stage primaryStage) throws IOException {
     this.primaryStage = primaryStage;
+    primaryStage.setTitle("Форма");
     setupScene();
 
     root.setPrefWidth(0.65 * primaryStage.getWidth());
@@ -75,13 +76,6 @@ public class MainApplication extends Application {
     Panel currentPanel = panels.get(currentPanelIndex).getPanelObject();
     VBox currentVBox = currentPanel.getPanelLayout();
     root.getChildren().add(currentVBox);
-    // Print the children of the root pane
-    System.out.println("Root children: " + root.getChildren());
-
-    // Print the children of the VBox
-    for (Node child : currentVBox.getChildren()) {
-      System.out.println("VBox child: " + child);
-    }
 
     if (currentPanel.nextButton.getOnAction() == null) {
       currentPanel.nextButton.setOnAction(e -> {

@@ -21,7 +21,7 @@ public class EmailInput extends VBox {
 
     emailField.textProperty().addListener((observable, oldValue, newValue) -> {
       if (!newValue.matches(EMAIL_REGEX)) {
-        errorLabel.setText("Invalid email format");
+        errorLabel.setText("Неправильний формат електронної пошти");
       } else {
         errorLabel.setText("");  // Clear the error message when the email is valid
       }

@@ -9,20 +9,14 @@
       <change beforePath="$PROJECT_DIR$/savedData.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savedData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/datastructures/FormFieldDataStructure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/datastructures/FormFieldDataStructure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/DateInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/DateInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/EmailInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/EmailInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/PasswordInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/PasswordInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/PhoneInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/inputs/PhoneInput.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/FirstPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/FirstPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/GeneralPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/GeneralPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/LastPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/LastPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/MiddlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/MiddlePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/DataSceneCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/DataSceneCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/MenuBarComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/MenuBarComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/DataSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/DataSaver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +102,7 @@
       <workItem from="1703927679338" duration="8478000" />
       <workItem from="1704044673689" duration="2983000" />
       <workItem from="1704211418514" duration="9217000" />
-      <workItem from="1704276577919" duration="5753000" />
+      <workItem from="1704276577919" duration="6367000" />
     </task>
     <servers />
   </component>

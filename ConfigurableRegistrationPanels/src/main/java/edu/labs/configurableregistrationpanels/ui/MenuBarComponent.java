@@ -28,13 +28,13 @@ public class MenuBarComponent {
 
   public void createMenuBar() {
     menuBar = new javafx.scene.control.MenuBar();
-    Menu fileMenu = new Menu("File");
-    openConfigMenuItem = new MenuItem("Open configuration file");
-    saveFormDataItem = new MenuItem("Save data from the form into file");
+    Menu fileMenu = new Menu("Файл");
+    openConfigMenuItem = new MenuItem("Відкрити файл конфігурації");
+    saveFormDataItem = new MenuItem("Зберегти дані з форми у файл");
 
     openConfigMenuItem.setOnAction(e -> {
       FileChooser fileChooser = new FileChooser();
-      fileChooser.setTitle("Open Configuration File");
+      fileChooser.setTitle("Відкрити файл конфігурації");
 
       // Set extension filter
       FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JSON files (*.json)",
@@ -53,7 +53,7 @@ public class MenuBarComponent {
 
     saveFormDataItem.setOnAction(e -> {
       FileChooser fileChooser = new FileChooser();
-      fileChooser.setTitle("Save Data");
+      fileChooser.setTitle("Зберегти дані");
 
       // Set extension filter
       FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)",

@@ -53,9 +53,9 @@ public abstract class Panel extends Parent {
 
       panel.getChildren().addAll(labels[i], controls[i]);
     }
-    nextButton = new Button("Next >>");  // Initialize nextButton
-    cancelButton = new Button("Cancel");  // Initialize cancelButton
-    backButton = new Button("<< Back");
+    nextButton = new Button("Вперед >>");  // Initialize nextButton
+    cancelButton = new Button("Відмінити");  // Initialize cancelButton
+    backButton = new Button("<< Назад");
 
     buttonBox.getChildren()
         .addAll(backButton, nextButton, cancelButton);  // Add the buttons to the HBox
@@ -86,27 +86,22 @@ public abstract class Panel extends Parent {
       if (control instanceof TextField textField) {
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
           dataSaver.saveInput(getPanelType(), fieldName, newValue);
-          System.out.println(dataSaver.getData());
         });
       } else if (control instanceof DateInput dateInput) {
         dateInput.dateProperty().addListener((observable, oldValue, newValue) -> {
           dataSaver.saveInput(getPanelType(), fieldName, newValue.toString());
-          System.out.println(dataSaver.getData());
         });
       } else if (control instanceof PasswordInput passwordInput) {
         passwordInput.textProperty().addListener((observable, oldValue, newValue) -> {
           dataSaver.saveInput(getPanelType(), fieldName, newValue);
-          System.out.println(dataSaver.getData());
         });
       } else if (control instanceof EmailInput emailInput) {
         emailInput.textProperty().addListener((observable, oldValue, newValue) -> {
           dataSaver.saveInput(getPanelType(), fieldName, newValue);
-          System.out.println(dataSaver.getData());
         });
       } else if (control instanceof PhoneInput phoneInput) {
         phoneInput.textProperty().addListener((observable, oldValue, newValue) -> {
           dataSaver.saveInput(getPanelType(), fieldName, newValue);
-          System.out.println(dataSaver.getData());
         });
       }
       // Add more cases as needed

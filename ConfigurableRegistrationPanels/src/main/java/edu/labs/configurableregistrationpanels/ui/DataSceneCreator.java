@@ -21,7 +21,6 @@ public class DataSceneCreator {
   private final DataSaver dataSaver;
   private final MainApplication mainApplication;
   private final VBox root;
-  private Scene dataScene;
 
   public DataSceneCreator(Stage primaryStage, DataSaver dataSaver, VBox root,
       MainApplication mainApplication) {
@@ -75,10 +74,10 @@ public class DataSceneCreator {
     }
 
     // Create a title label
-    Label titleLabel = new Label("Data from the Form");
+    Label titleLabel = new Label("Дані з форми");
     titleLabel.setFont(new Font(24));  // Set the font size of the title to 24
 
-    Button copyDataToClipboardButton = new Button("Copy data to clipboard");
+    Button copyDataToClipboardButton = new Button("Копіювати дані в буфер обміну");
     copyDataToClipboardButton.setOnAction(e -> dataSaver.copyDataToClipboard());
 
     Insets margin = new Insets(10, 10, 10, 10);
@@ -87,8 +86,7 @@ public class DataSceneCreator {
 
     layout.getChildren().add(1, titleLabel);  // Add the title label at the beginning of the layout
     layout.getChildren().add(copyDataToClipboardButton);
-    this.dataScene = new Scene(borderPane, 800, 600);
-    return this.dataScene;
+    return new Scene(borderPane, 800, 600);
   }
 
 

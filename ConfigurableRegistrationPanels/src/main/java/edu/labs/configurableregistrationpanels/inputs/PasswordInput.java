@@ -20,7 +20,7 @@ public class PasswordInput extends HBox {
     textField.setManaged(false);
     textField.setVisible(false);
 
-    CheckBox checkBox = new CheckBox("Show password");
+    CheckBox checkBox = new CheckBox("Показати пароль");
     HBox.setMargin(checkBox, new Insets(0, 0, 0, 10));  // Add left margin to the checkbox
 
     checkBox.selectedProperty().addListener((observable, oldValue, isSelected) -> {

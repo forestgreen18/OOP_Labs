@@ -39,7 +39,7 @@ public class DateInput extends VBox {
       if (date != null) {
         datePicker.setValue(date);
       } else {
-        errorLabel.setText("Invalid date format");
+        errorLabel.setText("Неправильний формат дати");
       }
     }
 

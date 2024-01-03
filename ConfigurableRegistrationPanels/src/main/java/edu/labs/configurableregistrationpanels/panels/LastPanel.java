@@ -10,7 +10,7 @@ public class LastPanel extends Panel {
 
   public LastPanel(FormFieldDataStructure[] fields, DataSaver dataSaver) {
     super(fields, dataSaver);
-    finishButton = new Button("Finish >>");
+    finishButton = new Button("Завершити >>");
     hideNextButton();  // Hide the Next button
 
     buttonBox.getChildren().add(1, finishButton);

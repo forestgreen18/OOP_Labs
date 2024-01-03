@@ -1,9 +1,9 @@
-Name: my name
-Surname: my surname
-Email: testemail@mail.net
-Password: 123456qwerty
-Address: Some place, South Ave 32
-Phone Number: 38012345678
-Date of Birth: 2000-09-01
-Security Question: Some security question
-Security Answer: Security answer
+Name: saf
+Surname: ff
+Email: mail@com.ua
+Password: fsfsdf
+Address: 4353sdfsdf
+Phone Number: 43435
+Date of Birth: 2000-09-08
+Security Question: safsa
+Security Answer: sfaf

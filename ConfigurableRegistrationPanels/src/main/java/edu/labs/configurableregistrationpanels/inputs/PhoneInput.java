@@ -29,7 +29,7 @@ public class PhoneInput extends VBox {
     // Add a listener to validate the phone number when it changes
     phoneField.textProperty().addListener((observable, oldValue, newValue) -> {
       if (!newValue.matches(PHONE_REGEX)) {
-        errorLabel.setText("Invalid phone number");
+        errorLabel.setText("Неправильний номер телефону");
       } else {
         errorLabel.setText("");  // Clear the error message
       }
