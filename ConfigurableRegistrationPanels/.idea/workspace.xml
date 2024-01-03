@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1944a23-6dc7-4a88-9831-2146c7674530" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/SceneConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/DataSceneCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/DataSceneCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savedData.config.json" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savedData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savedData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/edu/labs/configurableregistrationpanels/formConfiguration.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/edu/labs/configurableregistrationpanels/formConfiguration.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +29,17 @@
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/savedData.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/MainApplication.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/datastructures/FormFieldDataStructure.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/FirstPanel.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/GeneralPanel.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/LastPanel.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/MiddlePanel.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/panels/Panel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/DataSceneCreator.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/ui/MenuBarComponent.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/Configuration.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/DataSaver.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/edu/labs/configurableregistrationpanels/utils/SceneConfig.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/edu/labs/configurableregistrationpanels/formConfiguration.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/main/resources/edu/labs/configurableregistrationpanels/hello-view.fxml" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -62,10 +66,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "F:/Labs/OOP/ConfigurableRegistrationPanels",
     "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.1150748",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml"
   }
 }]]></component>
   <component name="RunManager">
@@ -95,7 +101,7 @@
       <workItem from="1703927679338" duration="8478000" />
       <workItem from="1704044673689" duration="2983000" />
       <workItem from="1704211418514" duration="9217000" />
-      <workItem from="1704276577919" duration="6635000" />
+      <workItem from="1704276577919" duration="10490000" />
     </task>
     <servers />
   </component>
@@ -112,5 +118,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

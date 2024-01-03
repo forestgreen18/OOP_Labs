@@ -6,12 +6,12 @@
         {
           "title": "Name",
           "type": "text",
-          "value": "my name"
+          "value": "John"
         },
         {
           "title": "Surname",
           "type": "text",
-          "value": "my surname"
+          "value": "Doe"
         }
       ]
     },
@@ -21,12 +21,12 @@
         {
           "title": "Email",
           "type": "email",
-          "value": "testemail@mail.net"
+          "value": "johndoe@example.com"
         },
         {
           "title": "Password",
           "type": "password",
-          "value": "123456qwerty"
+          "value": "SecurePassword123"
         }
       ]
     },
@@ -36,17 +36,17 @@
         {
           "title": "Address",
           "type": "text",
-          "value": "Some place, South Ave 32"
+          "value": "123 Main St, Anytown"
         },
         {
           "title": "Phone Number",
           "type": "phone",
-          "value": "38012345678"
+          "value": "+1234567890"
         },
         {
           "title": "Date of Birth",
           "type": "date",
-          "value": "12.09.2000"
+          "value": "01.01.1990"
         }
       ]
     },
@@ -56,12 +56,12 @@
         {
           "title": "Security Question",
           "type": "text",
-          "value": "Some security question"
+          "value": "What is your mother's maiden name?"
         },
         {
           "title": "Security Answer",
           "type": "text",
-          "value": "Security answer"
+          "value": "Smith"
         }
       ]
     }

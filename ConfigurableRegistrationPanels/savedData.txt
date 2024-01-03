@@ -1,9 +1,9 @@
-Name: my name
-Surname: my surname
-Email: testemail@mail.net
-Password: 123456qwerty
-Address: Some place, South Ave 32
-Phone Number: 38012345678
-Date of Birth: 12.09.2000
-Security Question: Some security question
-Security Answer: Security answer
+Name: John
+Surname: Doe
+Email: johndoe@example.com
+Password: SecurePassword123
+Address: 123 Main St, Anytown
+Phone Number: +1234567890--
+Date of Birth: 1990-01-18
+Security Question: What is your mother's maiden name?
+Security Answer: Smith
